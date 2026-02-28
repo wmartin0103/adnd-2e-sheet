@@ -964,6 +964,8 @@
       transition: border-color 0.2s;
     }
     .nwp-card-desc { resize: none; field-sizing: content; min-height: 1.4em; }
+    .ability-card-desc { resize: vertical; field-sizing: normal; min-height: 4em; line-height: 1.5; }
+    .ability-card-name { flex: 1; min-width: 0; }
     .nwp-card-desc:focus, .item-card-notes:focus { border-bottom-color: var(--rule); }
     .nwp-card-desc::placeholder, .item-card-notes::placeholder { color: var(--ink-faint); font-style: italic; }
 
@@ -1990,14 +1992,26 @@
     .class-input:focus { border-color: var(--accent); }
     .class-input::placeholder { color: var(--rule); }
 
-    /* Level input — re-enable spinbox, keep it tidy */
-    .class-level-input {
-      -moz-appearance: number-input !important;
-      padding-right: 0.1em;
+    /* Level input — standalone (not inheriting class-input) so spinners work */
+    input.class-level-input {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      padding: 0.1em 0;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+      -moz-appearance: number-input;
+      padding-right: 1.4em;
     }
-    .class-level-input::-webkit-outer-spin-button,
-    .class-level-input::-webkit-inner-spin-button {
-      -webkit-appearance: inner-spin-button !important;
+    input.class-level-input:focus { border-color: var(--accent); }
+    input.class-level-input::placeholder { color: var(--rule); }
+    input.class-level-input::-webkit-outer-spin-button,
+    input.class-level-input::-webkit-inner-spin-button {
+      -webkit-appearance: inner-spin-button;
       opacity: 1;
       cursor: pointer;
     }
@@ -2432,6 +2446,23 @@
         </div>
         <button class="add-class-btn" id="add-nwp-btn" type="button">
           <span aria-hidden="true">＋</span> Add Proficiency
+        </button>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="abilities-cards-heading">
+      <h2 class="section-heading racial-traits-heading" id="abilities-cards-heading"
+          role="button" tabindex="0"
+          aria-expanded="true" aria-controls="abilities-cards-panel">
+        Abilities
+        <div class="section-heading-right">
+          <span class="scenario-chevron racial-traits-chevron" id="abilities-cards-chevron" aria-hidden="true"></span>
+        </div>
+      </h2>
+      <div id="abilities-cards-panel">
+        <div id="abilities-cards-list" aria-label="Abilities list"></div>
+        <button class="add-class-btn" id="add-ability-card-btn" type="button">
+          <span aria-hidden="true">＋</span> Add Ability
         </button>
       </div>
     </section>
@@ -3231,7 +3262,7 @@
         const levelInput = document.createElement('input');
         levelInput.type = 'number';
         levelInput.id = `${cls.id}-level`;
-        levelInput.className = 'class-input class-level-input';
+        levelInput.className = 'class-level-input';
         levelInput.min = 1;
         levelInput.max = 20;
         levelInput.placeholder = '1';
@@ -5451,6 +5482,8 @@
       data['__spellClass']      = spellClassSelector;
       data['__nwps']            = nwps;
       data['__nwpCounter']      = nwpCounter;
+      data['__abilitiesCards']   = abilitiesCards;
+      data['__abilitiesCardsCounter'] = abilitiesCardsCounter;
       data['__equipment']       = equipment;
       data['__equipCounter']    = equipCounter;
       data['__items']         = items;
@@ -5511,6 +5544,10 @@
       if (Array.isArray(data['__nwps'])) {
         nwps = data['__nwps'];
         nwpCounter = data['__nwpCounter'] || nwps.length;
+      }
+      if (Array.isArray(data['__abilitiesCards'])) {
+        abilitiesCards = data['__abilitiesCards'];
+        abilitiesCardsCounter = data['__abilitiesCardsCounter'] || abilitiesCards.length;
       }
       if (Array.isArray(data['__equipment'])) {
         equipment = data['__equipment'];
@@ -5806,7 +5843,117 @@
       });
     }
 
-    function addNewNWP() {
+    // ── ABILITIES CARDS ──────────────────────────────────────────
+    let abilitiesCards = [];
+    let abilitiesCardsCounter = 0;
+
+    function makeAbilityCard(overrides = {}) {
+      return {
+        id:   `abc-${++abilitiesCardsCounter}`,
+        name: '',
+        desc: '',
+        url:  '',
+        ...overrides,
+      };
+    }
+
+    function renderAbilitiesCards() {
+      const list = document.getElementById('abilities-cards-list');
+      if (!list) return;
+      list.innerHTML = '';
+
+      if (abilitiesCards.length === 0) {
+        const empty = document.createElement('p');
+        empty.className = 'spells-empty';
+        empty.textContent = 'No abilities added yet.';
+        list.appendChild(empty);
+        return;
+      }
+
+      const grid = document.createElement('div');
+      grid.className = 'nwp-card-grid';
+      list.appendChild(grid);
+
+      abilitiesCards.forEach(ab => {
+        const card = document.createElement('div');
+        card.className = 'nwp-card';
+
+        // ── Top bar (name inline + delete) ───────────────────
+        const top = document.createElement('div');
+        top.className = 'nwp-card-top';
+
+        const nameInp = document.createElement('input');
+        nameInp.type = 'text';
+        nameInp.className = 'nwp-card-name ability-card-name';
+        nameInp.value = ab.name;
+        nameInp.placeholder = 'Ability name';
+        nameInp.addEventListener('input',  () => { ab.name = nameInp.value; });
+        nameInp.addEventListener('change', () => saveToItems());
+        top.appendChild(nameInp);
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'nwp-del-btn';
+        delBtn.innerHTML = '&times;';
+        delBtn.setAttribute('aria-label', 'Remove ability');
+        delBtn.addEventListener('click', () => {
+          abilitiesCards = abilitiesCards.filter(a => a.id !== ab.id);
+          renderAbilitiesCards();
+          saveToItems();
+        });
+        top.appendChild(delBtn);
+        card.appendChild(top);
+
+        // ── Description (multi-line textarea) ────────────────
+        const descInp = document.createElement('textarea');
+        descInp.className = 'nwp-card-desc ability-card-desc';
+        descInp.value = ab.desc;
+        descInp.placeholder = 'Description…';
+        descInp.rows = 3;
+        descInp.addEventListener('input',  () => { ab.desc = descInp.value; });
+        descInp.addEventListener('change', () => saveToItems());
+        card.appendChild(descInp);
+
+        // ── URL row ───────────────────────────────────────────
+        const urlRow = document.createElement('div');
+        urlRow.className = 'nwp-url-row';
+
+        const urlInp = document.createElement('input');
+        urlInp.type = 'url';
+        urlInp.className = 'nwp-url-inp';
+        urlInp.value = ab.url || '';
+        urlInp.placeholder = 'Reference URL…';
+
+        const infoLink = document.createElement('a');
+        infoLink.className = 'spell-details-link' + (ab.url ? '' : ' spell-details-hidden');
+        infoLink.href = ab.url || '#';
+        infoLink.target = '_blank';
+        infoLink.rel = 'noopener noreferrer';
+        infoLink.textContent = 'Info ↗';
+
+        urlInp.addEventListener('input', () => {
+          ab.url = urlInp.value;
+          infoLink.href = urlInp.value || '#';
+          infoLink.classList.toggle('spell-details-hidden', !urlInp.value.trim());
+        });
+        urlInp.addEventListener('change', () => saveToItems());
+        urlRow.appendChild(urlInp);
+        urlRow.appendChild(infoLink);
+        card.appendChild(urlRow);
+
+        grid.appendChild(card);
+      });
+    }
+
+    function addNewAbilityCard() {
+      abilitiesCards.push(makeAbilityCard());
+      renderAbilitiesCards();
+      const cards = document.querySelectorAll('#abilities-cards-list .nwp-card');
+      cards[cards.length - 1]?.querySelector('.nwp-card-name')?.focus();
+      saveToItems();
+    }
+
+        function addNewNWP() {
       nwps.push(makeNWP());
       renderNWPs();
       const cards = document.querySelectorAll('#nwp-list .nwp-card');
@@ -6063,6 +6210,7 @@
     document.getElementById('add-weapon-btn').addEventListener('click', addNewWeapon);
     document.getElementById('add-spell-btn').addEventListener('click', addNewSpell);
     document.getElementById('add-nwp-btn').addEventListener('click', addNewNWP);
+    document.getElementById('add-ability-card-btn').addEventListener('click', addNewAbilityCard);
     document.getElementById('add-equipment-btn').addEventListener('click', addNewEquipment);
     document.getElementById('add-items-btn').addEventListener('click', addNewItems);
 
@@ -6108,6 +6256,7 @@
     initSectionPanel('weapons-heading', 'weapons-panel', 'weapons-chevron', 'panel-weapons');
     initSectionPanel('spells-heading',  'spells-panel',  'spells-chevron',  'panel-spells');
     initSectionPanel('nwp-heading',       'nwp-panel',       'nwp-chevron',       'panel-nwp');
+    initSectionPanel('abilities-cards-heading', 'abilities-cards-panel', 'abilities-cards-chevron', 'panel-abilities-cards');
     initSectionPanel('equipment-heading', 'equipment-panel', 'equipment-chevron', 'panel-equipment');
     initSectionPanel('items-heading',   'items-panel',   'items-chevron',   'panel-items');
     document.getElementById('spell-class-selector').addEventListener('change', e => {
