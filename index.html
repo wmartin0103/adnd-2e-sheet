@@ -2353,6 +2353,23 @@
     </section>
 
     <!-- ── Spells ─────────────────────────────────────────────── -->
+    <section class="section" aria-labelledby="wpn-prof-heading">
+      <h2 class="section-heading racial-traits-heading" id="wpn-prof-heading"
+          role="button" tabindex="0"
+          aria-expanded="true" aria-controls="wpn-prof-panel">
+        Weapon Proficiencies
+        <div class="section-heading-right">
+          <span class="scenario-chevron racial-traits-chevron" id="wpn-prof-chevron" aria-hidden="true"></span>
+        </div>
+      </h2>
+      <div id="wpn-prof-panel">
+        <div id="wpn-prof-list" aria-label="Weapon proficiencies list"></div>
+        <button class="add-class-btn" id="add-wpn-prof-btn" type="button">
+          <span aria-hidden="true">＋</span> Add Proficiency
+        </button>
+      </div>
+    </section>
+
     <section class="section" id="spells-section" aria-labelledby="spells-heading">
       <h2 class="section-heading racial-traits-heading" id="spells-heading"
           role="button" tabindex="0"
@@ -3418,6 +3435,7 @@
         weaponId:      null,
         handedness:    'main',
         offHandPenalty: '',
+        hitMod:         '',
         ...overrides,
       };
     }
@@ -3457,8 +3475,18 @@
         if (match) offHandAdj = parseInt(match[0]);
       }
 
+      // Explicit hit mod from the field (+n lowers THAC0, -n raises it)
+      let hitModAdj = 0;
+      if (scenario.hitMod) {
+        const match = scenario.hitMod.toString().match(/^([+-]?)(\d+)$/);
+        if (match) {
+          const sign  = match[1] === '-' ? -1 : 1;
+          hitModAdj = sign * parseInt(match[2]);
+        }
+      }
+
       // In 2nd Ed., a positive hit adj. LOWERS THAC0 (improves it).
-      return baseTHAC0 - strAdj - weaponHitAdj + offHandAdj;
+      return baseTHAC0 - strAdj - weaponHitAdj + offHandAdj - hitModAdj;
     }
 
     // Given a THAC0, return what you need to roll on a d20 to hit each AC.
@@ -3535,6 +3563,7 @@
         // THAC0 badge
         const badge = document.createElement('span');
         badge.className = 'scenario-thac0-badge';
+        badge.id = `thac0-badge-${scenario.id}`;
         badge.setAttribute('aria-label', `THAC0 ${thac0 !== null ? thac0 : '—'}`);
         badge.textContent = thac0 !== null ? `THAC0 ${thac0}` : '—';
 
@@ -3731,6 +3760,46 @@
           body.appendChild(penField);
         }
 
+        // Hit Mod — always shown, applies to both main and off hand
+        {
+          const hitModField = document.createElement('div');
+          hitModField.className = 'scenario-field';
+          const hitModLabel = document.createElement('label');
+          hitModLabel.className = 'scenario-field-label';
+          hitModLabel.textContent = 'Hit Mod';
+          hitModLabel.htmlFor = `${scenario.id}-hitmod`;
+          const hitModInp = document.createElement('input');
+          hitModInp.type = 'text';
+          hitModInp.id = `${scenario.id}-hitmod`;
+          hitModInp.className = 'scenario-select';
+          hitModInp.style.width = '4rem';
+          hitModInp.style.textAlign = 'center';
+          hitModInp.style.fontFamily = 'var(--font-display)';
+          hitModInp.style.fontWeight = '600';
+          hitModInp.value = scenario.hitMod || '';
+          hitModInp.placeholder = '+0';
+          hitModInp.maxLength = 3;
+          hitModInp.setAttribute('aria-label', 'Hit modifier (+ improves to-hit, - worsens it)');
+          hitModInp.addEventListener('input', () => {
+            scenario.hitMod = hitModInp.value.trim();
+            const newThac0 = calcScenarioTHAC0(scenario);
+            // Update header badge
+            const b = document.getElementById(`thac0-badge-${scenario.id}`);
+            if (b) {
+              b.textContent = newThac0 !== null ? `THAC0 ${newThac0}` : '—';
+              b.setAttribute('aria-label', `THAC0 ${newThac0 !== null ? newThac0 : '—'}`);
+            }
+            // Update the large THAC0 value in the result summary
+            const v = document.getElementById(`scenario-thac0-val-${scenario.id}`);
+            if (v) v.textContent = newThac0 !== null ? newThac0 : '—';
+            updateActiveTHAC0();
+            saveToItems();
+          });
+          hitModField.appendChild(hitModLabel);
+          hitModField.appendChild(hitModInp);
+          body.appendChild(hitModField);
+        }
+
         // Custom level input — only shown when levelMode is "custom"
         if (scenario.levelMode === 'custom') {
           const customLevelField = document.createElement('div');
@@ -3763,6 +3832,7 @@
         if (thac0 !== null) {
           const result = document.createElement('div');
           result.className = 'scenario-result';
+          result.id = `scenario-result-${scenario.id}`;
           result.setAttribute('aria-label', 'Scenario result summary');
 
           const items = [
@@ -3793,6 +3863,16 @@
             }
           }
 
+          // Hit mod in summary
+          if (scenario.hitMod) {
+            const match = scenario.hitMod.toString().match(/^([+-]?)(\d+)$/);
+            if (match && parseInt(match[2]) !== 0) {
+              const sign = match[1] === '-' ? -1 : 1;
+              const val  = sign * parseInt(match[2]);
+              items.push({ label: 'Hit Mod', value: val > 0 ? `+${val} to hit` : `${val} to hit` });
+            }
+          }
+
           items.forEach(item => {
             const div = document.createElement('div');
             div.className = 'scenario-result-item';
@@ -3801,6 +3881,7 @@
             lbl.textContent = item.label;
             const val = document.createElement('span');
             val.className = 'scenario-result-value' + (item.accent ? ' accent' : '');
+            if (item.accent) val.id = `scenario-thac0-val-${scenario.id}`;
             val.textContent = item.value;
             div.appendChild(lbl);
             div.appendChild(val);
@@ -5458,64 +5539,127 @@
     // and store them all in one localItems entry under 'adnd-sheet'.
     // On load, we read them back out and restore each field.
 
+    // ── DATA VERSIONING ─────────────────────────────────────────
+    // Increment SHEET_VERSION whenever you make a change that requires
+    // a migration (renamed key, restructured data, removed field, etc.).
+    // For purely additive changes (new section, new field with a safe default)
+    // you do NOT need to increment — applyData handles those automatically.
+    //
+    // HOW TO ADD A MIGRATION:
+    //   1. Bump SHEET_VERSION by 1.
+    //   2. Add a new `case` to the switch in migrateData() that transforms
+    //      the data from the previous version to the new one.
+    //   3. Document what changed in the comment above the case.
+    //
+    // Each migration receives the data object and returns it modified.
+    // Migrations are applied in sequence, so a v1 file will run migration
+    // 1→2, then 2→3, etc., arriving at the current version automatically.
+
+    const SHEET_VERSION = 1;
+
+    function migrateData(data) {
+      const fromVersion = data['__version'] || 0;
+
+      // Fast-path: already current
+      if (fromVersion >= SHEET_VERSION) return data;
+
+      let d = JSON.parse(JSON.stringify(data)); // work on a deep copy
+
+      for (let v = fromVersion; v < SHEET_VERSION; v++) {
+        switch (v) {
+
+          // ── Migration 0 → 1 ──────────────────────────────────
+          // Initial versioned release. No structural changes needed;
+          // this migration just stamps the version onto pre-version data.
+          // The legacy __spellClass rename (e.g. 'cleric' → 'priest') that
+          // was previously inline in applyData is codified here instead.
+          case 0: {
+            const legacySpellClass = {
+              cleric: 'priest', druid: 'priest',
+              abjurer: 'wizard', conjurer: 'wizard', diviner: 'wizard',
+              enchanter: 'wizard', illusionist: 'wizard', invoker: 'wizard',
+              necromancer: 'wizard', transmuter: 'wizard',
+            };
+            if (d['__spellClass'] && legacySpellClass[d['__spellClass']]) {
+              d['__spellClass'] = legacySpellClass[d['__spellClass']];
+            }
+            break;
+          }
+
+          // ── Add future migrations below ───────────────────────
+          // case 1: {
+          //   // Example: renamed '__equipment' to '__gear'
+          //   d['__gear'] = d['__equipment'] || [];
+          //   delete d['__equipment'];
+          //   break;
+          // }
+
+        }
+      }
+
+      d['__version'] = SHEET_VERSION;
+      return d;
+    }
+
+    // ── STORAGE ──────────────────────────────────────────────────
     const STORAGE_KEY = 'adnd-sheet';
     let saveTimer = null;
 
     function gatherData() {
       const data = {};
+      data['__version'] = SHEET_VERSION;
       document.querySelectorAll('[data-save]').forEach(el => {
         data[el.dataset.save] = el.value;
       });
-      // Scenarios, classes, and save mods stored alongside field data
-      data['__scenarios'] = scenarios;
-      data['__scenarioCounter'] = scenarioCounter;
-      data['__classes'] = characterClasses;
-      data['__classCounter'] = classCounter;
-      data['__saveMods']   = saveMods;
-      data['__traitState']    = traitState;
-      data['__thiefSkillAlloc'] = JSON.parse(JSON.stringify(thiefSkillAlloc));
-      data['__thiefSubclass']   = thiefSubclass;
-      data['__weapons']         = weapons;
-      data['__weaponCounter']   = weaponCounter;
-      data['__spells']          = spells;
-      data['__spellCounter']    = spellCounter;
-      data['__spellClass']      = spellClassSelector;
-      data['__nwps']            = nwps;
-      data['__nwpCounter']      = nwpCounter;
-      data['__abilitiesCards']   = abilitiesCards;
+      data['__scenarios']             = scenarios;
+      data['__scenarioCounter']       = scenarioCounter;
+      data['__classes']               = characterClasses;
+      data['__classCounter']          = classCounter;
+      data['__saveMods']              = saveMods;
+      data['__traitState']            = traitState;
+      data['__thiefSkillAlloc']       = JSON.parse(JSON.stringify(thiefSkillAlloc));
+      data['__thiefSubclass']         = thiefSubclass;
+      data['__weapons']               = weapons;
+      data['__weaponCounter']         = weaponCounter;
+      data['__spells']                = spells;
+      data['__spellCounter']          = spellCounter;
+      data['__spellClass']            = spellClassSelector;
+      data['__nwps']                  = nwps;
+      data['__nwpCounter']            = nwpCounter;
+      data['__abilitiesCards']        = abilitiesCards;
       data['__abilitiesCardsCounter'] = abilitiesCardsCounter;
-      data['__equipment']       = equipment;
-      data['__equipCounter']    = equipCounter;
-      data['__items']         = items;
-      data['__itemsCounter']  = itemsCounter;
+      data['__wpnProfCards']          = wpnProfCards;
+      data['__wpnProfCardsCounter']   = wpnProfCardsCounter;
+      data['__equipment']             = equipment;
+      data['__equipCounter']          = equipCounter;
+      data['__items']                 = items;
+      data['__itemsCounter']          = itemsCounter;
       return data;
     }
 
-    function applyData(data) {
+    function applyData(rawData) {
+      // Run migrations before applying — handles old files transparently
+      const data = migrateData(rawData);
+
       document.querySelectorAll('[data-save]').forEach(el => {
         const val = data[el.dataset.save];
         if (val !== undefined) el.value = val;
       });
-      // Restore scenarios if present
       if (Array.isArray(data['__scenarios'])) {
         scenarios = data['__scenarios'];
         scenarioCounter = data['__scenarioCounter'] || scenarios.length;
       }
-      // Restore character classes if present
       if (Array.isArray(data['__classes']) && data['__classes'].length > 0) {
         characterClasses = data['__classes'];
         classCounter = data['__classCounter'] || characterClasses.length;
       }
-      // Restore save modifiers if present
       if (data['__saveMods']) {
         Object.assign(saveMods, data['__saveMods']);
       }
-      // Restore trait state if present
       if (data['__traitState']) {
         Object.assign(traitState, data['__traitState']);
       }
       if (data['__thiefSkillAlloc']) {
-        // Support both old flat format and new nested format
         const saved = data['__thiefSkillAlloc'];
         if (saved.points || saved.kit || saved.armor) {
           thiefSkillAlloc = { points: saved.points || {}, kit: saved.kit || {}, armor: saved.armor || {} };
@@ -5533,11 +5677,7 @@
         spellCounter = data['__spellCounter'] || spells.length;
       }
       if (data['__spellClass']) {
-        // Migrate legacy values to simplified categories
-        const legacy = { cleric: 'priest', druid: 'priest', abjurer: 'wizard',
-          conjurer: 'wizard', diviner: 'wizard', enchanter: 'wizard',
-          illusionist: 'wizard', invoker: 'wizard', necromancer: 'wizard', transmuter: 'wizard' };
-        spellClassSelector = legacy[data['__spellClass']] || data['__spellClass'];
+        spellClassSelector = data['__spellClass'];
         const sel = document.getElementById('spell-class-selector');
         if (sel) sel.value = spellClassSelector;
       }
@@ -5549,6 +5689,10 @@
         abilitiesCards = data['__abilitiesCards'];
         abilitiesCardsCounter = data['__abilitiesCardsCounter'] || abilitiesCards.length;
       }
+      if (Array.isArray(data['__wpnProfCards'])) {
+        wpnProfCards = data['__wpnProfCards'];
+        wpnProfCardsCounter = data['__wpnProfCardsCounter'] || wpnProfCards.length;
+      }
       if (Array.isArray(data['__equipment'])) {
         equipment = data['__equipment'];
         equipCounter = data['__equipCounter'] || equipment.length;
@@ -5557,7 +5701,6 @@
         items = data['__items'];
         itemsCounter = data['__itemsCounter'] || items.length;
       }
-
     }
 
     function saveToItems() {
@@ -5945,6 +6088,140 @@
       });
     }
 
+    // ── WEAPON PROFICIENCY CARDS ────────────────────────────────
+    let wpnProfCards = [];
+    let wpnProfCardsCounter = 0;
+
+    function makeWpnProfCard(overrides = {}) {
+      return {
+        id:    `wpc-${++wpnProfCardsCounter}`,
+        name:  '',
+        desc:  '',
+        url:   '',
+        slots: '1',
+        ...overrides,
+      };
+    }
+
+    function renderWpnProfCards() {
+      const list = document.getElementById('wpn-prof-list');
+      if (!list) return;
+      list.innerHTML = '';
+
+      if (wpnProfCards.length === 0) {
+        const empty = document.createElement('p');
+        empty.className = 'spells-empty';
+        empty.textContent = 'No weapon proficiencies added yet.';
+        list.appendChild(empty);
+        return;
+      }
+
+      const grid = document.createElement('div');
+      grid.className = 'nwp-card-grid';
+      list.appendChild(grid);
+
+      wpnProfCards.forEach(ab => {
+        const card = document.createElement('div');
+        card.className = 'nwp-card';
+
+        const top = document.createElement('div');
+        top.className = 'nwp-card-top';
+
+        const nameInp = document.createElement('input');
+        nameInp.type = 'text';
+        nameInp.className = 'nwp-card-name ability-card-name';
+        nameInp.value = ab.name;
+        nameInp.placeholder = 'Weapon name';
+        nameInp.addEventListener('input',  () => { ab.name = nameInp.value; });
+        nameInp.addEventListener('change', () => saveToItems());
+        top.appendChild(nameInp);
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'nwp-del-btn';
+        delBtn.innerHTML = '&times;';
+        delBtn.setAttribute('aria-label', 'Remove weapon proficiency');
+        delBtn.addEventListener('click', () => {
+          wpnProfCards = wpnProfCards.filter(a => a.id !== ab.id);
+          renderWpnProfCards();
+          saveToItems();
+        });
+        top.appendChild(delBtn);
+        card.appendChild(top);
+
+        const descInp = document.createElement('textarea');
+        descInp.className = 'nwp-card-desc ability-card-desc';
+        descInp.value = ab.desc;
+        descInp.placeholder = 'Description…';
+        descInp.rows = 3;
+        descInp.addEventListener('input',  () => { ab.desc = descInp.value; });
+        descInp.addEventListener('change', () => saveToItems());
+        card.appendChild(descInp);
+
+        const urlRow = document.createElement('div');
+        urlRow.className = 'nwp-url-row';
+
+        const urlInp = document.createElement('input');
+        urlInp.type = 'url';
+        urlInp.className = 'nwp-url-inp';
+        urlInp.value = ab.url || '';
+        urlInp.placeholder = 'Reference URL…';
+
+        const infoLink = document.createElement('a');
+        infoLink.className = 'spell-details-link' + (ab.url ? '' : ' spell-details-hidden');
+        infoLink.href = ab.url || '#';
+        infoLink.target = '_blank';
+        infoLink.rel = 'noopener noreferrer';
+        infoLink.textContent = 'Info ↗';
+
+        urlInp.addEventListener('input', () => {
+          ab.url = urlInp.value;
+          infoLink.href = urlInp.value || '#';
+          infoLink.classList.toggle('spell-details-hidden', !urlInp.value.trim());
+        });
+        urlInp.addEventListener('change', () => saveToItems());
+        urlRow.appendChild(urlInp);
+        urlRow.appendChild(infoLink);
+        card.appendChild(urlRow);
+
+        // ── Bottom bar: slots ─────────────────────────────────
+        const bottom = document.createElement('div');
+        bottom.className = 'nwp-card-bottom';
+
+        const slotsWrap = document.createElement('div');
+        slotsWrap.className = 'nwp-slots-wrap';
+        slotsWrap.style.marginLeft = 'auto';
+
+        const slotsLabel = document.createElement('span');
+        slotsLabel.className = 'nwp-adj-label';
+        slotsLabel.textContent = 'Slots';
+
+        const slotsInp = document.createElement('input');
+        slotsInp.type = 'text';
+        slotsInp.className = 'nwp-adj-inp';
+        slotsInp.value = ab.slots || '1';
+        slotsInp.placeholder = '1';
+        slotsInp.setAttribute('aria-label', 'Slot cost');
+        slotsInp.addEventListener('input',  () => { ab.slots = slotsInp.value; });
+        slotsInp.addEventListener('change', () => saveToItems());
+
+        slotsWrap.appendChild(slotsLabel);
+        slotsWrap.appendChild(slotsInp);
+        bottom.appendChild(slotsWrap);
+        card.appendChild(bottom);
+
+        grid.appendChild(card);
+      });
+    }
+
+    function addNewWpnProfCard() {
+      wpnProfCards.push(makeWpnProfCard());
+      renderWpnProfCards();
+      const cards = document.querySelectorAll('#wpn-prof-list .nwp-card');
+      cards[cards.length - 1]?.querySelector('.nwp-card-name')?.focus();
+      saveToItems();
+    }
+
     function addNewAbilityCard() {
       abilitiesCards.push(makeAbilityCard());
       renderAbilitiesCards();
@@ -6211,6 +6488,7 @@
     document.getElementById('add-spell-btn').addEventListener('click', addNewSpell);
     document.getElementById('add-nwp-btn').addEventListener('click', addNewNWP);
     document.getElementById('add-ability-card-btn').addEventListener('click', addNewAbilityCard);
+    document.getElementById('add-wpn-prof-btn').addEventListener('click', addNewWpnProfCard);
     document.getElementById('add-equipment-btn').addEventListener('click', addNewEquipment);
     document.getElementById('add-items-btn').addEventListener('click', addNewItems);
 
@@ -6257,6 +6535,7 @@
     initSectionPanel('spells-heading',  'spells-panel',  'spells-chevron',  'panel-spells');
     initSectionPanel('nwp-heading',       'nwp-panel',       'nwp-chevron',       'panel-nwp');
     initSectionPanel('abilities-cards-heading', 'abilities-cards-panel', 'abilities-cards-chevron', 'panel-abilities-cards');
+    initSectionPanel('wpn-prof-heading', 'wpn-prof-panel', 'wpn-prof-chevron', 'panel-wpn-prof');
     initSectionPanel('equipment-heading', 'equipment-panel', 'equipment-chevron', 'panel-equipment');
     initSectionPanel('items-heading',   'items-panel',   'items-chevron',   'panel-items');
     document.getElementById('spell-class-selector').addEventListener('change', e => {
