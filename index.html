@@ -5730,12 +5730,14 @@
 
     function exportJSON() {
       const data = gatherData();
-      const name = data.name || 'character';
+      const name = (data.name || 'character').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+      const now  = new Date();
+      const date = `${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const url  = URL.createObjectURL(blob);
       const a    = document.createElement('a');
       a.href     = url;
-      a.download = `${name.toLowerCase().replace(/\s+/g, '-')}.json`;
+      a.download = `${name}_${date}.json`;
       a.click();
       URL.revokeObjectURL(url);
     }
@@ -6406,6 +6408,8 @@
       renderWeapons();
       renderSpells();
       renderNWPs();
+      renderWpnProfCards();
+      renderAbilitiesCards();
       renderEquipment();
       renderItems();
       updateSpellSlotHeader();
