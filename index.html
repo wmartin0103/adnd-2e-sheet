@@ -435,6 +435,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
+      position: relative;
     }
 
     .hp-inputs {
@@ -1572,6 +1573,29 @@
       gap: 0.6rem;
     }
 
+    .money-inp {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      padding: 0.1em 0.25em;
+      outline: none;
+      width: 7rem;
+      text-align: right;
+      transition: border-color 0.2s;
+    }
+    .money-inp:focus { border-color: var(--accent); }
+    .money-inp::placeholder { color: var(--ink-faint); font-style: italic; font-weight: 400; }
+
+    .hp-con-badge {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      white-space: nowrap;
+    }
+
     .racial-traits-race-badge {
       font-family: var(--font-display);
       font-size: 0.62rem;
@@ -2272,6 +2296,7 @@
                 <span id="hp-max-sub" class="hp-sub-label">Maximum</span>
               </div>
             </div>
+            <span id="hp-con-badge" class="combat-sublabel hp-con-badge"></span>
           </div>
         </div>
 
@@ -2289,18 +2314,20 @@
           <span class="combat-sublabel">Yards / Round</span>
         </div>
 
-        <!-- Initiative Adj. — hidden when modifier is zero -->
-        <div class="combat-card" id="card-init-adj">
-          <label class="combat-label" for="init-adj">Initiative Adj.</label>
-          <input id="init-adj" class="combat-value" type="text" readonly />
-          <span class="combat-sublabel">From Dexterity</span>
-        </div>
+
 
         <!-- Missile Attack Adj. — hidden when modifier is zero -->
         <div class="combat-card" id="card-missile-adj">
           <label class="combat-label" for="missile-adj">Missile Adj.</label>
           <input id="missile-adj" class="combat-value" type="text" readonly />
           <span class="combat-sublabel">From Dexterity</span>
+        </div>
+
+        <!-- Hit Adj. — hidden when modifier is zero -->
+        <div class="combat-card" id="card-hit-adj">
+          <label class="combat-label" for="hit-adj">Hit Adj.</label>
+          <input id="hit-adj" class="combat-value" type="text" readonly />
+          <span class="combat-sublabel">From Strength</span>
         </div>
 
         <!-- Damage Adj. — hidden when modifier is zero -->
@@ -2512,6 +2539,8 @@
           aria-expanded="true" aria-controls="items-panel">
         Items
         <div class="section-heading-right">
+          <label class="sr-only" for="money-inp">Money</label>
+          <input type="text" id="money-inp" class="money-inp" data-save="money" placeholder="Money…" aria-label="Money" />
           <span id="items-weight-total" class="item-weight-total"></span>
           <span class="scenario-chevron racial-traits-chevron" id="items-chevron" aria-hidden="true"></span>
         </div>
@@ -2775,7 +2804,7 @@
         id: 'int', label: 'Intelligence', saveKey: 'int',
         table: INT_TABLE,
         mods: [
-          { label: 'Languages',      key: 'languages'        },
+          { label: 'Languages/NWPs', key: 'languages'        },
           { label: 'Max Spell Lvl',  key: 'spell_level'      },
           { label: 'Learn Spell',    key: 'learn',    suffix: '%' },
           { label: 'Spells/Level',   key: 'spells_per_level' },
@@ -2962,13 +2991,6 @@
       const strScore = parseInt(document.getElementById('ability-str').value) || 0;
       const strRow   = STR_TABLE[strScore];
 
-      // ── Initiative Adj. (DEX reaction) ──────────────────────
-      // Card is hidden when the modifier is zero — only meaningful when non-zero
-      const initAdj  = dexRow ? dexRow.reaction : 0;
-      const initCard  = document.getElementById('card-init-adj');
-      const initInput = document.getElementById('init-adj');
-      initCard.hidden = !dexRow || initAdj === 0;
-      if (dexRow) initInput.value = initAdj >= 0 ? '+' + initAdj : initAdj;
 
       // ── Missile Attack Adj. (DEX missile) ───────────────────
       const missileAdj  = dexRow ? dexRow.missile : 0;
@@ -2976,6 +2998,13 @@
       const missileInput = document.getElementById('missile-adj');
       missileCard.hidden = !dexRow || missileAdj === 0;
       if (dexRow) missileInput.value = missileAdj >= 0 ? '+' + missileAdj : missileAdj;
+
+      // ── Hit Adj. (STR hit) ───────────────────────────────────
+      const hitAdj  = strRow ? strRow.hit : 0;
+      const hitCard  = document.getElementById('card-hit-adj');
+      const hitInput = document.getElementById('hit-adj');
+      hitCard.hidden = !strRow || hitAdj === 0;
+      if (strRow) hitInput.value = hitAdj >= 0 ? '+' + hitAdj : hitAdj;
 
       // ── Damage Adj. (STR dmg) ────────────────────────────────
       const dmgAdj  = strRow ? strRow.dmg : 0;
@@ -4507,15 +4536,22 @@
           return base.map((v, i) => v + (wisBonus[i] || 0));
         }
         case 'paladin': {
-          const lvl = Math.min(Math.max(getEffectiveLevel(), 1), 20);
-          return PALADIN_SLOTS[lvl] || [];
+          const lvl  = Math.min(Math.max(getEffectiveLevel(), 1), 20);
+          const base = PALADIN_SLOTS[lvl] || [];
+          // WIS bonus applies to Paladin (uses priest spell table), gated by base slots
+          return base.map((v, i) => v > 0 ? v + (wisBonus[i] || 0) : v);
         }
         case 'ranger': {
-          const lvl = Math.min(Math.max(getEffectiveLevel(), 1), 20);
-          return RANGER_SLOTS[lvl] || [];
+          const lvl  = Math.min(Math.max(getEffectiveLevel(), 1), 20);
+          const base = RANGER_SLOTS[lvl] || [];
+          // WIS bonus applies to Ranger (uses priest spell table), gated by base slots
+          return base.map((v, i) => v > 0 ? v + (wisBonus[i] || 0) : v);
         }
-        case 'bard':
-          return BARD_SLOTS[getSpellClassLevel('rogue', 'bard')] || BARD_SLOTS[2];
+        case 'bard': {
+          const base = BARD_SLOTS[getSpellClassLevel('rogue', 'bard')] || BARD_SLOTS[2];
+          // WIS bonus applies to Bard, gated by base slots
+          return base.map((v, i) => v > 0 ? v + (wisBonus[i] || 0) : v);
+        }
         default:
           return [];
       }
@@ -5118,6 +5154,7 @@
 
       heading.addEventListener('click', toggle);
       heading.addEventListener('keydown', e => {
+        if (e.target.closest('select, button, a, input')) return;
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
       panel.hidden = false;
@@ -5277,6 +5314,7 @@
 
       heading.addEventListener('click', toggle);
       heading.addEventListener('keydown', e => {
+        if (e.target.closest('select, button, a, input')) return;
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
 
@@ -5384,11 +5422,16 @@
     }
 
     // Calculate final saves: best value per category across all classes,
-    // then apply racial modifiers.
+    // then apply racial and CON modifiers.
     function calcSavingThrows() {
       const con       = parseInt(document.getElementById('ability-con')?.value) || 0;
       const raceGroup = document.getElementById('char-race-group')?.value || 'human';
       const raceMods  = getRacialSaveMods(raceGroup, con);
+
+      // CON affects Paralysis/Poison/Death (all one save category in 2e).
+      // A positive poison modifier IMPROVES the save (lowers the target number).
+      const conRow    = CON_TABLE[con];
+      const conPoisonMod = conRow ? conRow.poison : 0;
 
       const allSaves = characterClasses
         .map(cls => getClassSaves(cls.group, parseInt(cls.level) || 0))
@@ -5406,6 +5449,12 @@
       SAVE_LABELS.forEach(({ key }) => {
         best[key] = Math.max(1, best[key] + (raceMods[key] || 0));
       });
+
+      // Apply CON bonus/penalty to Paralysis/Poison/Death only.
+      // Positive conPoisonMod = bonus to save = lower target number.
+      if (conPoisonMod !== 0) {
+        best['paralysis'] = Math.max(1, best['paralysis'] - conPoisonMod);
+      }
 
       return best;
     }
@@ -5509,6 +5558,19 @@
     //
     // Updates the visual HP bar and its ARIA attributes so that
     // screen readers can also announce the current HP percentage.
+
+    function updateConHpBadge() {
+      const badge = document.getElementById('hp-con-badge');
+      if (!badge) return;
+      const con    = parseInt(document.getElementById('ability-con')?.value) || 0;
+      const conRow = CON_TABLE[con];
+      const mod    = conRow ? conRow.hp : 0;
+      if (mod === 0) {
+        badge.textContent = '';
+      } else {
+        badge.textContent = `CON: ${mod > 0 ? '+' : ''}${mod}/level`;
+      }
+    }
 
     function updateHpBar() {
       const current = parseInt(document.getElementById('hp-current').value) || 0;
@@ -6400,6 +6462,7 @@
       renderClasses();
       updateCombatFields();
       updateHpBar();
+      updateConHpBadge();
       renderScenarios();
       updateActiveTHAC0();
       renderSavingThrows();
@@ -6431,6 +6494,7 @@
         // CON affects racial save bonuses for Dwarves/Gnomes/Halflings
         if (target.dataset.ability === 'con') {
           renderSavingThrows();
+          updateConHpBadge();
         }
         // DEX affects thieving ability adjustments
         if (target.dataset.ability === 'dex') {
@@ -6531,6 +6595,7 @@
         toggle();
       });
       heading.addEventListener('keydown', e => {
+        if (e.target.closest('select, button, a, input')) return;
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
     }
