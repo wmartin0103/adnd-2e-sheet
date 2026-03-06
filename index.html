@@ -1089,6 +1089,15 @@
       align-items: center;
     }
 
+    .prof-slots-badge {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
     .slot-badge {
       font-family: var(--font-display);
       font-size: 0.65rem;
@@ -1635,6 +1644,9 @@
     .trait-row:last-child { border-bottom: none; }
 
     .trait-row.trait-inactive { opacity: 0.35; }
+    .trait-row.trait-inactive .trait-summary,
+    .trait-row.trait-inactive .trait-notes,
+    .trait-row.trait-inactive .sr-only { display: none; }
 
     .trait-toggle {
       width: 1rem;
@@ -2386,6 +2398,7 @@
           aria-expanded="true" aria-controls="wpn-prof-panel">
         Weapon Proficiencies
         <div class="section-heading-right">
+          <span id="wp-slots-badge" class="prof-slots-badge" aria-live="polite"></span>
           <span class="scenario-chevron racial-traits-chevron" id="wpn-prof-chevron" aria-hidden="true"></span>
         </div>
       </h2>
@@ -2481,6 +2494,7 @@
           aria-expanded="true" aria-controls="nwp-panel">
         Non-Weapon Proficiencies
         <div class="section-heading-right">
+          <span id="nwp-slots-badge" class="prof-slots-badge" aria-live="polite"></span>
           <span class="scenario-chevron racial-traits-chevron" id="nwp-chevron" aria-hidden="true"></span>
         </div>
       </h2>
@@ -3318,6 +3332,7 @@
           cls.level = e.target.value;
           updateEffectiveLevelDisplay(); // refresh effective level display without re-render
           updateCombatFields();          // THAC0 uses effective level
+          updateProfSlotBadges();
           renderScenarios();
           updateActiveTHAC0();
           renderSavingThrows();
@@ -5248,6 +5263,9 @@
         toggle.addEventListener('change', () => {
           state.active = toggle.checked;
           row.classList.toggle('trait-inactive', !state.active);
+          summaryEl.style.display = state.active ? '' : 'none';
+          notesLbl.style.display  = state.active ? '' : 'none';
+          notesEl.style.display   = state.active ? '' : 'none';
           saveToItems();
         });
 
@@ -5264,6 +5282,7 @@
         summaryEl.className = 'trait-summary';
         summaryEl.textContent = trait.summary;
 
+        if (!state.active) summaryEl.style.display = 'none';
         info.appendChild(nameEl);
         info.appendChild(summaryEl);
 
@@ -5284,6 +5303,10 @@
           saveToItems();
         });
 
+        if (!state.active) {
+          notesLbl.style.display = 'none';
+          notesEl.style.display  = 'none';
+        }
         row.appendChild(toggle);
         row.appendChild(info);
         row.appendChild(notesLbl);
@@ -6445,6 +6468,49 @@
       saveToItems();
     }
 
+    // ── TABLE 34 — Proficiency Slots ────────────────────────────
+    // [wpInitial, wpPerLevels, nwpInitial, nwpPerLevels]
+    // wpPerLevels / nwpPerLevels = gain 1 slot every N levels after 1st
+    const PROF_TABLE_34 = {
+      warrior: { wpInit: 4, wpPer: 3, nwpInit: 3, nwpPer: 3 },
+      priest:  { wpInit: 2, wpPer: 4, nwpInit: 4, nwpPer: 3 },
+      rogue:   { wpInit: 2, wpPer: 4, nwpInit: 3, nwpPer: 4 },
+      wizard:  { wpInit: 1, wpPer: 6, nwpInit: 4, nwpPer: 3 },
+    };
+
+    function calcProfSlots(group, level) {
+      const t = PROF_TABLE_34[group];
+      if (!t || !level || level < 1) return null;
+      const wp  = t.wpInit  + Math.floor(level / t.wpPer);
+      const nwp = t.nwpInit + Math.floor(level / t.nwpPer);
+      return { wp, nwp };
+    }
+
+    function updateProfSlotBadges() {
+      const wpEl  = document.getElementById('wp-slots-badge');
+      const nwpEl = document.getElementById('nwp-slots-badge');
+      if (!wpEl || !nwpEl) return;
+
+      const active = characterClasses.filter(c => c.level && parseInt(c.level) > 0);
+      if (active.length === 0) {
+        wpEl.textContent  = '';
+        nwpEl.textContent = '';
+        return;
+      }
+
+      let bestWP = 0, bestNWP = 0;
+      active.forEach(cls => {
+        const slots = calcProfSlots(cls.group, parseInt(cls.level) || 0);
+        if (slots) {
+          bestWP  = Math.max(bestWP,  slots.wp);
+          bestNWP = Math.max(bestNWP, slots.nwp);
+        }
+      });
+
+      wpEl.textContent  = bestWP  > 0 ? `Base WP: ${bestWP}`  : '';
+      nwpEl.textContent = bestNWP > 0 ? `Base NWP: ${bestNWP}` : '';
+    }
+
     function refreshAll() {
       ABILITIES.forEach(ability => {
         const score = parseInt(document.getElementById(`ability-${ability.id}`).value) || 0;
@@ -6461,6 +6527,7 @@
       }
       renderClasses();
       updateCombatFields();
+      updateProfSlotBadges();
       updateHpBar();
       updateConHpBadge();
       renderScenarios();
