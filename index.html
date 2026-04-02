@@ -4961,9 +4961,7 @@
 
       const bookGrid = document.createElement('div');
       bookGrid.className = 'spell-card-grid';
-      // Sort bookSpells by level for display, but preserve user drag order within same level
-      const sortedBook = [...bookSpells].sort((a, b) => a.level - b.level);
-      sortedBook.forEach(spl => bookGrid.appendChild(buildCard(spl, 'spellbook')));
+      bookSpells.forEach(spl => bookGrid.appendChild(buildCard(spl, 'spellbook')));
       list.appendChild(bookGrid);
 
     }
