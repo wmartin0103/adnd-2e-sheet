@@ -5048,9 +5048,13 @@
               if (ref.url && !spl.url) {
                 spl.url = ref.url;
                 const uInp  = card.querySelector('.spell-card-url-inp');
-                const uLink = card.querySelector('.spell-details-link');
                 if (uInp)  { uInp.value = ref.url; }
-                if (uLink) { uLink.href = ref.url; uLink.classList.remove('spell-details-hidden'); }
+              }
+              // Always show More Info link when a spell is matched (tooltip works even without URL)
+              const uLink = card.querySelector('.spell-details-link');
+              if (uLink) {
+                if (ref.url) uLink.href = ref.url;
+                uLink.classList.remove('spell-details-hidden');
               }
               // Update level/type selects if they already exist
               const lSel = card.querySelector('.spell-card-select[aria-label="Spell level"]');
@@ -5060,15 +5064,6 @@
               saveToItems();
             }
           });
-          // Pre-populate stats if spell name already matches a reference entry
-          const initRef = ADND2E_RULES.spells.find(s => s.name === spl.name);
-          if (initRef) {
-            card._refSpell = initRef;
-            updateStatsBar(initRef);
-            // Show More Info link even if no URL saved yet (tooltip provides value)
-            const moreLink = card.querySelector('.spell-details-link');
-            if (moreLink) moreLink.classList.remove('spell-details-hidden');
-          }
         }
 
         // ── Notes ──────────────────────────────────────────────
@@ -5117,6 +5112,23 @@
         urlRow.appendChild(urlInp);
         urlRow.appendChild(infoLink);
         card.appendChild(urlRow);
+
+        // Pre-populate stats + show More Info link if spell name matches a reference entry.
+        // Must run AFTER urlRow is appended so querySelector can find .spell-details-link.
+        if (window.ADND2E_RULES?.spells?.length) {
+          const initRef = ADND2E_RULES.spells.find(s => s.name === spl.name);
+          if (initRef) {
+            card._refSpell = initRef;
+            updateStatsBar(initRef);
+            // Show More Info link even if no URL saved yet (tooltip provides value)
+            if (initRef.url && !spl.url) {
+              spl.url = initRef.url;
+              urlInp.value = initRef.url;
+              infoLink.href = initRef.url;
+            }
+            infoLink.classList.remove('spell-details-hidden');
+          }
+        }
 
         // ── Bottom bar ─────────────────────────────────────────
         const bottomBar = document.createElement('div');
