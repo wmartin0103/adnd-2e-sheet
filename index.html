@@ -1119,6 +1119,41 @@
       margin-bottom: 0.5rem;
     }
 
+    .spellbook-heading-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .spellbook-pages {
+      display: flex;
+      align-items: baseline;
+      gap: 0.15rem;
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+    }
+
+    .spellbook-pages-inp {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      outline: none;
+      width: 2.8ch;
+      text-align: center;
+      padding: 0;
+      -moz-appearance: textfield;
+    }
+    .spellbook-pages-inp::-webkit-outer-spin-button,
+    .spellbook-pages-inp::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .spellbook-pages-inp:focus { border-bottom-color: var(--accent); }
+    .spellbook-pages-inp::placeholder { color: var(--rule); }
+
     .spell-mem-wrap {
       display: flex;
       align-items: center;
@@ -4413,6 +4448,8 @@
     // ── SPELLS ───────────────────────────────────────────────────────────────
     let spells = [];
     let spellCounter = 0;
+    let spellbookPagesUsed  = '';
+    let spellbookPagesTotal = '';
 
     function makeSpell(overrides = {}) {
       return {
@@ -4634,7 +4671,8 @@
 
       function buildCard(spl, section) {
         const card = document.createElement('div');
-        card.className = 'spell-card' + (section === 'memorized' && (parseInt(spl.charges) || 0) === 0 ? ' spell-card-cast' : '');
+        card.className = 'spell-card'
+        card.dataset.spellId = spl.id; + (section === 'memorized' && (parseInt(spl.charges) || 0) === 0 ? ' spell-card-cast' : '');
 
         // ── Top bar ────────────────────────────────────────────
         const topBar = document.createElement('div');
@@ -4876,15 +4914,58 @@
       // ── Spellbook section ──────────────────────────────────────
       const bookSpells = spells.filter(s => !s.isMemorized);
       const bookHead = document.createElement('div');
-      bookHead.className = 'spell-section-heading';
-      bookHead.textContent = 'Spellbook';
+      bookHead.className = 'spell-section-heading spellbook-heading-row';
+
+      const bookLabel = document.createElement('span');
+      bookLabel.textContent = 'Spellbook';
+      bookHead.appendChild(bookLabel);
+
+      const pagesWrap = document.createElement('div');
+      pagesWrap.className = 'spellbook-pages';
+
+      const pagesUsedInp = document.createElement('input');
+      pagesUsedInp.type = 'number';
+      pagesUsedInp.min = 0;
+      pagesUsedInp.className = 'spellbook-pages-inp';
+      pagesUsedInp.placeholder = '0';
+      pagesUsedInp.value = spellbookPagesUsed || '';
+      pagesUsedInp.setAttribute('aria-label', 'Pages used');
+      pagesUsedInp.addEventListener('input', () => { spellbookPagesUsed = pagesUsedInp.value; });
+      pagesUsedInp.addEventListener('change', () => saveToItems());
+
+      const pagesSep = document.createElement('span');
+      pagesSep.textContent = '/';
+      pagesSep.style.margin = '0 0.1rem';
+
+      const pagesTotalInp = document.createElement('input');
+      pagesTotalInp.type = 'number';
+      pagesTotalInp.min = 0;
+      pagesTotalInp.className = 'spellbook-pages-inp';
+      pagesTotalInp.placeholder = '0';
+      pagesTotalInp.value = spellbookPagesTotal || '';
+      pagesTotalInp.setAttribute('aria-label', 'Total pages');
+      pagesTotalInp.addEventListener('input', () => { spellbookPagesTotal = pagesTotalInp.value; });
+      pagesTotalInp.addEventListener('change', () => saveToItems());
+
+      const pagesLabel = document.createElement('span');
+      pagesLabel.textContent = 'Pages';
+      pagesLabel.style.marginLeft = '0.2rem';
+
+      pagesWrap.appendChild(pagesUsedInp);
+      pagesWrap.appendChild(pagesSep);
+      pagesWrap.appendChild(pagesTotalInp);
+      pagesWrap.appendChild(pagesLabel);
+      bookHead.appendChild(pagesWrap);
+
       list.appendChild(bookHead);
 
       const bookGrid = document.createElement('div');
       bookGrid.className = 'spell-card-grid';
-      [...bookSpells].sort((a, b) => a.level - b.level)
-        .forEach(spl => bookGrid.appendChild(buildCard(spl, 'spellbook')));
+      // Sort bookSpells by level for display, but preserve user drag order within same level
+      const sortedBook = [...bookSpells].sort((a, b) => a.level - b.level);
+      sortedBook.forEach(spl => bookGrid.appendChild(buildCard(spl, 'spellbook')));
       list.appendChild(bookGrid);
+
     }
 
     function addNewSpell() {
@@ -5708,6 +5789,8 @@
       data['__weaponCounter']         = weaponCounter;
       data['__spells']                = spells;
       data['__spellCounter']          = spellCounter;
+      data['__spellbookPagesUsed']    = spellbookPagesUsed;
+      data['__spellbookPagesTotal']   = spellbookPagesTotal;
       data['__spellClass']            = spellClassSelector;
       data['__nwps']                  = nwps;
       data['__nwpCounter']            = nwpCounter;
@@ -5761,6 +5844,8 @@
         spells = data['__spells'];
         spellCounter = data['__spellCounter'] || spells.length;
       }
+      if (data['__spellbookPagesUsed']  !== undefined) spellbookPagesUsed  = data['__spellbookPagesUsed'];
+      if (data['__spellbookPagesTotal'] !== undefined) spellbookPagesTotal = data['__spellbookPagesTotal'];
       if (data['__spellClass']) {
         spellClassSelector = data['__spellClass'];
         const sel = document.getElementById('spell-class-selector');
