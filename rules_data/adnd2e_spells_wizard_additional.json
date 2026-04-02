@@ -1,0 +1,9 @@
+{
+  "_meta": {
+    "description": "DEPRECATED — All spells from this file have been merged into adnd2e_spells_wizard.json as of 2026-04-02.",
+    "note": "This file is retained for reference only. The authoritative source is adnd2e_spells_wizard.json.",
+    "merged_into": "adnd2e_spells_wizard.json",
+    "version": "2.0"
+  },
+  "spells": {}
+}

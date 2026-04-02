@@ -1,0 +1,112 @@
+{
+  "_meta": {
+    "system": "Advanced Dungeons & Dragons 2nd Edition",
+    "source": "Player's Handbook (2nd Edition)",
+    "description": "Complete weapon tables (melee and missile), armor types with AC values, and shield/encumbrance data",
+    "version": "1.0"
+  },
+  "weapon_notes": {
+    "damage_sm": "Damage vs. Small and Medium creatures",
+    "damage_l": "Damage vs. Large creatures",
+    "speed_factor": "Weapon speed; lower is faster. Used for initiative modifiers (optional) and determining who strikes first when both attackers hit simultaneously.",
+    "type": "S=Slashing, P=Piercing, B=Bludgeoning",
+    "size": "S=Small, M=Medium, L=Large",
+    "weight": "Weight in pounds",
+    "space_required": "Minimum feet of space needed to swing weapon effectively",
+    "cost": "In gold pieces (gp)"
+  },
+  "melee_weapons": [
+    {"name": "Battle Axe",        "damage_sm": "1d8",    "damage_l": "1d8",    "speed": 7,  "type": "S",   "size": "M", "weight": 7,   "space": 4,  "cost": 5,   "notes": ""},
+    {"name": "Hand Axe",          "damage_sm": "1d6",    "damage_l": "1d4",    "speed": 4,  "type": "S",   "size": "M", "weight": 5,   "space": 2,  "cost": 1,   "notes": "Can be thrown; range 10/20/30"},
+    {"name": "Club",              "damage_sm": "1d6",    "damage_l": "1d3",    "speed": 4,  "type": "B",   "size": "M", "weight": 3,   "space": 3,  "cost": 0,   "notes": ""},
+    {"name": "Dagger",            "damage_sm": "1d4",    "damage_l": "1d3",    "speed": 2,  "type": "P/S", "size": "S", "weight": 1,   "space": 1,  "cost": 2,   "notes": "Can be thrown; range 10/20/30"},
+    {"name": "Dart",              "damage_sm": "1d3",    "damage_l": "1d2",    "speed": 2,  "type": "P",   "size": "S", "weight": 0.5, "space": 1,  "cost": 0.5, "notes": "Thrown weapon; range 15/30/45"},
+    {"name": "Flail (footman's)", "damage_sm": "1d6+1",  "damage_l": "2d4",    "speed": 7,  "type": "B",   "size": "M", "weight": 15,  "space": 5,  "cost": 2,   "notes": "Ignores shield AC bonus"},
+    {"name": "Flail (horseman's)","damage_sm": "1d4+1",  "damage_l": "1d4+1",  "speed": 6,  "type": "B",   "size": "M", "weight": 5,   "space": 5,  "cost": 8,   "notes": ""},
+    {"name": "Halberd",           "damage_sm": "1d10",   "damage_l": "2d6",    "speed": 9,  "type": "P/S", "size": "L", "weight": 17,  "space": 6,  "cost": 10,  "notes": "Two-handed; can set vs. charge"},
+    {"name": "Hammer (war)",      "damage_sm": "1d4+1",  "damage_l": "1d4",    "speed": 4,  "type": "B",   "size": "M", "weight": 5,   "space": 3,  "cost": 2,   "notes": "Can be thrown; range 10/20/30"},
+    {"name": "Javelin",           "damage_sm": "1d6",    "damage_l": "1d6",    "speed": 4,  "type": "P",   "size": "M", "weight": 2,   "space": 3,  "cost": 0.5, "notes": "Thrown; range 20/40/60"},
+    {"name": "Knife",             "damage_sm": "1d3",    "damage_l": "1d2",    "speed": 2,  "type": "P/S", "size": "S", "weight": 0.5, "space": 1,  "cost": 0.5, "notes": "Can be thrown; range 10/20/30"},
+    {"name": "Lance (heavy)",     "damage_sm": "1d8+1",  "damage_l": "3d6",    "speed": 8,  "type": "P",   "size": "L", "weight": 15,  "space": 10, "cost": 6,   "notes": "Mounted use; x2 damage on charge"},
+    {"name": "Lance (light)",     "damage_sm": "1d6",    "damage_l": "1d8",    "speed": 6,  "type": "P",   "size": "L", "weight": 5,   "space": 10, "cost": 6,   "notes": "Mounted use"},
+    {"name": "Lance (medium)",    "damage_sm": "1d6+1",  "damage_l": "2d6",    "speed": 7,  "type": "P",   "size": "L", "weight": 10,  "space": 10, "cost": 6,   "notes": "Mounted use"},
+    {"name": "Mace (footman's)",  "damage_sm": "1d6+1",  "damage_l": "1d6",    "speed": 7,  "type": "B",   "size": "M", "weight": 10,  "space": 3,  "cost": 8,   "notes": ""},
+    {"name": "Mace (horseman's)", "damage_sm": "1d6",    "damage_l": "1d4",    "speed": 6,  "type": "B",   "size": "M", "weight": 8,   "space": 3,  "cost": 5,   "notes": ""},
+    {"name": "Morning Star",      "damage_sm": "2d4",    "damage_l": "1d6+1",  "speed": 7,  "type": "B/P", "size": "M", "weight": 12,  "space": 4,  "cost": 5,   "notes": ""},
+    {"name": "Pick (footman's)",  "damage_sm": "1d6+1",  "damage_l": "2d4",    "speed": 7,  "type": "P",   "size": "M", "weight": 8,   "space": 4,  "cost": 8,   "notes": ""},
+    {"name": "Pick (horseman's)", "damage_sm": "1d4+1",  "damage_l": "1d4",    "speed": 5,  "type": "P",   "size": "M", "weight": 6,   "space": 4,  "cost": 8,   "notes": ""},
+    {"name": "Pike",              "damage_sm": "1d6",    "damage_l": "1d12",   "speed": 13, "type": "P",   "size": "L", "weight": 18,  "space": 10, "cost": 5,   "notes": "Two-handed; set vs. charge"},
+    {"name": "Quarterstaff",      "damage_sm": "1d6",    "damage_l": "1d6",    "speed": 4,  "type": "B",   "size": "L", "weight": 4,   "space": 5,  "cost": 0,   "notes": "Two-handed"},
+    {"name": "Scimitar",          "damage_sm": "1d8",    "damage_l": "1d8",    "speed": 5,  "type": "S",   "size": "M", "weight": 4,   "space": 4,  "cost": 15,  "notes": ""},
+    {"name": "Sickle",            "damage_sm": "1d4+1",  "damage_l": "1d4",    "speed": 4,  "type": "S",   "size": "S", "weight": 3,   "space": 2,  "cost": 0.5, "notes": ""},
+    {"name": "Spear",             "damage_sm": "1d6",    "damage_l": "1d8",    "speed": 6,  "type": "P",   "size": "M", "weight": 5,   "space": 6,  "cost": 1,   "notes": "Can be thrown (range 10/20/30); can be set vs. charge"},
+    {"name": "Sword (bastard)",   "damage_sm": "1d8",    "damage_l": "1d12",   "speed": 6,  "type": "S",   "size": "M", "weight": 10,  "space": 5,  "cost": 25,  "notes": "Can be used one- or two-handed"},
+    {"name": "Sword (broad)",     "damage_sm": "2d4",    "damage_l": "2d4",    "speed": 5,  "type": "S",   "size": "M", "weight": 7.5, "space": 4,  "cost": 10,  "notes": ""},
+    {"name": "Sword (long)",      "damage_sm": "1d8",    "damage_l": "1d12",   "speed": 5,  "type": "S",   "size": "M", "weight": 4,   "space": 4,  "cost": 15,  "notes": ""},
+    {"name": "Sword (short)",     "damage_sm": "1d6",    "damage_l": "1d8",    "speed": 3,  "type": "P/S", "size": "S", "weight": 3,   "space": 2,  "cost": 10,  "notes": ""},
+    {"name": "Sword (two-handed)","damage_sm": "1d10",   "damage_l": "3d6",    "speed": 10, "type": "S",   "size": "L", "weight": 15,  "space": 8,  "cost": 50,  "notes": "Two-handed; cannot use shield"},
+    {"name": "Trident",           "damage_sm": "1d6+1",  "damage_l": "3d4",    "speed": 7,  "type": "P",   "size": "L", "weight": 5,   "space": 6,  "cost": 4,   "notes": "Can be thrown; range 10/20/30"},
+    {"name": "Whip",              "damage_sm": "1d2",    "damage_l": "1d2",    "speed": 8,  "type": "B",   "size": "M", "weight": 2,   "space": 8,  "cost": 1,   "notes": "Reach 10 ft; can entangle on a natural 20"}
+  ],
+  "missile_weapons": [
+    {"name": "Arquebus",          "damage_sm": "1d10",   "damage_l": "1d10",   "speed": 15, "type": "P",   "size": "M", "weight": 10,  "range_s": 50, "range_m": 150,"range_l": 210, "cost": 200, "notes": "Two-handed; 1 round to reload; misfire on 1"},
+    {"name": "Blowgun",           "damage_sm": "1",      "damage_l": "1",      "speed": 5,  "type": "P",   "size": "S", "weight": 1,   "range_s": 10, "range_m": 20, "range_l": 30,  "cost": 5,   "notes": "Often used with poison"},
+    {"name": "Bow (long)",        "damage_sm": "1d8",    "damage_l": "1d8",    "speed": 8,  "type": "P",   "size": "L", "weight": 3,   "range_s": 70, "range_m": 140,"range_l": 210, "cost": 75,  "notes": "Two-handed; requires STR for composite version"},
+    {"name": "Bow (short)",       "damage_sm": "1d6",    "damage_l": "1d6",    "speed": 7,  "type": "P",   "size": "M", "weight": 2,   "range_s": 50, "range_m": 100,"range_l": 150, "cost": 30,  "notes": "Two-handed"},
+    {"name": "Bow (composite long)","damage_sm":"1d8",   "damage_l": "1d8",    "speed": 7,  "type": "P",   "size": "L", "weight": 3,   "range_s": 60, "range_m": 120,"range_l": 180, "cost": 100, "notes": "Two-handed; STR bonus applies to damage"},
+    {"name": "Bow (composite short)","damage_sm":"1d6",  "damage_l": "1d6",    "speed": 6,  "type": "P",   "size": "M", "weight": 2,   "range_s": 50, "range_m": 100,"range_l": 150, "cost": 75,  "notes": "Two-handed; STR bonus applies to damage"},
+    {"name": "Crossbow (heavy)",  "damage_sm": "1d8+1",  "damage_l": "2d6",    "speed": 10, "type": "P",   "size": "M", "weight": 14,  "range_s": 80, "range_m": 160,"range_l": 240, "cost": 50,  "notes": "Two-handed; 2 rounds to reload"},
+    {"name": "Crossbow (light)",  "damage_sm": "1d4",    "damage_l": "1d4",    "speed": 5,  "type": "P",   "size": "S", "weight": 7,   "range_s": 60, "range_m": 120,"range_l": 180, "cost": 35,  "notes": "Two-handed; 1 round to reload"},
+    {"name": "Crossbow (hand)",   "damage_sm": "1d3",    "damage_l": "1d2",    "speed": 5,  "type": "P",   "size": "S", "weight": 3,   "range_s": 20, "range_m": 40, "range_l": 60,  "cost": 300, "notes": "One-handed; 1 round to reload"},
+    {"name": "Sling",             "damage_sm": "1d4+1",  "damage_l": "1d6+1",  "speed": 6,  "type": "B",   "size": "S", "weight": 0,   "range_s": 50, "range_m": 100,"range_l": 200, "cost": 0,   "notes": "Bullets or stones; STR bonus applies"},
+    {"name": "Sling Staff (staff sling)","damage_sm":"1d6","damage_l":"1d6",   "speed": 7,  "type": "B",   "size": "M", "weight": 2,   "range_s": 80, "range_m": 160,"range_l": 240, "cost": 5,   "notes": "Two-handed"}
+  ],
+  "ammunition": [
+    {"type": "Arrows (20)",         "weight": 2,   "cost": 2},
+    {"type": "Bolts, crossbow (20)","weight": 5,   "cost": 2},
+    {"type": "Bullets, sling (10)", "weight": 5,   "cost": 0.1},
+    {"type": "Darts (6)",           "weight": 1,   "cost": 0.5}
+  ],
+  "armor": [
+    {"name": "No Armor",         "ac": 10, "weight": 0,   "movement": 12, "cost": 0,    "notes": ""},
+    {"name": "Shield only",      "ac": 9,  "weight": 5,   "movement": 12, "cost": 10,   "notes": "Shield provides additional -1 AC bonus; listed AC is base"},
+    {"name": "Leather Armor",    "ac": 8,  "weight": 15,  "movement": 12, "cost": 5,    "notes": "Non-metal; thieves may use"},
+    {"name": "Padded Armor",     "ac": 8,  "weight": 10,  "movement": 9,  "cost": 4,    "notes": "Bulky; imposes -1 to thief skills"},
+    {"name": "Studded Leather",  "ac": 7,  "weight": 25,  "movement": 12, "cost": 20,   "notes": "Reinforced leather"},
+    {"name": "Ring Mail",        "ac": 7,  "weight": 30,  "movement": 9,  "cost": 30,   "notes": "Metal rings stitched to backing"},
+    {"name": "Scale Mail",       "ac": 6,  "weight": 40,  "movement": 6,  "cost": 45,   "notes": "Overlapping scales"},
+    {"name": "Chain Mail",       "ac": 5,  "weight": 40,  "movement": 9,  "cost": 75,   "notes": "Interlocking rings"},
+    {"name": "Splint Mail",      "ac": 4,  "weight": 40,  "movement": 9,  "cost": 80,   "notes": "Metal strips on backing"},
+    {"name": "Banded Mail",      "ac": 4,  "weight": 35,  "movement": 9,  "cost": 90,   "notes": "Overlapping bands"},
+    {"name": "Plate Mail",       "ac": 3,  "weight": 50,  "movement": 9,  "cost": 400,  "notes": "Full metal plate; requires custom fitting"},
+    {"name": "Field Plate",      "ac": 2,  "weight": 60,  "movement": 6,  "cost": 2000, "notes": "Superior plate armor; custom crafted"},
+    {"name": "Full Plate",       "ac": 1,  "weight": 70,  "movement": 6,  "cost": 10000,"notes": "The finest armor; requires master craftsman"},
+    {"name": "Elven Chain Mail", "ac": 5,  "weight": 15,  "movement": 12, "cost": "rare","notes": "Light as leather; thieves may use; allows move silently"}
+  ],
+  "shields": [
+    {"name": "Buckler",        "ac_bonus": 1, "weight": 3,  "cost": 1,  "notes": "Small; minimal protection but easy to carry"},
+    {"name": "Small Shield",   "ac_bonus": 1, "weight": 5,  "cost": 3,  "notes": "Standard small shield"},
+    {"name": "Medium Shield",  "ac_bonus": 1, "weight": 10, "cost": 7,  "notes": "Common shield type"},
+    {"name": "Large Shield",   "ac_bonus": 1, "weight": 15, "cost": 10, "notes": "Tower shield; may provide cover"},
+    {"name": "Body Shield",    "ac_bonus": 1, "weight": 20, "cost": 20, "notes": "Full-body cover; awkward"}
+  ],
+  "ac_notes": {
+    "shield_bonus": "A shield typically provides -1 to AC (better by 1); some large shields may provide -2",
+    "dex_bonus": "DEX defensive adjustment modifies AC directly",
+    "magic_items": "Magic armor provides additional AC bonus (e.g., Leather +1 = AC 7)",
+    "natural_armor": "Some creatures have natural armor class due to thick hide or magical nature",
+    "ac_vs_specific_attacks": "Certain attacks or weapons may ignore shield bonus or have other modifiers (see combat optional rules)"
+  },
+  "encumbrance": {
+    "description": "The weight of carried items affects movement rate",
+    "categories": [
+      {"name": "Unencumbered",    "weight_lbs": "0–35",    "movement": 12, "notes": "Normal movement"},
+      {"name": "Light burden",    "weight_lbs": "36–60",   "movement": 9,  "notes": ""},
+      {"name": "Moderate burden", "weight_lbs": "61–90",   "movement": 6,  "notes": ""},
+      {"name": "Heavy burden",    "weight_lbs": "91–120",  "movement": 3,  "notes": ""},
+      {"name": "Severe burden",   "weight_lbs": "121–150", "movement": 1,  "notes": "Greatly slowed"},
+      {"name": "Max burden",      "weight_lbs": "151+",    "movement": 0,  "notes": "Cannot move; limited by STR weight allowance"}
+    ],
+    "notes": "STR weight allowance determines how much a character can carry without penalty. Dwarves and halflings have lower base movement but suffer encumbrance effects at same thresholds."
+  }
+}

@@ -1,0 +1,684 @@
+{
+  "_meta": {
+    "system": "Advanced Dungeons & Dragons 2nd Edition",
+    "source": "Player's Handbook (2nd Edition)",
+    "description": "All core character classes with requirements, THAC0 progression, saving throws, XP tables, and special abilities",
+    "version": "1.0"
+  },
+  "class_groups": {
+    "warrior": ["Fighter", "Paladin", "Ranger"],
+    "wizard": ["Mage", "Abjurer", "Conjurer", "Diviner", "Enchanter", "Illusionist", "Invoker", "Necromancer", "Transmuter"],
+    "priest": ["Cleric", "Druid"],
+    "rogue": ["Thief", "Bard"]
+  },
+  "thac0_by_group": {
+    "description": "THAC0 = 'To Hit Armor Class 0'. Lower is better. Subtract AC from THAC0 to get the d20 roll needed.",
+    "warrior": {
+      "formula": "THAC0 = 21 - level (minimum 1 at level 20)",
+      "table": [
+        {"level": 1, "thac0": 20}, {"level": 2, "thac0": 19}, {"level": 3, "thac0": 18},
+        {"level": 4, "thac0": 17}, {"level": 5, "thac0": 16}, {"level": 6, "thac0": 15},
+        {"level": 7, "thac0": 14}, {"level": 8, "thac0": 13}, {"level": 9, "thac0": 12},
+        {"level": 10,"thac0": 11}, {"level": 11,"thac0": 10}, {"level": 12,"thac0": 9},
+        {"level": 13,"thac0": 8},  {"level": 14,"thac0": 7},  {"level": 15,"thac0": 6},
+        {"level": 16,"thac0": 5},  {"level": 17,"thac0": 4},  {"level": 18,"thac0": 3},
+        {"level": 19,"thac0": 2},  {"level": 20,"thac0": 1}
+      ]
+    },
+    "priest": {
+      "formula": "Improves 2 points every 3 levels",
+      "table": [
+        {"level": 1, "thac0": 20}, {"level": 2, "thac0": 20}, {"level": 3, "thac0": 18},
+        {"level": 4, "thac0": 18}, {"level": 5, "thac0": 18}, {"level": 6, "thac0": 16},
+        {"level": 7, "thac0": 16}, {"level": 8, "thac0": 16}, {"level": 9, "thac0": 14},
+        {"level": 10,"thac0": 14}, {"level": 11,"thac0": 14}, {"level": 12,"thac0": 12},
+        {"level": 13,"thac0": 12}, {"level": 14,"thac0": 12}, {"level": 15,"thac0": 10},
+        {"level": 16,"thac0": 10}, {"level": 17,"thac0": 10}, {"level": 18,"thac0": 8},
+        {"level": 19,"thac0": 8},  {"level": 20,"thac0": 8}
+      ]
+    },
+    "rogue": {
+      "formula": "Improves 1 point every 2 levels",
+      "table": [
+        {"level": 1, "thac0": 20}, {"level": 2, "thac0": 20}, {"level": 3, "thac0": 19},
+        {"level": 4, "thac0": 19}, {"level": 5, "thac0": 18}, {"level": 6, "thac0": 18},
+        {"level": 7, "thac0": 17}, {"level": 8, "thac0": 17}, {"level": 9, "thac0": 16},
+        {"level": 10,"thac0": 16}, {"level": 11,"thac0": 15}, {"level": 12,"thac0": 15},
+        {"level": 13,"thac0": 14}, {"level": 14,"thac0": 14}, {"level": 15,"thac0": 13},
+        {"level": 16,"thac0": 13}, {"level": 17,"thac0": 12}, {"level": 18,"thac0": 12},
+        {"level": 19,"thac0": 11}, {"level": 20,"thac0": 11}
+      ]
+    },
+    "wizard": {
+      "formula": "Improves 1 point every 3 levels",
+      "table": [
+        {"level": 1, "thac0": 20}, {"level": 2, "thac0": 20}, {"level": 3, "thac0": 20},
+        {"level": 4, "thac0": 19}, {"level": 5, "thac0": 19}, {"level": 6, "thac0": 19},
+        {"level": 7, "thac0": 18}, {"level": 8, "thac0": 18}, {"level": 9, "thac0": 18},
+        {"level": 10,"thac0": 17}, {"level": 11,"thac0": 17}, {"level": 12,"thac0": 17},
+        {"level": 13,"thac0": 16}, {"level": 14,"thac0": 16}, {"level": 15,"thac0": 16},
+        {"level": 16,"thac0": 15}, {"level": 17,"thac0": 15}, {"level": 18,"thac0": 15},
+        {"level": 19,"thac0": 14}, {"level": 20,"thac0": 14}
+      ]
+    }
+  },
+  "saving_throws": {
+    "categories": [
+      "Paralyzation/Poison/Death Magic",
+      "Rod/Staff/Wand",
+      "Petrification/Polymorph",
+      "Breath Weapon",
+      "Spell"
+    ],
+    "by_class": {
+      "fighter": [
+        {"levels": "1–2",   "para_poison_death": 14, "rod_staff_wand": 16, "petrify_poly": 15, "breath": 17, "spell": 17},
+        {"levels": "3–4",   "para_poison_death": 13, "rod_staff_wand": 15, "petrify_poly": 14, "breath": 16, "spell": 16},
+        {"levels": "5–6",   "para_poison_death": 11, "rod_staff_wand": 13, "petrify_poly": 12, "breath": 13, "spell": 14},
+        {"levels": "7–8",   "para_poison_death": 10, "rod_staff_wand": 12, "petrify_poly": 11, "breath": 12, "spell": 13},
+        {"levels": "9–10",  "para_poison_death": 8,  "rod_staff_wand": 10, "petrify_poly": 9,  "breath": 9,  "spell": 11},
+        {"levels": "11–12", "para_poison_death": 7,  "rod_staff_wand": 9,  "petrify_poly": 8,  "breath": 8,  "spell": 10},
+        {"levels": "13–14", "para_poison_death": 5,  "rod_staff_wand": 7,  "petrify_poly": 6,  "breath": 5,  "spell": 8},
+        {"levels": "15–16", "para_poison_death": 4,  "rod_staff_wand": 6,  "petrify_poly": 5,  "breath": 4,  "spell": 7},
+        {"levels": "17+",   "para_poison_death": 3,  "rod_staff_wand": 5,  "petrify_poly": 4,  "breath": 4,  "spell": 6}
+      ],
+      "paladin": "Same as Fighter",
+      "ranger": "Same as Fighter",
+      "cleric": [
+        {"levels": "1–3",   "para_poison_death": 10, "rod_staff_wand": 14, "petrify_poly": 13, "breath": 16, "spell": 15},
+        {"levels": "4–6",   "para_poison_death": 9,  "rod_staff_wand": 13, "petrify_poly": 12, "breath": 15, "spell": 14},
+        {"levels": "7–9",   "para_poison_death": 7,  "rod_staff_wand": 11, "petrify_poly": 10, "breath": 13, "spell": 12},
+        {"levels": "10–12", "para_poison_death": 6,  "rod_staff_wand": 10, "petrify_poly": 9,  "breath": 12, "spell": 11},
+        {"levels": "13–15", "para_poison_death": 5,  "rod_staff_wand": 9,  "petrify_poly": 8,  "breath": 11, "spell": 10},
+        {"levels": "16–18", "para_poison_death": 4,  "rod_staff_wand": 8,  "petrify_poly": 7,  "breath": 10, "spell": 9},
+        {"levels": "19+",   "para_poison_death": 2,  "rod_staff_wand": 6,  "petrify_poly": 5,  "breath": 8,  "spell": 7}
+      ],
+      "druid": [
+        {"levels": "1–3",   "para_poison_death": 10, "rod_staff_wand": 14, "petrify_poly": 13, "breath": 16, "spell": 15},
+        {"levels": "4–6",   "para_poison_death": 9,  "rod_staff_wand": 13, "petrify_poly": 12, "breath": 15, "spell": 14},
+        {"levels": "7–9",   "para_poison_death": 7,  "rod_staff_wand": 11, "petrify_poly": 10, "breath": 13, "spell": 12},
+        {"levels": "10–12", "para_poison_death": 6,  "rod_staff_wand": 10, "petrify_poly": 9,  "breath": 12, "spell": 11},
+        {"levels": "13–15", "para_poison_death": 5,  "rod_staff_wand": 9,  "petrify_poly": 8,  "breath": 11, "spell": 10},
+        {"levels": "16+",   "para_poison_death": 4,  "rod_staff_wand": 8,  "petrify_poly": 7,  "breath": 10, "spell": 9}
+      ],
+      "mage": [
+        {"levels": "1–5",   "para_poison_death": 14, "rod_staff_wand": 11, "petrify_poly": 13, "breath": 15, "spell": 12},
+        {"levels": "6–10",  "para_poison_death": 13, "rod_staff_wand": 9,  "petrify_poly": 11, "breath": 13, "spell": 10},
+        {"levels": "11–15", "para_poison_death": 11, "rod_staff_wand": 7,  "petrify_poly": 9,  "breath": 11, "spell": 8},
+        {"levels": "16–20", "para_poison_death": 10, "rod_staff_wand": 5,  "petrify_poly": 7,  "breath": 9,  "spell": 6},
+        {"levels": "21+",   "para_poison_death": 8,  "rod_staff_wand": 3,  "petrify_poly": 5,  "breath": 7,  "spell": 4}
+      ],
+      "thief": [
+        {"levels": "1–4",   "para_poison_death": 13, "rod_staff_wand": 14, "petrify_poly": 12, "breath": 16, "spell": 15},
+        {"levels": "5–8",   "para_poison_death": 12, "rod_staff_wand": 12, "petrify_poly": 11, "breath": 15, "spell": 13},
+        {"levels": "9–12",  "para_poison_death": 11, "rod_staff_wand": 10, "petrify_poly": 10, "breath": 14, "spell": 11},
+        {"levels": "13–16", "para_poison_death": 10, "rod_staff_wand": 8,  "petrify_poly": 9,  "breath": 13, "spell": 9},
+        {"levels": "17–20", "para_poison_death": 9,  "rod_staff_wand": 6,  "petrify_poly": 8,  "breath": 12, "spell": 7},
+        {"levels": "21+",   "para_poison_death": 8,  "rod_staff_wand": 4,  "petrify_poly": 7,  "breath": 11, "spell": 5}
+      ],
+      "bard": "Same as Thief"
+    }
+  },
+  "classes": [
+    {
+      "id": "fighter",
+      "name": "Fighter",
+      "group": "Warrior",
+      "description": "Masters of physical combat, fighters are trained in all forms of warfare and weaponry.",
+      "prime_requisite": "Strength",
+      "alignment": "Any",
+      "ability_requirements": {"STR": 9},
+      "hit_die": "d10",
+      "hit_die_max_level": 9,
+      "hp_per_level_after_9": 3,
+      "allowed_armor": "All armor, shields",
+      "allowed_weapons": "All weapons",
+      "weapon_proficiencies": {"initial": 4, "gain_every_levels": 3},
+      "nonproficiency_penalty": -2,
+      "nonweapon_proficiencies": {"initial": 3, "gain_every_levels": 3},
+      "thac0_group": "warrior",
+      "saving_throw_group": "fighter",
+      "xp_table": [
+        {"level": 1, "xp": 0,      "title": "Warrior"},
+        {"level": 2, "xp": 2000,   "title": "Warrior"},
+        {"level": 3, "xp": 4000,   "title": "Warrior"},
+        {"level": 4, "xp": 8000,   "title": "Warrior"},
+        {"level": 5, "xp": 16000,  "title": "Warrior"},
+        {"level": 6, "xp": 32000,  "title": "Warrior"},
+        {"level": 7, "xp": 64000,  "title": "Warrior"},
+        {"level": 8, "xp": 125000, "title": "Warrior"},
+        {"level": 9, "xp": 250000, "title": "Lord/Lady"},
+        {"level": 10,"xp": 500000, "title": "Lord/Lady (10th)"},
+        {"level": 11,"xp": 750000, "title": ""},
+        {"level": 12,"xp": 1000000,"title": ""},
+        {"level": 13,"xp": 1250000,"title": ""}
+      ],
+      "xp_per_level_after_9": 250000,
+      "special_abilities": [
+        "Weapon specialization (optional rule): spend 2 proficiency slots in one weapon for +1 to hit, +2 damage, and additional attacks per round",
+        "Multiple attacks per round: 3/2 attacks at 7th level, 2/1 at 13th level (with specialization: 3/2 at 1st, 2/1 at 7th, 5/2 at 13th)",
+        "Followers: at 9th level (Lord/Lady) attracts 1d6 fighters of 1st–3rd level if stronghold established",
+        "Can use any magical weapon or armor"
+      ],
+      "stronghold": "Can build a stronghold at 9th level; attracts followers",
+      "notes": "Fighters have the best THAC0 progression and hit dice in the game."
+    },
+    {
+      "id": "paladin",
+      "name": "Paladin",
+      "group": "Warrior",
+      "description": "Holy warriors devoted to law and good, paladins combine fighting prowess with divine gifts.",
+      "prime_requisite": "Strength",
+      "alignment": "Lawful Good only",
+      "ability_requirements": {"STR": 12, "CON": 9, "WIS": 13, "CHA": 17},
+      "hit_die": "d10",
+      "hit_die_max_level": 9,
+      "hp_per_level_after_9": 3,
+      "allowed_armor": "All armor, shields",
+      "allowed_weapons": "All weapons",
+      "weapon_proficiencies": {"initial": 3, "gain_every_levels": 3},
+      "nonproficiency_penalty": -2,
+      "nonweapon_proficiencies": {"initial": 3, "gain_every_levels": 3},
+      "thac0_group": "warrior",
+      "saving_throw_group": "fighter",
+      "xp_table": [
+        {"level": 1, "xp": 0,      "title": "Gallant"},
+        {"level": 2, "xp": 2750,   "title": "Keeper"},
+        {"level": 3, "xp": 5500,   "title": "Protector"},
+        {"level": 4, "xp": 12000,  "title": "Defender"},
+        {"level": 5, "xp": 24000,  "title": "Warder"},
+        {"level": 6, "xp": 45000,  "title": "Guardian"},
+        {"level": 7, "xp": 95000,  "title": "Chevalier"},
+        {"level": 8, "xp": 175000, "title": "Justiciar"},
+        {"level": 9, "xp": 350000, "title": "Paladin"}
+      ],
+      "xp_per_level_after_9": 350000,
+      "special_abilities": [
+        "Detect evil: at will, within 60 ft",
+        "Protection from Evil: constant 10 ft radius aura",
+        "Lay on hands: heals 2 HP per paladin level, once per day",
+        "Immune to all forms of disease",
+        "Saving throw bonus: +2 to all saving throws",
+        "Turn undead: as a cleric of 2 levels lower",
+        "Cure disease: once per week per 5 levels",
+        "Warhorse: can call a special heavy warhorse at 4th level",
+        "Spells: cast priest spells beginning at 9th level (as a 1st-level priest spell access, gains higher levels as levels rise)",
+        "Holy sword: can use a holy avenger sword if one is found",
+        "Followers: attracts paladins, but cannot have more than 4 followers at any time",
+        "Must tithe 10% of all income to their religious order",
+        "Cannot retain more wealth than needed for upkeep",
+        "Must leave a party that becomes evil or neutral"
+      ],
+      "restrictions": [
+        "Must remain Lawful Good or lose all paladin abilities",
+        "Cannot have more than 10 magic items at once",
+        "Must donate wealth beyond personal needs to charity",
+        "May not use hirelings or henchmen except when on a specific quest"
+      ],
+      "notes": "Paladins receive no racial restrictions but must be human."
+    },
+    {
+      "id": "ranger",
+      "name": "Ranger",
+      "group": "Warrior",
+      "description": "Skilled hunters and trackers, rangers protect the wilderness and fight evil humanoids.",
+      "prime_requisite": "Strength",
+      "alignment": "Good (any)",
+      "ability_requirements": {"STR": 13, "DEX": 13, "CON": 14, "WIS": 14},
+      "hit_die": "d10",
+      "hit_die_max_level": 10,
+      "hp_per_level_after_10": 2,
+      "allowed_armor": "Up to chain mail (no plate), shields allowed",
+      "allowed_weapons": "All weapons",
+      "weapon_proficiencies": {"initial": 4, "gain_every_levels": 3},
+      "nonproficiency_penalty": -2,
+      "nonweapon_proficiencies": {"initial": 3, "gain_every_levels": 3},
+      "thac0_group": "warrior",
+      "saving_throw_group": "fighter",
+      "xp_table": [
+        {"level": 1, "xp": 0,      "title": "Runner"},
+        {"level": 2, "xp": 2250,   "title": "Strider"},
+        {"level": 3, "xp": 4500,   "title": "Scout"},
+        {"level": 4, "xp": 10000,  "title": "Courser"},
+        {"level": 5, "xp": 20000,  "title": "Tracker"},
+        {"level": 6, "xp": 40000,  "title": "Guide"},
+        {"level": 7, "xp": 90000,  "title": "Pathfinder"},
+        {"level": 8, "xp": 150000, "title": "Ranger"},
+        {"level": 9, "xp": 225000, "title": "Ranger Knight"},
+        {"level": 10,"xp": 325000, "title": "Ranger Lord/Lady"}
+      ],
+      "xp_per_level_after_10": 650000,
+      "special_abilities": [
+        "Tracking proficiency (free): can track creatures with d6 roll modified by conditions",
+        "Move silently (as thief): at a base percentage based on level",
+        "Hide in shadows (as thief): at a base percentage based on level",
+        "Favored enemy: +4 to hit and damage vs. chosen humanoid species",
+        "Animal friendship: rangers attract 2d6 animals as followers at higher levels",
+        "Spells: cast wizard and priest spells beginning at 8th level (limited)",
+        "Lone ranger: -10% XP penalty if leading more than 3 people",
+        "Cannot own a stronghold until 9th level; must remain itinerant",
+        "Two-weapon fighting: can fight with a weapon in each hand with no penalty (reduces off-hand penalty)"
+      ],
+      "restrictions": [
+        "Must remain Good alignment",
+        "Cannot have more than 3 followers before 9th level",
+        "Must spend at least part of the time in wilderness"
+      ],
+      "notes": "Rangers gain 2 HP per level (d10) for 10 levels instead of 9."
+    },
+    {
+      "id": "mage",
+      "name": "Mage",
+      "group": "Wizard",
+      "description": "Scholars of arcane magic, mages study a wide variety of spells from all schools.",
+      "prime_requisite": "Intelligence",
+      "alignment": "Any",
+      "ability_requirements": {"INT": 9},
+      "hit_die": "d4",
+      "hit_die_max_level": 10,
+      "hp_per_level_after_10": 1,
+      "allowed_armor": "None",
+      "allowed_weapons": "Dagger, staff, dart, knife, sling",
+      "weapon_proficiencies": {"initial": 1, "gain_every_levels": 6},
+      "nonproficiency_penalty": -5,
+      "nonweapon_proficiencies": {"initial": 4, "gain_every_levels": 3},
+      "thac0_group": "wizard",
+      "saving_throw_group": "mage",
+      "spells_per_day": {
+        "description": "Mages memorize spells each day from their spellbook",
+        "table": [
+          {"level": 1,  "1st": 1, "2nd": 0, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 2,  "1st": 2, "2nd": 0, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 3,  "1st": 2, "2nd": 1, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 4,  "1st": 3, "2nd": 2, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 5,  "1st": 4, "2nd": 2, "3rd": 1, "4th": 0, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 6,  "1st": 4, "2nd": 2, "3rd": 2, "4th": 0, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 7,  "1st": 4, "2nd": 3, "3rd": 2, "4th": 1, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 8,  "1st": 4, "2nd": 3, "3rd": 3, "4th": 2, "5th": 0, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 9,  "1st": 4, "2nd": 3, "3rd": 3, "4th": 2, "5th": 1, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 10, "1st": 4, "2nd": 4, "3rd": 3, "4th": 2, "5th": 2, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 11, "1st": 4, "2nd": 4, "3rd": 4, "4th": 3, "5th": 3, "6th": 0, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 12, "1st": 4, "2nd": 4, "3rd": 4, "4th": 4, "5th": 4, "6th": 1, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 13, "1st": 5, "2nd": 5, "3rd": 5, "4th": 4, "5th": 4, "6th": 2, "7th": 0, "8th": 0, "9th": 0},
+          {"level": 14, "1st": 5, "2nd": 5, "3rd": 5, "4th": 4, "5th": 4, "6th": 2, "7th": 1, "8th": 0, "9th": 0},
+          {"level": 15, "1st": 5, "2nd": 5, "3rd": 5, "4th": 5, "5th": 5, "6th": 2, "7th": 1, "8th": 0, "9th": 0},
+          {"level": 16, "1st": 5, "2nd": 5, "3rd": 5, "4th": 5, "5th": 5, "6th": 3, "7th": 2, "8th": 1, "9th": 0},
+          {"level": 17, "1st": 5, "2nd": 5, "3rd": 5, "4th": 5, "5th": 5, "6th": 3, "7th": 3, "8th": 2, "9th": 1},
+          {"level": 18, "1st": 5, "2nd": 5, "3rd": 5, "4th": 5, "5th": 5, "6th": 3, "7th": 3, "8th": 2, "9th": 2},
+          {"level": 19, "1st": 5, "2nd": 5, "3rd": 5, "4th": 5, "5th": 5, "6th": 3, "7th": 3, "8th": 3, "9th": 3},
+          {"level": 20, "1st": 5, "2nd": 5, "3rd": 5, "4th": 5, "5th": 5, "6th": 4, "7th": 3, "8th": 3, "9th": 3}
+        ]
+      },
+      "xp_table": [
+        {"level": 1, "xp": 0,      "title": "Prestidigitator"},
+        {"level": 2, "xp": 2500,   "title": "Evoker"},
+        {"level": 3, "xp": 5000,   "title": "Conjurer"},
+        {"level": 4, "xp": 10000,  "title": "Theurgist"},
+        {"level": 5, "xp": 20000,  "title": "Thaumaturge"},
+        {"level": 6, "xp": 40000,  "title": "Magician"},
+        {"level": 7, "xp": 60000,  "title": "Enchanter"},
+        {"level": 8, "xp": 90000,  "title": "Warlock"},
+        {"level": 9, "xp": 135000, "title": "Sorcerer"},
+        {"level": 10,"xp": 250000, "title": "Necromancer"},
+        {"level": 11,"xp": 375000, "title": "Wizard"},
+        {"level": 12,"xp": 750000, "title": "Mage"}
+      ],
+      "xp_per_level_after_11": 375000,
+      "special_abilities": [
+        "Spellbook: starts with Read Magic + 3 other 1st-level spells; gains 2 spells per level automatically",
+        "Learn spell: roll vs. INT to add new spells found to spellbook",
+        "Research new spells",
+        "Scribe scrolls at any level",
+        "Brew potions at 7th level (requires Finding the Right Formula)",
+        "Create magic items at 11th level"
+      ],
+      "schools_available": "All schools (no specialist bonuses or restrictions)",
+      "notes": "Mages are the most versatile wizards. Specialist wizards gain extra spells per day but are barred from one or more opposed schools."
+    },
+    {
+      "id": "specialist_wizard",
+      "name": "Specialist Wizard",
+      "group": "Wizard",
+      "description": "Wizards who focus deeply on one school of magic, gaining extra power but forgoing forbidden schools.",
+      "specialists": [
+        {
+          "name": "Abjurer",
+          "school": "Abjuration",
+          "prime_requisite": "INT 9, WIS 15",
+          "barred_schools": ["Alteration", "Illusion/Phantasm"],
+          "bonus": "+1 spell per level from Abjuration school"
+        },
+        {
+          "name": "Conjurer",
+          "school": "Conjuration/Summoning",
+          "prime_requisite": "INT 9, CON 15",
+          "barred_schools": ["Greater Divination", "Invocation/Evocation"],
+          "bonus": "+1 spell per level from Conjuration school"
+        },
+        {
+          "name": "Diviner",
+          "school": "Divination",
+          "prime_requisite": "INT 9, WIS 16",
+          "barred_schools": ["Conjuration/Summoning"],
+          "bonus": "+1 spell per level from Divination school; only one barred school"
+        },
+        {
+          "name": "Enchanter",
+          "school": "Enchantment/Charm",
+          "prime_requisite": "INT 9, CHA 16",
+          "barred_schools": ["Invocation/Evocation", "Necromancy"],
+          "bonus": "+1 spell per level from Enchantment school"
+        },
+        {
+          "name": "Illusionist",
+          "school": "Illusion/Phantasm",
+          "prime_requisite": "INT 9, DEX 16",
+          "barred_schools": ["Necromancy", "Invocation/Evocation", "Abjuration"],
+          "bonus": "+1 spell per level from Illusion school"
+        },
+        {
+          "name": "Invoker",
+          "school": "Invocation/Evocation",
+          "prime_requisite": "INT 9, CON 16",
+          "barred_schools": ["Enchantment/Charm", "Conjuration/Summoning"],
+          "bonus": "+1 spell per level from Invocation school"
+        },
+        {
+          "name": "Necromancer",
+          "school": "Necromancy",
+          "prime_requisite": "INT 9, WIS 16",
+          "barred_schools": ["Enchantment/Charm", "Illusion/Phantasm"],
+          "bonus": "+1 spell per level from Necromancy school"
+        },
+        {
+          "name": "Transmuter",
+          "school": "Alteration",
+          "prime_requisite": "INT 9, DEX 15",
+          "barred_schools": ["Abjuration", "Necromancy"],
+          "bonus": "+1 spell per level from Alteration school"
+        }
+      ],
+      "notes": "Specialists use the same THAC0, saving throws, and spell tables as Mages, but with one bonus spell per day per level from their school, and reduced Learn Spell target numbers for their school."
+    },
+    {
+      "id": "cleric",
+      "name": "Cleric",
+      "group": "Priest",
+      "description": "Divine spellcasters who serve a deity, wielding blunt weapons and healing magic.",
+      "prime_requisite": "Wisdom",
+      "alignment": "Any",
+      "ability_requirements": {"WIS": 9},
+      "hit_die": "d8",
+      "hit_die_max_level": 9,
+      "hp_per_level_after_9": 2,
+      "allowed_armor": "All armor, shields",
+      "allowed_weapons": "Blunt weapons only (club, flail, hammer, mace, staff, etc.)",
+      "weapon_proficiencies": {"initial": 2, "gain_every_levels": 4},
+      "nonproficiency_penalty": -3,
+      "nonweapon_proficiencies": {"initial": 4, "gain_every_levels": 3},
+      "thac0_group": "priest",
+      "saving_throw_group": "cleric",
+      "spells_per_day": {
+        "description": "Clerics pray for spells daily; bonus spells granted for high WIS",
+        "table": [
+          {"level": 1,  "1st": 1, "2nd": 0, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 2,  "1st": 2, "2nd": 0, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 3,  "1st": 2, "2nd": 1, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 4,  "1st": 3, "2nd": 2, "3rd": 0, "4th": 0, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 5,  "1st": 3, "2nd": 3, "3rd": 1, "4th": 0, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 6,  "1st": 3, "2nd": 3, "3rd": 2, "4th": 0, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 7,  "1st": 3, "2nd": 3, "3rd": 2, "4th": 1, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 8,  "1st": 3, "2nd": 3, "3rd": 3, "4th": 2, "5th": 0, "6th": 0, "7th": 0},
+          {"level": 9,  "1st": 4, "2nd": 4, "3rd": 3, "4th": 2, "5th": 1, "6th": 0, "7th": 0},
+          {"level": 10, "1st": 4, "2nd": 4, "3rd": 3, "4th": 3, "5th": 2, "6th": 0, "7th": 0},
+          {"level": 11, "1st": 5, "2nd": 4, "3rd": 4, "4th": 3, "5th": 2, "6th": 1, "7th": 0},
+          {"level": 12, "1st": 6, "2nd": 5, "3rd": 5, "4th": 3, "5th": 2, "6th": 2, "7th": 0},
+          {"level": 13, "1st": 6, "2nd": 6, "3rd": 6, "4th": 4, "5th": 2, "6th": 2, "7th": 0},
+          {"level": 14, "1st": 6, "2nd": 6, "3rd": 6, "4th": 5, "5th": 3, "6th": 2, "7th": 1},
+          {"level": 15, "1st": 6, "2nd": 6, "3rd": 6, "4th": 6, "5th": 4, "6th": 2, "7th": 1},
+          {"level": 16, "1st": 7, "2nd": 7, "3rd": 7, "4th": 6, "5th": 4, "6th": 3, "7th": 2},
+          {"level": 17, "1st": 7, "2nd": 7, "3rd": 7, "4th": 7, "5th": 5, "6th": 3, "7th": 2},
+          {"level": 18, "1st": 8, "2nd": 8, "3rd": 8, "4th": 7, "5th": 6, "6th": 4, "7th": 3},
+          {"level": 19, "1st": 9, "2nd": 9, "3rd": 9, "4th": 8, "5th": 6, "6th": 4, "7th": 3},
+          {"level": 20, "1st": 9, "2nd": 9, "3rd": 9, "4th": 9, "5th": 7, "6th": 5, "7th": 4}
+        ]
+      },
+      "xp_table": [
+        {"level": 1, "xp": 0,      "title": "Acolyte"},
+        {"level": 2, "xp": 1500,   "title": "Adept"},
+        {"level": 3, "xp": 3000,   "title": "Priest"},
+        {"level": 4, "xp": 6000,   "title": "Curate"},
+        {"level": 5, "xp": 13000,  "title": "Curate (5th)"},
+        {"level": 6, "xp": 27500,  "title": "Canon"},
+        {"level": 7, "xp": 55000,  "title": "Lama"},
+        {"level": 8, "xp": 110000, "title": "Patriarch/Matriarch"},
+        {"level": 9, "xp": 225000, "title": "Patriarch/Matriarch (9th)"},
+        {"level": 10,"xp": 450000, "title": ""}
+      ],
+      "xp_per_level_after_9": 225000,
+      "special_abilities": [
+        "Turn undead: attempt to drive off or destroy undead creatures",
+        "Spells: access to all 7 levels of cleric spells",
+        "Spell access at 1st level: all 1st-level cleric spells are available for memorization",
+        "Establish a temple at 8th level and attract followers",
+        "WIS bonus spells: high WIS grants additional spell slots (see ability scores)"
+      ],
+      "turn_undead": {
+        "description": "Clerics can turn undead; results depend on cleric level vs. undead type",
+        "note": "See adnd2e_combat.json for full turning table",
+        "evil_clerics": "Evil clerics command rather than turn undead"
+      },
+      "notes": "Clerics must follow the tenets of their deity or risk losing spell access."
+    },
+    {
+      "id": "druid",
+      "name": "Druid",
+      "group": "Priest",
+      "description": "Priests of nature who revere the balance of the natural world, with unique shapechanging abilities.",
+      "prime_requisite": "Wisdom",
+      "alignment": "True Neutral only",
+      "ability_requirements": {"WIS": 12, "CHA": 15},
+      "hit_die": "d8",
+      "hit_die_max_level": 14,
+      "hp_per_level_after_14": 1,
+      "allowed_armor": "Leather armor, wooden shields only",
+      "allowed_weapons": "Club, sickle, dart, spear, dagger, scimitar, sling, staff",
+      "weapon_proficiencies": {"initial": 2, "gain_every_levels": 5},
+      "nonproficiency_penalty": -3,
+      "nonweapon_proficiencies": {"initial": 4, "gain_every_levels": 3},
+      "thac0_group": "priest",
+      "saving_throw_group": "druid",
+      "xp_table": [
+        {"level": 1,  "xp": 0,       "title": "Aspirant"},
+        {"level": 2,  "xp": 2000,    "title": "Ovate"},
+        {"level": 3,  "xp": 4000,    "title": "Initiate of the 1st Circle"},
+        {"level": 4,  "xp": 7500,    "title": "Initiate of the 2nd Circle"},
+        {"level": 5,  "xp": 12500,   "title": "Initiate of the 3rd Circle"},
+        {"level": 6,  "xp": 20000,   "title": "Initiate of the 4th Circle"},
+        {"level": 7,  "xp": 35000,   "title": "Initiate of the 5th Circle"},
+        {"level": 8,  "xp": 60000,   "title": "Initiate of the 6th Circle"},
+        {"level": 9,  "xp": 90000,   "title": "Initiate of the 7th Circle"},
+        {"level": 10, "xp": 125000,  "title": "Initiate of the 8th Circle"},
+        {"level": 11, "xp": 200000,  "title": "Initiate of the 9th Circle"},
+        {"level": 12, "xp": 300000,  "title": "Druid"},
+        {"level": 13, "xp": 750000,  "title": "Archdruid"},
+        {"level": 14, "xp": 1500000, "title": "Great Druid (only one can exist)"},
+        {"level": 15, "xp": 3000000, "title": "Grand Druid (only one)"}
+      ],
+      "special_abilities": [
+        "Shapechange: at 7th level can change into reptile, bird, or mammal form 3x/day (each form once)",
+        "Immunity to woodland charm spells (fey, dryads, etc.)",
+        "Druidic language: secret language only druids know",
+        "Identify plants, animals, and pure water",
+        "Move through natural overgrowth at normal movement",
+        "Pass without trace: no tracks left in natural settings",
+        "Resist fire/cold: +2 to saves vs. fire and lightning at higher levels",
+        "Woodland spells: unique access to nature-themed spell list"
+      ],
+      "notes": "Only one Druid of 14th or 15th level may exist at any time. Challengers can contest for the title. Druids above 15th level are 'Hierophant Druids' with special powers."
+    },
+    {
+      "id": "thief",
+      "name": "Thief",
+      "group": "Rogue",
+      "description": "Skilled at stealth, picking locks, and backstabbing, thieves excel at cunning over force.",
+      "prime_requisite": "Dexterity",
+      "alignment": "Any non-Lawful Good (DM option)",
+      "ability_requirements": {"DEX": 9},
+      "hit_die": "d6",
+      "hit_die_max_level": 10,
+      "hp_per_level_after_10": 2,
+      "allowed_armor": "Leather armor, elven chain",
+      "allowed_weapons": "All but two-handed sword and two-handed battle axe",
+      "weapon_proficiencies": {"initial": 2, "gain_every_levels": 4},
+      "nonproficiency_penalty": -3,
+      "nonweapon_proficiencies": {"initial": 3, "gain_every_levels": 4},
+      "thac0_group": "rogue",
+      "saving_throw_group": "thief",
+      "xp_table": [
+        {"level": 1, "xp": 0,      "title": "Rogue"},
+        {"level": 2, "xp": 1250,   "title": "Footpad"},
+        {"level": 3, "xp": 2500,   "title": "Cutpurse"},
+        {"level": 4, "xp": 5000,   "title": "Robber"},
+        {"level": 5, "xp": 10000,  "title": "Burglar"},
+        {"level": 6, "xp": 20000,  "title": "Filcher"},
+        {"level": 7, "xp": 40000,  "title": "Sharper"},
+        {"level": 8, "xp": 70000,  "title": "Magsman"},
+        {"level": 9, "xp": 110000, "title": "Thief"},
+        {"level": 10,"xp": 160000, "title": "Master Thief"}
+      ],
+      "xp_per_level_after_9": 220000,
+      "thief_skills": {
+        "description": "Thieves begin with base percentages and distribute 60 points among skills at 1st level, then gain additional points per level",
+        "points_per_level": 30,
+        "base_scores": {
+          "pick_pockets":     15,
+          "open_locks":       10,
+          "find_remove_traps":5,
+          "move_silently":    10,
+          "hide_in_shadows":   5,
+          "detect_noise":     15,
+          "climb_walls":      60,
+          "read_languages":    0,
+          "backstab_multiplier": "x2 at level 1"
+        },
+        "racial_adjustments": {
+          "halfling":  {"pick_pockets": 5, "open_locks": 5, "find_remove_traps": 5, "move_silently": 10, "hide_in_shadows": 15, "detect_noise": 5, "climb_walls": -15, "read_languages": -5},
+          "dwarf":     {"pick_pockets": -5, "open_locks": 10, "find_remove_traps": 15, "move_silently": 0, "hide_in_shadows": 0, "detect_noise": 0, "climb_walls": -10, "read_languages": -5},
+          "elf":       {"pick_pockets": 5, "open_locks": 0, "find_remove_traps": 0, "move_silently": 5, "hide_in_shadows": 10, "detect_noise": 5, "climb_walls": 0, "read_languages": 0},
+          "half_elf":  {"pick_pockets": 5, "open_locks": 0, "find_remove_traps": 0, "move_silently": 0, "hide_in_shadows": 5, "detect_noise": 0, "climb_walls": 0, "read_languages": 0},
+          "gnome":     {"pick_pockets": 0, "open_locks": 5, "find_remove_traps": 10, "move_silently": 5, "hide_in_shadows": 5, "detect_noise": 10, "climb_walls": -15, "read_languages": -5},
+          "half_orc":  {"pick_pockets": -5, "open_locks": 0, "find_remove_traps": 0, "move_silently": 5, "hide_in_shadows": 5, "detect_noise": 5, "climb_walls": 0, "read_languages": -10}
+        },
+        "armor_adjustments": {
+          "no_armor":     {"pick_pockets": 5, "open_locks": 0, "find_remove_traps": 0, "move_silently": 10, "hide_in_shadows": 5, "climb_walls": 10},
+          "leather_armor":{"pick_pockets": 0, "open_locks": 0, "find_remove_traps": 0, "move_silently": 0, "hide_in_shadows": 0, "climb_walls": 0},
+          "elven_chain":  {"pick_pockets": -5, "open_locks": 0, "find_remove_traps": -5, "move_silently": -10, "hide_in_shadows": -10, "climb_walls": 0}
+        },
+        "dexterity_adjustments": {
+          "description": "DEX modifies several thief skills",
+          "table": [
+            {"dex": 9,  "pick_pockets": -15, "open_locks": -10, "find_remove_traps": -10, "move_silently": -20, "hide_in_shadows": -10},
+            {"dex": 10, "pick_pockets": -10, "open_locks": -5,  "find_remove_traps": -5,  "move_silently": -15, "hide_in_shadows": -5},
+            {"dex": 11, "pick_pockets": -5,  "open_locks": 0,   "find_remove_traps": 0,   "move_silently": -10, "hide_in_shadows": -5},
+            {"dex": 12, "pick_pockets": 0,   "open_locks": 0,   "find_remove_traps": 0,   "move_silently": -5,  "hide_in_shadows": 0},
+            {"dex": 13, "pick_pockets": 0,   "open_locks": 0,   "find_remove_traps": 0,   "move_silently": 0,   "hide_in_shadows": 0},
+            {"dex": 14, "pick_pockets": 0,   "open_locks": 0,   "find_remove_traps": 0,   "move_silently": 0,   "hide_in_shadows": 0},
+            {"dex": 15, "pick_pockets": 0,   "open_locks": 0,   "find_remove_traps": 0,   "move_silently": 0,   "hide_in_shadows": 0},
+            {"dex": 16, "pick_pockets": 0,   "open_locks": 5,   "find_remove_traps": 0,   "move_silently": 0,   "hide_in_shadows": 0},
+            {"dex": 17, "pick_pockets": 5,   "open_locks": 10,  "find_remove_traps": 0,   "move_silently": 5,   "hide_in_shadows": 5},
+            {"dex": 18, "pick_pockets": 10,  "open_locks": 15,  "find_remove_traps": 5,   "move_silently": 10,  "hide_in_shadows": 10},
+            {"dex": 19, "pick_pockets": 15,  "open_locks": 20,  "find_remove_traps": 10,  "move_silently": 15,  "hide_in_shadows": 15}
+          ]
+        },
+        "backstab": {
+          "description": "Thief attacks from behind a surprised target for multiplied damage",
+          "table": [
+            {"levels": "1–4",   "damage_multiplier": 2},
+            {"levels": "5–8",   "damage_multiplier": 3},
+            {"levels": "9–12",  "damage_multiplier": 4},
+            {"levels": "13+",   "damage_multiplier": 5}
+          ],
+          "attack_bonus": "+4 to hit when backstabbing"
+        }
+      },
+      "special_abilities": [
+        "Thieves' cant: secret language of the underworld",
+        "Use any scroll (with 25% chance of reverse/mishap)",
+        "Read languages at higher levels"
+      ]
+    },
+    {
+      "id": "bard",
+      "name": "Bard",
+      "group": "Rogue",
+      "description": "Jacks-of-all-trades combining fighting, thieving, and spellcasting with powerful performance abilities.",
+      "prime_requisite": "Dexterity and Charisma",
+      "alignment": "Any neutral",
+      "ability_requirements": {"DEX": 12, "INT": 13, "CHA": 15},
+      "hit_die": "d6",
+      "hit_die_max_level": 10,
+      "hp_per_level_after_10": 2,
+      "allowed_armor": "Padded, leather, studded leather; no shields",
+      "allowed_weapons": "Dagger, dart, hand crossbow, knife, lasso, short bow, short sword, sling, broad sword, longsword, staff",
+      "weapon_proficiencies": {"initial": 2, "gain_every_levels": 3},
+      "nonproficiency_penalty": -3,
+      "nonweapon_proficiencies": {"initial": 3, "gain_every_levels": 3},
+      "thac0_group": "rogue",
+      "saving_throw_group": "bard",
+      "spells_per_day": {
+        "description": "Bards cast spells from the Wizard spell list, beginning at 2nd level",
+        "note": "Bard spell progression is similar to mage but starts later and progresses more slowly",
+        "table": [
+          {"level": 2, "1st": 1, "2nd": 0, "3rd": 0, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 3, "1st": 2, "2nd": 0, "3rd": 0, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 4, "1st": 2, "2nd": 1, "3rd": 0, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 5, "1st": 3, "2nd": 1, "3rd": 0, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 6, "1st": 3, "2nd": 2, "3rd": 0, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 7, "1st": 3, "2nd": 2, "3rd": 1, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 8, "1st": 3, "2nd": 3, "3rd": 1, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 9, "1st": 3, "2nd": 3, "3rd": 2, "4th": 0, "5th": 0, "6th": 0},
+          {"level": 10,"1st": 3, "2nd": 3, "3rd": 2, "4th": 1, "5th": 0, "6th": 0},
+          {"level": 11,"1st": 3, "2nd": 3, "3rd": 3, "4th": 1, "5th": 0, "6th": 0},
+          {"level": 12,"1st": 3, "2nd": 3, "3rd": 3, "4th": 2, "5th": 0, "6th": 0},
+          {"level": 13,"1st": 3, "2nd": 3, "3rd": 3, "4th": 2, "5th": 1, "6th": 0},
+          {"level": 14,"1st": 3, "2nd": 3, "3rd": 3, "4th": 3, "5th": 1, "6th": 0},
+          {"level": 15,"1st": 3, "2nd": 3, "3rd": 3, "4th": 3, "5th": 2, "6th": 0},
+          {"level": 16,"1st": 4, "2nd": 3, "3rd": 3, "4th": 3, "5th": 2, "6th": 1},
+          {"level": 17,"1st": 4, "2nd": 4, "3rd": 3, "4th": 3, "5th": 3, "6th": 1},
+          {"level": 18,"1st": 4, "2nd": 4, "3rd": 4, "4th": 3, "5th": 3, "6th": 2},
+          {"level": 19,"1st": 4, "2nd": 4, "3rd": 4, "4th": 4, "5th": 3, "6th": 2},
+          {"level": 20,"1st": 4, "2nd": 4, "3rd": 4, "4th": 4, "5th": 4, "6th": 3}
+        ]
+      },
+      "xp_table": [
+        {"level": 1,  "xp": 0,       "title": "Rhymer"},
+        {"level": 2,  "xp": 1250,    "title": "Lyrist"},
+        {"level": 3,  "xp": 2500,    "title": "Sonnateer"},
+        {"level": 4,  "xp": 5000,    "title": "Skald"},
+        {"level": 5,  "xp": 10000,   "title": "Racaraide"},
+        {"level": 6,  "xp": 20000,   "title": "Joungleur"},
+        {"level": 7,  "xp": 40000,   "title": "Troubadour"},
+        {"level": 8,  "xp": 60000,   "title": "Minstrel"},
+        {"level": 9,  "xp": 100000,  "title": "Bard"},
+        {"level": 10, "xp": 150000,  "title": "Master Bard"}
+      ],
+      "xp_per_level_after_9": 150000,
+      "thief_skills": {
+        "description": "Bards have thief skills but fewer starting points",
+        "points_at_1st_level": 20,
+        "points_per_level": 15,
+        "available_skills": ["pick_pockets", "detect_noise", "climb_walls", "read_languages"]
+      },
+      "special_abilities": [
+        "Bardic voice: inspire allies (+1 to hit, +1 saves, or immunity to fear) by singing/playing for a round before combat",
+        "Counter song: can use music to counter magical singing, chanting, or similar effects",
+        "Legend lore: chance to know information about legendary people, places, and things",
+        "Identify magic items: 5% per bard level chance to identify a magic item",
+        "Languages: know extra languages based on CHA",
+        "Thieves' cant: knows the secret language"
+      ],
+      "notes": "Bards must be of neutral alignment (but can lean toward lawful or chaotic). They are limited in which thief skills they can develop."
+    }
+  ]
+}

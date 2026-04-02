@@ -1,0 +1,265 @@
+{
+  "source": "AD&D 2nd Edition Arms & Equipment Guide (1991), Complete Fighter's Handbook (PHBR1)",
+  "description": "Additional weapons beyond the PHB, including polearms, exotic weapons, eastern weapons, siege weapons, and historical weapons from the Arms & Equipment Guide",
+  "notes": "Damage values are versus Small/Medium and Large creatures respectively. Speed factor affects initiative in combat.",
+  "polearms": {
+    "description": "Long pole weapons used primarily by infantry. Most require two hands. Polearms were critical military weapons of the medieval period.",
+    "general_rules": [
+      "Most polearms require 10 ft of space to use effectively (5 ft in tight quarters with -2 to hit)",
+      "Polearms of 'set' type can be set against a charge for double damage on the first hit",
+      "Polearms can usually attack opponents 10 ft away (medium reach weapons)"
+    ],
+    "weapons": [
+      {"name": "Awl Pike", "dmg_sm": "1d6", "dmg_lg": "1d12", "speed": 13, "type": "P", "size": "L", "weight": 12, "space_req": 2, "cost_gp": 5, "notes": "Extra long spear (16-20 ft); can attack at 20 ft range; cannot be used in areas less than 20 ft long"},
+      {"name": "Bardiche", "dmg_sm": "2d4", "dmg_lg": "2d6", "speed": 9, "type": "S", "size": "L", "weight": 12, "space_req": 2, "cost_gp": 7, "notes": "Curved single-edged blade on pole; can be set against charge"},
+      {"name": "Bec de Corbin", "dmg_sm": "1d8", "dmg_lg": "1d6", "speed": 9, "type": "P/B", "size": "L", "weight": 10, "space_req": 2, "cost_gp": 6, "notes": "Combination of hammer and spike; +1 vs. plate armor"},
+      {"name": "Bill (Bill-Hook)", "dmg_sm": "2d4", "dmg_lg": "1d10", "speed": 10, "type": "S/P", "size": "L", "weight": 15, "space_req": 2, "cost_gp": 7, "notes": "Can unhorse mounted opponents; -1 to hit but +1d4 damage vs. mounted"},
+      {"name": "Bohemian Earspoon", "dmg_sm": "1d6", "dmg_lg": "1d8+1", "speed": 7, "type": "P", "size": "L", "weight": 8, "space_req": 2, "cost_gp": 8, "notes": "Four-bladed head; thrusting polearm; similar to spear but more damage"},
+      {"name": "Corseque", "dmg_sm": "1d6", "dmg_lg": "1d8+1", "speed": 7, "type": "P/S", "size": "L", "weight": 9, "space_req": 2, "cost_gp": 5, "notes": "Triple-pointed head; can catch and disarm weapons (DEX check at -2)"},
+      {"name": "Fauchard", "dmg_sm": "1d6", "dmg_lg": "1d8", "speed": 8, "type": "S/P", "size": "L", "weight": 8, "space_req": 2, "cost_gp": 6, "notes": "Curved cutting blade; can attack opponents trying to disengage"},
+      {"name": "Fauchard-Fork", "dmg_sm": "1d8", "dmg_lg": "1d10", "speed": 8, "type": "S/P", "size": "L", "weight": 9, "space_req": 2, "cost_gp": 8, "notes": "Combination fauchard and fork; versatile"},
+      {"name": "Glaive", "dmg_sm": "1d6", "dmg_lg": "1d10", "speed": 8, "type": "S", "size": "L", "weight": 8, "space_req": 2, "cost_gp": 6, "notes": "Single-edged curved blade; good slashing weapon"},
+      {"name": "Glaive-Guisarme", "dmg_sm": "2d4", "dmg_lg": "2d6", "speed": 9, "type": "S/P", "size": "L", "weight": 10, "space_req": 2, "cost_gp": 8, "notes": "Combination glaive and guisarme; very versatile"},
+      {"name": "Guisarme", "dmg_sm": "2d4", "dmg_lg": "1d8", "speed": 8, "type": "S", "size": "L", "weight": 8, "space_req": 2, "cost_gp": 5, "notes": "Hooked cutting blade; can drag opponents off horses"},
+      {"name": "Guisarme-Voulge", "dmg_sm": "2d4", "dmg_lg": "2d4", "speed": 10, "type": "S/P", "size": "L", "weight": 15, "space_req": 2, "cost_gp": 8, "notes": "Combination weapon; heavy"},
+      {"name": "Halberd", "dmg_sm": "1d10", "dmg_lg": "2d6", "speed": 9, "type": "P/S/B", "size": "L", "weight": 15, "space_req": 2, "cost_gp": 10, "notes": "Most versatile polearm; axe + spike + hook; +1 vs. mounted"},
+      {"name": "Hook Fauchard", "dmg_sm": "1d4", "dmg_lg": "1d4", "speed": 10, "type": "P/S", "size": "L", "weight": 8, "space_req": 2, "cost_gp": 6, "notes": "Can grab and hold opponents; grapple attempt at no penalty"},
+      {"name": "Lucern Hammer", "dmg_sm": "2d4", "dmg_lg": "1d6", "speed": 9, "type": "B/P", "size": "L", "weight": 15, "space_req": 2, "cost_gp": 7, "notes": "Hammer head with spike; +2 damage vs. plate armors"},
+      {"name": "Man Catcher", "dmg_sm": "0", "dmg_lg": "0", "speed": 7, "type": "none", "size": "L", "weight": 7, "space_req": 2, "cost_gp": 30, "notes": "Captures without damage; opponent must save vs. paralyzation or be caught; STR 18 check to break free"},
+      {"name": "Military Fork", "dmg_sm": "1d8", "dmg_lg": "2d4", "speed": 7, "type": "P", "size": "L", "weight": 9, "space_req": 2, "cost_gp": 4, "notes": "Two-tined fork on pole; can set against charge"},
+      {"name": "Partisan", "dmg_sm": "1d6", "dmg_lg": "1d6+1", "speed": 9, "type": "P", "size": "L", "weight": 8, "space_req": 2, "cost_gp": 10, "notes": "Broad spearhead with side flanges; +1 to hit vs. mounted; set against charge for double damage"},
+      {"name": "Ranseur", "dmg_sm": "2d4", "dmg_lg": "2d4", "speed": 8, "type": "P", "size": "L", "weight": 7, "space_req": 2, "cost_gp": 6, "notes": "Triple-pronged blade; can disarm (DEX check at +2)"},
+      {"name": "Spetum", "dmg_sm": "1d6+1", "dmg_lg": "2d6", "speed": 8, "type": "P", "size": "L", "weight": 7, "space_req": 2, "cost_gp": 5, "notes": "Main spike with lateral blades; good vs. mounted; set against charge"},
+      {"name": "Spontoon (Esponton)", "dmg_sm": "1d6", "dmg_lg": "2d6", "speed": 8, "type": "P", "size": "L", "weight": 5, "space_req": 2, "cost_gp": 5, "notes": "Officer's weapon; cross-shaped blade; can set against charge"},
+      {"name": "Trident", "dmg_sm": "1d6+1", "dmg_lg": "3d4", "speed": 7, "type": "P", "size": "L", "weight": 5, "space_req": 2, "cost_gp": 15, "notes": "Three-pronged; favored weapon of aquatic races; can catch and hold weapons"},
+      {"name": "Voulge", "dmg_sm": "2d4", "dmg_lg": "2d4", "speed": 10, "type": "S/P", "size": "L", "weight": 12, "space_req": 2, "cost_gp": 5, "notes": "Cleaving blade on pole; can set against charge"}
+    ]
+  },
+  "exotic_and_unusual_weapons": {
+    "description": "Unusual weapons from various cultures that require special proficiency",
+    "weapons": [
+      {"name": "Aklys (throwing club)", "dmg_sm": "1d6", "dmg_lg": "1d4", "speed": 4, "type": "B", "size": "S", "weight": 2, "range": "10/20/30", "cost_gp": 1, "notes": "Weighted club on cord; returns to thrower; takes 1 segment to retrieve"},
+      {"name": "Atlatl (dart thrower)", "dmg_sm": "1d4+1", "dmg_lg": "1d6", "speed": 4, "type": "P", "size": "S", "weight": 1, "range": "20/40/60", "cost_gp": 1, "notes": "Lever arm that extends spear throwing; use only with darts or light spears; requires separate proficiency"},
+      {"name": "Bec de Faucon", "dmg_sm": "1d8", "dmg_lg": "1d6", "speed": 8, "type": "P/B", "size": "L", "weight": 8, "space_req": 1, "cost_gp": 8, "notes": "One-handed polearm; falcon's beak hammer head; good vs. heavy armor"},
+      {"name": "Bola", "dmg_sm": "1d3", "dmg_lg": "1d2", "speed": 6, "type": "B", "size": "S", "weight": 2, "range": "10/20/30", "cost_gp": 5, "notes": "Three weighted balls on cord; entangles target; medium or smaller target must save vs. paralyzation or fall prone"},
+      {"name": "Chakram", "dmg_sm": "1d4+1", "dmg_lg": "1d4+1", "speed": 4, "type": "S", "size": "S", "weight": 1, "range": "10/20/30", "cost_gp": 6, "notes": "Metal ring with sharpened edge; can be thrown; can hit multiple targets in a line (proficiency required for multiple targets)"},
+      {"name": "Crook (shepard's)", "dmg_sm": "1d4", "dmg_lg": "1d4", "speed": 4, "type": "B", "size": "M", "weight": 3, "space_req": 1, "cost_gp": 0.2, "notes": "Can trip or drag opponents; STR vs. STR check to trip; can hook ankles for prone"},
+      {"name": "Da (Vietnamese staff)", "dmg_sm": "1d6+1", "dmg_lg": "1d6", "speed": 4, "type": "B/P", "size": "L", "weight": 5, "space_req": 1, "cost_gp": 10, "notes": "Bladed staff; deals more damage than quarterstaff; requires martial arts training"},
+      {"name": "Footbow", "dmg_sm": "1d8", "dmg_lg": "1d10", "speed": 12, "type": "P", "size": "L", "weight": 3, "range": "80/160/240", "cost_gp": 50, "notes": "Powerful bow drawn with feet while lying down; slow to load but very powerful; requires Weapon Proficiency and acrobatics"},
+      {"name": "Gnomish Crossbow (large)", "dmg_sm": "1d10+1", "dmg_lg": "1d8+1", "speed": 10, "type": "P", "size": "L", "weight": 14, "range": "50/100/170", "cost_gp": 35, "notes": "Oversized crossbow built by gnomes; fires large bolts; -2 to hit for non-gnomes due to design"},
+      {"name": "Halfling Sling Staff", "dmg_sm": "1d4+1", "dmg_lg": "1d4+1", "speed": 6, "type": "B", "size": "M", "weight": 1, "range": "30/60/90", "cost_gp": 1, "notes": "Sling attached to short staff; increases range and power; favored by halflings; +1 to hit for halflings"},
+      {"name": "Hook, Grappling", "dmg_sm": "1d3", "dmg_lg": "1d3", "speed": 6, "type": "P", "size": "M", "weight": 4, "range": "10/20/30", "cost_gp": 1, "notes": "Used to catch ledges, ropes; can be used as a weapon; attached to 50 ft rope"},
+      {"name": "Jo Stick (Jitte)", "dmg_sm": "1d4", "dmg_lg": "1d3", "speed": 3, "type": "B/P", "size": "S", "weight": 1, "space_req": 0, "cost_gp": 4, "notes": "Small rod with side bar; can catch blades; disarm opponent on natural 20; Eastern weapon"},
+      {"name": "Kau Sin Ke (chain whip)", "dmg_sm": "1d6", "dmg_lg": "1d4", "speed": 5, "type": "B", "size": "M", "weight": 2, "space_req": 0, "cost_gp": 8, "notes": "Multi-section chain weapon; attack ignores shield; requires martial arts proficiency; Eastern weapon"},
+      {"name": "Khopesh", "dmg_sm": "2d4", "dmg_lg": "1d6", "speed": 9, "type": "S", "size": "M", "weight": 7, "space_req": 1, "cost_gp": 10, "notes": "Egyptian sickle-sword; can hook behind shields (+2 vs. shield AC bonuses)"},
+      {"name": "Kukri", "dmg_sm": "1d6", "dmg_lg": "1d4", "speed": 3, "type": "S", "size": "S", "weight": 1, "space_req": 0, "cost_gp": 8, "notes": "Inwardly curved knife; favored by Gurkha-type fighters; concealable"},
+      {"name": "Lasso", "dmg_sm": "0", "dmg_lg": "0", "speed": 10, "type": "none", "size": "L", "weight": 3, "range": "10/20/0", "cost_gp": 1, "notes": "Rope loop to capture; hit vs. AC 10 (modified by Dex); target may be ridden down"},
+      {"name": "Lasso (horseback)", "dmg_sm": "0", "dmg_lg": "0", "speed": 8, "type": "none", "size": "L", "weight": 3, "range": "10/20/0", "cost_gp": 1, "notes": "Used from horseback; requires Riding proficiency and Lasso proficiency"},
+      {"name": "Net", "dmg_sm": "0", "dmg_lg": "0", "speed": 7, "type": "none", "size": "L", "weight": 10, "range": "10/0/0", "cost_gp": 5, "notes": "Entangles target; save vs. paralyzation or entangled (halved movement, -2 to attacks); cut with bladed weapon (AC 6) or STR 17+ check"},
+      {"name": "Nunchaku", "dmg_sm": "1d6", "dmg_lg": "1d6", "speed": 3, "type": "B", "size": "S", "weight": 2, "space_req": 0, "cost_gp": 8, "notes": "Two sections connected by chain; +2 to disarm attempts; Eastern weapon"},
+      {"name": "Rope Dart", "dmg_sm": "1d4", "dmg_lg": "1d4", "speed": 4, "type": "P", "size": "S", "weight": 1, "range": "20/0/0", "cost_gp": 10, "notes": "Dart on long rope; used for striking and entangling; complex weapon requiring extensive training"},
+      {"name": "Sai", "dmg_sm": "1d4+1", "dmg_lg": "1d3+1", "speed": 3, "type": "P", "size": "S", "weight": 1, "space_req": 0, "cost_gp": 6, "notes": "Three-pronged truncheon; can catch and disarm weapons on natural 20 or total of 20; Eastern weapon"},
+      {"name": "Sap (blackjack)", "dmg_sm": "1d3", "dmg_lg": "1d2", "speed": 3, "type": "B", "size": "S", "weight": 1, "space_req": 0, "cost_gp": 1, "notes": "Weighted leather bag; used for non-lethal knockout; sneak attack (backstab) knocks unconscious on max damage"},
+      {"name": "Scourge", "dmg_sm": "1d4", "dmg_lg": "1d4", "speed": 5, "type": "B", "size": "M", "weight": 2, "space_req": 0, "cost_gp": 1, "notes": "Multi-tailed whip with weighted ends; used for punishment; ignores shields"},
+      {"name": "Shuriken (throwing star)", "dmg_sm": "1d2", "dmg_lg": "1d3", "speed": 2, "type": "P", "size": "S", "weight": 0.2, "range": "10/20/30", "cost_gp": 1, "notes": "Flat star-shaped throwing weapon; multiple thrown (3 per round); Eastern weapon"},
+      {"name": "Sodegarami (sleeve catcher)", "dmg_sm": "1d4", "dmg_lg": "1d3", "speed": 8, "type": "P", "size": "L", "weight": 5, "space_req": 1, "cost_gp": 5, "notes": "Spiked ring on pole; used to catch clothing and hold criminals; can immobilize without killing; Eastern weapon"},
+      {"name": "Tetsubo (iron club)", "dmg_sm": "1d6+2", "dmg_lg": "2d6", "speed": 10, "type": "B", "size": "L", "weight": 15, "space_req": 1, "cost_gp": 8, "notes": "Massive iron-studded club; requires STR 16+; +2 damage vs. armor; Eastern weapon"},
+      {"name": "Tonfa", "dmg_sm": "1d4+1", "dmg_lg": "1d4+1", "speed": 3, "type": "B", "size": "M", "weight": 2, "space_req": 0, "cost_gp": 5, "notes": "Side-handle baton; can be used for defense and offense simultaneously; +1 AC when wielded"},
+      {"name": "Whip", "dmg_sm": "1d2", "dmg_lg": "1d3", "speed": 5, "type": "B", "size": "M", "weight": 2, "space_req": 1, "range": "10/0/0", "cost_gp": 1, "notes": "Attacks at 10-15 ft range; can be used to disarm or trip; entangle like rope on natural 20"}
+    ]
+  },
+  "eastern_weapons": {
+    "description": "Weapons from Eastern/Oriental cultures (Kara-Tur style settings). Require appropriate proficiency slots.",
+    "notes": "Eastern weapons require 'Oriental Weapon' proficiency groups or specific weapon proficiencies",
+    "weapons": [
+      {"name": "Bo Stick (Bo)", "dmg_sm": "1d6", "dmg_lg": "1d6", "speed": 3, "type": "B", "size": "L", "weight": 4, "space_req": 1, "cost_gp": 1, "notes": "Long staff; as quarterstaff but different grip and techniques"},
+      {"name": "Jo Stick (Jo)", "dmg_sm": "1d4", "dmg_lg": "1d3", "speed": 2, "type": "B", "size": "M", "weight": 2, "space_req": 0, "cost_gp": 0.5, "notes": "Short staff; like a short quarterstaff"},
+      {"name": "Katana", "dmg_sm": "1d10", "dmg_lg": "1d12", "speed": 4, "type": "S", "size": "M", "weight": 6, "space_req": 1, "cost_gp": 100, "notes": "Japanese curved sword; masterwork quality; +1 to hit/damage due to superior balance; can be used one or two-handed; two-handed gives +2 damage"},
+      {"name": "Kama", "dmg_sm": "1d4", "dmg_lg": "1d3", "speed": 4, "type": "S", "size": "S", "weight": 2, "space_req": 0, "cost_gp": 2, "notes": "Small sickle; can be used in pairs; Eastern weapon"},
+      {"name": "Katar (punch dagger)", "dmg_sm": "1d4", "dmg_lg": "1d3", "speed": 2, "type": "P", "size": "S", "weight": 1, "space_req": 0, "cost_gp": 5, "notes": "H-handled push dagger; held with blade extending from fist; can triple damage on backstab"},
+      {"name": "Naginata", "dmg_sm": "1d8", "dmg_lg": "1d12", "speed": 7, "type": "S/P", "size": "L", "weight": 8, "space_req": 2, "cost_gp": 60, "notes": "Japanese glaive; pole weapon with curved blade; effectively a glaive but different attack style"},
+      {"name": "No-Dachi (Odachi)", "dmg_sm": "2d6", "dmg_lg": "2d8", "speed": 9, "type": "S", "size": "L", "weight": 12, "space_req": 2, "cost_gp": 150, "notes": "Great katana; two-handed massive sword; can cleave through medium creatures"},
+      {"name": "Shikomi-Zue (sword cane)", "dmg_sm": "1d6", "dmg_lg": "1d8", "speed": 4, "type": "P/S", "size": "M", "weight": 2, "space_req": 1, "cost_gp": 40, "notes": "Sword hidden in cane; -2 to opponent's surprise checks; first round of combat always surprises"},
+      {"name": "Wakizashi", "dmg_sm": "1d6", "dmg_lg": "1d8", "speed": 3, "type": "S", "size": "M", "weight": 3, "space_req": 0, "cost_gp": 75, "notes": "Short katana (companion sword); typically paired with katana; excellent balance gives +1 to AC when used in defensive stance"},
+      {"name": "Yari (Japanese Spear)", "dmg_sm": "1d8", "dmg_lg": "1d12", "speed": 7, "type": "P", "size": "L", "weight": 6, "space_req": 1, "cost_gp": 6, "notes": "Japanese spear; can be set against charge"},
+      {"name": "Yumi (Japanese Bow)", "dmg_sm": "1d6", "dmg_lg": "1d8", "speed": 7, "type": "P", "size": "L", "weight": 2, "range": "50/100/150", "cost_gp": 50, "notes": "Asymmetrical longbow; longer range than composite bow but same damage; can be fired from horseback"}
+    ]
+  },
+  "siege_weapons": {
+    "description": "Large military weapons used in battles and sieges. Require crews to operate.",
+    "weapons": [
+      {
+        "name": "Ballista",
+        "crew": 3,
+        "rate_of_fire": "1 per 4 rounds",
+        "range_yards": "50/100/200",
+        "dmg": "3d6",
+        "notes": "Giant crossbow mounted on a stand; fires large bolts; can target single creatures or crew inside fortifications; bolt deals 3d6 damage, saves at -2",
+        "cost_gp": 1000,
+        "weight_lbs": 400
+      },
+      {
+        "name": "Catapult (light)",
+        "crew": 4,
+        "rate_of_fire": "1 per 5 rounds",
+        "range_yards": "150/300/450",
+        "dmg": "2d6 to 3d6",
+        "notes": "Lighter catapult; 10-ft radius impact zone; all in zone take damage; saves vs. breath weapon for half",
+        "cost_gp": 3000,
+        "weight_lbs": 2000
+      },
+      {
+        "name": "Catapult (heavy)",
+        "crew": 6,
+        "rate_of_fire": "1 per 6 rounds",
+        "range_yards": "200/400/600",
+        "dmg": "4d6 to 6d6",
+        "notes": "Heavy catapult; 20-ft radius zone; used for battering gates and walls; 25 structural points of damage vs. walls",
+        "cost_gp": 5000,
+        "weight_lbs": 4000
+      },
+      {
+        "name": "Mangonnel",
+        "crew": 5,
+        "rate_of_fire": "1 per 5 rounds",
+        "range_yards": "150/350/500",
+        "dmg": "3d6",
+        "notes": "Arm-sling type catapult; can hurl burning pitch (incendiary, start fires) or disease-laden materials; 15-ft radius zone",
+        "cost_gp": 4000,
+        "weight_lbs": 3000
+      },
+      {
+        "name": "Trebuchet",
+        "crew": 10,
+        "rate_of_fire": "1 per 10 rounds",
+        "range_yards": "200/500/800",
+        "dmg": "5d6 to 8d6",
+        "notes": "Counterweight siege engine; most powerful catapult; can throw 200-lb stones; wall sections take 50 structural points; 30-ft radius zone",
+        "cost_gp": 8000,
+        "weight_lbs": 8000
+      },
+      {
+        "name": "Battering Ram",
+        "crew": "4-20",
+        "rate_of_fire": "1 per 2 rounds",
+        "range_yards": "Melee",
+        "dmg": "Special",
+        "notes": "Deals 1d6 per 2 crew members (max 6d6) to a door or wall section per hit; gates: 3 to 10 successful hits to breach; requires cover to protect crew",
+        "cost_gp": 500,
+        "weight_lbs": 500
+      },
+      {
+        "name": "Bolt Thrower (Onager)",
+        "crew": 3,
+        "rate_of_fire": "1 per 3 rounds",
+        "range_yards": "80/160/240",
+        "dmg": "2d8",
+        "notes": "Smaller, more mobile ballista variant; fires large bolts; can be horse-drawn; bolt deals 2d8 damage",
+        "cost_gp": 1500,
+        "weight_lbs": 600
+      },
+      {
+        "name": "Crossbow (heavy siege)",
+        "crew": 2,
+        "rate_of_fire": "1 per 3 rounds",
+        "range_yards": "40/80/120",
+        "dmg": "2d6",
+        "notes": "Oversized siege crossbow; +3 to hit vs. armored targets; fires large bolts; one operator aims while second winds the winch",
+        "cost_gp": 250,
+        "weight_lbs": 40
+      }
+    ]
+  },
+  "firearms_primitive": {
+    "description": "Very early primitive firearms for campaign settings where such technology exists (optional)",
+    "notes": "These are rare, expensive, and unreliable. Use only in campaigns where firearms technology exists.",
+    "weapons": [
+      {"name": "Hand Cannon (primitive)", "dmg_sm": "1d8", "dmg_lg": "1d10", "speed": 15, "type": "B", "size": "L", "weight": 8, "range": "30/60/90", "cost_gp": 500, "notes": "Primitive handheld firearm; misfires on 1-3 (out of 20); takes 4 rounds to reload; deafens shooter for 1 round; no proficiency bonus available"},
+      {"name": "Bombard (cannon)", "dmg_sm": "8d6", "dmg_lg": "8d6", "speed": "Special", "type": "B", "size": "G", "crew": 5, "range": "100/200/350", "cost_gp": 5000, "notes": "Very early bronze cannon; 1 shot per 6 rounds; misfires on 1-2 (may explode); 30-ft radius area effect vs. troops; primarily siege weapon"}
+    ]
+  },
+  "chain_and_flail_variants": {
+    "description": "Additional flail and chain weapon variants",
+    "weapons": [
+      {"name": "Ball and Chain", "dmg_sm": "1d6+1", "dmg_lg": "1d6+1", "speed": 8, "type": "B", "size": "M", "weight": 8, "space_req": 1, "cost_gp": 8, "notes": "Flail-like with longer chain; ignores shield; can wrap around weapon (20% chance to cause opponent to drop weapon on hit)"},
+      {"name": "Dire Flail", "dmg_sm": "1d8", "dmg_lg": "1d8", "speed": 9, "type": "B", "size": "L", "weight": 12, "space_req": 1, "cost_gp": 12, "notes": "Double-headed flail; both heads can strike simultaneously (attack at -2 for additional attack per round)"},
+      {"name": "Heavy Flail (military)", "dmg_sm": "1d6+1", "dmg_lg": "2d6", "speed": 9, "type": "B", "size": "L", "weight": 8, "space_req": 1, "cost_gp": 15, "notes": "Military grade flail; +2 damage vs. chain armor; always ignores shield AC bonus"},
+      {"name": "Horseman's Flail", "dmg_sm": "1d4+1", "dmg_lg": "1d4+1", "speed": 6, "type": "B", "size": "M", "weight": 4, "space_req": 1, "cost_gp": 8, "notes": "Single-handed flail for cavalry use; same as flail but lighter and faster; can be used one-handed"}
+    ]
+  },
+  "bows_and_projectile_variants": {
+    "description": "Additional bow and ranged weapon types",
+    "weapons": [
+      {"name": "Composite Bow (medium)", "dmg_sm": "1d6", "dmg_lg": "1d6", "speed": 7, "type": "P", "size": "L", "weight": 3, "range": "50/100/170", "cost_gp": 75, "notes": "Between short and long composite bow in size; usable from horseback; STR 13+ required for normal use"},
+      {"name": "Crossbow (hand/wrist)", "dmg_sm": "1d3", "dmg_lg": "1d2", "speed": 5, "type": "P", "size": "S", "weight": 3, "range": "20/40/60", "cost_gp": 300, "notes": "Worn on wrist; hands free otherwise; fires small bolts (1d3 dmg); difficult to reload (2 rounds with both hands free); concealable"},
+      {"name": "Crossbow (heavy repeating)", "dmg_sm": "1d6", "dmg_lg": "1d4+1", "speed": 5, "type": "P", "size": "L", "weight": 8, "range": "40/80/120", "cost_gp": 150, "notes": "Magazine-fed crossbow with 5-bolt magazine; fires every other round without reloading; reload magazine takes 1 round after all 5 bolts fired"},
+      {"name": "Crossbow (light repeating)", "dmg_sm": "1d4", "dmg_lg": "1d4", "speed": 4, "type": "P", "size": "M", "weight": 5, "range": "25/50/75", "cost_gp": 80, "notes": "Lighter version of repeating crossbow; 3-bolt magazine; fire 1 per round without reloading"},
+      {"name": "Pellet Bow", "dmg_sm": "1d4", "dmg_lg": "1d3", "speed": 6, "type": "B", "size": "M", "weight": 1, "range": "40/80/120", "cost_gp": 5, "notes": "Bow designed to fire clay pellets or stones; cheap ammunition; non-lethal on minimum damage (unconscious instead of dead)"},
+      {"name": "Stonebow (Prodd)", "dmg_sm": "1d3", "dmg_lg": "1d3", "speed": 6, "type": "B", "size": "M", "weight": 4, "range": "20/40/60", "cost_gp": 40, "notes": "Crossbow designed for stone or clay pellets; cheaper ammunition; used for hunting small game"}
+    ]
+  },
+  "improvised_weapons": {
+    "description": "Using objects not designed as weapons. Always -2 to hit; proficiency cannot be taken.",
+    "examples": [
+      {"name": "Chair", "dmg_sm": "1d4", "dmg_lg": "1d3", "notes": "Breaks on natural 1; can be used to push back opponent"},
+      {"name": "Bottle (full)", "dmg_sm": "1d3", "dmg_lg": "1d2", "notes": "Breaks on successful hit; shards cause 1 additional damage"},
+      {"name": "Torch (improvised)", "dmg_sm": "1d4", "dmg_lg": "1d3", "notes": "Sets combustibles aflame; 50% chance of going out on hit"},
+      {"name": "Table leg", "dmg_sm": "1d4", "dmg_lg": "1d3", "notes": "Equivalent to a club; may splinter on natural 1"},
+      {"name": "Belt buckle", "dmg_sm": "1d2", "dmg_lg": "1d2", "notes": "Used as a flail; extremely short reach"},
+      {"name": "Rock/Stone", "dmg_sm": "1d4", "dmg_lg": "1d4", "notes": "Thrown or used as a club; range 10/20/30 when thrown"},
+      {"name": "Wooden stake", "dmg_sm": "1d4", "dmg_lg": "1d3", "notes": "Stakes driven through vampire hearts must be done to immobilized vampire; 2d4+2 damage"},
+      {"name": "Pitchfork", "dmg_sm": "1d6", "dmg_lg": "1d8", "notes": "Functions as a trident or military fork when used as weapon"},
+      {"name": "Shovel/Spade", "dmg_sm": "1d4", "dmg_lg": "1d4", "notes": "Short bladed tool weapon"},
+      {"name": "Broken bottle", "dmg_sm": "1d4", "dmg_lg": "1d3", "notes": "Jagged glass; causes bleeding (1 HP per round until bandaged)"}
+    ]
+  },
+  "materials_and_special_construction": {
+    "description": "Special materials that affect weapon properties and costs",
+    "materials": [
+      {
+        "name": "Cold Iron",
+        "cost_multiplier": 5,
+        "notes": "Iron mined without fire processes; affects fairies and some demons; required to bypass certain creature immunities",
+        "mechanical_effect": "As normal weapon but counts as magical vs. fey and some demons"
+      },
+      {
+        "name": "Silver",
+        "cost_multiplier": 10,
+        "notes": "Silver weapons required to harm lycanthropes and some undead; -1 damage due to softness",
+        "mechanical_effect": "-1 damage; can harm lycanthropes and some creatures immune to normal weapons"
+      },
+      {
+        "name": "Adamantite",
+        "cost_multiplier": 100,
+        "notes": "Super-hard metal; extremely rare; weapons count as +3 for purposes of what they can hit",
+        "mechanical_effect": "+1 to hit; can harm creatures requiring magical weapons to hit"
+      },
+      {
+        "name": "Mithral",
+        "cost_multiplier": 75,
+        "notes": "Elven metal; lighter than steel; weapons weigh half as much",
+        "mechanical_effect": "Half weight; +1 to hit (lighter = faster); elven quality"
+      },
+      {
+        "name": "Darkwood",
+        "cost_multiplier": 3,
+        "notes": "Magical wood from certain forests; lighter and tougher than normal wood",
+        "mechanical_effect": "Half weight for wooden components; +1 to saves vs. breakage"
+      },
+      {
+        "name": "Bone/Ivory",
+        "cost_multiplier": 0.5,
+        "notes": "Primitive weapons; more fragile but readily available",
+        "mechanical_effect": "-1 damage; breaks on critical fumble (natural 1)"
+      }
+    ],
+    "weapon_quality_grades": [
+      {"grade": "Poor", "cost_multiplier": 0.5, "notes": "Poorly made; -1 to hit; breaks on critical fumble"},
+      {"grade": "Standard", "cost_multiplier": 1, "notes": "Normal weapon; no modifiers"},
+      {"grade": "Good", "cost_multiplier": 2, "notes": "Well made; no breakage on fumble"},
+      {"grade": "Fine", "cost_multiplier": 5, "notes": "Master crafted; saves at +1 vs. breakage"},
+      {"grade": "Master (Masterwork)", "cost_multiplier": 10, "notes": "+1 to hit (not magical); exceptional quality; eligible for enchantment"},
+      {"grade": "Elven/Dwarven Craft", "cost_multiplier": 20, "notes": "+1 to hit and saves; racial craftsmanship; may have minor non-magical properties"}
+    ]
+  }
+}

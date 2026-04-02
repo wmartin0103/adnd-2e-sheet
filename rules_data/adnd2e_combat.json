@@ -1,0 +1,250 @@
+{
+  "_meta": {
+    "system": "Advanced Dungeons & Dragons 2nd Edition",
+    "source": "Player's Handbook & Dungeon Master's Guide (2nd Edition)",
+    "description": "Combat rules: initiative, attack resolution, damage, special maneuvers, turning undead, morale",
+    "version": "1.0"
+  },
+  "combat_sequence": {
+    "description": "Order of events each combat round (1 round = 1 minute)",
+    "steps": [
+      "1. DM determines if any party member is surprised (d10, surprised on 1-3 typically)",
+      "2. Determine if encounter distance and awareness allow for actions before combat",
+      "3. All combatants declare intended actions for the round",
+      "4. Roll initiative: each side rolls 1d10; lower result acts first",
+      "5. High-speed actions (spells with speed 1, etc.) may occur before normal actions",
+      "6. Resolve melee attacks in initiative order",
+      "7. Resolve missile attacks (note: missiles are launched early in the round but hit at strike time)",
+      "8. Resolve spell effects",
+      "9. Resolve any remaining actions",
+      "10. Begin next round"
+    ],
+    "initiative": {
+      "roll": "1d10, lower number acts first",
+      "modifiers": [
+        "DEX reaction adjustment (for individual initiative variant)",
+        "Weapon speed factor (optional rule)",
+        "Spell casting time adds to initiative",
+        "Charging: acts at end of round but gains +2 to damage"
+      ],
+      "ties": "Simultaneous action — both sides act at the same time",
+      "variants": {
+        "group_initiative": "Each side rolls one d10; entire side acts together",
+        "individual_initiative": "Each character rolls separately, adding DEX reaction bonus"
+      }
+    }
+  },
+  "attack_resolution": {
+    "melee_attack": {
+      "description": "Roll d20, add modifiers, compare result to target's AC",
+      "formula": "Roll d20 + hit modifiers; if result >= (THAC0 - target AC), hit",
+      "simplified": "d20 roll needed = THAC0 - target AC",
+      "modifiers": [
+        "STR hit adjustment (melee only)",
+        "Weapon proficiency (0 if proficient, penalty if not)",
+        "Magic weapon bonus",
+        "Specialization bonus (+1 fighter specialization)",
+        "DEX has no effect on melee attack rolls",
+        "Situational modifiers (charging, flanking, higher ground, etc.)"
+      ],
+      "natural_20": "Always hits (unless target is immune)",
+      "natural_1": "Always misses"
+    },
+    "missile_attack": {
+      "description": "Roll d20 for ranged attacks; DEX missile adjustment applies",
+      "modifiers": [
+        "DEX missile adjustment",
+        "Weapon proficiency",
+        "Magic weapon bonus",
+        "Range penalty: -2 at medium range, -5 at long range; no penalty at short range",
+        "Cover: target in cover receives AC bonus"
+      ],
+      "ranges": "See weapons table for individual weapon ranges (short/medium/long)"
+    },
+    "damage": {
+      "description": "Roll weapon damage die; add STR damage bonus for melee",
+      "melee_damage_bonus": "STR damage adjustment added to melee damage rolls",
+      "missile_damage_bonus": "STR bonus applies to thrown weapons only (NOT to bows)",
+      "minimum_damage": 1,
+      "critical_hits": "Standard rules have no critical hit mechanics; optional rules exist in DMG"
+    },
+    "armor_class": {
+      "description": "AC measures how difficult a target is to hit. Lower AC = harder to hit.",
+      "base_ac": 10,
+      "range": "10 (unarmored, worst) to -10 (best); negative AC is excellent",
+      "dex_defensive_adjustment": "DEX defensive modifier adjusts AC (negative modifier = better AC)"
+    }
+  },
+  "hit_points_and_death": {
+    "death": "A character dies when hit points reach 0 or below",
+    "negative_hp_optional": "Optional: characters between -1 and -9 HP are unconscious and dying (lose 1 HP/round unless stabilized); at -10 dead",
+    "stabilization": "A character at negative HP stabilizes on a roll of 10% per CON point (once per round)",
+    "healing": {
+      "natural": "1 HP per day of rest; 2 HP per complete day of bed rest",
+      "magical": "Spells restore HP immediately"
+    },
+    "unconscious": "0 HP = unconscious but stable (in base rules without optional negative HP rule)"
+  },
+  "special_combat_actions": {
+    "charging": {
+      "description": "Moving at double speed to attack with momentum",
+      "requirements": "Must move at least 10 ft toward target in a straight line",
+      "benefits": "+2 to damage roll on the charge attack",
+      "penalties": "-1 to AC until next round (attacker is off-balance)",
+      "notes": "Cannot charge through difficult terrain. Pikes and spears set against a charge deal double damage."
+    },
+    "set_spear_vs_charge": {
+      "description": "Setting a spear, pike, or similar weapon against a charge",
+      "effect": "Deals double damage if the charger hits the set weapon holder"
+    },
+    "fighting_withdrawal": {
+      "description": "Backing away from combat carefully",
+      "movement": "Up to half normal movement rate, backward",
+      "benefit": "Opponent does not get a free attack (unlike fleeing)",
+      "notes": "Must have room to back into"
+    },
+    "retreat": {
+      "description": "Turning and running from combat at full speed",
+      "penalty": "Opponent gets one free melee attack (at +4 to hit) as the retreating character turns their back",
+      "movement": "Full movement rate away from combat"
+    },
+    "overbearing": {
+      "description": "Attempting to knock an opponent down or grapple them",
+      "resolution": "Opposed STR checks or special overbearing table",
+      "notes": "Multiple attackers can assist in overbearing; damage is minimal but opponent may be pinned"
+    },
+    "grappling": {
+      "description": "Seizing an opponent with both hands",
+      "resolution": "Attack roll to grab; opposed STR check to maintain; victim may be pinned",
+      "effect": "Victim is restrained; attacker cannot use weapons while grappling"
+    },
+    "pummeling": {
+      "description": "Punching or kicking an opponent (unarmed combat)",
+      "damage": "1d2 + STR bonus for punching; 1d3 + STR bonus for kicking",
+      "stun": "On a natural 20 or 5+ over needed roll, opponent may be stunned (save vs. death or lose next attack)"
+    },
+    "two_weapon_fighting": {
+      "description": "Attacking with a weapon in each hand",
+      "penalties": {
+        "primary_hand": "-2 to attack roll",
+        "off_hand": "-4 to attack roll",
+        "with_high_dex": "DEX 16+: -0/-2; DEX 17+: 0/-0 (rangers only)"
+      },
+      "requirements": "Off-hand weapon must be smaller than or equal in size to primary weapon",
+      "rangers": "Rangers suffer no off-hand penalty (their class ability)"
+    },
+    "called_shots": {
+      "description": "Aiming for a specific body part",
+      "penalty": "-4 to attack roll",
+      "effects": "DM determines result based on location hit"
+    },
+    "disarming": {
+      "description": "Attempting to knock a weapon from an opponent's hand",
+      "resolution": "Attack roll at -4; if successful, weapon is knocked away 1d10 feet"
+    }
+  },
+  "missile_combat": {
+    "firing_into_melee": {
+      "description": "Shooting at a target that is engaged in melee",
+      "penalty": "If the attack roll misses the intended target, roll to see if a random adjacent creature is hit",
+      "rule": "On a miss, assign each adjacent combatant a range of die results; one may be hit"
+    },
+    "cover_and_concealment": {
+      "25_percent_cover": "AC bonus of +2",
+      "50_percent_cover": "AC bonus of +4",
+      "75_percent_cover": "AC bonus of +7",
+      "90_percent_cover": "AC bonus of +10",
+      "concealment": "Lightly obscured targets require ranged attack at -2"
+    },
+    "range_categories": {
+      "short": "No penalty",
+      "medium": "-2 to attack roll",
+      "long": "-5 to attack roll"
+    }
+  },
+  "turning_undead": {
+    "description": "Clerics (and paladins) may attempt to turn undead, driving them away or destroying them.",
+    "procedure": "Present holy symbol, roll 2d10, compare result to the turning table",
+    "evil_clerics": "Evil clerics may command undead instead of turning them",
+    "paladins": "Paladins turn as a cleric of 2 levels lower",
+    "table": {
+      "description": "Results: T=Automatically Turned, D=Automatically Destroyed, number=minimum 2d10 roll needed, —=Cannot turn this type at this level",
+      "columns": ["Cleric Level", "Skeleton", "Zombie", "Ghoul", "Shadow", "Wight", "Ghast", "Wraith", "Mummy", "Spectre", "Vampire", "Ghost", "Lich", "Special"],
+      "rows": [
+        {"level": 1,  "skeleton": "10", "zombie": "13", "ghoul": "16", "shadow": "19", "wight": "20", "ghast": "—",  "wraith": "—",  "mummy": "—",  "spectre": "—",  "vampire": "—",  "ghost": "—",  "lich": "—",  "special": "—"},
+        {"level": 2,  "skeleton": "7",  "zombie": "10", "ghoul": "13", "shadow": "16", "wight": "19", "ghast": "20", "wraith": "—",  "mummy": "—",  "spectre": "—",  "vampire": "—",  "ghost": "—",  "lich": "—",  "special": "—"},
+        {"level": 3,  "skeleton": "4",  "zombie": "7",  "ghoul": "10", "shadow": "13", "wight": "16", "ghast": "19", "wraith": "20", "mummy": "—",  "spectre": "—",  "vampire": "—",  "ghost": "—",  "lich": "—",  "special": "—"},
+        {"level": 4,  "skeleton": "T",  "zombie": "4",  "ghoul": "7",  "shadow": "10", "wight": "13", "ghast": "16", "wraith": "19", "mummy": "20", "spectre": "—",  "vampire": "—",  "ghost": "—",  "lich": "—",  "special": "—"},
+        {"level": 5,  "skeleton": "T",  "zombie": "T",  "ghoul": "4",  "shadow": "7",  "wight": "10", "ghast": "13", "wraith": "16", "mummy": "19", "spectre": "20", "vampire": "—",  "ghost": "—",  "lich": "—",  "special": "—"},
+        {"level": 6,  "skeleton": "D",  "zombie": "T",  "ghoul": "T",  "shadow": "4",  "wight": "7",  "ghast": "10", "wraith": "13", "mummy": "16", "spectre": "19", "vampire": "20", "ghost": "—",  "lich": "—",  "special": "—"},
+        {"level": 7,  "skeleton": "D",  "zombie": "D",  "ghoul": "T",  "shadow": "T",  "wight": "4",  "ghast": "7",  "wraith": "10", "mummy": "13", "spectre": "16", "vampire": "19", "ghost": "20", "lich": "—",  "special": "—"},
+        {"level": 8,  "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "T",  "wight": "T",  "ghast": "4",  "wraith": "7",  "mummy": "10", "spectre": "13", "vampire": "16", "ghost": "19", "lich": "20", "special": "—"},
+        {"level": 9,  "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "D",  "wight": "T",  "ghast": "T",  "wraith": "4",  "mummy": "7",  "spectre": "10", "vampire": "13", "ghost": "16", "lich": "19", "special": "20"},
+        {"level": 10, "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "D",  "wight": "D",  "ghast": "T",  "wraith": "T",  "mummy": "4",  "spectre": "7",  "vampire": "10", "ghost": "13", "lich": "16", "special": "19"},
+        {"level": 11, "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "D",  "wight": "D",  "ghast": "D",  "wraith": "T",  "mummy": "T",  "spectre": "4",  "vampire": "7",  "ghost": "10", "lich": "13", "special": "16"},
+        {"level": 12, "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "D",  "wight": "D",  "ghast": "D",  "wraith": "D",  "mummy": "T",  "spectre": "T",  "vampire": "4",  "ghost": "7",  "lich": "10", "special": "13"},
+        {"level": 13, "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "D",  "wight": "D",  "ghast": "D",  "wraith": "D",  "mummy": "D",  "spectre": "T",  "vampire": "T",  "ghost": "4",  "lich": "7",  "special": "10"},
+        {"level": 14, "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "D",  "wight": "D",  "ghast": "D",  "wraith": "D",  "mummy": "D",  "spectre": "D",  "vampire": "T",  "ghost": "T",  "lich": "4",  "special": "7"},
+        {"level": 20, "skeleton": "D",  "zombie": "D",  "ghoul": "D",  "shadow": "D",  "wight": "D",  "ghast": "D",  "wraith": "D",  "mummy": "D",  "spectre": "D",  "vampire": "D",  "ghost": "T",  "lich": "T",  "special": "4"}
+      ],
+      "turned_count": "Roll 2d6 for the number of HD of undead turned/destroyed by a successful result"
+    }
+  },
+  "morale": {
+    "description": "NPCs, henchmen, and monsters may check morale when facing adverse conditions",
+    "base_score": "Monsters have a morale rating (typically 8–12 on a 2–20 scale)",
+    "check": "Roll 2d10; if result exceeds morale score, the creature flees or surrenders",
+    "triggers": [
+      "First casualty among the group",
+      "Half the group is down",
+      "Leader is slain",
+      "Faced with obviously superior opposition",
+      "Surprised",
+      "Magical fear effect",
+      "Overwhelmed by numbers"
+    ],
+    "modifiers": [
+      "+1 for each ally still fighting",
+      "-1 for each ally who has fled or fallen",
+      "-2 if leader is slain",
+      "+2 if defending their lair or home"
+    ]
+  },
+  "surprise": {
+    "description": "Surprised creatures lose action(s) at the start of an encounter",
+    "roll": "Each side rolls 1d10; surprised on a 1, 2, or 3 (unless modified by abilities or situation)",
+    "segments_lost": "The surprised party loses a number of segments equal to the surprise roll result (1–3)",
+    "effects": "Cannot act, cannot apply DEX to AC during surprise segments",
+    "modifiers": [
+      "Exceptional DEX may reduce chance of being surprised",
+      "Elves, halflings, rangers in natural settings: harder to surprise",
+      "Invisible or very quiet attackers: +2 on surprise roll",
+      "Special senses (infravision, tremorsense) may negate darkness-based surprise"
+    ]
+  },
+  "conditions": {
+    "blinded": {"effect": "-4 to attack rolls; opponents gain +4 to hit; 50% miss chance on attack"},
+    "stunned":  {"effect": "Cannot attack or cast spells; all opponents attack at +4 to hit"},
+    "prone":    {"effect": "Attackers in melee gain +4 to hit; ranged attackers suffer -4; movement to stand up uses 1 segment"},
+    "hasted":   {"effect": "Double movement, one extra attack per round; ages 1 year"},
+    "slowed":   {"effect": "Half movement, one attack per 2 rounds; save vs. spell to resist"},
+    "entangled":{"effect": "Cannot move; -2 to attack rolls"},
+    "invisible":{"effect": "Cannot be seen; attackers suffer -4 to hit; surprised on 1–5 on 1d10 (if moving silently)"}
+  },
+  "damage_types": {
+    "slashing":   "S — cuts and slices (swords, axes)",
+    "piercing":   "P — punctures (spears, arrows, daggers)",
+    "bludgeoning":"B — impacts (clubs, maces, hammers, fists)",
+    "notes": "Some creatures are immune or vulnerable to specific damage types. Lycanthropes require silver or magical weapons. Skeletons take half damage from piercing and slashing."
+  },
+  "weapon_vs_armor": {
+    "description": "Optional rule: some weapons are more or less effective against certain armor types",
+    "note": "This is an optional rule from the DMG. The core game does not require it. See DMG for the full modifiers table if using this optional rule."
+  },
+  "unarmed_combat_summary": {
+    "punch":  {"damage": "1d2 + STR bonus", "notes": "Fist strike"},
+    "kick":   {"damage": "1d3 + STR bonus", "notes": "-2 to attack roll; may unbalance attacker"},
+    "bite":   {"damage": "1",               "notes": "Used by humanoids without weapons; rarely effective"},
+    "headbutt":{"damage": "1d3",            "notes": "Requires close range; may stun target"}
+  }
+}

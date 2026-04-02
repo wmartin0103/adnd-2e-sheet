@@ -1,0 +1,503 @@
+{
+  "source": "AD&D 2nd Edition Complete Psionicist's Handbook (PHBR5), Complete Shaman's Handbook (PHBR12), Al-Qadim Campaign Setting, Tome of Magic, Complete Priest's Handbook (PHBR3)",
+  "description": "Additional character classes beyond the PHB. These classes are available in specific settings or as optional expansions.",
+  "psionicist": {
+    "description": "A dedicated practitioner of mental power. Masters of psionics drawn from the Complete Psionicist's Handbook.",
+    "source": "PHBR5",
+    "group": "Mental/Specialist",
+    "thac0_progression": "As Fighter",
+    "hit_dice": "1d6",
+    "ability_requirements": {
+      "STR": 6,
+      "DEX": 6,
+      "CON": 11,
+      "INT": 12,
+      "WIS": 15,
+      "CHA": 6
+    },
+    "prime_requisite": "WIS (and INT)",
+    "10_percent_bonus_xp": "WIS 16+ and INT 16+",
+    "alignment": "Any",
+    "armor": "None (robes, normal clothes; no metal armor — interferes with psionic focus)",
+    "weapons": "Any one-handed weapon, no two-handed melee",
+    "races_allowed": ["Human", "Elf", "Half-Elf", "Dwarf", "Gnome"],
+    "psps_base": "Starting PSPs = (INT + WIS + CON) / 3",
+    "psp_gain_per_level": "See psionics file for per-level gain",
+    "disciplines_learned": {
+      "at_1st_level": "Choose 2 disciplines to study",
+      "sciences_per_level": "Gain 1 science per level from known disciplines",
+      "devotions_per_level": "Gain 2 devotions per level from known disciplines",
+      "additional_disciplines": "At levels 5, 10, 15, 20 may add new discipline study"
+    },
+    "saving_throws": {
+      "description": "Use Fighter saving throw table",
+      "1_to_5": {"PPDM": 14, "RSW": 15, "PP": 16, "BW": 17, "S": 17},
+      "6_to_10": {"PPDM": 13, "RSW": 13, "PP": 14, "BW": 14, "S": 14},
+      "11_to_15": {"PPDM": 11, "RSW": 11, "PP": 12, "BW": 12, "S": 12},
+      "16_to_20": {"PPDM": 9, "RSW": 9, "PP": 10, "BW": 10, "S": 10}
+    },
+    "xp_table": [
+      {"level": 1, "title": "Psionicist", "xp": 0, "psionic_combat_modes": "1 attack + 1 defense"},
+      {"level": 2, "title": "Awakened", "xp": 2200},
+      {"level": 3, "title": "Initiated", "xp": 4400},
+      {"level": 4, "title": "Mentalist", "xp": 8800},
+      {"level": 5, "title": "Psychic", "xp": 16500},
+      {"level": 6, "title": "Psionic", "xp": 30000},
+      {"level": 7, "title": "Visionary", "xp": 55000},
+      {"level": 8, "title": "Telepath", "xp": 100000},
+      {"level": 9, "title": "Seer", "xp": 200000},
+      {"level": 10, "title": "Mindbender", "xp": 400000},
+      {"level": 11, "title": "Psi-Master", "xp": 600000},
+      {"level": 12, "title": "Grand Master", "xp": 800000}
+    ],
+    "proficiency_slots": {
+      "initial_weapon": 2,
+      "initial_nonweapon": 3,
+      "weapon_slots_per_levels": 3,
+      "nonweapon_slots_per_levels": 3
+    },
+    "special_abilities_by_level": {
+      "level_1": "Psionic Combat modes (1 attack, 1 defense); all attack modes and defenses available at full PSP cost",
+      "level_3": "Psionic defense modes improve; access to attack modes beyond one",
+      "level_5": "Can learn 3rd discipline; Inner Strength (recover 2 PSPs/hour instead of 1 while active)",
+      "level_7": "Power Score bonus: all power scores improve by +1",
+      "level_9": "Mind Mastery: maintain two powers simultaneously without penalty",
+      "level_11": "Power Score bonus improves by another +1",
+      "level_15": "Grand access to all disciplines at reduced PSP cost (-10% to all costs)"
+    },
+    "special_rules": [
+      "Cannot use psionic powers while in metal armor",
+      "Cannot multi-class with psionicist in most settings",
+      "Psionicist/fighter or psionicist/thief multi-class allowed in some settings",
+      "Wild talents in non-psionicists are inferior versions of standard powers",
+      "Psionicist vs. psionicist combat uses special psionic combat rules"
+    ]
+  },
+  "shaman": {
+    "description": "Spirit-world intercessors who draw power from ancestor spirits and nature spirits. Different from clerics in that their power comes from negotiation with spirits rather than divine bestowal.",
+    "source": "PHBR12",
+    "group": "Priest",
+    "thac0_progression": "As Cleric",
+    "hit_dice": "1d8",
+    "ability_requirements": {
+      "WIS": 9,
+      "CHA": 12,
+      "CON": 9
+    },
+    "prime_requisite": "WIS",
+    "alignment": "Any",
+    "armor": "Hide, leather, ring, studded leather; no metal armor; shields allowed",
+    "weapons": "Any one-handed non-edged weapon; spear; staff; club; hammer; axe; bow",
+    "races_allowed": ["Human (tribal)", "Half-Orc", "Gnoll", "Goblin", "Hobgoblin", "Bugbear", "Orc", "Lizard Man"],
+    "spell_source": "Spirit world — spirits grant spells rather than deity",
+    "sphere_access": {
+      "major_spheres": ["All", "Animal", "Elemental", "Healing", "Plant", "Weather"],
+      "minor_spheres": ["Combat", "Divination", "Necromantic"],
+      "special_sphere": "Spirit (shaman-specific sphere)"
+    },
+    "spells_per_day": {
+      "description": "Same progression as cleric for 1st-7th level spells",
+      "note": "Must spend time at Spirit World threshold each morning to regain spells"
+    },
+    "saving_throws": "Same as Cleric",
+    "xp_table": [
+      {"level": 1, "title": "Spirit-Talker", "xp": 0},
+      {"level": 2, "title": "Spirit-Friend", "xp": 1500},
+      {"level": 3, "title": "Spirit-Keeper", "xp": 3000},
+      {"level": 4, "title": "Spirit-Walker", "xp": 6000},
+      {"level": 5, "title": "Spirit-Caller", "xp": 12000},
+      {"level": 6, "title": "Spirit-Warden", "xp": 25000},
+      {"level": 7, "title": "Spirit-Warrior", "xp": 50000},
+      {"level": 8, "title": "Spirit-Elder", "xp": 100000},
+      {"level": 9, "title": "Medicine Man/Woman", "xp": 200000},
+      {"level": 10, "title": "Great Spirit-Speaker", "xp": 350000},
+      {"level": 11, "title": "Shaman Lord/Lady", "xp": 500000},
+      {"level": 12, "title": "Arch-Shaman", "xp": 750000}
+    ],
+    "special_abilities": [
+      "Spirit Sight: see spirit world and spirits at all times; can communicate with them",
+      "Totemic Bond: bond with one animal totem at 1st level; gain minor totem abilities",
+      "Trance: enter spirit world trance once/day; gain information from spirits (as Contact spell)",
+      "Turn undead as cleric of same level (using spirits rather than divine power)",
+      "Create and use spirit fetishes (binding spirits into objects for later use)",
+      "Speak with animals related to totem freely (no spell required)",
+      "Spirit Armor: once/day, call on protective spirits for +2 AC for 1 round/level"
+    ],
+    "totem_animals": {
+      "description": "Each shaman bonds with a totem animal at 1st level",
+      "examples": [
+        {"totem": "Bear", "benefits": "+2 STR when fighting defensively; Hibernate once per year (as power)"},
+        {"totem": "Eagle", "benefits": "Eagle Eye (as spell) 3/day; +2 to surprise opponents outdoors"},
+        {"totem": "Wolf", "benefits": "Tracking at +2; run at +3 movement for 1 turn/day"},
+        {"totem": "Serpent", "benefits": "+4 to saves vs. poison; Charm Reptiles 1/day"},
+        {"totem": "Raven", "benefits": "Understand omens; +2 to divination checks; speak with birds"},
+        {"totem": "Turtle", "benefits": "+2 AC from natural toughness; ignore movement penalties in water"},
+        {"totem": "Horse", "benefits": "+3 movement on open terrain; never thrown from mount"}
+      ]
+    },
+    "restrictions": [
+      "Must maintain relationship with spirit world: daily ritual 1 hour",
+      "Cannot multiclass",
+      "Cannot use edged metal weapons (offends nature spirits)",
+      "If shaman betrays totem or spirits: lose all abilities until reconciled"
+    ]
+  },
+  "witch_doctor": {
+    "description": "Tribal healers and cursers who combine aspects of wizard and shaman. Rare class.",
+    "source": "PHBR12",
+    "group": "Priest/Wizard hybrid",
+    "thac0_progression": "As Cleric",
+    "hit_dice": "1d6",
+    "ability_requirements": {
+      "WIS": 13,
+      "INT": 12,
+      "CHA": 12
+    },
+    "alignment": "Any",
+    "armor": "Leather only; no shields",
+    "weapons": "Any blunt weapon, staff, dagger",
+    "races_allowed": ["Human (tribal)"],
+    "special_abilities": [
+      "Combines priest and wizard spellcasting (learns spells from both lists at reduced rate)",
+      "Curse magic: can place minor curses without spell use (1/day)",
+      "Brew potions and create magical fetishes",
+      "Identify magic items as Identify (1/day)",
+      "Speak with dead (as spell) 3/week",
+      "Control undead as if same-level cleric (but weakly)"
+    ],
+    "spells": "Access to 1st through 6th level spells from both cleric and wizard lists; learns spells as per wizard (via study) AND via prayer each morning"
+  },
+  "shair": {
+    "description": "Al-Qadim wizard-priests who use a magical familiar (Gen) to fetch spells from the Plane of Elemental Fire. Unique to the Al-Qadim setting.",
+    "source": "Al-Qadim Campaign Setting",
+    "group": "Wizard (with priest elements)",
+    "thac0_progression": "As Mage",
+    "hit_dice": "1d4",
+    "ability_requirements": {
+      "INT": 9,
+      "WIS": 9,
+      "CHA": 15
+    },
+    "prime_requisite": "CHA (for dealing with Gen)",
+    "alignment": "Any",
+    "armor": "None",
+    "weapons": "As standard mage (staff, daggers, darts, slings)",
+    "races_allowed": ["Human (Zakharan)", "Planetouched (Genasi)"],
+    "special_ability_gen": {
+      "description": "The Gen is a tiny elemental being (4 inch tall fire creature) who lives in a ring worn by the Sha'ir",
+      "type": "Elemental, Tiny",
+      "hit_points": 4,
+      "abilities": [
+        "Fly at 24 movement (unlimited)",
+        "Travel to the Plane of Elemental Fire",
+        "Immune to fire",
+        "Detect magic",
+        "Translate elemental languages"
+      ]
+    },
+    "spell_acquisition": {
+      "method": "Send Gen to Elemental Plane to fetch spells rather than memorizing them",
+      "time": "Gen returns in 1d6 turns; 1 day if spell is very high level",
+      "chance_of_success": "95% for spell 3+ levels below Sha'ir level; -5% per level above",
+      "concurrent_spells": "Can request 1 spell per level per day; Gen can carry maximum 2 spells",
+      "casting": "Once fetched, spell can be cast at will until cast; then Gen must fetch again",
+      "advantages": "Can potentially access any arcane spell; not limited to prepared spell selection",
+      "disadvantages": "Time delay; Gen can be harmed, forcing longer fetch times"
+    },
+    "special_abilities": [
+      "Elemental speak: converse with any elemental being freely",
+      "Elemental detect: know direction and distance to nearest elemental being within 100 ft",
+      "Gate (elemental): once per week, open gate to appropriate elemental plane",
+      "Fire walk (at 7th level): immune to fire; walk through flames unharmed"
+    ],
+    "spell_progression": {
+      "description": "Can eventually use spells up to 9th level",
+      "note": "Sha'ir can fetch priest spells too, but Gen returns in 1 extra turn for priest spells"
+    }
+  },
+  "specialty_priests": {
+    "description": "Specialty priests serve specific deities and receive unique powers reflecting their deity's portfolio. From the Complete Priest's Handbook.",
+    "creation_rules": {
+      "description": "DMs can create specialty priests using the sphere system and powers from the CPH",
+      "steps": [
+        "1. Choose deity and portfolio",
+        "2. Select major spheres (full access) aligned with portfolio",
+        "3. Select minor spheres (lower-level access) for secondary portfolio areas",
+        "4. Assign 1-4 special powers from the power list",
+        "5. Determine turn undead ability (may be replaced by other power)",
+        "6. Set weapon and armor restrictions appropriate to deity"
+      ]
+    },
+    "example_specialty_priests": {
+      "priest_of_war": {
+        "description": "Serves deities of war, strategy, and battle",
+        "major_spheres": ["All", "Combat", "Divination", "Guardian"],
+        "minor_spheres": ["Healing", "Protection"],
+        "turn_undead": true,
+        "armor": "Any",
+        "weapons": "Any",
+        "special_abilities": [
+          "Battle Fury 1/day: +2 to hit, +2 damage, +2 saves for 5 rounds",
+          "Know Enemy (as spell) 1/day",
+          "Inspire troops: +1 morale to 50 allied troops within 30 ft",
+          "Cannot be flanked (always alert in battle)"
+        ]
+      },
+      "priest_of_nature": {
+        "description": "Serves deities of nature, wilderness, and the natural world",
+        "major_spheres": ["All", "Animal", "Elemental", "Plant", "Weather", "Healing"],
+        "minor_spheres": ["Divination", "Protection"],
+        "turn_undead": false,
+        "special_substitute": "Control Animals (as spell) 3/day",
+        "armor": "Non-metal (leather, hide, wood, bone)",
+        "weapons": "Non-edged: staff, sling, club; also spear",
+        "special_abilities": [
+          "Pass Without Trace (always active outdoors)",
+          "Identify plants and animals (free, always)",
+          "Speak with animals/plants (no spell required)",
+          "Wilderness Sense: never lost outdoors; always know direction/weather"
+        ]
+      },
+      "priest_of_knowledge": {
+        "description": "Serves deities of knowledge, lore, and magic",
+        "major_spheres": ["All", "Divination", "Thought"],
+        "minor_spheres": ["Healing", "Protection", "Numbers"],
+        "turn_undead": true,
+        "armor": "None (no physical combat focus)",
+        "weapons": "Non-edged only: staff, sling, dart",
+        "special_abilities": [
+          "Instant recall: never forget anything read or heard",
+          "Identify (as spell) 3/day",
+          "Legend Lore (as spell) 1/week",
+          "Read magic (always active)",
+          "+2 to all INT-based proficiency checks"
+        ]
+      },
+      "priest_of_death": {
+        "description": "Serves deities of death, fate, and the underworld",
+        "major_spheres": ["All", "Necromantic", "Divination"],
+        "minor_spheres": ["Combat", "Summoning"],
+        "turn_undead": "Commanded (not turned): controls undead instead of destroying",
+        "armor": "Any",
+        "weapons": "Any including edged",
+        "special_abilities": [
+          "Death touch 1/day: touch attack; target saves vs. death magic at -2 or dies",
+          "Speak with dead (no spell required) 1/day",
+          "Undead are neutral to priest (do not attack unless ordered to)",
+          "Age target 1d10 years (touch, save vs. spell) 1/day"
+        ]
+      },
+      "priest_of_trickery": {
+        "description": "Serves deities of deception, cunning, and thieves",
+        "major_spheres": ["All", "Charm", "Travelers"],
+        "minor_spheres": ["Divination", "Protection"],
+        "turn_undead": false,
+        "special_substitute": "Thieve's cant and street sense free",
+        "armor": "Leather only",
+        "weapons": "Short blade, dagger, sling, short bow",
+        "special_abilities": [
+          "Non-detection (always active; spells cannot scry priest)",
+          "Ventriloquism (no spell required) 3/day",
+          "Disguise (as proficiency) with +5 bonus",
+          "Pick pockets as 3rd-level thief"
+        ]
+      }
+    },
+    "sphere_system": {
+      "description": "The complete priest sphere system from the CPH",
+      "spheres": [
+        {
+          "name": "All",
+          "description": "Spells common to all priests: Cure Light Wounds, Detect Magic, etc.",
+          "access_level": "Major (all priests)",
+          "spells_include": "Standard non-harmful, non-offensive utility spells"
+        },
+        {
+          "name": "Animal",
+          "description": "Magic related to normal animals",
+          "major_classes": ["Druid", "Ranger", "Nature priests"],
+          "sample_spells": ["Animal Friendship", "Call Woodland Beings", "Animal Summoning", "Animal Growth"]
+        },
+        {
+          "name": "Astral",
+          "description": "Planar and astral travel magic",
+          "major_classes": ["Priests of planar deities"],
+          "sample_spells": ["Astral Spell", "Plane Shift"]
+        },
+        {
+          "name": "Charm",
+          "description": "Magic to influence minds and reactions",
+          "major_classes": ["Priests of trickery, love, commerce"],
+          "sample_spells": ["Charm Person", "Enthrall", "Emotion", "Cloak of Bravery"]
+        },
+        {
+          "name": "Combat",
+          "description": "Offensive battle spells",
+          "major_classes": ["War priests"],
+          "sample_spells": ["Flame Strike", "Holy Word", "Spiritual Hammer"]
+        },
+        {
+          "name": "Creation",
+          "description": "Spells that create matter or food",
+          "major_classes": ["Priests of craft, provision"],
+          "sample_spells": ["Create Food and Water", "Create Water", "Continual Light"]
+        },
+        {
+          "name": "Divination",
+          "description": "Information-gathering spells",
+          "major_classes": ["Priests of knowledge, fate"],
+          "sample_spells": ["Augury", "Find Traps", "Speak With Dead", "True Seeing", "Legend Lore"]
+        },
+        {
+          "name": "Elemental",
+          "description": "Spells related to the four elements",
+          "major_classes": ["Druids", "Nature priests", "elemental priests"],
+          "sample_spells": ["Control Water", "Call Lightning", "Wind Walk", "Part Water", "Fire Storm"]
+        },
+        {
+          "name": "Guardian",
+          "description": "Protective and warding spells",
+          "major_classes": ["Defensive priests, guard priests"],
+          "sample_spells": ["Glyph of Warding", "Symbol", "Warding Seal", "Blade Barrier"]
+        },
+        {
+          "name": "Healing",
+          "description": "Restoring life and curing conditions",
+          "major_classes": ["Cleric", "all priests with healing focus"],
+          "sample_spells": ["Cure Light Wounds", "Cure Disease", "Raise Dead", "Heal"]
+        },
+        {
+          "name": "Necromantic",
+          "description": "Life, death, and undead manipulation",
+          "major_classes": ["Death priests", "some undead clerics"],
+          "sample_spells": ["Speak With Dead", "Animate Dead", "Death's Door", "Resurrection"]
+        },
+        {
+          "name": "Plant",
+          "description": "Magic related to plant life",
+          "major_classes": ["Druid", "Nature priest"],
+          "sample_spells": ["Entangle", "Barkskin", "Plant Growth", "Commune With Nature", "Wall of Thorns"]
+        },
+        {
+          "name": "Protection",
+          "description": "Defensive aura and warding magic",
+          "major_classes": ["Most clerics have minor access"],
+          "sample_spells": ["Protection From Evil", "Sanctuary", "Remove Curse", "Forbiddance"]
+        },
+        {
+          "name": "Summoning",
+          "description": "Calling creatures and planar beings",
+          "major_classes": ["Priests of powerful deities"],
+          "sample_spells": ["Animate Object", "Aerial Servant", "Gate", "Conjure Earth Elemental"]
+        },
+        {
+          "name": "Sun",
+          "description": "Light, radiance, and the power of day",
+          "major_classes": ["Priests of sun deities"],
+          "sample_spells": ["Light", "Continual Light", "Sunray", "Searing Light", "Wall of Moonlight"]
+        },
+        {
+          "name": "Thought",
+          "description": "Mental and telepathic spells",
+          "major_classes": ["Priests of mind/knowledge deities"],
+          "sample_spells": ["Thought Capture", "Mind Read", "Telepathy", "Brain Message"]
+        },
+        {
+          "name": "Time",
+          "description": "Temporal magic",
+          "major_classes": ["Priests of time deities"],
+          "sample_spells": ["Haste", "Slow", "Age Creature", "Temporal Stasis"]
+        },
+        {
+          "name": "Travelers",
+          "description": "Magic of journeys, roads, movement",
+          "major_classes": ["Messenger deities, road gods"],
+          "sample_spells": ["Pass Without Trace", "Find The Path", "Teleport", "Transport Via Plants"]
+        },
+        {
+          "name": "Wards",
+          "description": "Binding, containing, and protection magic",
+          "major_classes": ["Guardian priests"],
+          "sample_spells": ["Protection From Evil", "Sanctuary", "Forbiddance", "Symbol"]
+        },
+        {
+          "name": "Weather",
+          "description": "Controlling natural weather",
+          "major_classes": ["Druid", "Storm priests", "Nature priests"],
+          "sample_spells": ["Call Lightning", "Control Weather", "Weather Summoning", "Wind Walk"]
+        }
+      ]
+    }
+  },
+  "crusader": {
+    "description": "A holy warrior variant from the Complete Priest's Handbook; different from Paladin in that Crusaders serve any deity's cause without the strict code.",
+    "source": "PHBR3",
+    "group": "Priest (warrior-priest hybrid)",
+    "thac0_progression": "As Warrior",
+    "hit_dice": "1d8",
+    "ability_requirements": {
+      "STR": 12,
+      "WIS": 9,
+      "CON": 12
+    },
+    "alignment": "Same as deity served",
+    "armor": "Any (per deity's restrictions)",
+    "weapons": "As per deity",
+    "spells": "Priest spells 1st through 5th level (limited compared to full priest)",
+    "special_abilities": [
+      "Fight as warrior (THAC0)",
+      "Cast priest spells through 5th level",
+      "Turn undead as cleric 2 levels lower",
+      "Lay on hands once per day (as paladin but scaled to deity's alignment)",
+      "Immune to fear when fighting in name of deity",
+      "+1 to attack and damage vs. deity's specific enemies"
+    ],
+    "restrictions": [
+      "More restricted than standard cleric",
+      "Cannot reach high levels of spell power (max 5th level)",
+      "Must actively crusade for deity or lose abilities"
+    ]
+  },
+  "monk": {
+    "description": "Optional class from Oriental Adventures, usable in standard settings with DM permission. Discipline-focused unarmed combatants.",
+    "source": "Oriental Adventures / Complete Fighter's Handbook variant",
+    "group": "Warrior/Mystic",
+    "thac0_progression": "As Fighter",
+    "hit_dice": "1d6",
+    "ability_requirements": {
+      "STR": 9,
+      "DEX": 9,
+      "WIS": 9,
+      "CON": 9
+    },
+    "alignment": "Lawful any",
+    "armor": "None (interferes with ki focus)",
+    "weapons": "Unarmed; hand weapons; simple weapons only",
+    "races_allowed": ["Human"],
+    "special_abilities_by_level": {
+      "level_1": "Unarmed damage 1d4; AC improves to base 10 (no DEX penalty from armor)",
+      "level_3": "Slowfall (take no damage from falls up to 20 ft)",
+      "level_5": "Unarmed damage 1d6; movement improves to 15",
+      "level_7": "Speak with animals (free, limited to one type)",
+      "level_9": "Unarmed damage 1d8; ki focus: bonus attack per round",
+      "level_11": "Mind blank (immune to mind-reading) at will",
+      "level_13": "Unarmed damage 1d10; empty body: etherealness 1/day"
+    },
+    "ki_points": {
+      "description": "Monks accumulate ki points representing spiritual energy. Ki points are used for special abilities.",
+      "base": "WIS modifier x level",
+      "uses": ["Extra attack", "Stunning blow", "Quivering palm (at high level)", "Move silently"]
+    }
+  },
+  "multiclass_options": {
+    "description": "Additional multiclass combinations allowed for expanded races",
+    "allowed_combinations": [
+      {"classes": "Fighter/Psionicist", "races": ["Human", "Half-Elf"], "notes": "Setting-specific; ask DM"},
+      {"classes": "Mage/Psionicist", "races": ["Human", "Elf"], "notes": "Very rare; requires exceptional INT and WIS"},
+      {"classes": "Thief/Psionicist", "races": ["Human", "Half-Elf"], "notes": "Setting-specific"},
+      {"classes": "Shaman/Fighter", "races": ["Human (tribal)", "Half-Orc"], "notes": "Tribal warrior-shaman"},
+      {"classes": "Fighter/Sha'ir", "races": ["Human (Zakharan)"], "notes": "Al-Qadim setting only"}
+    ],
+    "dual_class_note": "Human dual-class characters can switch from any standard class to these additional classes following normal dual-class rules"
+  }
+}

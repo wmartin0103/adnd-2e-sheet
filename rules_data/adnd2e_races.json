@@ -1,0 +1,314 @@
+{
+  "_meta": {
+    "system": "Advanced Dungeons & Dragons 2nd Edition",
+    "source": "Player's Handbook (2nd Edition)",
+    "description": "All core playable races with ability adjustments, requirements, special abilities, and class restrictions",
+    "version": "1.0"
+  },
+  "races": [
+    {
+      "id": "human",
+      "name": "Human",
+      "description": "The most common and versatile race, humans have no ability score adjustments or racial restrictions on class selection.",
+      "ability_score_adjustments": {},
+      "ability_score_limits": {
+        "STR": {"min": 3, "max": 18},
+        "DEX": {"min": 3, "max": 18},
+        "CON": {"min": 3, "max": 18},
+        "INT": {"min": 3, "max": 18},
+        "WIS": {"min": 3, "max": 18},
+        "CHA": {"min": 3, "max": 18}
+      },
+      "allowed_classes": ["Fighter", "Paladin", "Ranger", "Mage", "Specialist Wizard", "Cleric", "Druid", "Thief", "Bard", "all"],
+      "multi_class_allowed": false,
+      "dual_class_allowed": true,
+      "movement": 12,
+      "infravision": false,
+      "languages": ["Common"],
+      "special_abilities": [
+        "May dual-class: switch to a new class, retaining old class abilities once new class exceeds old class level",
+        "No level limits in any class",
+        "Access to all character classes including Paladin and Ranger",
+        "Unlimited exceptional STR (18/xx) only if Fighter class"
+      ],
+      "saving_throw_bonuses": {},
+      "notes": "Humans are the only race able to dual-class."
+    },
+    {
+      "id": "dwarf",
+      "name": "Dwarf",
+      "description": "Stout and resilient demihumans known for their affinity with stone, metals, and deep places.",
+      "ability_score_adjustments": {
+        "CON": 1,
+        "CHA": -1
+      },
+      "ability_score_limits": {
+        "STR": {"min": 8, "max": 18},
+        "DEX": {"min": 3, "max": 17},
+        "CON": {"min": 11, "max": 19},
+        "INT": {"min": 3, "max": 18},
+        "WIS": {"min": 3, "max": 18},
+        "CHA": {"min": 3, "max": 16}
+      },
+      "allowed_classes": ["Fighter", "Cleric", "Thief", "Fighter/Cleric", "Fighter/Thief", "Cleric/Thief"],
+      "multi_class_allowed": true,
+      "dual_class_allowed": false,
+      "movement": 6,
+      "infravision": 60,
+      "languages": ["Common", "Dwarvish", "Gnomish", "Goblin", "Kobold", "Orcish"],
+      "level_limits": {
+        "Fighter": 15,
+        "Cleric": 10,
+        "Thief": "unlimited"
+      },
+      "special_abilities": [
+        "Attack bonus: 1 to attack rolls vs. orcs, half-orcs, goblins, and hobgoblins",
+        "Saving throw bonus: 1 to saves for every 3.5 CON points (vs. magic, rods, staves, wands, and poison)",
+        "Dodge bonus: -4 to attack rolls of ogres, trolls, ogre magi, giants, and titans targeting the dwarf",
+        "Detect grade/slope in passage: 75% chance",
+        "Detect new tunnel/passage construction: 75% chance",
+        "Detect sliding/shifting walls or rooms: 66% chance",
+        "Detect stonework traps, pits, deadfalls: 50% chance",
+        "Determine approximate depth underground: 50% chance",
+        "Saving throw bonus vs. magic: CON-based (see notes)"
+      ],
+      "saving_throw_bonuses": {
+        "description": "Dwarves gain saving throw bonuses based on CON score",
+        "table": [
+          {"con_range": "4–6",   "bonus": 1},
+          {"con_range": "7–10",  "bonus": 2},
+          {"con_range": "11–13", "bonus": 3},
+          {"con_range": "14–17", "bonus": 4},
+          {"con_range": "18–19", "bonus": 5}
+        ],
+        "applies_to": ["poison", "rods", "staves", "wands", "spells"]
+      },
+      "notes": "Dwarves have a naturally low movement rate of 6 but are not slowed by encumbrance as heavily as other races."
+    },
+    {
+      "id": "elf",
+      "name": "Elf",
+      "description": "Graceful and long-lived demihumans with keen senses and innate magical talents.",
+      "ability_score_adjustments": {
+        "DEX": 1,
+        "CON": -1
+      },
+      "ability_score_limits": {
+        "STR": {"min": 3, "max": 18},
+        "DEX": {"min": 6, "max": 19},
+        "CON": {"min": 7, "max": 17},
+        "INT": {"min": 8, "max": 18},
+        "WIS": {"min": 3, "max": 18},
+        "CHA": {"min": 8, "max": 18}
+      },
+      "allowed_classes": ["Fighter", "Mage", "Cleric", "Thief", "Ranger", "Bard", "Fighter/Mage", "Fighter/Thief", "Fighter/Mage/Thief", "Mage/Thief", "Fighter/Mage/Cleric"],
+      "multi_class_allowed": true,
+      "dual_class_allowed": false,
+      "movement": 12,
+      "infravision": 60,
+      "languages": ["Common", "Elvish", "Gnoll", "Gnomish", "Halfling", "Hobgoblin", "Orcish"],
+      "level_limits": {
+        "Fighter": 12,
+        "Mage": 15,
+        "Cleric": 12,
+        "Thief": "unlimited",
+        "Ranger": 15
+      },
+      "special_abilities": [
+        "90% resistance to sleep and charm spells",
+        "Detect secret doors: 1-in-6 passing within 10 ft (passive), 2-in-6 when actively searching",
+        "Detect concealed doors: 3-in-6 when searching",
+        "+1 to attack rolls with long swords, short swords, and bows",
+        "Move silently in non-metal armor: surprise opponents on 4-in-6 chance",
+        "Infravision 60 ft"
+      ],
+      "saving_throw_bonuses": {
+        "description": "+90% resistance to sleep and charm spells (these saves are rarely failed)"
+      },
+      "notes": "Elves who actively search for secret doors have a 2-in-6 chance of finding them."
+    },
+    {
+      "id": "gnome",
+      "name": "Gnome",
+      "description": "Small, inventive demihumans related to dwarves, with a deep love of gems, illusions, and mechanisms.",
+      "ability_score_adjustments": {
+        "INT": 1,
+        "WIS": -1
+      },
+      "ability_score_limits": {
+        "STR": {"min": 6, "max": 18},
+        "DEX": {"min": 3, "max": 18},
+        "CON": {"min": 8, "max": 18},
+        "INT": {"min": 6, "max": 19},
+        "WIS": {"min": 3, "max": 18},
+        "CHA": {"min": 3, "max": 18}
+      },
+      "allowed_classes": ["Fighter", "Cleric", "Thief", "Illusionist", "Fighter/Cleric", "Fighter/Illusionist", "Fighter/Thief", "Cleric/Illusionist", "Cleric/Thief", "Illusionist/Thief"],
+      "multi_class_allowed": true,
+      "dual_class_allowed": false,
+      "movement": 6,
+      "infravision": 60,
+      "languages": ["Common", "Gnomish", "Dwarvish", "Halfling", "Goblin", "Kobold"],
+      "level_limits": {
+        "Fighter": 11,
+        "Cleric": 9,
+        "Thief": "unlimited",
+        "Illusionist": 15
+      },
+      "special_abilities": [
+        "Attack bonus: 1 to attack rolls vs. kobolds and goblins",
+        "Dodge bonus: -4 to attack rolls of gnolls, bugbears, ogres, trolls, ogre magi, giants, and titans targeting the gnome",
+        "Saving throw bonus vs. magic: CON-based (same as dwarves)",
+        "Detect grade/slope in passage: 80% chance",
+        "Detect unsafe walls, ceilings, floors: 70% chance",
+        "Determine approximate depth underground: 60% chance",
+        "Determine approximate direction underground: 50% chance",
+        "Speak with burrowing mammals (badgers, moles, etc.)"
+      ],
+      "saving_throw_bonuses": {
+        "description": "Gnomes gain saving throw bonuses based on CON score (same table as Dwarves)",
+        "applies_to": ["poison", "rods", "staves", "wands", "spells"]
+      },
+      "notes": "Gnomes can speak with burrowing mammals as a natural ability."
+    },
+    {
+      "id": "half_elf",
+      "name": "Half-Elf",
+      "description": "The offspring of humans and elves, blending the best of both races with some limitations of each.",
+      "ability_score_adjustments": {},
+      "ability_score_limits": {
+        "STR": {"min": 3, "max": 18},
+        "DEX": {"min": 6, "max": 18},
+        "CON": {"min": 6, "max": 18},
+        "INT": {"min": 4, "max": 18},
+        "WIS": {"min": 3, "max": 18},
+        "CHA": {"min": 3, "max": 18}
+      },
+      "allowed_classes": ["Fighter", "Ranger", "Mage", "Cleric", "Druid", "Thief", "Bard", "Fighter/Mage", "Fighter/Thief", "Fighter/Mage/Thief", "Cleric/Ranger", "Cleric/Fighter", "Druid/Fighter", "Mage/Thief", "Cleric/Mage"],
+      "multi_class_allowed": true,
+      "dual_class_allowed": false,
+      "movement": 12,
+      "infravision": 60,
+      "languages": ["Common", "Elvish"],
+      "level_limits": {
+        "Fighter": 12,
+        "Ranger": 15,
+        "Mage": 12,
+        "Cleric": 14,
+        "Druid": 15,
+        "Thief": "unlimited",
+        "Bard": "unlimited"
+      },
+      "special_abilities": [
+        "30% resistance to sleep and charm spells",
+        "Detect secret doors: 1-in-6 passing within 10 ft (passive), 2-in-6 when actively searching",
+        "Detect concealed doors: 3-in-6 when searching",
+        "Infravision 60 ft"
+      ],
+      "saving_throw_bonuses": {},
+      "notes": "Half-elves have the widest variety of available multi-class combinations."
+    },
+    {
+      "id": "halfling",
+      "name": "Halfling",
+      "description": "Small, cheerful demihumans known for their stealth, luck, and love of comfortable homes.",
+      "ability_score_adjustments": {
+        "DEX": 1,
+        "STR": -1
+      },
+      "ability_score_limits": {
+        "STR": {"min": 7, "max": 17},
+        "DEX": {"min": 7, "max": 19},
+        "CON": {"min": 10, "max": 19},
+        "INT": {"min": 6, "max": 18},
+        "WIS": {"min": 3, "max": 17},
+        "CHA": {"min": 3, "max": 18}
+      },
+      "allowed_classes": ["Fighter", "Cleric", "Thief", "Fighter/Thief", "Cleric/Thief", "Druid (Hairfoot/Tallfellow only — via Druid option)"],
+      "multi_class_allowed": true,
+      "dual_class_allowed": false,
+      "movement": 6,
+      "infravision": false,
+      "languages": ["Common", "Halfling", "Dwarvish", "Gnomish", "Goblin", "Orcish"],
+      "subraces": ["Hairfoot", "Stout", "Tallfellow"],
+      "level_limits": {
+        "Fighter": 9,
+        "Cleric": 8,
+        "Thief": "unlimited",
+        "Druid": 6
+      },
+      "special_abilities": [
+        "Attack bonus: 3 to attack rolls with thrown weapons and slings",
+        "Saving throw bonus: 1 for every 3.5 CON points vs. magic, rods, staves, wands, and poison (same as Dwarves)",
+        "Dodge bonus: -4 to attack rolls of ogres, trolls, ogre magi, giants, and titans targeting the halfling",
+        "Move silently outdoors: surprise enemies on 4-in-6 chance",
+        "Near-invisibility when motionless in natural surroundings",
+        "Stout subraces: infravision 60 ft, underground abilities like Dwarves",
+        "Tallfellow subraces: similar to Elves for secret/concealed door detection"
+      ],
+      "saving_throw_bonuses": {
+        "description": "Halflings gain saving throw bonuses based on CON (same table as Dwarves)",
+        "applies_to": ["poison", "rods", "staves", "wands", "spells"]
+      },
+      "notes": "Halflings have excellent attack bonuses with thrown weapons and slings. Stout halflings gain dwarf-like underground abilities."
+    },
+    {
+      "id": "half_orc",
+      "name": "Half-Orc",
+      "description": "Part human and part orc, these beings are often strong and tough but lack social grace.",
+      "ability_score_adjustments": {
+        "STR": 1,
+        "CON": 1,
+        "CHA": -2
+      },
+      "ability_score_limits": {
+        "STR": {"min": 6, "max": 18},
+        "DEX": {"min": 3, "max": 17},
+        "CON": {"min": 13, "max": 19},
+        "INT": {"min": 3, "max": 17},
+        "WIS": {"min": 3, "max": 14},
+        "CHA": {"min": 3, "max": 12}
+      },
+      "allowed_classes": ["Fighter", "Cleric", "Thief", "Assassin", "Fighter/Cleric", "Fighter/Thief", "Fighter/Assassin", "Cleric/Thief", "Cleric/Assassin"],
+      "multi_class_allowed": true,
+      "dual_class_allowed": false,
+      "movement": 12,
+      "infravision": 60,
+      "languages": ["Common", "Orcish"],
+      "level_limits": {
+        "Fighter": 10,
+        "Cleric": 7,
+        "Thief": 8,
+        "Assassin": 15
+      },
+      "special_abilities": [
+        "Infravision 60 ft"
+      ],
+      "saving_throw_bonuses": {},
+      "notes": "Half-orcs have the fewest special racial abilities but strong STR/CON. Assassin class (if used) has no level limit for half-orcs. Note: Assassin class is optional in 2e."
+    }
+  ],
+  "multiclass_rules": {
+    "description": "Demihumans (non-humans) may choose multi-class combinations, splitting XP and advancing in two or three classes simultaneously.",
+    "xp_split": "XP earned is divided equally among all classes",
+    "hp_calculation": "Roll hit dice for each class and average the results (round fractions down, minimum 1)",
+    "class_abilities": "Character has access to all class abilities from all active classes, subject to restrictions",
+    "armor_restrictions": "Must follow the most restrictive armor rules of all classes taken",
+    "restrictions": [
+      "Only demihumans may multi-class; humans may dual-class instead",
+      "Cannot multi-class two classes from the same group (two Warrior classes, etc.)",
+      "Thieving skills cannot be used in armor not permitted by the thief class",
+      "Clerics in multi-class using cleric spells must follow standard cleric weapon restrictions"
+    ]
+  },
+  "dualclass_rules": {
+    "description": "Humans only. A character stops advancing in their original class and begins a new one.",
+    "requirements": [
+      "Score of 15+ in the prime requisite(s) of the original class",
+      "Score of 17+ in the prime requisite(s) of the new class",
+      "Must be human"
+    ],
+    "regaining_old_class": "When the new class level exceeds the old class level, the character regains all abilities of the original class, except when wearing armor or using weapons prohibited by the new class.",
+    "xp": "All XP goes to the new class; original class level is frozen"
+  }
+}

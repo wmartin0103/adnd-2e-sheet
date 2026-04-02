@@ -1,0 +1,284 @@
+{
+  "_meta": {
+    "system": "Advanced Dungeons & Dragons 2nd Edition",
+    "description": "Master index for the AD&D 2e reference data files. Describes the structure and contents of each file for use in a character sheet web application.",
+    "version": "2.0",
+    "created": "2026-03-31",
+    "updated": "2026-03-31",
+    "files": 17,
+    "sources": [
+      "Player's Handbook (PHB)",
+      "Dungeon Master's Guide (DMG)",
+      "Complete Fighter's Handbook (PHBR1)",
+      "Complete Thief's Handbook (PHBR2)",
+      "Complete Priest's Handbook (PHBR3)",
+      "Complete Wizard's Handbook (PHBR4)",
+      "Complete Psionicist's Handbook (PHBR5)",
+      "Complete Bard's Handbook (PHBR7)",
+      "Complete Druid's Handbook (PHBR10)",
+      "Complete Ranger's Handbook (PHBR11)",
+      "Complete Shaman's Handbook (PHBR12)",
+      "Complete Paladin's Handbook (PHBR13)",
+      "Complete Book of Humanoids (PHBR10)",
+      "Tome of Magic (1991)",
+      "Arms & Equipment Guide (1991)",
+      "Al-Qadim Campaign Setting",
+      "Planescape Campaign Setting",
+      "Dark Sun Campaign Setting",
+      "Spelljammer Campaign Setting"
+    ]
+  },
+  "files": [
+    {
+      "filename": "adnd2e_ability_scores.json",
+      "description": "Complete ability score tables for all six abilities (STR, DEX, CON, INT, WIS, CHA) from scores 1–25, including all modifiers. Also includes exceptional strength (STR 18/xx), character generation methods.",
+      "top_level_keys": ["ability_scores", "generation_methods", "ability_score_minimums"],
+      "use_cases": [
+        "Display ability score modifier tables on character sheet",
+        "Auto-calculate hit/damage bonuses from STR",
+        "Auto-calculate AC bonus from DEX",
+        "Show WIS bonus spell slots for priests",
+        "Show INT spell-learning chance for wizards",
+        "Validate class ability score requirements"
+      ]
+    },
+    {
+      "filename": "adnd2e_races.json",
+      "description": "All seven core playable races (Human, Dwarf, Elf, Gnome, Half-Elf, Halfling, Half-Orc) with ability score adjustments, limits, allowed classes, level limits, infravision, movement, special abilities, and saving throw bonuses. Also includes multiclass and dual-class rules.",
+      "top_level_keys": ["races", "multiclass_rules", "dualclass_rules"],
+      "use_cases": [
+        "Populate race selection dropdown",
+        "Auto-apply ability score adjustments on character creation",
+        "Filter available classes by race",
+        "Show level limits for demihuman classes",
+        "Display racial special abilities",
+        "Calculate saving throw bonuses from CON (dwarves, gnomes, halflings)"
+      ]
+    },
+    {
+      "filename": "adnd2e_classes.json",
+      "description": "All core character classes (Fighter, Paladin, Ranger, Mage, Specialist Wizards, Cleric, Druid, Thief, Bard) with requirements, hit dice, armor/weapon restrictions, proficiency slots, THAC0 group, saving throw tables, XP tables, spell tables, thief skills, and special abilities.",
+      "top_level_keys": ["class_groups", "thac0_by_group", "saving_throws", "classes"],
+      "use_cases": [
+        "Auto-calculate THAC0 from class and level",
+        "Look up saving throws by class and level",
+        "Build XP tracker with level-up detection",
+        "Display spells per day for caster classes",
+        "Calculate thief skill points and base percentages",
+        "Show weapon/armor restrictions",
+        "Apply proficiency slot calculations"
+      ]
+    },
+    {
+      "filename": "adnd2e_combat.json",
+      "description": "Combat rules: combat sequence, attack resolution, damage, special actions (charging, two-weapon fighting, grappling, retreating), missile combat, cover rules, turning undead table, morale, surprise, conditions, and damage types.",
+      "top_level_keys": ["combat_sequence", "attack_resolution", "hit_points_and_death", "special_combat_actions", "missile_combat", "turning_undead", "morale", "surprise", "conditions", "damage_types"],
+      "use_cases": [
+        "Display combat quick-reference",
+        "Auto-calculate to-hit roll needed from THAC0 vs. AC",
+        "Turning undead lookup table by cleric level",
+        "Display condition effects",
+        "Combat tracker for initiative and HP"
+      ]
+    },
+    {
+      "filename": "adnd2e_weapons_armor.json",
+      "description": "Complete weapon tables (39 melee, 11 missile weapons) with damage vs. S/M and L, speed factor, type, size, weight, space required, cost, and notes. All armor types with AC, weight, movement, and cost. Shield types. Encumbrance rules.",
+      "top_level_keys": ["weapon_notes", "melee_weapons", "missile_weapons", "ammunition", "armor", "shields", "ac_notes", "encumbrance"],
+      "use_cases": [
+        "Weapon selection and display on character sheet",
+        "Auto-load weapon stats when weapon is selected",
+        "Armor selection and AC calculation",
+        "Encumbrance calculator from carried weight vs. STR",
+        "Quick-reference for weapon damage in combat"
+      ]
+    },
+    {
+      "filename": "adnd2e_proficiencies.json",
+      "description": "Weapon and non-weapon proficiency systems. Includes all weapon proficiencies with groups, specialization rules, and slot tables by class. Non-weapon proficiencies organized by group (General, Warrior, Wizard, Priest, Rogue) with relevant ability, check modifier, and slot cost. Racial thief skill adjustments and DEX adjustments for thief skills.",
+      "top_level_keys": ["weapon_proficiency_rules", "weapon_proficiencies", "nonweapon_proficiency_rules", "nonweapon_proficiencies", "proficiency_group_access"],
+      "use_cases": [
+        "Proficiency selection UI for character creation",
+        "Track remaining proficiency slots",
+        "Auto-calculate nonproficiency penalty for weapons",
+        "Roll proficiency checks against ability scores",
+        "Thief skill adjustment calculator by race and DEX",
+        "Specialization tracker for fighters"
+      ]
+    },
+    {
+      "filename": "adnd2e_spells_wizard.json",
+      "description": "Complete wizard spell list from 1st through 9th level (all PHB spells). Each spell includes school, level, range, duration, area of effect, components, casting time, saving throw, description, material component, and reversal info where applicable. Covers all standard wizard spells plus named spells (Bigby's, Mordenkainen's, Tenser's, etc.).",
+      "top_level_keys": ["spell_schools", "component_key", "spells"],
+      "spell_count_approximate": 140,
+      "use_cases": [
+        "Spell selection and tracking for wizard characters",
+        "Spellbook management — track which spells are known",
+        "Daily spell memorization tracker",
+        "In-play spell lookup (range, duration, effect)",
+        "Filter spells by school for specialist wizards",
+        "Show available spells by level for current wizard level"
+      ]
+    },
+    {
+      "filename": "adnd2e_spells_priest.json",
+      "description": "Complete cleric and druid spell list from 1st through 7th level (all PHB spells). Each spell includes sphere, level, range, duration, area of effect, components, casting time, saving throw, description, material component, and reversal info. Druid-specific spells are noted.",
+      "top_level_keys": ["spell_spheres", "component_key", "cleric_spells"],
+      "spell_count_approximate": 120,
+      "use_cases": [
+        "Spell selection and tracking for priest characters",
+        "Daily prayer and spell slot management",
+        "Filter spells by sphere for specialty priests",
+        "In-play spell lookup",
+        "Show WIS bonus spells added to base slots"
+      ]
+    },
+    {
+      "filename": "adnd2e_kits.json",
+      "description": "Character kits from the Complete Handbook series (PHBR1-PHBR15). Includes fighter, thief, wizard, priest, ranger, paladin, bard, druid, and psionicist kits. Also includes fighting styles and weapon groups from the Complete Fighter's Handbook.",
+      "top_level_keys": ["kit_rules", "fighting_styles", "weapon_groups", "kits"],
+      "use_cases": [
+        "Kit selection during character creation",
+        "Display kit bonuses and restrictions",
+        "Show required proficiencies for each kit",
+        "Fighting style selection for fighters",
+        "Weapon group proficiency tracking"
+      ]
+    },
+    {
+      "filename": "adnd2e_equipment.json",
+      "description": "Complete adventuring equipment, tools, clothing, mounts, vehicles, and services with prices. Covers currency system, starting equipment by class, adventuring gear, animals and mounts, transportation, lodging, and services.",
+      "top_level_keys": ["currency", "starting_equipment_by_class", "adventuring_gear", "animals_and_mounts", "transportation", "lodging_and_services", "special_equipment", "gem_and_art_values"],
+      "use_cases": [
+        "Equipment shop and inventory management",
+        "Starting gold calculator by class",
+        "Encumbrance calculation from inventory",
+        "Mount and transportation selection",
+        "Service cost lookups",
+        "Gem and art object valuation for treasure"
+      ]
+    },
+    {
+      "filename": "adnd2e_magic_items.json",
+      "description": "Magic item tables and descriptions from the DMG. Includes potions, scrolls, rings, rods/staves/wands, miscellaneous magic items, and magic weapons/armor. Covers identification rules, curses, charges, and random generation tables.",
+      "top_level_keys": ["identification_rules", "random_magic_item_tables", "potions", "scrolls", "rings", "rods_staves_wands", "miscellaneous_magic", "magic_armor_and_shields", "magic_weapons", "artifacts_and_relics"],
+      "use_cases": [
+        "Magic item lookup by name",
+        "Random magic item generation",
+        "Display item properties and charges",
+        "Cursed item tracking",
+        "Identify spell target lookup",
+        "Artifact and relic reference"
+      ]
+    },
+    {
+      "filename": "adnd2e_spells_tome_of_magic.json",
+      "description": "Expanded spell system from the Tome of Magic. Includes Wild Magic rules, wild surge table, wild mage spells, chronomancer spells, shadow magic spells, song magic (bard), geomancy spells, new priest spheres, and additional wizard/priest spells.",
+      "top_level_keys": ["wild_magic", "wild_magic_spells", "chronomancer_spells", "shadow_magic_spells", "song_magic_spells", "geomancy_spells", "new_priest_spheres", "additional_wizard_spells", "additional_priest_spells"],
+      "use_cases": [
+        "Wild mage character support (surge tracking)",
+        "Wild surge table lookup",
+        "Chronomancer spell list",
+        "Expanded wizard spell selection",
+        "New priest sphere reference",
+        "Bard song magic spells"
+      ]
+    },
+    {
+      "filename": "adnd2e_weapons_additional.json",
+      "description": "Additional weapons beyond the PHB from the Arms & Equipment Guide and Complete Fighter's Handbook. Includes all polearm varieties, exotic weapons, eastern/oriental weapons, siege weapons, primitive firearms, chain/flail variants, and additional bow types. Also covers improvised weapons and special materials.",
+      "top_level_keys": ["polearms", "exotic_and_unusual_weapons", "eastern_weapons", "siege_weapons", "firearms_primitive", "chain_and_flail_variants", "bows_and_projectile_variants", "improvised_weapons", "materials_and_special_construction"],
+      "use_cases": [
+        "Expanded weapon selection for character sheets",
+        "Polearm type reference for fighters",
+        "Siege weapon stats for battlefield encounters",
+        "Eastern weapon selection for oriental campaigns",
+        "Special material properties and cost multipliers",
+        "Improvised weapon rules reference"
+      ]
+    },
+    {
+      "filename": "adnd2e_psionics.json",
+      "description": "Complete psionic system from the Complete Psionicist's Handbook. Covers PSP rules, power scores, psionic combat (attack/defense modes), and all 6 disciplines: Clairsentience, Psychokinesis, Psychometabolism, Psychoportation, Telepathy, and Metapsionics. Each discipline contains all sciences and devotions with costs.",
+      "top_level_keys": ["psionic_overview", "psionic_strength_points", "power_score", "psionic_combat", "disciplines", "psychic_encounters"],
+      "use_cases": [
+        "Psionicist character class support",
+        "PSP tracking and recovery",
+        "Psionic power selection and management",
+        "Psionic combat mode reference",
+        "Wild talent system for non-psionicists",
+        "Power score calculation"
+      ]
+    },
+    {
+      "filename": "adnd2e_proficiencies_additional.json",
+      "description": "Additional non-weapon proficiencies from the Complete Handbook series beyond the PHB. Organized by class group (Warrior, Rogue, Wizard, Priest, General). Also includes secondary skills.",
+      "top_level_keys": ["warrior_additional", "rogue_additional", "wizard_additional", "priest_additional", "general_additional", "secondary_skills"],
+      "use_cases": [
+        "Expanded NWP selection during character creation",
+        "Kit-required proficiency reference",
+        "Background secondary skill selection",
+        "Proficiency check system support",
+        "Cantrip system reference for wizards"
+      ]
+    },
+    {
+      "filename": "adnd2e_races_additional.json",
+      "description": "Non-PHB player character races from various campaign settings. Includes Planescape planar races (Aasimar, Tiefling, Githzerai, Githyanki, Genasi), Dark Sun races (Mul, Thri-Kreen), Complete Book of Humanoids races (Bugbear, Gnoll, Goblin, Hobgoblin, Kobold, Lizard Man, Ogre, Orc), Al-Qadim races, Spelljammer races, and rare demi-human subraces (Drow, Gray Elf, Wild Elf, Deep Gnome, etc.).",
+      "top_level_keys": ["planar_races", "dark_sun_races", "complete_book_of_humanoids_races", "al_qadim_races", "spelljammer_races", "rare_demi_human_subraces"],
+      "use_cases": [
+        "Campaign setting-specific race selection",
+        "Exotic race ability score adjustments",
+        "Racial special ability display",
+        "Setting availability filtering",
+        "Non-standard level limit reference"
+      ]
+    },
+    {
+      "filename": "adnd2e_classes_additional.json",
+      "description": "Additional character classes beyond the PHB. Includes the Psionicist (PHBR5), Shaman (PHBR12), Witch Doctor (PHBR12), Sha'ir (Al-Qadim), Crusader (PHBR3), Monk (Oriental Adventures), and the full specialty priest system from the Complete Priest's Handbook with all spheres and example specialty priests.",
+      "top_level_keys": ["psionicist", "shaman", "witch_doctor", "shair", "specialty_priests", "crusader", "monk", "multiclass_options"],
+      "use_cases": [
+        "Psionicist class character creation and leveling",
+        "Shaman class with totem system",
+        "Sha'ir Gen familiar mechanics",
+        "Specialty priest creation framework",
+        "Sphere system reference for priest characters",
+        "Expanded multiclass options for exotic races"
+      ]
+    }
+  ],
+  "quick_reference": {
+    "to_hit_formula": "Roll d20; hit if result >= (THAC0 - target_AC)",
+    "d20_needed": "THAC0 - target_AC = d20 roll needed",
+    "natural_20_always_hits": true,
+    "natural_1_always_misses": true,
+    "attack_formula_example": "Fighter level 5 (THAC0 16) vs. AC 4: needs 16-4=12 or higher on d20",
+    "initiative": "Roll 1d10, lower goes first",
+    "death": "Character dies at 0 HP (or -10 HP with optional negative HP rule)",
+    "ability_check": "Roll d20 equal to or under ability score to succeed",
+    "saving_throw": "Roll d20 equal to or over saving throw target number to succeed",
+    "proficiency_check": "Roll d20 equal to or under (ability score + modifier) to succeed"
+  },
+  "data_relationships": {
+    "character_creation_flow": [
+      "1. Roll ability scores (ability_scores.json — generation methods)",
+      "2. Choose race (races.json — adjustments; races_additional.json for setting races)",
+      "3. Choose class(es) based on race + scores (classes.json, classes_additional.json)",
+      "4. Optionally select a kit (kits.json — bonus proficiencies, special benefits)",
+      "5. Record starting HP (class hit die + CON modifier from ability_scores.json)",
+      "6. Select weapon proficiencies (proficiencies.json — slots by class)",
+      "7. Select nonweapon proficiencies (proficiencies.json and proficiencies_additional.json)",
+      "8. Choose starting equipment (weapons_armor.json, weapons_additional.json, equipment.json)",
+      "9. Record THAC0 and saving throws (classes.json)",
+      "10. Select starting spells if spellcaster (spells_wizard.json, spells_priest.json, spells_tome_of_magic.json)",
+      "11. If Psionicist: set PSPs, select disciplines and powers (psionics.json)"
+    ],
+    "cross_references": {
+      "thief_racial_adjustments": "proficiencies.json → nonweapon_proficiencies.thief_skills in classes.json reference proficiencies.json racial tables",
+      "saving_throw_racial_bonuses": "races.json saving_throw_bonuses cross-reference with ability_scores.json CON table",
+      "wisdom_bonus_spells": "ability_scores.json WIS table → classes.json cleric/druid spell tables",
+      "str_exceptional": "ability_scores.json STR exceptional rows apply only to Fighter class from classes.json"
+    }
+  }
+}

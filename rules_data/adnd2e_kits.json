@@ -1,0 +1,884 @@
+{
+  "_meta": {
+    "system": "Advanced Dungeons & Dragons 2nd Edition",
+    "sources": [
+      "Complete Fighter's Handbook (PHBR1)",
+      "Complete Thief's Handbook (PHBR2)",
+      "Complete Priest's Handbook (PHBR3)",
+      "Complete Wizard's Handbook (PHBR4)",
+      "Complete Psionicist's Handbook (PHBR5)",
+      "Complete Bard's Handbook (PHBR7)",
+      "Complete Ranger's Handbook (PHBR8)",
+      "Complete Paladin's Handbook (PHBR9)",
+      "Complete Druid's Handbook (PHBR13)",
+      "Complete Barbarian's Handbook (PHBR14)",
+      "Complete Ninja's Handbook (PHBR15)",
+      "The Complete Sha'ir's Handbook (PHBR12)"
+    ],
+    "description": "Character kits — optional specializations that customize a base class with additional proficiencies, equipment, role-playing restrictions, and special abilities.",
+    "version": "1.0"
+  },
+  "kit_rules": {
+    "description": "A kit is chosen at character creation and cannot be changed later. Kits provide bonuses and impose restrictions that define the character's background and role.",
+    "selection": "Players choose one kit (or no kit) at character creation.",
+    "requirements": "Each kit has specific ability score, race, alignment, or class requirements that must be met.",
+    "benefits": "Bonus proficiencies, reduced-cost proficiencies, special abilities, or social advantages.",
+    "hindrances": "Required behavior, restricted gear, social stigmas, or mechanical penalties that reinforce the character concept."
+  },
+  "fighting_styles": {
+    "source": "Complete Fighter's Handbook (PHBR1)",
+    "description": "Fighters (and warriors) may specialize in a fighting style by spending one weapon proficiency slot. Each style grants specific bonuses.",
+    "styles": [
+      {
+        "name": "Single Weapon Style",
+        "slots_required": 1,
+        "benefits": ["AC improves by 1 when fighting without a shield or off-hand weapon", "Attackers suffer -1 penalty attacking the fighter"],
+        "notes": "Best for dueling or when a shield is unavailable"
+      },
+      {
+        "name": "Weapon & Shield Style",
+        "slots_required": 1,
+        "benefits": ["+1 to shield's AC bonus (shield provides AC -2 instead of -1)", "Attacker's critical-hit threshold increases by 1 (optional rule)"],
+        "notes": "Best for defensive fighters"
+      },
+      {
+        "name": "Two-Weapon Style",
+        "slots_required": 1,
+        "benefits": ["Reduces primary hand attack penalty from -2 to 0", "Reduces off-hand attack penalty from -4 to -2"],
+        "notes": "Stacks with Ranger's natural two-weapon ability. Off-hand weapon must be smaller or equal size to primary."
+      },
+      {
+        "name": "Two-Handed Weapon Style",
+        "slots_required": 1,
+        "benefits": ["+2 to damage rolls when wielding a two-handed melee weapon", "Initiative tie goes in the fighter's favor"],
+        "notes": "Does not apply to two-handed bows or crossbows"
+      },
+      {
+        "name": "Thrown Weapon Style",
+        "slots_required": 1,
+        "benefits": ["+1 to attack rolls with thrown weapons", "Can draw and throw a weapon as part of the same action without penalty"],
+        "notes": "Halflings with this style gain an additional +1 (stacks with racial bonus)"
+      },
+      {
+        "name": "Archery Style",
+        "slots_required": 1,
+        "benefits": ["+1 to attack rolls with bows", "Can fire into melee without the standard penalty (targets are still randomized on a miss)"],
+        "notes": "Does not apply to crossbows"
+      }
+    ]
+  },
+  "weapon_groups": {
+    "source": "Complete Fighter's Handbook (PHBR1)",
+    "description": "An optional system grouping related weapons. Proficiency in one weapon grants limited ability with related weapons in the same group.",
+    "groups": [
+      {"name": "Axes",             "weapons": ["Battle Axe", "Hand Axe", "Hatchet", "Ono", "Throwing Axe"]},
+      {"name": "Bows",             "weapons": ["Long Bow", "Short Bow", "Composite Long Bow", "Composite Short Bow"]},
+      {"name": "Clubs/Maces",      "weapons": ["Club", "Footman's Mace", "Horseman's Mace", "Morning Star", "Nunchaku"]},
+      {"name": "Crossbows",        "weapons": ["Hand Crossbow", "Heavy Crossbow", "Light Crossbow"]},
+      {"name": "Daggers/Knives",   "weapons": ["Dagger", "Knife", "Main Gauche", "Stiletto"]},
+      {"name": "Flails/Chains",    "weapons": ["Footman's Flail", "Horseman's Flail", "Kusari-gama", "Nunchaku"]},
+      {"name": "Hammers",          "weapons": ["War Hammer", "Maul", "Lucerne Hammer"]},
+      {"name": "Lances",           "weapons": ["Heavy Lance", "Light Lance", "Medium Lance", "Jousting Lance"]},
+      {"name": "Polearms",         "weapons": ["Bardiche", "Bec de Corbin", "Bill-Guisarme", "Fauchard", "Glaive", "Glaive-Guisarme", "Guisarme", "Guisarme-Voulge", "Halberd", "Jo Stick", "Lucerne Hammer", "Military Fork", "Partisan", "Pike", "Ranseur", "Spetum", "Voulge"]},
+      {"name": "Slings/Thrown",    "weapons": ["Sling", "Staff Sling", "Dart", "Javelin", "Atlatl"]},
+      {"name": "Spears/Javelins",  "weapons": ["Spear", "Javelin", "Trident", "Ranseur"]},
+      {"name": "Swords",           "weapons": ["Bastard Sword", "Broad Sword", "Falchion", "Khopesh", "Long Sword", "Sabre", "Scimitar", "Short Sword", "Two-Handed Sword"]},
+      {"name": "Staves",           "weapons": ["Quarterstaff", "Bo Stick", "Jo Stick", "Three-Section Staff"]}
+    ],
+    "cross_group_use": "A character proficient in one weapon from a group uses other weapons in that group at -2 to hit (instead of full non-proficiency penalty)."
+  },
+  "kits": {
+    "fighter": {
+      "source": "Complete Fighter's Handbook (PHBR1)",
+      "kits": [
+        {
+          "name": "Amazon",
+          "description": "A female warrior from a society of warrior women, skilled in survival and independent fighting.",
+          "requirements": {"gender": "Female", "STR": 12, "CON": 11},
+          "allowed_races": ["Human", "Elf", "Half-Elf"],
+          "allowed_alignments": ["Any non-evil"],
+          "armor_allowed": "Leather, studded leather, chain mail — no plate or splint",
+          "weapon_groups": ["Bows", "Spears/Javelins", "Swords"],
+          "bonus_proficiencies": ["Animal Handling", "Survival (one terrain)"],
+          "reduced_cost_proficiencies": ["Tracking", "Riding (land-based)"],
+          "special_benefits": ["Can fight from horseback at no penalty even without mounted combat proficiency", "+2 to saves vs. charm and domination"],
+          "special_hindrances": ["Must refuse aid from men in personal combat (will accept tactical cooperation)", "Social disadvantage in patriarchal societies (-2 reaction from domineering male NPCs)"],
+          "wealth_on_creation": "2d6 x 10 gp",
+          "notes": "Amazon fighters work best in settings with matriarchal or tribal cultures."
+        },
+        {
+          "name": "Barbarian",
+          "description": "A warrior from a primitive or uncivilized culture, relying on raw power and battlefield instinct rather than formal training.",
+          "requirements": {"STR": 13, "CON": 14, "INT": "max 10 at start (can rise with experience)"},
+          "allowed_races": ["Human", "Half-Orc"],
+          "allowed_alignments": ["Any non-lawful"],
+          "armor_allowed": "Leather, studded leather, ring mail — distrusts heavier armor",
+          "weapon_groups": ["Axes", "Swords", "Spears/Javelins"],
+          "bonus_proficiencies": ["Survival (wilderness)", "Animal Lore"],
+          "reduced_cost_proficiencies": ["Tracking", "Running"],
+          "special_benefits": [
+            "Rage: once per day, enter a battle rage granting +2 to hit, +4 to damage, +5 HP (temporary), and immunity to fear for 5 rounds; afterward fatigued for 5 rounds (-2 to hit and damage)",
+            "Alertness: surprised only on a 1 on 1d10",
+            "+2 to save vs. spells while in wilderness"
+          ],
+          "special_hindrances": [
+            "Cannot read or write at character creation (can learn with proficiency slot)",
+            "Distrusts magic: -2 to saves vs. beneficial spells if cast on them without consent",
+            "Will not wear metal armor voluntarily",
+            "Cannot multiclass"
+          ],
+          "wealth_on_creation": "2d4 x 10 gp",
+          "notes": "Barbarian fighters are powerful melee combatants but face social and magical disadvantages."
+        },
+        {
+          "name": "Berserker",
+          "description": "A warrior who channels savage fury in combat, fighting without regard for personal safety.",
+          "requirements": {"STR": 13, "CON": 15},
+          "allowed_races": ["Human", "Dwarf", "Half-Orc"],
+          "allowed_alignments": ["Any chaotic"],
+          "armor_allowed": "Any",
+          "bonus_proficiencies": ["Endurance"],
+          "reduced_cost_proficiencies": ["Intimidation"],
+          "special_benefits": [
+            "Berserker rage: +2 to attack rolls and damage; immune to fear and morale effects; continues fighting at 0 HP (until -10 HP)",
+            "Entering rage: automatic when reaching 0 HP; voluntary before combat on a WIS check (failure = must enter rage)",
+            "Intimidation: enemies with fewer HD must save vs. wand or suffer -1 to attack rolls"
+          ],
+          "special_hindrances": [
+            "Must attack nearest creature (friend or foe) when in uncontrolled rage unless WIS check made each round",
+            "After rage: collapses unconscious for 1d6 turns",
+            "Charisma -2 vs. non-barbarian NPCs in civilized areas"
+          ],
+          "wealth_on_creation": "3d6 x 10 gp",
+          "notes": "Berserkers are unpredictable in combat but devastating when controlled."
+        },
+        {
+          "name": "Cavalier",
+          "description": "A noble warrior trained in mounted combat and chivalric traditions.",
+          "requirements": {"STR": 10, "DEX": 12, "CHA": 12},
+          "allowed_races": ["Human", "Elf", "Half-Elf"],
+          "allowed_alignments": ["Any good or lawful"],
+          "armor_allowed": "Any",
+          "bonus_proficiencies": ["Riding (Land-based)", "Heraldry"],
+          "reduced_cost_proficiencies": ["Etiquette", "Animal Handling"],
+          "special_benefits": [
+            "+2 to attack rolls while mounted",
+            "+2 to reaction rolls from nobles and aristocrats",
+            "Warhorse provided at character creation (free)",
+            "Can spend 1 proficiency slot to learn a new weapon for half normal cost (noble training)"
+          ],
+          "special_hindrances": [
+            "Must adhere to a code of chivalric conduct or lose benefits",
+            "Cannot dismount to fight if mount is still functional",
+            "Must challenge enemies of equal or greater rank to single combat (or face CHA penalty)",
+            "Minimum 10% of income must be donated to liege or temple"
+          ],
+          "wealth_on_creation": "5d4 x 10 gp",
+          "notes": "Cavaliers function best in organized, feudal settings."
+        },
+        {
+          "name": "Gladiator",
+          "description": "A warrior trained in arena combat, skilled at putting on a show while defeating opponents.",
+          "requirements": {"STR": 12, "CON": 13, "CHA": 11},
+          "allowed_races": ["Any"],
+          "allowed_alignments": ["Any"],
+          "armor_allowed": "Any (but prefers light armor for showmanship)",
+          "bonus_proficiencies": ["Tumbling", "Alertness"],
+          "reduced_cost_proficiencies": ["Intimidation", "Crowd-Working"],
+          "special_benefits": [
+            "+1 to hit and damage vs. opponents of same or lower HD after studying them for 2 rounds",
+            "May disarm opponents on any roll 4+ above minimum needed to hit",
+            "Spectators: if performing for a crowd of 20+ people, gains +1 morale/attack from their cheering",
+            "Can earn gold through arena combat (1d10 x 10 gp per fight won in a major arena)"
+          ],
+          "special_hindrances": [
+            "Must fight in a crowd-pleasing style (no missile weapons in major fights; dramatic finishes)",
+            "Subject to arena law and owners if still under contract",
+            "Recognized publicly: may be challenged to fights by fans or rivals"
+          ],
+          "wealth_on_creation": "3d6 x 10 gp",
+          "notes": "Gladiators excel in one-on-one combat and have strong CHA-based social abilities."
+        },
+        {
+          "name": "Landsknecht",
+          "description": "A mercenary soldier trained in group tactics, large weapons, and the economics of war.",
+          "requirements": {"STR": 12, "CON": 11},
+          "allowed_races": ["Human"],
+          "allowed_alignments": ["Any non-chaotic evil"],
+          "armor_allowed": "Any",
+          "bonus_proficiencies": ["Gambling", "Local History (military)"],
+          "reduced_cost_proficiencies": ["Appraising", "Navigation"],
+          "special_benefits": [
+            "+1 to morale checks for nearby allies (within 20 ft)",
+            "Knows standard mercenary rates and can negotiate fair pay",
+            "Can lead a mercenary company as a henchman group at lower loyalty cost"
+          ],
+          "special_hindrances": [
+            "Must be paid regularly or morale drops",
+            "Alignment shifts toward money: may refuse missions without adequate pay",
+            "Cannot serve the same employer for more than 1 year without renegotiating"
+          ],
+          "wealth_on_creation": "4d6 x 10 gp",
+          "notes": "Landsknechts are professional soldiers — reliable but mercenary in outlook."
+        },
+        {
+          "name": "Myrmidon",
+          "description": "An elite soldier devoted entirely to military perfection, with no outside interests or social distractions.",
+          "requirements": {"STR": 13, "DEX": 11, "CON": 12},
+          "allowed_races": ["Any"],
+          "allowed_alignments": ["Any lawful"],
+          "armor_allowed": "Any",
+          "bonus_proficiencies": ["Endurance", "Alertness"],
+          "reduced_cost_proficiencies": ["Weaponsmithing", "Armorsmithing"],
+          "special_benefits": [
+            "+1 to all attack rolls due to pure military focus",
+            "Immune to morale failure",
+            "Can maintain proficiency with a weapon group with fewer practice slots"
+          ],
+          "special_hindrances": [
+            "Social awkwardness: -2 to CHA-based rolls outside military/combat context",
+            "Cannot own more possessions than can be carried",
+            "Must follow orders from superior officers absolutely"
+          ],
+          "wealth_on_creation": "2d6 x 10 gp",
+          "notes": "Myrmidons are supreme combat specialists but poor social characters."
+        },
+        {
+          "name": "Noble Warrior",
+          "description": "A fighter born into the nobility who combines martial training with courtly education.",
+          "requirements": {"STR": 11, "CHA": 13},
+          "allowed_races": ["Human", "Elf", "Half-Elf"],
+          "allowed_alignments": ["Any non-chaotic"],
+          "armor_allowed": "Any",
+          "bonus_proficiencies": ["Etiquette", "Heraldry", "Reading/Writing"],
+          "reduced_cost_proficiencies": ["Riding (Land-based)", "Languages (modern)"],
+          "special_benefits": [
+            "+2 to reaction rolls in social situations with nobles and royalty",
+            "Free access to a keep or manor (modest) as inherited property",
+            "Starts with a personal seal and letters of introduction"
+          ],
+          "special_hindrances": [
+            "Must maintain standards of nobility (clothing, behavior, entourage)",
+            "Obligations to liege lord and family",
+            "Cannot perform menial labor openly (servants must do it)"
+          ],
+          "wealth_on_creation": "6d6 x 10 gp",
+          "notes": "Noble Warriors are strong social characters with built-in campaign hooks."
+        },
+        {
+          "name": "Peasant Hero",
+          "description": "A common-born fighter who rose to heroism through sheer determination and practical experience.",
+          "requirements": {},
+          "allowed_races": ["Any"],
+          "allowed_alignments": ["Any good"],
+          "armor_allowed": "Any, but starts with only leather or padded",
+          "bonus_proficiencies": ["Agriculture", "Weather Sense"],
+          "reduced_cost_proficiencies": ["Animal Handling", "Set Snares"],
+          "special_benefits": [
+            "+2 to reaction rolls among common people and peasants",
+            "Doubled XP for defeating enemies specifically threatening common folk",
+            "Can improvise weapons from farm tools with no nonproficiency penalty"
+          ],
+          "special_hindrances": [
+            "-2 to reaction rolls from nobles and upper class",
+            "Lacks formal military training: cannot use cavalry tactics or cavalry formations",
+            "Starts with minimal equipment (see wealth)"
+          ],
+          "wealth_on_creation": "1d6 x 5 gp",
+          "notes": "Peasant Heroes connect strongly to commoner NPCs and grassroots storylines."
+        },
+        {
+          "name": "Pirate/Buccaneer",
+          "description": "A seafaring fighter skilled in shipboard combat, plunder, and the lawless life at sea.",
+          "requirements": {"STR": 11, "DEX": 12},
+          "allowed_races": ["Any"],
+          "allowed_alignments": ["Any non-lawful"],
+          "armor_allowed": "Leather, studded leather only (heavier armor risks drowning)",
+          "bonus_proficiencies": ["Seamanship", "Navigation", "Rope Use"],
+          "reduced_cost_proficiencies": ["Swimming", "Disguise"],
+          "special_benefits": [
+            "+2 to attack rolls when fighting aboard ships",
+            "Can climb ship rigging at full movement speed",
+            "Can intimidate ship crews for surrender without combat (CHA check)"
+          ],
+          "special_hindrances": [
+            "Wanted by law in most civilized nations",
+            "Distrusts landlocked environments: -1 to all rolls when more than 30 miles from the sea",
+            "Must share plunder with crew"
+          ],
+          "wealth_on_creation": "3d6 x 10 gp",
+          "notes": "Pirates function best in nautical or coastal campaigns."
+        },
+        {
+          "name": "Samurai",
+          "description": "A disciplined warrior from an Eastern culture who follows a strict code of honor.",
+          "requirements": {"STR": 12, "DEX": 12, "WIS": 10, "CHA": 10},
+          "allowed_races": ["Human"],
+          "allowed_alignments": ["Any lawful"],
+          "armor_allowed": "Any",
+          "bonus_proficiencies": ["Etiquette (Eastern)", "Meditation", "Calligraphy"],
+          "reduced_cost_proficiencies": ["Riding (Land-based)", "Poetry"],
+          "special_benefits": [
+            "+1 to attack rolls with katana or wakizashi (Eastern swords)",
+            "Once per day: Iaijutsu — a lightning-fast first strike that acts at initiative 1 and deals double damage if it hits",
+            "+2 to saves vs. fear and morale effects",
+            "Can commit seppuku to die with honor"
+          ],
+          "special_hindrances": [
+            "Must follow Bushido — code of honor, loyalty to lord, and ritual conduct",
+            "Cannot use ranged weapons except in siege or naval contexts",
+            "If lord dies or dishonored, becomes Ronin (loses CHA bonus; gains freedom)"
+          ],
+          "wealth_on_creation": "3d4 x 10 gp",
+          "notes": "Best used in Eastern-themed campaigns (Kara-Tur setting)."
+        },
+        {
+          "name": "Scout",
+          "description": "A light-armored fighter trained in reconnaissance, quick movement, and woodcraft.",
+          "requirements": {"STR": 11, "DEX": 13},
+          "allowed_races": ["Any"],
+          "allowed_alignments": ["Any"],
+          "armor_allowed": "Leather, studded leather, ring mail only",
+          "bonus_proficiencies": ["Tracking", "Survival (one terrain)", "Move Silently (at 20% base as fighter)"],
+          "reduced_cost_proficiencies": ["Hiding", "Observation"],
+          "special_benefits": [
+            "Surprised only on a 1 on 1d10",
+            "Can move at full speed while tracking (no -2 penalty for moving quickly)",
+            "Moves silently outdoors on a 4-in-6"
+          ],
+          "special_hindrances": [
+            "Must travel light: maximum encumbrance = Light burden",
+            "Reluctant to engage in pitched battle — prefers hit-and-run",
+            "Will not wear heavy armor"
+          ],
+          "wealth_on_creation": "2d6 x 10 gp",
+          "notes": "Scouts are excellent for wilderness and dungeon exploration roles."
+        },
+        {
+          "name": "Swashbuckler",
+          "description": "A flashy, acrobatic fighter who relies on speed, style, and wit more than brute strength.",
+          "requirements": {"STR": 10, "DEX": 14, "CHA": 12},
+          "allowed_races": ["Human", "Elf", "Half-Elf"],
+          "allowed_alignments": ["Any non-lawful"],
+          "armor_allowed": "Padded, leather, studded leather only",
+          "bonus_proficiencies": ["Tumbling", "Jumping"],
+          "reduced_cost_proficiencies": ["Disguise", "Rope Use"],
+          "special_benefits": [
+            "AC bonus: DEX defensive bonus applies even in melee when wearing no armor or leather",
+            "May use DEX modifier for attack rolls instead of STR when using light melee weapons (short sword, dagger, main gauche)",
+            "+2 to reaction rolls in social encounters due to charm and flair",
+            "May attempt flashy disarms and taunts (CHA check) to distract opponents (-2 to their next attack)"
+          ],
+          "special_hindrances": [
+            "Will not wear heavy armor under any circumstances",
+            "Must maintain stylish appearance — refuses to look disheveled",
+            "Overconfident: DM may force a WIS check before engaging clearly superior opponents"
+          ],
+          "wealth_on_creation": "4d6 x 10 gp",
+          "notes": "Swashbucklers are the 'rogue-ish fighter' archetype — great for urban and nautical settings."
+        },
+        {
+          "name": "Wilderness Warrior",
+          "description": "A fighter who specializes in wilderness survival and combat against natural and monstrous threats.",
+          "requirements": {"STR": 12, "CON": 12, "WIS": 11},
+          "allowed_races": ["Any"],
+          "allowed_alignments": ["Any non-evil"],
+          "armor_allowed": "Any up to chain mail (no plate)",
+          "bonus_proficiencies": ["Tracking", "Survival (wilderness)", "Animal Lore"],
+          "reduced_cost_proficiencies": ["Hunting", "Set Snares"],
+          "special_benefits": [
+            "+1 to attack rolls vs. one chosen monster type (chosen at creation, same as ranger favored enemy)",
+            "Can identify animal tracks automatically within 30 ft",
+            "No penalty for fighting in difficult terrain (swamps, forests, mountains)"
+          ],
+          "special_hindrances": [
+            "Uncomfortable in cities: -1 to attack rolls and saves in urban environments",
+            "Cannot have a permanent home or stronghold until 9th level",
+            "Must spend at least 1 week per month in the wilderness or suffer -1 to rolls"
+          ],
+          "wealth_on_creation": "2d6 x 10 gp",
+          "notes": "A good middle ground between Fighter and Ranger roles."
+        }
+      ]
+    },
+    "thief": {
+      "source": "Complete Thief's Handbook (PHBR2)",
+      "kits": [
+        {
+          "name": "Acrobat",
+          "description": "A thief trained in acrobatics, tumbling, and feats of physical daring.",
+          "requirements": {"DEX": 14, "STR": 10},
+          "bonus_proficiencies": ["Tumbling", "Jumping"],
+          "reduced_cost_proficiencies": ["Tightrope Walking", "Rope Use"],
+          "special_benefits": [
+            "+20% to Climb Walls",
+            "+10% to Move Silently",
+            "Reduce falling damage: 1d3 per 10 ft instead of 1d6 (Tumbling proficiency check)",
+            "Can cartwheel through a space occupied by an enemy without provoking an attack"
+          ],
+          "special_hindrances": ["Must perform publicly to maintain reputation (or suffer -1 CHA per month of inactivity)", "Overconfident about physical feats: must succeed a WIS check to decline a physical challenge"],
+          "wealth_on_creation": "2d6 x 10 gp"
+        },
+        {
+          "name": "Adventurer",
+          "description": "A generalist thief who dabbles in dungeoncraft and adventuring rather than a specific criminal trade.",
+          "requirements": {},
+          "bonus_proficiencies": ["One from any group (player's choice)"],
+          "reduced_cost_proficiencies": ["Survival (dungeon)"],
+          "special_benefits": ["+5% to any one thief skill (chosen at creation)", "Jack-of-all-trades: may use any normal equipment without penalty"],
+          "special_hindrances": ["No specific specialty: never gains the higher bonuses of focused kits"],
+          "wealth_on_creation": "2d6 x 10 gp"
+        },
+        {
+          "name": "Assassin",
+          "description": "A killer for hire trained to eliminate targets efficiently and disappear without a trace.",
+          "requirements": {"DEX": 12, "INT": 11},
+          "allowed_alignments": ["Any evil or neutral"],
+          "bonus_proficiencies": ["Disguise", "Poison Lore"],
+          "reduced_cost_proficiencies": ["Alertness", "Herbalism"],
+          "special_benefits": [
+            "Backstab: +2 to multiplier (x4 at level 1, instead of x2)",
+            "Disguise bonus: +10% to Disguise ability",
+            "Access to poisons through the assassin's guild at market prices",
+            "Can attempt to slay target in their sleep (no attack roll needed; target must save vs. death or die)"
+          ],
+          "special_hindrances": ["Member of an assassin's guild — owes 20% of earnings", "If alignment becomes good, kit is lost", "Must take assassination contracts occasionally or lose guild standing"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        },
+        {
+          "name": "Beggar-Thief",
+          "description": "A thief who uses poverty and pity as tools, extracting information and valuables through apparent helplessness.",
+          "requirements": {"CHA": 9},
+          "bonus_proficiencies": ["Begging (special — free proficiency)", "Local History"],
+          "reduced_cost_proficiencies": ["Disguise", "Acting"],
+          "special_benefits": [
+            "+15% to Pick Pockets when in beggar's disguise",
+            "Learns rumors and news automatically (1d4 useful items per week in a settlement)",
+            "Treated as non-threatening — enemies with 5+ HD rarely attack first"
+          ],
+          "special_hindrances": ["Stigmatized appearance: -3 reaction from upper class", "Possessions limited to what can be concealed on the body", "Depends on goodwill of lower-class NPCs"],
+          "wealth_on_creation": "1d6 x 5 gp"
+        },
+        {
+          "name": "Bounty Hunter",
+          "description": "A thief who specializes in tracking and capturing — or eliminating — fugitives.",
+          "requirements": {"STR": 11, "DEX": 11, "WIS": 11},
+          "bonus_proficiencies": ["Tracking", "Alertness"],
+          "reduced_cost_proficiencies": ["Disguise", "Intimidation"],
+          "special_benefits": [
+            "Can legally hold captured criminals in most jurisdictions",
+            "+5% to Detect Noise",
+            "+10% to Move Silently while actively tracking a target",
+            "Advantage on opposed checks to prevent escape from grapples"
+          ],
+          "special_hindrances": ["Cannot kill bounty targets (or loses full payment)", "Must work within legal frameworks (or become wanted themselves)", "Time pressure: bounties expire"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        },
+        {
+          "name": "Burglar",
+          "description": "The archetypal thief — skilled at breaking and entering, cracking safes, and leaving without a trace.",
+          "requirements": {"DEX": 13},
+          "bonus_proficiencies": ["Engineering (lock/trap focus)", "Rope Use"],
+          "reduced_cost_proficiencies": ["Alertness", "Swimming"],
+          "special_benefits": [
+            "+10% to Open Locks",
+            "+10% to Find/Remove Traps",
+            "+5% to Move Silently",
+            "Can assess a building's security layout by observing for 1 turn (INT check for accurate read)"
+          ],
+          "special_hindrances": ["Known to thieves' guilds — must pay dues or be considered a freelancer (and targeted)", "Cannot resist a challenge presented by a well-secured location"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        },
+        {
+          "name": "Cutpurse",
+          "description": "A street thief specializing in quick theft of small valuables in crowds.",
+          "requirements": {"DEX": 14},
+          "bonus_proficiencies": ["Crowd Reading (special — detects wealth on targets)"],
+          "reduced_cost_proficiencies": ["Disguise", "Tumbling"],
+          "special_benefits": [
+            "+15% to Pick Pockets",
+            "Can Pick Pockets in combat at -10% (instead of -25%)",
+            "Blend into crowds automatically (effectively invisible to casual observation)"
+          ],
+          "special_hindrances": ["Cannot resist targets carrying obvious wealth", "City-dweller: -2 to all rolls in wilderness", "Little combat training: can only wear leather and use small weapons"],
+          "wealth_on_creation": "2d6 x 10 gp"
+        },
+        {
+          "name": "Investigator",
+          "description": "A thief whose skills are turned toward solving mysteries and gathering intelligence.",
+          "requirements": {"INT": 13, "WIS": 12},
+          "allowed_alignments": ["Any non-chaotic evil"],
+          "bonus_proficiencies": ["Reading/Writing", "Local History"],
+          "reduced_cost_proficiencies": ["Heraldry", "Disguise"],
+          "special_benefits": [
+            "+10% to Detect Noise",
+            "+10% to Read Languages",
+            "Forensic observation: can read a crime scene for clues (INT check; DM provides useful detail)",
+            "+2 to reaction rolls from law enforcement NPCs"
+          ],
+          "special_hindrances": ["Compelled to investigate mysteries — must WIS check to let a puzzle go unsolved", "Reputation as a spy or informant in criminal circles"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        },
+        {
+          "name": "Rake",
+          "description": "A gentleman or gentlewoman thief who operates among the upper class, stealing through charm and access rather than stealth.",
+          "requirements": {"CHA": 14, "DEX": 12},
+          "bonus_proficiencies": ["Etiquette", "Gaming"],
+          "reduced_cost_proficiencies": ["Riding (Land-based)", "Musical Instrument"],
+          "special_benefits": [
+            "+2 reaction from upper-class NPCs",
+            "+15% to Pick Pockets among nobles",
+            "May maintain a social cover identity as a noble or wealthy merchant at no cost",
+            "Immune to suspicion in high society unless caught in the act"
+          ],
+          "special_hindrances": ["Must maintain an expensive lifestyle (minimum 20 gp/month)", "Useless in lower-class or wilderness situations (-1 to most thief skills outside of social settings)", "Cannot backstab a social ally"],
+          "wealth_on_creation": "4d6 x 10 gp"
+        },
+        {
+          "name": "Scout",
+          "description": "A thief trained in wilderness reconnaissance and intelligence gathering.",
+          "requirements": {"DEX": 13, "WIS": 11},
+          "bonus_proficiencies": ["Survival (wilderness)", "Tracking"],
+          "reduced_cost_proficiencies": ["Alertness", "Animal Lore"],
+          "special_benefits": [
+            "+10% to Move Silently outdoors",
+            "+10% to Hide in Shadows outdoors",
+            "Can read terrain and estimate enemy numbers (INT or WIS check)",
+            "Surprised only on a 1 on 1d10 in wilderness"
+          ],
+          "special_hindrances": ["Cannot operate effectively in urban environments (-10% to all urban thief skills)", "Reluctant to follow orders: independent streak"],
+          "wealth_on_creation": "2d6 x 10 gp"
+        },
+        {
+          "name": "Spy",
+          "description": "A professional intelligence gatherer who infiltrates organizations and extracts secrets.",
+          "requirements": {"INT": 12, "CHA": 12, "DEX": 11},
+          "bonus_proficiencies": ["Disguise", "Reading/Writing", "Languages (1 bonus)"],
+          "reduced_cost_proficiencies": ["Forgery", "Lip Reading"],
+          "special_benefits": [
+            "+20% to Disguise ability",
+            "Cover identity: starts with one fully-documented false identity",
+            "Signal recognition: can pass and identify coded messages automatically",
+            "+10% to Pick Pockets while in disguise"
+          ],
+          "special_hindrances": ["Works for an organization — must report and obey missions", "If cover is blown, the organization may abandon or eliminate the spy", "Can never fully trust anyone (WIS check to accept help without suspicion)"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        },
+        {
+          "name": "Swashbuckler",
+          "description": "A dashing, bold thief who relies on speed and panache rather than skulking.",
+          "requirements": {"DEX": 14, "STR": 11, "CHA": 12},
+          "bonus_proficiencies": ["Tumbling", "Jumping"],
+          "reduced_cost_proficiencies": ["Disguise"],
+          "special_benefits": [
+            "Use DEX for attack rolls with light weapons (short sword, dagger, rapier)",
+            "+2 to reaction rolls when acting dramatically or heroically",
+            "Surprise opponents on a 4-in-6 when charging from above or swinging on a rope"
+          ],
+          "special_hindrances": ["Will not use poison — too dishonorable", "Cannot refuse a challenge to fair combat", "Must look stylish: minimum appearance standards"],
+          "wealth_on_creation": "4d6 x 10 gp"
+        },
+        {
+          "name": "Thug",
+          "description": "A street-level criminal who relies on intimidation, ambush, and brute force.",
+          "requirements": {"STR": 12, "CON": 11},
+          "allowed_alignments": ["Any non-good"],
+          "bonus_proficiencies": ["Intimidation (special — bonus)", "Street Wise"],
+          "reduced_cost_proficiencies": ["Gaming", "Local History (criminal)"],
+          "special_benefits": [
+            "+2 to damage rolls in ambushes (prepared attacks)",
+            "Intimidate opponents with fewer HD at -2 attack rolls",
+            "+5% to backstab (in addition to normal multiplier)"
+          ],
+          "special_hindrances": ["Crude: -2 reaction rolls in polite company", "Criminal record in at least one city", "Must belong to a criminal organization"],
+          "wealth_on_creation": "2d4 x 10 gp"
+        }
+      ]
+    },
+    "wizard": {
+      "source": "Complete Wizard's Handbook (PHBR4)",
+      "kits": [
+        {
+          "name": "Academician",
+          "description": "A scholar-wizard whose magic is rooted in deep research and institutional learning.",
+          "requirements": {"INT": 14},
+          "allowed_alignments": ["Any non-chaotic"],
+          "bonus_proficiencies": ["Ancient History", "Reading/Writing", "Languages (ancient, 1 bonus)"],
+          "reduced_cost_proficiencies": ["Ancient Languages", "Spellcraft"],
+          "special_benefits": ["+5% to Learn Spell rolls", "+1 spell per level added to starting spellbook (bonus spells from research)"],
+          "special_hindrances": ["Must maintain a library (minimum 500 gp value)", "Reluctant to adventure unless research goals are served", "Disdains illiterate companions (-1 reaction to non-readers)"],
+          "wealth_on_creation": "3d4 x 10 gp"
+        },
+        {
+          "name": "Amazon Sorceress",
+          "description": "A female warrior-mage from a society where magic and martial skill are equally prized.",
+          "requirements": {"gender": "Female", "STR": 11, "INT": 12},
+          "bonus_proficiencies": ["Survival (one terrain)", "Riding (Land-based)"],
+          "reduced_cost_proficiencies": ["Animal Handling"],
+          "special_benefits": [
+            "May wear leather armor without arcane spell failure",
+            "Can use short sword and spear without nonproficiency penalty",
+            "+1 to attack rolls with short sword"
+          ],
+          "special_hindrances": ["Must refuse magical aid from male spellcasters (personal code)", "Social stigma in patriarchal societies"],
+          "wealth_on_creation": "2d6 x 10 gp"
+        },
+        {
+          "name": "Anagakok",
+          "description": "A shaman-mage from a primitive culture whose magic is tied to nature spirits and tribal tradition.",
+          "requirements": {"INT": 12, "WIS": 11},
+          "allowed_races": ["Human"],
+          "allowed_alignments": ["Any neutral"],
+          "bonus_proficiencies": ["Animal Lore", "Survival (Arctic or wilderness)", "Religion (shamanic)"],
+          "reduced_cost_proficiencies": ["Healing", "Weather Sense"],
+          "special_benefits": [
+            "Can communicate with nature spirits (as Speak with Animals, 1x/day)",
+            "+2 to saves vs. natural magical effects (cold, lightning, fire from natural sources)",
+            "Totem animal: gains a spirit animal familiar granting specific abilities (DM choice based on culture)"
+          ],
+          "special_hindrances": ["Cannot use manufactured scrolls or spellbooks — must carve spells into bone/stone tablets", "Magic is tied to home terrain: -1 to spell effects when far from home environment", "Must perform weekly ritual or lose 1 prepared spell slot"],
+          "wealth_on_creation": "1d6 x 10 gp"
+        },
+        {
+          "name": "Barbarian Mage",
+          "description": "A wizard who comes from a primitive culture, whose magic is instinctive and wild.",
+          "requirements": {"INT": 13, "CON": 12},
+          "allowed_alignments": ["Any non-lawful"],
+          "bonus_proficiencies": ["Survival (wilderness)", "Endurance"],
+          "reduced_cost_proficiencies": ["Animal Lore"],
+          "special_benefits": [
+            "Can cast spells while wearing leather armor (no failure chance)",
+            "+2 CON modifier to HP per level (treating class as Fighter for CON bonuses)",
+            "Wild surge: once per day, may add +2 to a spell's caster level (but rolls on a small chaos table)"
+          ],
+          "special_hindrances": ["Cannot read or write at character creation (buy proficiency to learn)", "Will not use spellbook — memorizes spells through repetition (must review each spell for 2x longer)", "Charisma penalty in civilized settings: -1 reaction"],
+          "wealth_on_creation": "1d6 x 10 gp"
+        },
+        {
+          "name": "Militant Wizard",
+          "description": "A wizard who has received formal military training, comfortable in martial environments.",
+          "requirements": {"INT": 12, "STR": 10, "CON": 10},
+          "allowed_alignments": ["Any lawful or neutral"],
+          "bonus_proficiencies": ["Endurance", "Riding (Land-based)"],
+          "reduced_cost_proficiencies": ["Armorer"],
+          "special_benefits": [
+            "Can use crossbows and daggers without nonproficiency penalty",
+            "+1 to initiative (military training)",
+            "Can wear leather armor without arcane spell failure"
+          ],
+          "special_hindrances": ["Must maintain military discipline: cannot retreat from an ordered position without a CON or WIS check", "Under obligation to a military organization"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        },
+        {
+          "name": "Mystic",
+          "description": "A wizard who draws magic from meditation and spiritual discipline rather than academic study.",
+          "requirements": {"INT": 12, "WIS": 14},
+          "allowed_alignments": ["Any neutral or good"],
+          "bonus_proficiencies": ["Meditation", "Religion"],
+          "reduced_cost_proficiencies": ["Astrology"],
+          "special_benefits": [
+            "+1 to saves vs. all mind-affecting spells",
+            "Meditative trance: can recover 1 spell per hour of meditation (instead of full 8-hour rest) once per day",
+            "Inner calm: immune to magical fear 1x/day"
+          ],
+          "special_hindrances": ["Must meditate 2 hours per day or suffer -1 to all spell rolls that day", "Cannot use divination spells for personal gain without WIS check", "Minimal material possessions (maximum 10 non-magical items)"],
+          "wealth_on_creation": "2d4 x 10 gp"
+        },
+        {
+          "name": "Patrician",
+          "description": "A wizard from a wealthy noble family who uses magic as a social and political tool.",
+          "requirements": {"INT": 12, "CHA": 13},
+          "allowed_alignments": ["Any non-chaotic"],
+          "bonus_proficiencies": ["Etiquette", "Heraldry", "Riding (Land-based)"],
+          "reduced_cost_proficiencies": ["Languages (modern)", "Gaming"],
+          "special_benefits": [
+            "+2 reaction rolls from upper-class and noble NPCs",
+            "Access to fine libraries: starts with 2 additional spells in spellbook",
+            "Wealthy patron: begins play with 100 gp monthly stipend (from family) — at DM's discretion"
+          ],
+          "special_hindrances": ["Expensive tastes: minimum monthly expenses of 30 gp", "Family obligations and political maneuvering", "Cannot refuse a reasonable request from family patriarch/matriarch"],
+          "wealth_on_creation": "5d6 x 10 gp"
+        },
+        {
+          "name": "Peasant Wizard",
+          "description": "A hedge wizard from common stock who learned magic through folk tradition and observation.",
+          "requirements": {"INT": 13},
+          "bonus_proficiencies": ["Herbalism", "Agriculture"],
+          "reduced_cost_proficiencies": ["Healing", "Animal Lore"],
+          "special_benefits": [
+            "+2 reaction from common folk and rural NPCs",
+            "Folk remedies: can brew minor medicinal cures (not magical — restores 1 HP after 8 hours rest without bed rest)",
+            "Earthy magic: +1 to Learn Spell for Alteration spells"
+          ],
+          "special_hindrances": ["-2 reaction from upper-class NPCs who look down on common-born wizards", "Limited access to libraries and high-level mentors", "Starts with only 2 1st-level spells instead of the usual 4"],
+          "wealth_on_creation": "1d6 x 5 gp"
+        },
+        {
+          "name": "Savage Wizard",
+          "description": "A wizard from a tribal culture who learned magic from observation of the natural world.",
+          "requirements": {"INT": 12, "CON": 11},
+          "allowed_races": ["Human"],
+          "allowed_alignments": ["Any non-lawful"],
+          "bonus_proficiencies": ["Survival (wilderness)", "Animal Lore"],
+          "reduced_cost_proficiencies": ["Tracking"],
+          "special_benefits": [
+            "Can memorize spells from nature (sky, fire, stone) as well as spellbook — 1 spell per day from meditation near the element",
+            "+1 to spells that mimic natural forces (lightning, fire, cold, wind)",
+            "Immune to non-magical heat and cold"
+          ],
+          "special_hindrances": ["Cannot use city libraries or purchased scrolls to learn new spells", "Spellbook is carved symbols on hide/stone — fragile and unusual", "Literacy: cannot read standard script without proficiency"],
+          "wealth_on_creation": "1d4 x 10 gp"
+        },
+        {
+          "name": "Witch",
+          "description": "A practitioner of an ancient, nature-rooted magical tradition, often feared or revered by commoners.",
+          "requirements": {"INT": 12, "WIS": 11},
+          "allowed_alignments": ["Any"],
+          "bonus_proficiencies": ["Herbalism", "Healing", "Animal Lore"],
+          "reduced_cost_proficiencies": ["Brewing", "Astrology"],
+          "special_benefits": [
+            "Hedge spells: 3 minor cantrip effects per day usable without spell slots (minor light, minor chill, minor spark)",
+            "+2 reaction from common folk in rural areas",
+            "Familiar: automatically receives a cat, toad, or raven familiar (as Find Familiar) at 1st level at no cost",
+            "Can brew minor potions (healing, sleep, minor attribute boost) with time and materials"
+          ],
+          "special_hindrances": ["Feared by superstitious populations: -2 reaction from organized religious communities", "Cannot join a wizard's guild or formal magical institution", "Must maintain a home (cottage, cave, or clearing) as a base for magical work"],
+          "wealth_on_creation": "2d6 x 10 gp"
+        }
+      ]
+    },
+    "priest": {
+      "source": "Complete Priest's Handbook (PHBR3)",
+      "notes": "Priest kits in the Complete Priest's Handbook are typically organized around deity archetypes rather than named kits. The following represent the major specialty priest templates. See also adnd2e_classes_additional.json for the full specialty priest sphere system.",
+      "kits": [
+        {
+          "name": "Crusader",
+          "description": "A militant priest devoted to spreading the faith through battle.",
+          "deity_type": "War/Battle gods",
+          "allowed_alignments": ["Lawful", "Neutral"],
+          "weapons_allowed": "Any — crusaders are one of few priest types with unrestricted weapon use",
+          "armor_allowed": "Any",
+          "major_spheres": ["All", "Combat", "Guardian", "Healing", "Necromantic", "Protection"],
+          "minor_spheres": ["Divination", "Summoning"],
+          "special_benefits": ["+1 to attack rolls; clerical ability to turn undead; combat spells at one level lower casting cost (optional)"],
+          "special_hindrances": ["Must convert non-believers by word or deed; no retreating from battle against the faith's enemies"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        },
+        {
+          "name": "Healer",
+          "description": "A priest devoted entirely to the alleviation of suffering and restoration of health.",
+          "deity_type": "Healing/Life gods",
+          "allowed_alignments": ["Any good"],
+          "weapons_allowed": "Club, quarterstaff, sling only",
+          "armor_allowed": "Leather only",
+          "major_spheres": ["All", "Healing", "Necromantic", "Protection", "Guardian"],
+          "minor_spheres": ["Animal", "Plant", "Divination"],
+          "special_benefits": ["All healing spells cast at +1 HP per die", "Can cast Cure Light Wounds once per day as a free action (not using a spell slot)", "Immune to magical disease"],
+          "special_hindrances": ["Cannot attack living creatures unless in self-defense", "Must offer healing to any creature that requests it (can charge, but not refuse)", "10% tithe on all earnings to maintain temple stores of medicine"],
+          "wealth_on_creation": "2d6 x 10 gp"
+        },
+        {
+          "name": "Diviner Priest",
+          "description": "A priest whose deity reveals truth and prophecy through their servant.",
+          "deity_type": "Knowledge/Truth gods",
+          "allowed_alignments": ["Any non-chaotic"],
+          "weapons_allowed": "Dagger, dart, sling, quarterstaff only",
+          "armor_allowed": "None",
+          "major_spheres": ["All", "Divination", "Astral", "Sun", "Time"],
+          "minor_spheres": ["Healing", "Protection"],
+          "special_benefits": ["+2 to all Divination spell saves (others get -2 to resist)", "Commune spell usable twice per week instead of once", "Always knows True North and approximate time"],
+          "special_hindrances": ["Must speak the truth — cannot lie even by omission under penalty of losing spells for 1 week", "Compelled to share prophecies and information freely"],
+          "wealth_on_creation": "2d4 x 10 gp"
+        },
+        {
+          "name": "Nature Priest",
+          "description": "A priest serving a deity of the natural world, forests, or animals.",
+          "deity_type": "Nature/Animal gods",
+          "allowed_alignments": ["Any neutral"],
+          "weapons_allowed": "Club, sickle, spear, sling, staff, dagger",
+          "armor_allowed": "Leather, wooden shield",
+          "major_spheres": ["All", "Animal", "Plant", "Elemental", "Healing", "Weather"],
+          "minor_spheres": ["Divination", "Protection"],
+          "special_benefits": ["Speak with Animals at will (as innate ability)", "Move through natural terrain at normal speed (no difficult terrain penalty)", "+2 to saves vs. natural environmental effects"],
+          "special_hindrances": ["Cannot enter cities with populations over 5,000 without suffering -1 to all rolls per day", "Will not damage wilderness areas — cannot start fires in forests"],
+          "wealth_on_creation": "1d6 x 10 gp"
+        },
+        {
+          "name": "Undead Hunter",
+          "description": "A priest whose divine mission is the destruction of undead.",
+          "deity_type": "Death/Sun gods (purification aspect)",
+          "allowed_alignments": ["Any good"],
+          "weapons_allowed": "Any",
+          "armor_allowed": "Any",
+          "major_spheres": ["All", "Combat", "Necromantic", "Protection", "Sun", "Guardian"],
+          "minor_spheres": ["Healing", "Divination"],
+          "special_benefits": [
+            "Turn undead as a cleric 2 levels higher",
+            "+2 to all attacks vs. undead",
+            "Holy touch: once per day, cause maximum damage on one hit vs. undead"
+          ],
+          "special_hindrances": ["Must pursue and destroy undead whenever encountered — cannot retreat from undead unless clearly outmatched", "Cannot associate with necromancers or those who create undead"],
+          "wealth_on_creation": "3d6 x 10 gp"
+        }
+      ]
+    },
+    "ranger": {
+      "source": "Complete Ranger's Handbook (PHBR8)",
+      "kits": [
+        {"name": "Beastmaster",    "description": "A ranger who has bonded deeply with animals, able to befriend and command a diverse menagerie.", "requirements": {"WIS": 14}, "bonus_proficiencies": ["Animal Training (bonus — up to 3 animal types)", "Animal Lore"], "special_benefits": ["Can have twice the normal number of animal followers", "+2 to tame wild animals (Animal Handling checks)", "Animals of any type will not attack the Beastmaster unprovoked"], "special_hindrances": ["Must protect all animals in their care; cannot allow followers to be harmed deliberately", "Must spend at least 1 hour per day with animal companions or they begin to wander"], "weapon_restrictions": "Swords, spears, bows, clubs only — no axes or manufactured war weapons", "wealth_on_creation": "2d6 x 10 gp"},
+        {"name": "Explorer",       "description": "A ranger devoted to discovering and mapping unknown territory.", "requirements": {"INT": 12}, "bonus_proficiencies": ["Navigation", "Map Drawing", "Survival (one new terrain)"], "special_benefits": ["+2 to all Navigation checks", "Can accurately map explored territory from memory (INT check)", "First in any area: surprise opponents on 4-in-6"], "special_hindrances": ["Compelled to explore unmarked territory — will take detours for new discoveries", "Cannot use the same travel route twice if another is available"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "Forest Runner",  "description": "A ranger deeply attuned to woodland environments.", "requirements": {}, "bonus_proficiencies": ["Set Snares", "Herbalism"], "special_benefits": ["Cannot be surprised in a forest", "+2 to hit and damage vs. creatures that live in forests (undead, constructs excluded)", "Track creatures in forest at +4 to skill"], "special_hindrances": ["Uncomfortable in non-forest terrain: -1 to all rolls in cities, deserts, or tundra", "Will not use fire in a forest"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "Giant Killer",   "description": "A ranger who specializes in fighting giant-sized creatures (giants, trolls, ogres, etc.).", "requirements": {"STR": 13, "CON": 14}, "bonus_proficiencies": ["Endurance", "Alertness"], "special_benefits": ["+2 to hit and damage vs. any giant-type creature", "+2 to saving throws vs. giant attacks", "Never surprised by giant-type creatures"], "special_hindrances": ["Must confront giant-type creatures when encountered rather than evading them", "Social reputation as a giant killer: constantly tested or challenged"], "wealth_on_creation": "2d6 x 10 gp"},
+        {"name": "Justifier",      "description": "A ranger who serves as a lawman and enforcer of wilderness justice.", "requirements": {"WIS": 13, "CHA": 11}, "allowed_alignments": ["Lawful Good", "Neutral Good", "Lawful Neutral"], "bonus_proficiencies": ["Law (special — regional legal knowledge)", "Intimidation"], "special_benefits": ["+2 to reaction from law-abiding settlers and villages", "Can enforce arrest on criminals in the wilderness (legal authority recognized)", "+2 to saves vs. illusion and deception magic"], "special_hindrances": ["Cannot allow criminals to escape unpunished if in a position to stop them", "Must follow the letter of the law even in unjust situations — or lose authority"], "wealth_on_creation": "3d4 x 10 gp"},
+        {"name": "Mountain Man",   "description": "A ranger adapted to life in extreme mountain and highland terrain.", "requirements": {"CON": 14, "STR": 12}, "bonus_proficiencies": ["Mountaineering", "Endurance", "Survival (Mountain)"], "special_benefits": ["Immune to altitude sickness", "No movement penalty in rocky or mountain terrain", "+2 to attacks and damage vs. creatures native to mountains (giants, wyverns, etc.)"], "special_hindrances": ["Uncomfortable at sea level: -1 to all rolls in coastal or swamp terrain", "Prefers solitude: -1 to CHA-based rolls in groups larger than 5"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "Stalker",        "description": "A ranger trained as an assassin of the wilderness — tracking and eliminating specific threats.", "requirements": {"DEX": 13, "INT": 11}, "allowed_alignments": ["Any non-evil"], "bonus_proficiencies": ["Alertness", "Disguise (wilderness)"], "special_benefits": ["+20% to Move Silently", "+10% to Hide in Shadows", "+2 backstab multiplier when attacking from hiding (acts as partial backstab)"], "special_hindrances": ["Will not kill non-combatant animals or civilians under any circumstances", "Must take a specific target for each major mission (no random violence)"], "wealth_on_creation": "2d6 x 10 gp"},
+        {"name": "Wanderer",       "description": "A ranger with no fixed home, drifting between regions and cultures.", "requirements": {}, "bonus_proficiencies": ["Survival (three different terrain types)", "Languages (1 bonus)"], "special_benefits": ["Can survive indefinitely in any terrain", "+1 to reaction from all rural and wilderness NPCs regardless of culture", "Immune to being lost — always knows approximate direction and distance to nearest settlement"], "special_hindrances": ["Cannot own property or establish a permanent home", "Must move on from any settlement after 1 month maximum (or suffers -1 to all rolls from restlessness)"], "wealth_on_creation": "2d4 x 10 gp"}
+      ]
+    },
+    "paladin": {
+      "source": "Complete Paladin's Handbook (PHBR9)",
+      "kits": [
+        {"name": "Chevalier",    "description": "The quintessential mounted knight — all chivalric ideals embodied.", "requirements": {"CHA": 14, "STR": 12}, "bonus_proficiencies": ["Riding (Land-based)", "Heraldry", "Etiquette"], "special_benefits": ["+2 to all mounted combat", "Warhorse is always at max hit points", "Free lance proficiency"], "special_hindrances": ["Must challenge all enemies to honorable combat before attacking — ambushing is forbidden", "Must announce themselves before combat"], "wealth_on_creation": "5d4 x 10 gp"},
+        {"name": "Errant",      "description": "A wandering knight seeking glory and trials of faith.", "requirements": {}, "bonus_proficiencies": ["Survival", "Navigation"], "special_benefits": ["XP bonus 10% for completing quests involving discovery or exploration", "+1 to random encounter reaction rolls (God looks after wanderers)"], "special_hindrances": ["Cannot refuse a quest bestowed by a superior or an innocent in need", "No fixed home or stronghold allowed before 9th level"], "wealth_on_creation": "2d6 x 10 gp"},
+        {"name": "Ghosthunter", "description": "A paladin devoted to fighting undead and spirits specifically.", "requirements": {"WIS": 13}, "bonus_proficiencies": ["Religion (undead lore)", "Alertness"], "special_benefits": ["Turn undead as full cleric level (not 2 lower)", "Detect Undead at will (30 ft, concentration)", "+3 to saves vs. undead special attacks"], "special_hindrances": ["Must destroy all undead encountered — cannot parley with them", "Seen as grim and unsettling by non-adventuring NPCs (-1 CHA reaction in social situations)"], "wealth_on_creation": "3d4 x 10 gp"},
+        {"name": "Inquisitor",  "description": "A paladin empowered to root out corruption within the faith.", "requirements": {"INT": 13, "WIS": 14}, "bonus_proficiencies": ["Detect Lie (as innate skill)", "Interrogation"], "special_benefits": ["Detect Alignment at will", "+2 to saves vs. illusion and deception", "Legal authority to question and detain within the church"], "special_hindrances": ["Distrusted by all — even allies are held to strict standards", "Must report all transgressions to the church — cannot turn a blind eye"], "wealth_on_creation": "3d6 x 10 gp"},
+        {"name": "Militarist",  "description": "A paladin trained as a military officer and battle leader.", "requirements": {"STR": 13, "INT": 11}, "bonus_proficiencies": ["Tactics (special — command ability)", "Endurance"], "special_benefits": ["+1 to attack rolls for all allies within 20 ft (leadership aura)", "Can coordinate flanking attacks with allies without requiring verbal communication", "+1 to group initiative rolls when leading"], "special_hindrances": ["Must follow a military chain of command — cannot act independently without authorization", "Cannot refuse a direct order from a superior officer of their faith"], "wealth_on_creation": "3d6 x 10 gp"},
+        {"name": "Votary",      "description": "A cloistered paladin deeply devoted to mystical aspects of their faith.", "requirements": {"WIS": 15, "CHA": 12}, "bonus_proficiencies": ["Religion", "Meditation"], "special_benefits": ["Extra 1st-level priest spell per day", "Paladin spell access at 8th level instead of 9th", "+2 to all saving throws vs. spells"], "special_hindrances": ["Must spend 4 hours per day in prayer (or lose spell access that day)", "Cannot use wealth for personal comfort — must donate all beyond subsistence"], "wealth_on_creation": "1d4 x 10 gp"},
+        {"name": "Wyrmslayer",  "description": "A paladin devoted to hunting and slaying dragons.", "requirements": {"STR": 13, "CON": 14}, "bonus_proficiencies": ["Dragon Lore (special — identifies dragon types and abilities)", "Endurance"], "special_benefits": ["+3 to all attack rolls vs. dragons", "+2 to saves vs. dragon breath weapons", "Detect Dragon presence within 60 ft (passive)", "Immune to dragon fear aura at 5th level"], "special_hindrances": ["Must pursue dragons when known to be threatening a region", "Compelled to accept any challenge from a dragon who calls out this paladin specifically"], "wealth_on_creation": "3d6 x 10 gp"}
+      ]
+    },
+    "bard": {
+      "source": "Complete Bard's Handbook (PHBR7)",
+      "kits": [
+        {"name": "Blade",           "description": "An acrobatic performer who combines juggling, tumbling, and weaponry for entertainment — and combat.", "requirements": {"DEX": 14, "STR": 11}, "bonus_proficiencies": ["Juggling", "Tumbling"], "special_benefits": ["Can fight and perform simultaneously (no penalty)", "+1 to attack rolls with finesse weapons when entertaining", "Weapon display: may make an intimidation check at start of combat using performance skill"], "special_hindrances": ["Must perform regularly to stay sharp", "Overconfident in combat — must WIS check to retreat"], "wealth_on_creation": "3d6 x 10 gp"},
+        {"name": "Herald",          "description": "An official messenger and recorder of history, with diplomatic immunity in most cultures.", "requirements": {"CHA": 14, "INT": 13}, "bonus_proficiencies": ["Heraldry", "Languages (2 bonus)", "Reading/Writing"], "special_benefits": ["Diplomatic immunity in civilized areas (cannot be arrested on sight)", "+4 to reaction rolls when acting as an official herald", "+2 to all History and Legend Lore checks"], "special_hindrances": ["Bound by neutrality — cannot take sides in political disputes while on official business", "Carries official documents: must deliver them or face severe social consequences"], "wealth_on_creation": "4d4 x 10 gp"},
+        {"name": "Jester",          "description": "A trickster performer who hides wit and cunning behind foolishness.", "requirements": {"CHA": 12, "DEX": 12, "INT": 11}, "bonus_proficiencies": ["Juggling", "Tumbling", "Ventriloquism"], "special_benefits": ["+2 to reaction from royalty and nobility (entertainment value)", "Can insult enemies: target suffers -2 to attack rolls if they fail a WIS check (distracted by mockery)", "Effectively invisible as a threat — enemies rarely target a jester first"], "special_hindrances": ["Not taken seriously: -2 to reaction in serious situations (war councils, tribunals)", "Cannot resist an opportunity for a prank or joke even in danger"], "wealth_on_creation": "2d6 x 10 gp"},
+        {"name": "Loremaster",      "description": "A scholarly bard devoted to collecting and preserving knowledge.", "requirements": {"INT": 14, "WIS": 12}, "bonus_proficiencies": ["Ancient History", "Ancient Languages", "Reading/Writing"], "special_benefits": ["Legend Lore improves: base 10% + 5% per level", "Access to rare libraries: +2 to any knowledge-based check if time is taken to research", "Identify magic items: base 15% per level (instead of 5%)"], "special_hindrances": ["Must preserve and record knowledge — cannot destroy books or historical items", "Compelled to learn: will delay adventures for access to a rare library or informant"], "wealth_on_creation": "4d4 x 10 gp"},
+        {"name": "Meistersinger",   "description": "A disciplined musical virtuoso trained in a formal tradition.", "requirements": {"CHA": 15, "INT": 12}, "bonus_proficiencies": ["Musical Instrument (2 bonus)", "Singing"], "special_benefits": ["Bardic voice ability affects +2 additional creatures", "+2 to counter-song checks", "Once per day: perform a song that heals 1d4 HP to all allies who hear it"], "special_hindrances": ["Bound by the guild of meistersingers — must pay dues and attend competitions", "Will not perform crude or vulgar entertainment — reputation is everything"], "wealth_on_creation": "4d4 x 10 gp"},
+        {"name": "Skald",           "description": "A warrior-bard from a northern tradition who sings of battle and honors the dead.", "requirements": {"STR": 11, "CHA": 12}, "bonus_proficiencies": ["Endurance", "Poetry/Sagas"], "special_benefits": ["Can wear chain mail without arcane spell failure", "+2 to attack bonus inspiration (instead of the normal +1)", "Battle chant: maintain bardic inspiration during combat without concentration check"], "special_hindrances": ["Must compose and recite a saga about any heroic deed witnessed or performed", "Cannot wear plate armor or heavier", "Bound by a strong sense of personal honor"], "wealth_on_creation": "3d6 x 10 gp"},
+        {"name": "Thespian",        "description": "A dramatic actor and performer skilled in playing many roles.", "requirements": {"CHA": 14, "INT": 12}, "bonus_proficiencies": ["Disguise", "Ventriloquism", "Languages (1 bonus)"], "special_benefits": ["+20% to Disguise ability", "Can impersonate specific individuals (+10% with 30 minutes of observation)", "+2 to reaction from all NPCs in social situations"], "special_hindrances": ["Melodramatic: WIS check required to resist playing up a scene for dramatic effect", "Cannot stay in one identity for more than 1 week without becoming confused about true self (WIS check)"], "wealth_on_creation": "3d4 x 10 gp"}
+      ]
+    },
+    "druid": {
+      "source": "Complete Druid's Handbook (PHBR13)",
+      "notes": "Druid kits (called Totemic Druids or Terrain Druids) specialize in a specific environment or spiritual tradition.",
+      "kits": [
+        {"name": "Forest Druid",   "description": "Deeply bonded to woodlands and their creatures.", "terrain": "Forest", "bonus_proficiencies": ["Set Snares", "Herbalism (forest)"], "special_benefits": ["Cannot be surprised in a forest", "Animal followers include forest creatures only but +2 to number attracted", "+2 to spells cast in a forest (range or duration extended by 10%)"], "special_hindrances": ["Will not leave forested areas willingly", "-2 to all rolls in deserts or arctic terrain"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "Mountain Druid", "description": "Guardian of high peaks and rocky terrain.", "terrain": "Mountain", "bonus_proficiencies": ["Mountaineering", "Endurance"], "special_benefits": ["Immune to altitude sickness", "Can sense earthquakes and volcanic activity 1d4 hours in advance", "+2 to saves vs. elemental earth effects"], "special_hindrances": ["Uncomfortable below 2,000 ft elevation for extended periods", "Will not allow mining that damages sacred peaks"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "Plains Druid",   "description": "Protector of open grasslands and the herds that live there.", "terrain": "Grassland/Plains", "bonus_proficiencies": ["Animal Handling (herd animals)", "Riding (Land-based)"], "special_benefits": ["Can communicate with herd animals (horses, bison, cattle) as innate ability", "+4 to initiative in open terrain", "+2 to tracking on plains"], "special_hindrances": ["Claustrophobic: -1 to all rolls underground or in enclosed spaces", "Will not damage grassland ecosystems"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "Swamp Druid",    "description": "Master of bogs, marshes, and wetlands.", "terrain": "Swamp/Marsh", "bonus_proficiencies": ["Swimming", "Herbalism (toxic plants)"], "special_benefits": ["Immune to diseases native to swamps", "Can move through swamp terrain at full speed", "+2 to saves vs. poison"], "special_hindrances": ["Disturbing appearance in cities: -1 CHA reaction", "Must return to a swamp for at least 1 week per month or lose +1 to spell levels temporarily"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "Desert Druid",   "description": "Survivor of arid wastelands, attuned to heat and scarcity.", "terrain": "Desert", "bonus_proficiencies": ["Survival (desert)", "Navigation (by stars)"], "special_benefits": ["Needs only 1/4 normal water requirement", "Immune to natural heat", "Can find water underground within 60 ft (innate)", "+2 to camouflage/hide in desert terrain"], "special_hindrances": ["Uncomfortable in cold or wet environments: -1 to all rolls in arctic or water-heavy terrain", "Will protect desert oases and trade routes from exploitation"], "wealth_on_creation": "1d6 x 10 gp"},
+        {"name": "Sea Druid",      "description": "Servant of ocean deities and guardian of the seas.", "terrain": "Ocean/Coastal", "bonus_proficiencies": ["Swimming", "Navigation", "Seamanship"], "special_benefits": ["Breathe water as naturally as air", "Commune with sea creatures (fish, dolphins, whales) as innate ability", "+2 to all saves vs. cold, drowning, and electrical attacks"], "special_hindrances": ["Loses powers if more than 1 day from a significant body of water", "Will not allow ocean dumping or magical pollution of the sea"], "wealth_on_creation": "2d4 x 10 gp"}
+      ]
+    },
+    "psionicist": {
+      "source": "Complete Psionicist's Handbook (PHBR5)",
+      "notes": "Psionicist kits are based on the mental discipline or school of thought the psionicist follows.",
+      "kits": [
+        {"name": "The Sensei",    "description": "A wise teacher of mental disciplines who trains others while continuing their own development.", "requirements": {"WIS": 14, "CHA": 12}, "bonus_proficiencies": ["Teaching (special)", "Meditation"], "special_benefits": ["Can teach psionic devotions to others (1 week per devotion)", "+2 to all Telepathy rolls", "Calm Emotions at will (as a free action, once per day)"], "special_hindrances": ["Must take on at least 1 student", "Cannot harm a student or surrender one to danger"], "wealth_on_creation": "2d4 x 10 gp"},
+        {"name": "The Marauder",  "description": "A combative psionicist who uses psionic powers aggressively and offensively.", "requirements": {"STR": 11, "CON": 12}, "allowed_alignments": ["Any non-lawful good"], "bonus_proficiencies": ["Endurance", "Alertness"], "special_benefits": ["+1 PSP regeneration per hour of combat", "+2 to attack rolls with psionic combat modes", "Can enter psionic combat as a free action (no initiative loss)"], "special_hindrances": ["Must win psionic challenges when issued (pride)", "Viewed with distrust by more spiritual psionicists"], "wealth_on_creation": "3d6 x 10 gp"},
+        {"name": "The Nomad",     "description": "A psychoportation specialist who wanders the planes.", "requirements": {"WIS": 13, "INT": 11}, "bonus_proficiencies": ["Astrology", "Navigation"], "special_benefits": ["All psychoportation power costs reduced by 1 PSP (minimum 1)", "Can sense planar boundaries and dimensional rifts within 30 ft", "+2 to saves vs. teleportation mishaps"], "special_hindrances": ["Drawn to dimensional anomalies — compelled to investigate", "Cannot stay in the same plane for more than 1 month voluntarily"], "wealth_on_creation": "2d4 x 10 gp"}
+      ]
+    }
+  }
+}

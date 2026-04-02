@@ -1,0 +1,982 @@
+{
+  "source": "AD&D 2nd Edition Complete Psionicist's Handbook (PHBR5, 1991)",
+  "description": "Complete psionic rules for the Psionicist class, including all 6 disciplines, psionic sciences and devotions, PSP costs, and psionic combat",
+  "psionic_overview": {
+    "description": "Psionics is the ability to affect the world through the power of the mind alone. Unlike wizards who channel magical energy or priests who call on divine power, psionicists use pure mental force.",
+    "psionic_potential": "Any character can potentially manifest psionic powers. Roll 1d20 per ability score; if any score generates a 1, the character has wild psionic talent.",
+    "wild_talent_table": {
+      "description": "Random wild talents gained by non-psionicist characters",
+      "chance": "1% per point of INT + WIS + CHA (divided by 3) check; typically very rare",
+      "effect": "If roll succeeds, gain one random psionic power with limited PSP pool"
+    }
+  },
+  "psionic_strength_points": {
+    "abbreviation": "PSPs",
+    "description": "The fuel for psionic powers. Each power costs PSPs to activate and maintain.",
+    "starting_psps": {
+      "calculation": "(INT + WIS + CON) divided by 3, then add level bonus",
+      "by_level": [
+        {"level": 1, "psps": "Level bonus: 0"},
+        {"level": 2, "psps": "+1d6"},
+        {"level": 3, "psps": "+1d6"},
+        {"level": 4, "psps": "+1d6"},
+        {"level": 5, "psps": "+1d6"},
+        {"level": 6, "psps": "+1d6"},
+        {"level": 7, "psps": "+1d6"},
+        {"level": 8, "psps": "+1d6"},
+        {"level": 9, "psps": "+1d6"},
+        {"level": 10, "psps": "+1d4"},
+        {"level": 11, "psps": "+1d4"},
+        {"level": 12, "psps": "+1d4"},
+        {"level": 13, "psps": "+1d4"},
+        {"level": 14, "psps": "+1d4"},
+        {"level": 15, "psps": "+1d4"},
+        {"level": 16, "psps": "+1d4"},
+        {"level": 17, "psps": "+1d4"},
+        {"level": 18, "psps": "+1d4"},
+        {"level": 19, "psps": "+1d4"},
+        {"level": 20, "psps": "+1d4"}
+      ]
+    },
+    "recovery": "PSPs recover at 1 per hour of rest or meditation; full recovery after 8 hours rest"
+  },
+  "power_score": {
+    "description": "Each psionic power has a Power Score, which determines success probability",
+    "calculation": "Power Score = relevant ability score (usually INT or WIS) - penalty for power level",
+    "success": "Roll 1d20 against or under Power Score",
+    "power_score_result": "Rolling exactly the Power Score activates the power at maximum effectiveness",
+    "success_check": "Roll under or equal to Power Score = success; higher roll = failure",
+    "failure_result": "Failed check still costs minimum PSP cost; power simply doesn't activate",
+    "20_result": "Rolling 20 always fails and may cause additional side effects or backlash"
+  },
+  "psionic_combat": {
+    "description": "Psionic combat occurs on a separate mental battlefield simultaneous with physical combat",
+    "attack_modes": [
+      {
+        "name": "Psionic Blast",
+        "abbreviation": "PB",
+        "psp_cost": 10,
+        "description": "Broad-area attack that assaults all minds within range; 5d4 damage to everyone in 20-ft area; no attack roll needed; save vs. spell for half"
+      },
+      {
+        "name": "Mind Thrust",
+        "abbreviation": "MT",
+        "psp_cost": 2,
+        "description": "Focused attack on one target; precise mental dagger; deals 1d10 damage if successful"
+      },
+      {
+        "name": "Ego Whip",
+        "abbreviation": "EW",
+        "psp_cost": 4,
+        "description": "Attacks opponent's ego and self-identity; target must save or be confused 1d4 rounds (-4 to all actions)"
+      },
+      {
+        "name": "Id Insinuation",
+        "abbreviation": "II",
+        "psp_cost": 6,
+        "description": "Manipulates the deep subconscious; on success, target acts on primitive urges for 1d4 rounds (uncontrolled aggression)"
+      },
+      {
+        "name": "Psychic Crush",
+        "abbreviation": "PC",
+        "psp_cost": 8,
+        "description": "Attempts to overwhelm all psionic activity; target stunned for 1d6 rounds if failed save (no actions possible)"
+      }
+    ],
+    "defense_modes": [
+      {
+        "name": "Mind Blank",
+        "abbreviation": "MB",
+        "psp_cost_per_round": 0,
+        "description": "Empties the mind; reduces all psionic attack damage by 50%; no offensive capability while using"
+      },
+      {
+        "name": "Thought Shield",
+        "abbreviation": "TS",
+        "psp_cost_per_round": 1,
+        "description": "Projects mental armor; reduces attack impact; -4 to damage from psionic attacks"
+      },
+      {
+        "name": "Mental Barrier",
+        "abbreviation": "MB2",
+        "psp_cost_per_round": 3,
+        "description": "Builds a wall of mental force; reduces attacks to minimum damage and slows psionic activity of attacker"
+      },
+      {
+        "name": "Intellect Fortress",
+        "abbreviation": "IF",
+        "psp_cost_per_round": 4,
+        "description": "Creates a mental fortress; the best defensive mode; psionic attack against it only deal 1 HP per die"
+      },
+      {
+        "name": "Tower of Iron Will",
+        "abbreviation": "TIW",
+        "psp_cost_per_round": 5,
+        "description": "Absolute maximum defense; immune to all psionic attacks but cannot use any other psionic powers while maintaining it"
+      }
+    ],
+    "combat_matrix": {
+      "description": "Attacks vs. defenses table — X means defender takes full damage; partial means reduced damage; N means no effect",
+      "attacks_vs_defenses": {
+        "Psionic Blast": {"Mind Blank": "full", "Thought Shield": "partial", "Mental Barrier": "partial", "Intellect Fortress": "min", "Tower of Iron Will": "none"},
+        "Mind Thrust": {"Mind Blank": "partial", "Thought Shield": "partial", "Mental Barrier": "partial", "Intellect Fortress": "min", "Tower of Iron Will": "none"},
+        "Ego Whip": {"Mind Blank": "full", "Thought Shield": "partial", "Mental Barrier": "none", "Intellect Fortress": "none", "Tower of Iron Will": "none"},
+        "Id Insinuation": {"Mind Blank": "full", "Thought Shield": "none", "Mental Barrier": "partial", "Intellect Fortress": "none", "Tower of Iron Will": "none"},
+        "Psychic Crush": {"Mind Blank": "partial", "Thought Shield": "none", "Mental Barrier": "full", "Intellect Fortress": "none", "Tower of Iron Will": "none"}
+      }
+    }
+  },
+  "disciplines": {
+    "clairsentience": {
+      "description": "Powers of sensing, perceiving, and gaining knowledge beyond normal means. Associated ability: WIS",
+      "sciences": [
+        {
+          "name": "Clairvoyance",
+          "psp_cost": {"activation": 15, "maintenance": 4},
+          "power_score": "WIS -2",
+          "range": "Unlimited",
+          "description": "See any location you can visualize. Functions like Wizard Eye. Can observe without being detected."
+        },
+        {
+          "name": "Clairaudience",
+          "psp_cost": {"activation": 15, "maintenance": 4},
+          "power_score": "WIS -2",
+          "range": "Unlimited",
+          "description": "Hear at any location as if physically present. Can monitor conversations."
+        },
+        {
+          "name": "Object Reading",
+          "psp_cost": {"activation": 16, "maintenance": 4},
+          "power_score": "WIS -4",
+          "range": "Touch",
+          "description": "Read the history of an object: its most recent owner, significant events associated with it, emotional impressions. More time invested reveals older history."
+        },
+        {
+          "name": "Precognition",
+          "psp_cost": {"activation": 25, "maintenance": 0},
+          "power_score": "WIS -4",
+          "range": "Personal",
+          "description": "Gain vague visions of possible future events. Not infallible — future is mutable. DM provides cryptic hints about likely outcomes."
+        },
+        {
+          "name": "Sensitivity to Psychic Impressions",
+          "psp_cost": {"activation": 16, "maintenance": 4},
+          "power_score": "WIS -2",
+          "range": "50 yards",
+          "description": "Sense emotional residue left by past events in a location. The stronger the event, the clearer the impression. Can detect scenes up to centuries old."
+        }
+      ],
+      "devotions": [
+        {
+          "name": "Combat Mind",
+          "psp_cost": {"activation": 5, "maintenance": 3},
+          "power_score": "WIS",
+          "range": "Personal",
+          "description": "Enhances combat awareness. +2 to initiative, +1 to AC, +1 to saves from anticipating attacks."
+        },
+        {
+          "name": "Danger Sense",
+          "psp_cost": {"activation": 4, "maintenance": 3},
+          "power_score": "WIS +2",
+          "range": "Personal",
+          "description": "Sense danger before it materializes. Cannot be surprised. +2 to saves vs. traps and ambushes."
+        },
+        {
+          "name": "Detection of Magic",
+          "psp_cost": {"activation": 7, "maintenance": 3},
+          "power_score": "WIS",
+          "range": "Personal",
+          "description": "Detects magical auras within 40 ft. Can identify spell school with successful power score roll."
+        },
+        {
+          "name": "Empathy",
+          "psp_cost": {"activation": 4, "maintenance": 1},
+          "power_score": "WIS +4",
+          "range": "30 ft",
+          "description": "Sense emotional state of a target: anger, fear, joy, hostility, etc. Does not read thoughts."
+        },
+        {
+          "name": "Feel Light",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "WIS",
+          "range": "Personal",
+          "description": "Perceive photonic energy directly; effectively provides a form of vision in complete darkness, sensing light as a tactile sensation."
+        },
+        {
+          "name": "Feel Sound",
+          "psp_cost": {"activation": 3, "maintenance": 1},
+          "power_score": "WIS +2",
+          "range": "Personal",
+          "description": "Sense sound vibrations directly. Can 'hear' while deaf, detect sounds too high or low in frequency for normal hearing."
+        },
+        {
+          "name": "Hear Light",
+          "psp_cost": {"activation": 5, "maintenance": 3},
+          "power_score": "WIS -2",
+          "range": "Personal",
+          "description": "Translates light wave information into sound impressions. See with sound, effectively a form of echolocation for visible spectrum."
+        },
+        {
+          "name": "Know Direction",
+          "psp_cost": {"activation": 3, "maintenance": 0},
+          "power_score": "WIS +3",
+          "range": "Personal",
+          "description": "Always know which direction is north, as well as orientation relative to any location previously visited."
+        },
+        {
+          "name": "Know Location",
+          "psp_cost": {"activation": 5, "maintenance": 0},
+          "power_score": "WIS",
+          "range": "Personal",
+          "description": "Know exactly where you are: current plane, country, region, and general geographic position."
+        },
+        {
+          "name": "Poison Sense",
+          "psp_cost": {"activation": 2, "maintenance": 0},
+          "power_score": "WIS +3",
+          "range": "10 ft",
+          "description": "Detect poisonous substances within range. Knows if food/drink is poisoned, how potent, and general type."
+        },
+        {
+          "name": "Radial Navigation",
+          "psp_cost": {"activation": 4, "maintenance": 1},
+          "power_score": "WIS +2",
+          "range": "30 ft",
+          "description": "Sense the complete three-dimensional environment within range. Functions as perfect spatial awareness."
+        },
+        {
+          "name": "Recall",
+          "psp_cost": {"activation": 3, "maintenance": 0},
+          "power_score": "WIS +4",
+          "range": "Personal",
+          "description": "Perfectly recall any memory from the last month. On power score, can recall memories years old. Eidetic recall within limits."
+        },
+        {
+          "name": "See Magic",
+          "psp_cost": {"activation": 7, "maintenance": 2},
+          "power_score": "WIS",
+          "range": "40 ft",
+          "description": "Directly perceive magical auras as visible light. Different spell schools appear as different colors."
+        },
+        {
+          "name": "Spirit Sense",
+          "psp_cost": {"activation": 5, "maintenance": 3},
+          "power_score": "WIS",
+          "range": "50 ft",
+          "description": "Detect undead and astral/ethereal beings within range, including invisible ones."
+        }
+      ]
+    },
+    "psychokinesis": {
+      "description": "Powers to move and manipulate matter and energy with the mind. Associated ability: CON",
+      "sciences": [
+        {
+          "name": "Detonate",
+          "psp_cost": {"activation": 25, "maintenance": 0},
+          "power_score": "CON -3",
+          "range": "60 ft",
+          "description": "Causes a non-magical object to explode. Object up to 10 lbs is destroyed; all within 10 ft take 5d6 damage (save vs. breath weapon for half). Larger objects: partial damage only."
+        },
+        {
+          "name": "Disintegrate",
+          "psp_cost": {"activation": 50, "maintenance": 0},
+          "power_score": "CON -5",
+          "range": "40 ft",
+          "description": "Destroys one non-living object or creature (save vs. spell negates for creatures). Object up to 10 cu ft is vaporized. Legendary power. Creatures who fail save are destroyed (no save for objects)."
+        },
+        {
+          "name": "Molecular Rearrangement",
+          "psp_cost": {"activation": 20, "maintenance": 4},
+          "power_score": "INT -4",
+          "range": "Touch",
+          "description": "Rearrange molecular structure of matter to change its properties. Turn wood to stone, lead to iron, etc. Cannot create new materials, only change existing ones."
+        },
+        {
+          "name": "Project Force",
+          "psp_cost": {"activation": 10, "maintenance": 0},
+          "power_score": "CON",
+          "range": "40 ft",
+          "description": "Fires a bolt of pure kinetic force; deals 3d4 damage to one target. No saving throw."
+        },
+        {
+          "name": "Telekinesis",
+          "psp_cost": {"activation": 3, "maintenance": 1},
+          "power_score": "CON -3",
+          "range": "30 ft/CON",
+          "description": "Move objects with the mind. Initial lift: 25 lbs; each additional 10 lbs costs +1 PSP/round. Speed: 20 ft/round. Can be used offensively (+2 attack as hurled missile)."
+        }
+      ],
+      "devotions": [
+        {
+          "name": "Control Body",
+          "psp_cost": {"activation": 8, "maintenance": 4},
+          "power_score": "CON -2",
+          "range": "40 ft",
+          "description": "Take control of another's physical body. Target takes -4 to all actions; can be forced to attack allies, drop weapons, or remain still. Save vs. spell negates."
+        },
+        {
+          "name": "Control Flames",
+          "psp_cost": {"activation": 4, "maintenance": 1},
+          "power_score": "CON +2",
+          "range": "30 ft",
+          "description": "Control existing fire; expand, contract, extinguish, or redirect existing flames. Cannot create fire."
+        },
+        {
+          "name": "Control Light",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CON",
+          "range": "60 ft",
+          "description": "Manipulate existing light sources; create temporary illumination or darkness. Effectively bends light rays."
+        },
+        {
+          "name": "Control Sound",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CON",
+          "range": "60 ft",
+          "description": "Amplify, reduce, or redirect sounds. Can create sound from nothing or silence an area."
+        },
+        {
+          "name": "Control Wind",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Create or redirect wind currents of up to 30 mph. Useful for sailing, blowing away gases, or unbalancing opponents (STR check at -4 to avoid falling)."
+        },
+        {
+          "name": "Create Sound",
+          "psp_cost": {"activation": 2, "maintenance": 1},
+          "power_score": "CON +4",
+          "range": "60 ft",
+          "description": "Create any sound at any location within range, including voices, footsteps, animal sounds, etc."
+        },
+        {
+          "name": "Inertial Barrier",
+          "psp_cost": {"activation": 6, "maintenance": 3},
+          "power_score": "CON",
+          "range": "Personal",
+          "description": "Creates a barrier that slows incoming objects. All physical ranged attacks suffer -2 to hit and -1 per die of damage."
+        },
+        {
+          "name": "Levitation",
+          "psp_cost": {"activation": 12, "maintenance": 2},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Lift self or one willing creature vertically. Rise or lower 5 ft per segment (50 ft/round). Cannot move horizontally (wind or other movement required for that)."
+        },
+        {
+          "name": "Molecular Agitation",
+          "psp_cost": {"activation": 7, "maintenance": 2},
+          "power_score": "CON",
+          "range": "40 ft",
+          "description": "Increase molecular vibration of a target; causes 1d4 heat damage per round and may ignite combustibles after 3 rounds."
+        },
+        {
+          "name": "Molecular Manipulation",
+          "psp_cost": {"activation": 6, "maintenance": 3},
+          "power_score": "CON -2",
+          "range": "Touch",
+          "description": "Weaken material at a point; reduce HP of an object by 1d8 per round; eventually causes object to break or fall apart."
+        }
+      ]
+    },
+    "psychometabolism": {
+      "description": "Powers to control and alter biological systems, including one's own body. Associated ability: CON",
+      "sciences": [
+        {
+          "name": "Complete Healing",
+          "psp_cost": {"activation": 30, "maintenance": 0},
+          "power_score": "CON -4",
+          "range": "Personal",
+          "description": "Fully heals all HP damage, cures diseases, neutralizes poisons, and regrows lost limbs over 24 hours. Single use per day."
+        },
+        {
+          "name": "Death Field",
+          "psp_cost": {"activation": 20, "maintenance": 0},
+          "power_score": "CON -2",
+          "range": "20-ft radius",
+          "description": "Draws life energy from all nearby creatures. All within radius take 2d8 damage and user regains that many HP. Undead are immune. Evil power.",
+          "evil": true
+        },
+        {
+          "name": "Energy Containment",
+          "psp_cost": {"activation": 15, "maintenance": 0},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Absorb and contain one energy type (fire, cold, electricity, acid, etc.). Store up to 4d6 damage worth of energy. Release stored energy as a bolt (expend all stored energy in one bolt)."
+        },
+        {
+          "name": "Life Draining",
+          "psp_cost": {"activation": 12, "maintenance": 0},
+          "power_score": "CON -3",
+          "range": "Touch",
+          "description": "Drain life from a victim on successful touch attack. Victim loses 1d4+1 levels permanently; each level drained restores 1d4+1 HP to user. Only works on living creatures. Extremely evil power.",
+          "evil": true
+        },
+        {
+          "name": "Metamorphosis",
+          "psp_cost": {"activation": 15, "maintenance": 5},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Transform into any living creature of similar size. Gain all physical abilities but not special powers. Duration: maintained by PSPs. One transformation per day."
+        }
+      ],
+      "devotions": [
+        {
+          "name": "Accelerate Healing",
+          "psp_cost": {"activation": 6, "maintenance": 3},
+          "power_score": "CON +2",
+          "range": "Personal",
+          "description": "Triple natural healing rate. Recover 3 HP per rest period instead of 1."
+        },
+        {
+          "name": "Adrenalin Control",
+          "psp_cost": {"activation": 8, "maintenance": 4},
+          "power_score": "CON +2",
+          "range": "Personal",
+          "description": "Flood body with adrenalin. +2 STR, +2 CON, +1 attack per round. Afterward: -2 to all ability scores for 1d4 hours."
+        },
+        {
+          "name": "Animal Affinity",
+          "psp_cost": {"activation": 5, "maintenance": 3},
+          "power_score": "CON",
+          "range": "Personal",
+          "description": "Take on characteristics of a chosen animal type. Gain one animal sense or movement mode (e.g., scent like wolf, speed like horse, climbing like cat)."
+        },
+        {
+          "name": "Biofeedback",
+          "psp_cost": {"activation": 6, "maintenance": 2},
+          "power_score": "CON +2",
+          "range": "Personal",
+          "description": "Control body's metabolic responses. Can slow heartbeat to appear dead (only +5 CON save detects life); resist torture; extend breath-holding time."
+        },
+        {
+          "name": "Body Equilibrium",
+          "psp_cost": {"activation": 2, "maintenance": 2},
+          "power_score": "CON +4",
+          "range": "Personal",
+          "description": "Control body weight and balance. Walk on water, thin ice, or unstable surfaces. Fall without taking damage. +4 to all Dexterity-based checks."
+        },
+        {
+          "name": "Body Weaponry",
+          "psp_cost": {"activation": 6, "maintenance": 3},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Form natural weapons: claws (1d4+2), fangs (1d4+1), bone spurs (1d6). These count as +1 magical weapons for damage purposes."
+        },
+        {
+          "name": "Cell Adjustment",
+          "psp_cost": {"activation": 8, "maintenance": 2},
+          "power_score": "CON",
+          "range": "Personal",
+          "description": "Heal own wounds at 1d8 HP per round while active. Also cures disease and neutralizes poison over time."
+        },
+        {
+          "name": "Chemical Simulation",
+          "psp_cost": {"activation": 8, "maintenance": 2},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Generate chemical substances using body: acid (1d6+4 damage), antitoxin (neutralize poison), or temporary adhesive."
+        },
+        {
+          "name": "Displacement",
+          "psp_cost": {"activation": 6, "maintenance": 3},
+          "power_score": "CON",
+          "range": "Personal",
+          "description": "Appear displaced 2 ft from actual location; first attack per round automatically misses; +2 to all saves."
+        },
+        {
+          "name": "Enhanced Strength",
+          "psp_cost": {"activation": 6, "maintenance": 2},
+          "power_score": "CON",
+          "range": "Personal",
+          "description": "Enhance muscular strength. +1d4 STR for the duration. Each +1 costs 2 additional PSP/round above the base."
+        },
+        {
+          "name": "Expansion",
+          "psp_cost": {"activation": 5, "maintenance": 3},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Increase body size up to double. +4 STR, +4 CON, -2 DEX, -2 to hit with weapons (reach issues). AC worsens by 1."
+        },
+        {
+          "name": "Feel Pain",
+          "psp_cost": {"activation": 4, "maintenance": 2},
+          "power_score": "CON",
+          "range": "40 ft",
+          "description": "Inflict phantom pain on a target. No damage but -2 to all actions for duration. Save vs. spell to resist."
+        },
+        {
+          "name": "Graft Weapon",
+          "psp_cost": {"activation": 8, "maintenance": 3},
+          "power_score": "CON -1",
+          "range": "Personal",
+          "description": "Temporarily attach a weapon to one's hand, fusing it with the body. Cannot be disarmed. +2 to hit with that weapon. Cannot use that hand for anything else."
+        },
+        {
+          "name": "Hibernate",
+          "psp_cost": {"activation": 2, "maintenance": 0},
+          "power_score": "CON +4",
+          "range": "Personal",
+          "description": "Enter a state of hibernation. No food or water needed; age only 1 day per year in hibernation. Awareness is dim; can set a condition to awaken."
+        },
+        {
+          "name": "Immovability",
+          "psp_cost": {"activation": 9, "maintenance": 4},
+          "power_score": "CON",
+          "range": "Personal",
+          "description": "Root yourself to the spot with incredible solidity. Cannot be moved by any physical means. Anchored to ground. -4 to attacks and AC but immune to knockdown, bull rush, etc."
+        },
+        {
+          "name": "Mind Over Body",
+          "psp_cost": {"activation": 6, "maintenance": 0},
+          "power_score": "CON +2",
+          "range": "Personal",
+          "description": "Ignore the effects of wounds for a short time. Can act normally even with 0 or negative HP for 1 round per level before dropping unconscious."
+        },
+        {
+          "name": "Share Strength",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CON",
+          "range": "Touch",
+          "description": "Transfer physical strength to another. Temporarily lose 1d4+1 STR; target gains equivalent STR. Both effects last 1 hour."
+        },
+        {
+          "name": "Shrink",
+          "psp_cost": {"activation": 5, "maintenance": 3},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Reduce body size to half. -4 STR, -4 CON, +4 DEX. Gain +4 to AC due to size. Can fit through tiny spaces."
+        },
+        {
+          "name": "Skin of Steel",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CON",
+          "range": "Personal",
+          "description": "Harden skin to an iron-like consistency. Reduces all physical damage by 1 per die (minimum 1 per die). AC improves by 2."
+        },
+        {
+          "name": "Suspend Animation",
+          "psp_cost": {"activation": 12, "maintenance": 0},
+          "power_score": "CON -2",
+          "range": "Personal",
+          "description": "Enter complete suspended animation. No biological processes. Can survive any environment. Set a condition for automatic waking."
+        }
+      ]
+    },
+    "psychoportation": {
+      "description": "Powers to move through space and across planes. Associated ability: STR/CON",
+      "sciences": [
+        {
+          "name": "Banishment",
+          "psp_cost": {"activation": 30, "maintenance": 0},
+          "power_score": "CON -4",
+          "range": "15 ft",
+          "description": "Force an extraplanar being back to its home plane. Save vs. spell at -4. Banished being cannot return for 1 day per caster level."
+        },
+        {
+          "name": "Probability Travel",
+          "psp_cost": {"activation": 20, "maintenance": 4},
+          "power_score": "INT -4",
+          "range": "Personal",
+          "description": "Travel to parallel realities (alternate timelines). Can visit probable futures or alternate pasts. Cannot change own timeline. Must return to original within 1 hour per level."
+        },
+        {
+          "name": "Summon Planar Creature",
+          "psp_cost": {"activation": 30, "maintenance": 0},
+          "power_score": "CON -6",
+          "range": "50 yards",
+          "description": "Summon one creature from another plane. Creature has up to 2 HD per level of caster. No guarantee of obedience; creature may attack if not properly persuaded."
+        },
+        {
+          "name": "Teleport",
+          "psp_cost": {"activation": 15, "maintenance": 0},
+          "power_score": "INT",
+          "range": "Unlimited (same plane)",
+          "description": "Teleport self and up to 200 lbs of carried equipment to any location on same plane. Accuracy: familiar location (well-known) = accurate; seen (once) = near; unfamiliar (description only) = possibly random offset."
+        },
+        {
+          "name": "Teleport Other",
+          "psp_cost": {"activation": 35, "maintenance": 0},
+          "power_score": "INT -4",
+          "range": "Touch",
+          "description": "Teleport another creature to a desired location. Target must be willing or save vs. spell. Same accuracy table as Teleport."
+        }
+      ],
+      "devotions": [
+        {
+          "name": "Astral Projection",
+          "psp_cost": {"activation": 8, "maintenance": 4},
+          "power_score": "INT -2",
+          "range": "Personal",
+          "description": "Project consciousness into the Astral Plane while body remains behind. Astral form can observe but not physically affect the world. Tied to body by silver cord; cord cut = death."
+        },
+        {
+          "name": "Blink",
+          "psp_cost": {"activation": 7, "maintenance": 3},
+          "power_score": "INT",
+          "range": "Personal",
+          "description": "Randomly blink in and out of the ethereal plane. All attacks have 20% miss chance. +4 to AC. Random direction each round."
+        },
+        {
+          "name": "Dimensional Door",
+          "psp_cost": {"activation": 4, "maintenance": 0},
+          "power_score": "INT",
+          "range": "50 yards",
+          "description": "Open a dimensional portal to any location within range seen or well known. One creature at a time; portal lasts 1 round."
+        },
+        {
+          "name": "Dimension Walk",
+          "psp_cost": {"activation": 8, "maintenance": 4},
+          "power_score": "INT",
+          "range": "Personal",
+          "description": "Walk the dimensions between planes. Travel through a limited Ethereal state. Move at half speed but pass through physical barriers."
+        },
+        {
+          "name": "Etherealness",
+          "psp_cost": {"activation": 9, "maintenance": 3},
+          "power_score": "INT -1",
+          "range": "Personal",
+          "description": "Enter the Ethereal Plane. Invisible and intangible to material world. Can move through solid matter. Cannot affect material world (except with some powers)."
+        },
+        {
+          "name": "Phase Door",
+          "psp_cost": {"activation": 9, "maintenance": 0},
+          "power_score": "INT",
+          "range": "Personal",
+          "description": "Pass through a solid wall of up to 8 ft thick. No sound, no trace. Can bring one additional creature per 5 levels."
+        },
+        {
+          "name": "Teleport Trigger",
+          "psp_cost": {"activation": 12, "maintenance": 0},
+          "power_score": "INT",
+          "range": "Personal",
+          "description": "Set a conditional teleport. If a specified triggering event occurs (taking X damage, hearing a word, etc.), immediately teleport to a preset location. One trigger at a time."
+        }
+      ]
+    },
+    "telepathy": {
+      "description": "Powers to communicate with, sense, and control other minds. Associated ability: CHA/INT",
+      "sciences": [
+        {
+          "name": "Domination",
+          "psp_cost": {"activation": 20, "maintenance": 6},
+          "power_score": "CHA -4",
+          "range": "40 ft",
+          "description": "Complete mental domination of one creature. Target must obey all commands. Save vs. spell at -2 negates. Dominated creature performs any action but retains some ability to sabotage orders."
+        },
+        {
+          "name": "Fate Link",
+          "psp_cost": {"activation": 20, "maintenance": 0},
+          "power_score": "CHA -4",
+          "range": "20 ft",
+          "description": "Link one's fate to another's. When linked target suffers damage, user takes half; user also takes half. Lasts 1 day per level. Cannot be ended by either party until duration expires."
+        },
+        {
+          "name": "Mass Domination",
+          "psp_cost": {"activation": 50, "maintenance": 10},
+          "power_score": "CHA -6",
+          "range": "40 ft",
+          "description": "Dominate multiple targets simultaneously. Can control up to 2 HD per level. All targets save independently."
+        },
+        {
+          "name": "Mindlink",
+          "psp_cost": {"activation": 9, "maintenance": 3},
+          "power_score": "CHA",
+          "range": "60 ft",
+          "description": "Create a telepathic link with willing or unwilling target. Share thoughts, sensations, and emotions. Unwilling target gets save vs. spell."
+        },
+        {
+          "name": "Psychic Surgery",
+          "psp_cost": {"activation": 25, "maintenance": 0},
+          "power_score": "CHA -4",
+          "range": "Touch",
+          "description": "Repair mental damage: cure insanity, remove magical compulsions or charms, repair personality damage from trauma, modify memories (with ethical implications)."
+        }
+      ],
+      "devotions": [
+        {
+          "name": "Attraction",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CHA",
+          "range": "30 ft",
+          "description": "Make a target feel positive feelings toward the psionicist. Similar to a very gentle Charm; target is friendly, not dominated. Save vs. spell negates."
+        },
+        {
+          "name": "Awe",
+          "psp_cost": {"activation": 6, "maintenance": 2},
+          "power_score": "CHA +2",
+          "range": "20 ft",
+          "description": "Inspire feelings of awe and reverence. All within range treat psionicist as an authority figure for duration. -2 to saves vs. commands while in awe."
+        },
+        {
+          "name": "Conceal Thoughts",
+          "psp_cost": {"activation": 3, "maintenance": 2},
+          "power_score": "CHA +4",
+          "range": "Personal",
+          "description": "Block mind-reading attempts. Immune to telepathy, ESP, and similar powers. Can also project false surface thoughts."
+        },
+        {
+          "name": "Contact",
+          "psp_cost": {"activation": 2, "maintenance": 1},
+          "power_score": "CHA +2",
+          "range": "Within same plane",
+          "description": "Establish contact with a known, specific individual anywhere on the same plane. Both parties must be willing for a conversation."
+        },
+        {
+          "name": "Daydream",
+          "psp_cost": {"activation": 4, "maintenance": 2},
+          "power_score": "CHA",
+          "range": "30 ft",
+          "description": "Distract a target with vivid daydreams. Target must save vs. spell or be distracted (-4 to all actions) for the duration."
+        },
+        {
+          "name": "Ego Boost",
+          "psp_cost": {"activation": 3, "maintenance": 1},
+          "power_score": "CHA +2",
+          "range": "Personal",
+          "description": "Boost one's own mental strength. +4 to saves vs. mental attacks; +2 to power scores for psionic combat defenses."
+        },
+        {
+          "name": "Empathy",
+          "psp_cost": {"activation": 3, "maintenance": 1},
+          "power_score": "CHA +4",
+          "range": "30 ft",
+          "description": "Sense the basic emotional state of a target (see Clairsentience devotion Empathy; accessible from both disciplines)."
+        },
+        {
+          "name": "False Sensory Input",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CHA",
+          "range": "30 ft",
+          "description": "Feed false sensory impressions to a target. They see, hear, feel, smell, or taste what the psionicist projects. Save vs. spell negates."
+        },
+        {
+          "name": "Identity Penetration",
+          "psp_cost": {"activation": 8, "maintenance": 3},
+          "power_score": "CHA -2",
+          "range": "60 ft",
+          "description": "Penetrate mental defenses and disguises. Detect true identity even through shapeshifting or magical disguise. Detect alignment."
+        },
+        {
+          "name": "Inflict Pain",
+          "psp_cost": {"activation": 4, "maintenance": 2},
+          "power_score": "CHA -2",
+          "range": "40 ft",
+          "description": "Inflict mental pain on a target. -4 to all actions; no damage. Save vs. spell to resist entirely."
+        },
+        {
+          "name": "Invisibility",
+          "psp_cost": {"activation": 6, "maintenance": 3},
+          "power_score": "CHA",
+          "range": "Personal",
+          "description": "Project mental suggestion that prevents others from noticing the psionicist. Functions as Invisibility spell but works through telepathy rather than light-bending."
+        },
+        {
+          "name": "Irrationality",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CHA",
+          "range": "30 ft",
+          "description": "Scramble a target's logical reasoning. They must roll twice for any decision or action and take the worse result. Save vs. spell negates."
+        },
+        {
+          "name": "Life Detection",
+          "psp_cost": {"activation": 3, "maintenance": 1},
+          "power_score": "CHA +2",
+          "range": "50 ft",
+          "description": "Detect all living minds within range. Sense their direction and approximate power level. Undead do not register; constructs do not register."
+        },
+        {
+          "name": "Mental Domination",
+          "psp_cost": {"activation": 10, "maintenance": 4},
+          "power_score": "CHA -2",
+          "range": "40 ft",
+          "description": "Limited version of Domination science. Control one target for duration. Save vs. spell negates. Target remembers nothing while dominated."
+        },
+        {
+          "name": "Mind Bar",
+          "psp_cost": {"activation": 4, "maintenance": 2},
+          "power_score": "CHA +2",
+          "range": "Personal",
+          "description": "Resistance to psionic intrusion. +4 to saves vs. all telepathy powers. Immune to Contact without permission."
+        },
+        {
+          "name": "Psionic Blast",
+          "psp_cost": {"activation": 10, "maintenance": 0},
+          "power_score": "CHA",
+          "range": "20 ft",
+          "description": "See Psionic Combat attack modes. Also available as a devotion for emergency offensive use."
+        },
+        {
+          "name": "Repugnance",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CHA",
+          "range": "30 ft",
+          "description": "Inspire feelings of repugnance and disgust. Target avoids the psionicist and all suggested subjects."
+        },
+        {
+          "name": "Send Thoughts",
+          "psp_cost": {"activation": 2, "maintenance": 1},
+          "power_score": "CHA +4",
+          "range": "30 ft",
+          "description": "Send one-way thoughts or messages to a target. Target hears the thoughts as if spoken. No response possible without Contact."
+        },
+        {
+          "name": "Sight Link",
+          "psp_cost": {"activation": 3, "maintenance": 2},
+          "power_score": "CHA",
+          "range": "Touch",
+          "description": "Share visual perspective with a willing target. See through their eyes; they can see through yours if they choose."
+        },
+        {
+          "name": "Soul Expulsion",
+          "psp_cost": {"activation": 15, "maintenance": 0},
+          "power_score": "CHA -4",
+          "range": "Touch",
+          "description": "Rip the soul from a living body. Target save vs. death magic at -4 or have soul expelled to Astral Plane. Body remains alive but comatose. The expelled soul can be recovered.",
+          "evil": true
+        },
+        {
+          "name": "Synaptic Static",
+          "psp_cost": {"activation": 10, "maintenance": 0},
+          "power_score": "CHA -2",
+          "range": "30-ft radius",
+          "description": "Flood area with mental static. All psionic users in area lose 1d4 PSPs per round. Non-psionicists are unaffected."
+        },
+        {
+          "name": "Taste Link",
+          "psp_cost": {"activation": 2, "maintenance": 1},
+          "power_score": "CHA +4",
+          "range": "Touch",
+          "description": "Share taste sensations with a willing target."
+        },
+        {
+          "name": "Telempathic Projection",
+          "psp_cost": {"activation": 5, "maintenance": 2},
+          "power_score": "CHA",
+          "range": "40 ft",
+          "description": "Project strong emotions to a target. Can inspire fear, courage, rage, sadness, or euphoria. Target may save vs. spell."
+        }
+      ]
+    },
+    "metapsionics": {
+      "description": "Powers that affect psionics itself. Can be learned only after mastering other disciplines. Associated ability: WIS",
+      "prerequisite": "Must know powers from at least 3 other disciplines",
+      "sciences": [
+        {
+          "name": "Appraise",
+          "psp_cost": {"activation": 14, "maintenance": 0},
+          "power_score": "WIS -4",
+          "range": "30 ft",
+          "description": "Precisely assess the psionic powers and abilities of any creature within range. Learn exact disciplines, powers, and remaining PSPs."
+        },
+        {
+          "name": "Aura Sight",
+          "psp_cost": {"activation": 18, "maintenance": 3},
+          "power_score": "WIS -4",
+          "range": "50 ft",
+          "description": "Read the complete psionic aura of any being. Reveals all psionic capabilities, current PSPs, and psionic activity in use."
+        },
+        {
+          "name": "Empower",
+          "psp_cost": {"activation": "Special", "maintenance": "Special"},
+          "power_score": "WIS -4",
+          "range": "Touch",
+          "description": "Temporarily boost the power score of another psionicist. Target gains +4 to power score for one power; user pays double PSP cost."
+        },
+        {
+          "name": "Psychic Clone",
+          "psp_cost": {"activation": 30, "maintenance": 10},
+          "power_score": "WIS -6",
+          "range": "Personal",
+          "description": "Create a duplicate of the psionicist's mind that can use psionic powers independently. The clone exists as a semi-independent entity."
+        },
+        {
+          "name": "Ultrablast",
+          "psp_cost": {"activation": 75, "maintenance": 0},
+          "power_score": "WIS -8",
+          "range": "20-ft radius",
+          "description": "The ultimate psionic offensive power. All in range take 10d10 mental damage (save vs. spell for half). Psionicists also lose all PSPs and cannot use powers for 1 hour."
+        }
+      ],
+      "devotions": [
+        {
+          "name": "Cannibalize",
+          "psp_cost": {"activation": "Special", "maintenance": 0},
+          "power_score": "WIS -4",
+          "range": "Personal",
+          "description": "Convert HP to PSPs at a ratio of 2:1. Deals 1 HP per 0.5 PSPs gained. Maximum 10 HP per use. Cannot reduce below 1 HP."
+        },
+        {
+          "name": "Convergence",
+          "psp_cost": {"activation": 8, "maintenance": 4},
+          "power_score": "WIS",
+          "range": "Touch",
+          "description": "Pool PSPs between willing psionicists. All can draw from the shared pool. Split evenly at end of duration."
+        },
+        {
+          "name": "Gird",
+          "psp_cost": {"activation": 6, "maintenance": 2},
+          "power_score": "WIS",
+          "range": "Personal",
+          "description": "Strengthen psionic defenses. +4 to all psionic defense mode effectiveness. Psionic combat attacks cost opponents 1 extra PSP per round against you."
+        },
+        {
+          "name": "Magnify",
+          "psp_cost": {"activation": "Special", "maintenance": "Special"},
+          "power_score": "WIS -4",
+          "range": "Personal",
+          "description": "Double the range or area of a chosen power. Costs double PSPs for that power use."
+        },
+        {
+          "name": "Martial Trance",
+          "psp_cost": {"activation": 5, "maintenance": 3},
+          "power_score": "WIS +2",
+          "range": "Personal",
+          "description": "Achieve perfect psionic focus in combat. All power scores are at +2; psionic combat defenses cost 1 less PSP per round."
+        },
+        {
+          "name": "Prolong",
+          "psp_cost": {"activation": "Special", "maintenance": "Special"},
+          "power_score": "WIS -2",
+          "range": "Personal",
+          "description": "Double the duration of a chosen maintained power. Costs double maintenance PSPs."
+        },
+        {
+          "name": "Psychic Drain",
+          "psp_cost": {"activation": 3, "maintenance": 1},
+          "power_score": "WIS -2",
+          "range": "30 ft",
+          "description": "Drain PSPs from a target psionicist at 3 PSPs per round. Drained PSPs are lost, not transferred."
+        },
+        {
+          "name": "Retrospection",
+          "psp_cost": {"activation": 7, "maintenance": 2},
+          "power_score": "WIS",
+          "range": "Personal",
+          "description": "Access memories of psionic activities. Review any psionic power use within the last day in perfect detail."
+        },
+        {
+          "name": "Wrench",
+          "psp_cost": {"activation": 12, "maintenance": 0},
+          "power_score": "WIS -4",
+          "range": "30 ft",
+          "description": "Disrupt a maintained psionic power. Targeted power is ended immediately; power user pays activation cost again to restart. Save vs. spell negates."
+        }
+      ]
+    }
+  },
+  "psychic_encounters": {
+    "description": "Psionic creatures and their psionic capabilities",
+    "creatures_with_psionics": [
+      {"creature": "Mind Flayer (Illithid)", "psps": "240-320", "powers": "Mind Blast (cone, save or stun), ESP, Levitation, Domination, Charm Monster", "notes": "Powerful psionic hunters who eat brains; immune to psionics of lower level"},
+      {"creature": "Yuan-Ti", "psps": "30-100", "powers": "Varying by individual; often Telepathy and Clairsentience devotions"},
+      {"creature": "Githyanki", "psps": "50-200", "powers": "Telekinesis, Teleport, Dimension Walk, Astral Projection"},
+      {"creature": "Githzerai", "psps": "50-200", "powers": "Similar to Githyanki; more defensive focus"},
+      {"creature": "Aboleth", "psps": "50-100", "powers": "ESP (always active), Telepathy devotions, Domination"},
+      {"creature": "Su-Monster", "psps": "20-50", "powers": "Psionic Blast, Telekinesis devotions"},
+      {"creature": "Brain Mole", "psps": "15-30", "powers": "Psionic Drain (eat PSPs)"},
+      {"creature": "Thought Eater", "psps": "30-40", "powers": "Immune to non-psionic attack; eats PSPs from others"},
+      {"creature": "Elder Brain", "psps": "400+", "powers": "All Telepathy powers; hive mind of mind flayer colony"}
+    ]
+  }
+}

@@ -1,0 +1,958 @@
+{
+  "source": "AD&D 2nd Edition Tome of Magic (1991)",
+  "description": "Expanded spell system from the Tome of Magic including Wild Magic, Chronomancer spells, Geomancer spells, Shadow Magic, Song Magic (Bard), and Priest spheres",
+  "wild_magic": {
+    "description": "Wild magic is unpredictable magical energy. Wild mages specialize in harnessing raw chaos of magic for great power, but at the risk of wild surges.",
+    "wild_mage_class_notes": "Wild Mages are a type of specialist wizard who study the theory of wild magic. They choose Wild Magic as their specialty school. See Classes file for full class details.",
+    "wild_magic_chance": {
+      "base_chance": "5% per spell level of wild surge occurring",
+      "level_modifier": "Level-1 modifier to Wild Surge roll (higher level = less surge chance after experience)",
+      "formula": "Roll d% when casting. If roll <= (5 * spell_level - caster_level + 1), a wild surge occurs",
+      "nahal_roll": "Some effects trigger automatic wild surges without the roll"
+    },
+    "wild_surge_table": {
+      "description": "Roll d% to determine wild surge effect. Wild surges replace the intended spell effect.",
+      "entries": [
+        {"roll": "01", "effect": "Spell affects caster"},
+        {"roll": "02", "effect": "Spell area of effect increases by 200%"},
+        {"roll": "03", "effect": "Caster polymorphed into frog for 1d6 days"},
+        {"roll": "04", "effect": "Target of spell gets Haste for 1d4 rounds"},
+        {"roll": "05", "effect": "Random creature in 100 yards is affected by spell"},
+        {"roll": "06", "effect": "Spell produces darkness, 15-ft radius for 1d4 rounds"},
+        {"roll": "07", "effect": "1d10 gems of 100 gp value each spring from ground within 10 ft"},
+        {"roll": "08", "effect": "Wind effect blows all within 20 ft away from caster (STR 16 check to resist)"},
+        {"roll": "09", "effect": "Caster deafened for 1d4 days (no verbal spell components)"},
+        {"roll": "10", "effect": "Spell target turns blue for 1d6 days"},
+        {"roll": "11", "effect": "Caster levitates 20 ft for 1d4 rounds"},
+        {"roll": "12", "effect": "Caster's hair turns green and grows 1d12 feet instantly"},
+        {"roll": "13", "effect": "Spell reversed (if reversible), or reflected back at caster if not"},
+        {"roll": "14", "effect": "Spell has no effect, but 1d4 spell levels of spells memorized disappear randomly"},
+        {"roll": "15", "effect": "Caster polymorphed into small woodland creature for 1d4 rounds"},
+        {"roll": "16", "effect": "Caster and targets within 30 ft become invisible for 1d6 rounds"},
+        {"roll": "17", "effect": "Spell fires twice (both instances affect original target)"},
+        {"roll": "18", "effect": "Colorful lights dance around caster for 1d4 rounds (as Faerie Fire)"},
+        {"roll": "19", "effect": "Spell converts to equivalent fire damage"},
+        {"roll": "20", "effect": "Caster teleported 1d10x10 feet in random direction"},
+        {"roll": "21-25", "effect": "Spell works normally, but caster has vivid hallucinations for 1 round"},
+        {"roll": "26-30", "effect": "Spell works, random harmless music plays for 1d4 rounds"},
+        {"roll": "31-35", "effect": "Spell affected by weak surge: +1 caster level"},
+        {"roll": "36-40", "effect": "All spells in area have components changed (verbal → somatic, etc.)"},
+        {"roll": "41-45", "effect": "Spell works; random color change to caster's skin for 1d4 days"},
+        {"roll": "46-50", "effect": "Spell works normally"},
+        {"roll": "51-55", "effect": "Spell energy temporarily delayed; goes off 1d4 rounds later"},
+        {"roll": "56-60", "effect": "Spell works; sweet smell fills area for 1d4 rounds"},
+        {"roll": "61-65", "effect": "All within 30 ft, including caster, get +2 saves vs. magic for 1d4 turns"},
+        {"roll": "66-70", "effect": "Spell works normally; nothing else occurs"},
+        {"roll": "71-75", "effect": "Caster ages 1d4+4 years"},
+        {"roll": "76-80", "effect": "Spell works; all within 30 ft float 1 ft off ground for 1d4 rounds"},
+        {"roll": "81-85", "effect": "Small 1d4+4 HD creature summoned (no control); disappears in 1d4 rounds"},
+        {"roll": "86-90", "effect": "Affected area filled with colored bubbles for 1d4 rounds; spells cast through bubbles have 20% wild surge chance"},
+        {"roll": "91-95", "effect": "Spell extended to last twice as long"},
+        {"roll": "96-00", "effect": "Wild surge cascade: roll twice more and apply both effects"}
+      ]
+    },
+    "tides_of_chaos": {
+      "description": "Wild mages can invoke Tides of Chaos to guarantee maximum spell damage and effect once per day. After using Tides of Chaos, the DM can force a wild surge at any point during the next 24 hours.",
+      "mechanics": "Once per day, wild mage can declare Tides of Chaos before casting. Spell is maximized (as if all dice show maximum). DM may insert wild surge within 24 hours at any time."
+    }
+  },
+  "wild_magic_spells": [
+    {
+      "name": "Nahal's Reckless Dweomer",
+      "school": "Wild Magic",
+      "level": 1,
+      "range": "0",
+      "duration": "Instantaneous",
+      "area_of_effect": "Special",
+      "components": ["V", "S"],
+      "casting_time": "5",
+      "saving_throw": "None",
+      "description": "The wild mage attempts to cast any spell they know or have ever read, even without memorizing it. There is a base 15% chance of success (+1% per level above 1st). If unsuccessful, a wild surge occurs and the spell is lost. If successful, the spell is cast as normal but a wild surge check is still made. The caster must have encountered the spell in some form.",
+      "special": "This is the signature wild mage spell. It allows casting of unmemorized spells at the cost of instability."
+    },
+    {
+      "name": "Chaos Shield",
+      "school": "Wild Magic",
+      "level": 2,
+      "range": "0",
+      "duration": "1 round per level",
+      "area_of_effect": "Caster",
+      "components": ["V", "S"],
+      "casting_time": "2",
+      "saving_throw": "None",
+      "description": "When cast, a shimmering aura of wild magic surrounds the caster. While active, any spell cast on the caster that would have a negative effect has a 50% chance to be absorbed and converted into a random wild surge effect instead. The caster takes no damage from wild surges that affect them personally while this shield is active."
+    },
+    {
+      "name": "Hornung's Guess",
+      "school": "Wild Magic",
+      "level": 2,
+      "range": "60 yards",
+      "duration": "Instantaneous",
+      "area_of_effect": "One creature",
+      "components": ["V", "S"],
+      "casting_time": "2",
+      "saving_throw": "None",
+      "description": "This spell reveals the approximate level or Hit Dice of one creature. The wild mage perceives the creature's power level as a rough approximation: weak (1-3 HD), average (4-7 HD), strong (8-12 HD), powerful (13-20 HD), or legendary (21+ HD). The information is never perfectly precise but gives useful tactical information."
+    },
+    {
+      "name": "Nahal's Nonsensical Nullifier",
+      "school": "Wild Magic",
+      "level": 3,
+      "range": "30 yards",
+      "duration": "Special",
+      "area_of_effect": "30-ft radius",
+      "components": ["V", "S", "M"],
+      "casting_time": "3",
+      "saving_throw": "None",
+      "description": "This spell creates a zone of magical unpredictability. Any spell cast within the zone by anyone other than the caster has a 25% chance of triggering a wild surge. The zone lasts 1 round per caster level. The caster is immune to the zone's effects.",
+      "material_component": "A glass marble"
+    },
+    {
+      "name": "Wildzone",
+      "school": "Wild Magic",
+      "level": 4,
+      "range": "0",
+      "duration": "1 turn per level",
+      "area_of_effect": "10-ft radius per level sphere",
+      "components": ["V", "S"],
+      "casting_time": "4",
+      "saving_throw": "None",
+      "description": "Creates an area of unstable magical energy. All spells cast within the wildzone have a 50% chance of wild surge, regardless of who casts them. The wild mage who created the zone has only a 25% chance. The zone is visible as a shimmering distortion in the air."
+    },
+    {
+      "name": "Hornung's Surge Selector",
+      "school": "Wild Magic",
+      "level": 5,
+      "range": "0",
+      "duration": "Instantaneous",
+      "area_of_effect": "Caster",
+      "components": ["V", "S"],
+      "casting_time": "5",
+      "saving_throw": "None",
+      "description": "Cast after a wild surge has occurred but before it takes effect. The wild mage rolls twice on the wild surge table and may choose which result occurs. This gives some measure of control over the chaos of wild magic."
+    },
+    {
+      "name": "Suffocate",
+      "school": "Wild Magic",
+      "level": 5,
+      "range": "30 yards",
+      "duration": "1 round per level",
+      "area_of_effect": "One creature",
+      "components": ["V", "S"],
+      "casting_time": "5",
+      "saving_throw": "Special",
+      "description": "This spell draws the air out of one creature's lungs. The target must make a save vs. breath weapon each round or take 1d6 damage and be stunned for that round. A successful save means 1d3 damage but no stun. After the spell ends, the target recovers normally. Undead, elementals, and creatures not requiring air are immune."
+    },
+    {
+      "name": "Vortex",
+      "school": "Wild Magic",
+      "level": 6,
+      "range": "60 yards",
+      "duration": "1 round per level",
+      "area_of_effect": "30-ft diameter sphere",
+      "components": ["V", "S"],
+      "casting_time": "6",
+      "saving_throw": "None",
+      "description": "Creates a swirling vortex of wild magic energy. All spells cast into or within the vortex have a 75% chance of wild surge. The vortex pulls creatures within 10 ft toward its center (STR 18 check to resist each round). Creatures caught in the center take 2d8 damage per round from raw magical energy."
+    },
+    {
+      "name": "Stabilize",
+      "school": "Wild Magic",
+      "level": 7,
+      "range": "0",
+      "duration": "1 turn per level",
+      "area_of_effect": "30-ft radius",
+      "components": ["V", "S", "M"],
+      "casting_time": "7",
+      "saving_throw": "None",
+      "description": "Opposite of Wildzone. Reduces wild magic surge chances to 0% within the area. Normal spells can be cast freely. Wild mages within the zone cannot use Tides of Chaos or Nahal's Reckless Dweomer. The stabilizing effect calms wild magic energy in the area.",
+      "material_component": "A clear crystal sphere worth 500 gp"
+    },
+    {
+      "name": "Hornung's Chaos Infusion",
+      "school": "Wild Magic",
+      "level": 8,
+      "range": "Touch",
+      "duration": "1 turn per level",
+      "area_of_effect": "One creature",
+      "components": ["V", "S"],
+      "casting_time": "8",
+      "saving_throw": "Negates",
+      "description": "Infuses a target with wild magical energy. For the duration, all spells the target casts automatically trigger wild surges in addition to their normal effects. The target also radiates wild magic and may accidentally trigger surges in other nearby casters (20% per round). Save vs. spell negates."
+    },
+    {
+      "name": "Wildfire",
+      "school": "Wild Magic",
+      "level": 9,
+      "range": "0",
+      "duration": "Special",
+      "area_of_effect": "Special",
+      "components": ["V", "S"],
+      "casting_time": "9",
+      "saving_throw": "Special",
+      "description": "The pinnacle of wild magic. The caster releases all their remaining memorized spells in an uncontrolled burst. Roll on the wild surge table for each released spell level, applying all effects simultaneously. The caster and all within 30 ft are affected. After the wildfire, the caster is exhausted but may immediately rememorize spells (5 minutes meditation). The chaos released is spectacular and unpredictable."
+    }
+  ],
+  "chronomancer_spells": {
+    "description": "Chronomancers study the magic of time. These spells manipulate temporal effects.",
+    "school": "Chronomancy (School of Time)",
+    "specialist_type": "Chronomancer",
+    "barred_schools": ["Necromancy", "Wild Magic"],
+    "spells": [
+      {
+        "name": "Alarm",
+        "level": 1,
+        "range": "30 yards",
+        "duration": "4 hours plus 0.5 hours per level",
+        "area_of_effect": "Up to 20-ft cube",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 round",
+        "saving_throw": "None",
+        "description": "Creates a temporal alarm that alerts the caster when a creature of small size or larger passes through the area. The alarm can be set to exclude certain creatures. When triggered, sends a mental ping to the caster regardless of distance.",
+        "material_component": "A tiny bell and a piece of fine silver wire"
+      },
+      {
+        "name": "Delay",
+        "level": 1,
+        "range": "60 yards",
+        "duration": "1 round + 1 round per 5 levels",
+        "area_of_effect": "One creature or object",
+        "components": ["V", "S"],
+        "casting_time": "1",
+        "saving_throw": "None",
+        "description": "Temporarily delays the actions of one creature or object. The target cannot take any actions for the duration but is not harmed. Objects in mid-motion (arrows, falling rocks) pause in place. Creatures receive a save vs. spell."
+      },
+      {
+        "name": "Haste",
+        "level": 3,
+        "range": "60 yards",
+        "duration": "3 rounds plus 1 round per level",
+        "area_of_effect": "40-ft cube, one creature per level",
+        "components": ["V", "S", "M"],
+        "casting_time": "3",
+        "saving_throw": "None",
+        "description": "Affected creatures move and attack at double speed. Extra attack per round allowed. However, each use of Haste ages the recipient by 1 year.",
+        "material_component": "A shaving of licorice root"
+      },
+      {
+        "name": "Slow",
+        "level": 3,
+        "range": "90 yards",
+        "duration": "3 rounds plus 1 round per level",
+        "area_of_effect": "40-ft cube, up to 14 creatures",
+        "components": ["V", "S", "M"],
+        "casting_time": "3",
+        "saving_throw": "Negates",
+        "description": "Affected creatures can only move at half speed and attack once every other round. -4 penalty to AC and attack rolls.",
+        "material_component": "A drop of molasses"
+      },
+      {
+        "name": "Age Creature",
+        "level": 4,
+        "range": "60 yards",
+        "duration": "Permanent",
+        "area_of_effect": "One creature",
+        "components": ["V", "S"],
+        "casting_time": "4",
+        "saving_throw": "Negates",
+        "description": "Ages the target 10 years instantly. Multiple castings are cumulative. Reaching maximum age causes natural death. Undead, constructs, and immortal beings are immune. This is a dangerous and morally dubious spell."
+      },
+      {
+        "name": "Time Stop",
+        "level": 9,
+        "range": "0",
+        "duration": "1d3 rounds",
+        "area_of_effect": "15-ft radius per level sphere",
+        "components": ["V"],
+        "casting_time": "9",
+        "saving_throw": "None",
+        "description": "Stops time completely for all within the area except the caster. The caster can move freely, cast spells, and manipulate the environment while all others are frozen. Spell effects prepared during Time Stop come into effect when the duration ends.",
+        "note": "Standard wizard spell, but Chronomancers can memorize 3 per day instead of 1 and cast it at -1 segment"
+      },
+      {
+        "name": "Temporal Stasis",
+        "level": 9,
+        "range": "10 yards",
+        "duration": "Permanent",
+        "area_of_effect": "One creature",
+        "components": ["V", "S", "M"],
+        "casting_time": "9",
+        "saving_throw": "Negates",
+        "description": "Places one creature in a form of suspended animation. The target does not age, hunger, breathe, or change in any way. The only way to end the effect is with a Dispel Magic or the Temporal Reinstatement spell. Useful for preserving mortally wounded allies or imprisoning dangerous enemies.",
+        "material_component": "A powdered diamond worth 5,000 gp"
+      },
+      {
+        "name": "Temporal Reinstatement",
+        "level": 9,
+        "range": "10 yards",
+        "duration": "Instantaneous",
+        "area_of_effect": "One creature",
+        "components": ["V", "S", "M"],
+        "casting_time": "9",
+        "saving_throw": "None",
+        "description": "Reverses Temporal Stasis, bringing the target back to normal time flow. The target resumes exactly where they left off with no sense of time having passed.",
+        "material_component": "A piece of amber worth 1,000 gp"
+      }
+    ]
+  },
+  "shadow_magic_spells": {
+    "description": "Shadow magic calls upon the Plane of Shadow, a dim reflection of the Prime Material Plane. Shadow spells are partially real or have enhanced effects in darkness.",
+    "specialist_type": "Shadowmage (optional specialist)",
+    "spells": [
+      {
+        "name": "Darkbolt",
+        "level": 2,
+        "range": "30 yards plus 5 yards per level",
+        "duration": "Instantaneous",
+        "area_of_effect": "One target",
+        "components": ["V", "S"],
+        "casting_time": "2",
+        "saving_throw": "None",
+        "description": "Fires a bolt of shadow energy at one target. Deals 1d4 damage per 2 levels (maximum 5d4). Deals double damage to creatures that require light to see (those with no infravision or darkvision)."
+      },
+      {
+        "name": "Shadow Monsters",
+        "level": 4,
+        "range": "30 yards",
+        "duration": "1 round per level",
+        "area_of_effect": "20-ft cube",
+        "components": ["V", "S"],
+        "casting_time": "4",
+        "saving_throw": "Special",
+        "description": "Creates illusory monsters made of shadow stuff. Monsters have 20% of normal monster HP and deal 20% of normal damage to believers. Creatures that successfully disbelieve (save vs. spell) take minimum damage (1 point per die). Monsters can be any type the caster has seen."
+      },
+      {
+        "name": "Shadow Walk",
+        "level": 7,
+        "range": "Touch",
+        "duration": "6 turns plus 1 turn per level",
+        "area_of_effect": "Special",
+        "components": ["V", "S"],
+        "casting_time": "1",
+        "saving_throw": "None",
+        "description": "Step into the Plane of Shadow and travel quickly through it. On the Plane of Shadow, distances seem shorter; travel 1 mile on the Material Plane per round of shadow walking. The caster and up to 3 companions can use this ability. Dangers of the Shadow Plane may be encountered."
+      },
+      {
+        "name": "Demi-Shadow Monsters",
+        "level": 5,
+        "range": "30 yards",
+        "duration": "1 round per level",
+        "area_of_effect": "20-ft cube",
+        "components": ["V", "S"],
+        "casting_time": "5",
+        "saving_throw": "Special",
+        "description": "As Shadow Monsters but creatures have 40% of normal HP and deal 40% damage. More dangerous than standard Shadow Monsters. Those who disbelieve still take 20% damage."
+      }
+    ]
+  },
+  "song_magic_spells": {
+    "description": "Additional bard spell lists from the Tome of Magic. These spells are known to bards as part of their musical magical tradition.",
+    "notes": "Bards learn these spells as part of their expanded repertoire. They are cast with musical tones weaving the magical pattern.",
+    "spells": [
+      {
+        "name": "Amplify",
+        "level": 1,
+        "range": "0",
+        "duration": "1 turn plus 1 round per level",
+        "area_of_effect": "60-ft radius",
+        "components": ["V", "S"],
+        "casting_time": "1",
+        "saving_throw": "None",
+        "description": "Amplifies all sounds in the area of effect. Whispers become audible at 60 feet; normal conversation can be heard at 300 feet; shouts can be heard for miles. Any sound-based attack is doubled in effect. Sound-based spells are +2 levels in effectiveness."
+      },
+      {
+        "name": "Summon Instrument",
+        "level": 1,
+        "range": "0",
+        "duration": "1 turn per level",
+        "area_of_effect": "Caster",
+        "components": ["V", "S"],
+        "casting_time": "1",
+        "saving_throw": "None",
+        "description": "Summons a spectral musical instrument that only the caster can use. The instrument is equivalent to a masterwork version of any instrument the bard knows. It plays softly on its own when not actively used, providing background music."
+      },
+      {
+        "name": "Song of Discord",
+        "level": 5,
+        "range": "0",
+        "duration": "1 round per level",
+        "area_of_effect": "30-ft radius",
+        "components": ["V"],
+        "casting_time": "5",
+        "saving_throw": "Negates",
+        "description": "A discordant melody that drives creatures to attack each other. Affected creatures (save vs. spell negates) must attack the nearest creature each round, regardless of friend or foe. The bard can exempt a number of creatures equal to their CHA modifier from the effect."
+      },
+      {
+        "name": "Sympathetic Vibration",
+        "level": 6,
+        "range": "Touch",
+        "duration": "1 round per level",
+        "area_of_effect": "One structure",
+        "components": ["V", "S"],
+        "casting_time": "1 round",
+        "saving_throw": "None",
+        "description": "The bard touches a structure and plays the precise resonant frequency. The structure takes 2d4 damage per round as vibrations weaken its foundations. After sufficient damage, the structure collapses. Affects stone, wood, or metal structures. Very useful for sieges."
+      }
+    ]
+  },
+  "geomancy_spells": {
+    "description": "Geomancers draw power from the earth itself. Their magic is tied to terrain and the natural world.",
+    "specialist_type": "Geomancer (optional variant mage)",
+    "spells": [
+      {
+        "name": "Stoneshape",
+        "level": 4,
+        "range": "Touch",
+        "duration": "Permanent",
+        "area_of_effect": "9 cubic feet plus 1 cubic foot per level",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 round",
+        "saving_throw": "None",
+        "description": "Shapes stone as if it were clay. Can form any shape desired. Finished stone is as hard as normal stone. Cannot be used to create moving parts. Can reshape stone weapons, walls, floors, etc.",
+        "material_component": "Soft clay"
+      },
+      {
+        "name": "Earth Walk",
+        "level": 5,
+        "range": "0",
+        "duration": "2 rounds per level",
+        "area_of_effect": "Caster",
+        "components": ["V", "S"],
+        "casting_time": "5",
+        "saving_throw": "None",
+        "description": "The geomancer can move through earth and stone as if it were water, leaving no trace. They can breathe while within stone. Cannot enter metal. Can see 10 feet within stone but not further."
+      }
+    ]
+  },
+  "new_priest_spheres": {
+    "description": "Additional priest spheres introduced in the Tome of Magic",
+    "spheres": [
+      {
+        "name": "Chaos",
+        "description": "Spells related to disorder, randomness, and entropy. Used primarily by chaotic priests.",
+        "sample_spells": ["Faerie Fire", "Entangle", "Confusion", "Chaos", "Word of Recall (random destination)"]
+      },
+      {
+        "name": "Law",
+        "description": "Spells related to order, structure, and lawfulness. Used by lawful priests.",
+        "sample_spells": ["Command", "Hold Person", "Geas", "Dictate", "Forbiddance"]
+      },
+      {
+        "name": "Numbers",
+        "description": "Mathematical magic. Priests of gods associated with knowledge and calculation.",
+        "sample_spells": ["Predict Weather", "Augury", "Divination", "Foresight"]
+      },
+      {
+        "name": "Thought",
+        "description": "Mental magic for priests of knowledge and mind deities.",
+        "sample_spells": ["Detect Lie", "ESP", "Know Alignment", "Mind Blank"]
+      },
+      {
+        "name": "Time",
+        "description": "Temporal magic for priests of time-related deities.",
+        "sample_spells": ["Age/Youth", "Haste", "Slow", "Temporal Stasis"]
+      },
+      {
+        "name": "Travelers",
+        "description": "Magic of journeys, roads, and wandering.",
+        "sample_spells": ["Pass Without Trace", "Endure Heat/Cold", "Find the Path", "Transport via Plants"]
+      },
+      {
+        "name": "Wards",
+        "description": "Protective and binding magic.",
+        "sample_spells": ["Protection from Evil", "Glyph of Warding", "Symbol", "Forbiddance"]
+      }
+    ]
+  },
+  "additional_wizard_spells": {
+    "description": "Expanded wizard spell list from the Tome of Magic",
+    "spells": [
+      {
+        "name": "Abi-Dalzim's Horrid Wilting",
+        "school": "Necromancy",
+        "level": 8,
+        "range": "30 yards",
+        "duration": "Instantaneous",
+        "area_of_effect": "30-ft cube",
+        "components": ["V", "S", "M"],
+        "casting_time": "8",
+        "saving_throw": "Half",
+        "description": "Destroys the moisture in all living material within the area. Plants and water elementals take 1d8 damage per level (max 20d8). Other living creatures take 1d8 per 2 levels (max 10d8). Save vs. spell for half damage.",
+        "material_component": "A bit of sponge"
+      },
+      {
+        "name": "Aganazzar's Scorcher",
+        "school": "Evocation",
+        "level": 2,
+        "range": "0",
+        "duration": "Special",
+        "area_of_effect": "Path 10 yards long, 5 ft wide",
+        "components": ["V", "S", "M"],
+        "casting_time": "2",
+        "saving_throw": "Half",
+        "description": "A jet of fire shoots from the caster's outstretched finger in a straight line. All in the path take 1d8 per 2 levels (max 4d8) fire damage.",
+        "material_component": "A red dragon's scale"
+      },
+      {
+        "name": "Alacrity",
+        "school": "Alteration",
+        "level": 2,
+        "range": "0",
+        "duration": "1 round + 1 round per 5 levels",
+        "area_of_effect": "Caster",
+        "components": ["V"],
+        "casting_time": "1",
+        "saving_throw": "None",
+        "description": "Increases the caster's initiative by 2 and reduces casting time of spells by 2 (minimum 1). Does not grant extra attacks but allows faster spell deployment."
+      },
+      {
+        "name": "Crystalbrittle",
+        "school": "Alteration",
+        "level": 9,
+        "range": "Touch",
+        "duration": "Permanent",
+        "area_of_effect": "One creature or 30 lbs of metal",
+        "components": ["V", "S"],
+        "casting_time": "9",
+        "saving_throw": "Negates",
+        "description": "Transforms the metallic parts of a target into a brittle crystal-like material. Metal items become incredibly fragile and shatter on impact. Against armored creatures: if they fail save vs. spell, their armor becomes worthless and shatters in 1 round. Golems, metal creatures save at -4."
+      },
+      {
+        "name": "Deathshroud",
+        "school": "Necromancy",
+        "level": 3,
+        "range": "10 yards",
+        "duration": "1 turn",
+        "area_of_effect": "One creature",
+        "components": ["V", "S", "M"],
+        "casting_time": "3",
+        "saving_throw": "None",
+        "description": "Surrounds target with a shroud of death energy. Any creature touching the target (including in melee) takes 1d4 cold damage. Undead are healed instead. The target cannot be healed by any spell while the shroud is active.",
+        "material_component": "A black cloth"
+      },
+      {
+        "name": "Detect Scrying",
+        "school": "Divination",
+        "level": 4,
+        "range": "0",
+        "duration": "1d6 turns plus 1 turn per level",
+        "area_of_effect": "120-ft radius sphere",
+        "components": ["V", "S", "M"],
+        "casting_time": "3 rounds",
+        "saving_throw": "None",
+        "description": "Detects any magical scrying within the area, including crystal balls, clairvoyance spells, and other divination methods. The caster senses the direction of scrying and may identify the scryer with a successful INT check.",
+        "material_component": "A small mirror"
+      },
+      {
+        "name": "Enrich Soil",
+        "school": "Alteration",
+        "level": 1,
+        "range": "10 yards",
+        "duration": "Permanent",
+        "area_of_effect": "100 square feet per level",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 turn",
+        "saving_throw": "None",
+        "description": "Magically enriches soil, causing plants grown in the affected area to produce 50% more yield than normal. Plants grow twice as fast in enriched soil. The effect is permanent but affects only soil, not the plants themselves.",
+        "material_component": "A handful of manure"
+      },
+      {
+        "name": "Fantastical Machine",
+        "school": "Conjuration/Summoning",
+        "level": 6,
+        "range": "10 yards",
+        "duration": "1 turn per level",
+        "area_of_effect": "30-ft cube",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 turn",
+        "saving_throw": "None",
+        "description": "Summons an invisible, semi-real machine of the caster's design. The machine can perform one simple task repeatedly (digging, hauling, carrying, building). It has effective STR 20 for its task. The machine cannot fight and does not think.",
+        "material_component": "A tiny gear"
+      },
+      {
+        "name": "Flaming Sphere",
+        "school": "Conjuration/Summoning",
+        "level": 2,
+        "range": "10 yards",
+        "duration": "1 round per level",
+        "area_of_effect": "3-ft diameter sphere",
+        "components": ["V", "S", "M"],
+        "casting_time": "2",
+        "saving_throw": "Half",
+        "description": "Creates a rolling ball of fire that the caster can direct with mental commands (movement 30 ft per round). Any creature hit takes 2d4 fire damage (save vs. spell for half). The sphere can ignite combustibles. If rolled into a body of water, it extinguishes.",
+        "material_component": "A bit of tallow and a pinch of sulfur"
+      },
+      {
+        "name": "Forcewave",
+        "school": "Evocation",
+        "level": 4,
+        "range": "0",
+        "duration": "Instantaneous",
+        "area_of_effect": "30-ft cone",
+        "components": ["V", "S"],
+        "casting_time": "4",
+        "saving_throw": "Half",
+        "description": "Releases a wave of force energy in a cone. All in the cone take 1d4+1 damage per level (max 10d4+10) and are pushed back 10 feet. A save vs. spell halves damage and negates the push-back."
+      },
+      {
+        "name": "Ghoul Touch",
+        "school": "Necromancy",
+        "level": 2,
+        "range": "0",
+        "duration": "1d6+2 rounds",
+        "area_of_effect": "Creature touched",
+        "components": ["V", "S", "M"],
+        "casting_time": "2",
+        "saving_throw": "Negates",
+        "description": "Caster's touch paralyzes a target as a ghoul's touch. Save vs. paralyzation negates. Elves and beings immune to ghouls are unaffected. While the target is paralyzed, they emit a terrible stench causing all within 10 ft to make a save vs. poison or be nauseated (-2 to all rolls) for as long as they remain near the paralyzed target.",
+        "material_component": "A bit of ghoul flesh"
+      },
+      {
+        "name": "Hailcone",
+        "school": "Evocation",
+        "level": 3,
+        "range": "0",
+        "duration": "Instantaneous",
+        "area_of_effect": "60-ft cone, 20 ft wide at end",
+        "components": ["V", "S", "M"],
+        "casting_time": "3",
+        "saving_throw": "Half",
+        "description": "A cone of hail shoots from the caster's hands. All in area take 1d4 per level cold damage (max 10d4) and must save vs. paralyzation or be slowed for 1 round from impact.",
+        "material_component": "A small piece of ice"
+      },
+      {
+        "name": "Invisiblity, 10-ft Radius",
+        "school": "Illusion/Phantasm",
+        "level": 3,
+        "range": "Touch",
+        "duration": "Special",
+        "area_of_effect": "10-ft radius",
+        "components": ["V", "S", "M"],
+        "casting_time": "3",
+        "saving_throw": "None",
+        "description": "Works as Invisibility but affects all within 10-ft radius. Creatures who leave the radius become visible; those who enter the area while invisible remain invisible. Duration ends for each creature when they attack.",
+        "material_component": "An eyelash in gum arabic"
+      },
+      {
+        "name": "Lorloveim's Creeping Shadow",
+        "school": "Illusion/Phantasm",
+        "level": 4,
+        "range": "10 yards",
+        "duration": "1 round per level",
+        "area_of_effect": "10-ft cube per level",
+        "components": ["V", "S"],
+        "casting_time": "4",
+        "saving_throw": "None",
+        "description": "Creates tendrils of shadow that fill an area. Creatures within the shadow area suffer 50% vision reduction. Creatures with infravision treat the area as normal darkness. Fire-based creatures take 1d3 damage per round in the shadows. Shadow creatures gain +2 to attack in the area."
+      },
+      {
+        "name": "Melf's Acid Arrow",
+        "school": "Conjuration/Summoning",
+        "level": 2,
+        "range": "180 yards",
+        "duration": "Special",
+        "area_of_effect": "One target",
+        "components": ["V", "S", "M"],
+        "casting_time": "2",
+        "saving_throw": "None",
+        "description": "A magical arrow of pure acid flies to the target. The caster must make a ranged attack roll (THAC0 of 11 + modifiers). Hit: deals 2d4 acid damage per round for 2 rounds (plus 1 round per 3 levels above 3rd, max 5 rounds). Acid also damages equipment.",
+        "material_component": "A dart and powdered rhubarb"
+      },
+      {
+        "name": "Mordenkainen's Celerity",
+        "school": "Alteration",
+        "level": 6,
+        "range": "0",
+        "duration": "Instantaneous",
+        "area_of_effect": "Caster",
+        "components": ["V"],
+        "casting_time": "1",
+        "saving_throw": "None",
+        "description": "Grants the caster one extra action immediately. The caster may cast one additional spell, make one additional attack, move, or perform any one standard action. This action is outside the normal initiative order."
+      },
+      {
+        "name": "Protection from Paralysis",
+        "school": "Abjuration",
+        "level": 3,
+        "range": "Touch",
+        "duration": "1 turn per level",
+        "area_of_effect": "Creature touched",
+        "components": ["V", "S"],
+        "casting_time": "3",
+        "saving_throw": "None",
+        "description": "Target becomes immune to all forms of paralysis including ghoul touch, hold person, web, and similar effects. Already-paralyzed creatures are not freed."
+      },
+      {
+        "name": "Rainbow Pattern",
+        "school": "Alteration/Illusion",
+        "level": 4,
+        "range": "10 yards",
+        "duration": "Special",
+        "area_of_effect": "30-ft cube",
+        "components": ["S", "M"],
+        "casting_time": "4",
+        "saving_throw": "Negates",
+        "description": "Creates a pattern of hypnotic colors. Creatures of 24 HD or fewer save vs. spell or be fascinated by the colors, unable to act for as long as they can see the pattern. The caster can move the pattern slowly (10 ft/round) leading fascinated creatures. Breaking concentration disperses the pattern.",
+        "material_component": "A piece of phosphor and a crystal rod"
+      },
+      {
+        "name": "Rary's Mnemonic Enhancer",
+        "school": "Alteration",
+        "level": 4,
+        "range": "0",
+        "duration": "1 day",
+        "area_of_effect": "Caster",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 turn",
+        "saving_throw": "None",
+        "description": "Allows the caster to memorize 3 additional spell levels' worth of spells for that day only. The enhanced memory fades after 24 hours whether used or not.",
+        "material_component": "A phosphorescent material, an ivory plaque, and ink"
+      },
+      {
+        "name": "Scintillating Pattern",
+        "school": "Alteration/Illusion",
+        "level": 8,
+        "range": "30 yards",
+        "duration": "Special",
+        "area_of_effect": "20-ft cube",
+        "components": ["V", "S", "M"],
+        "casting_time": "8",
+        "saving_throw": "None",
+        "description": "A complex pattern of colors and lights overwhelms the senses. Creatures are affected based on their HD: up to 6 HD become unconscious, 7-12 HD become confused, 13+ HD become dazzled (-2 to attack and saves). The pattern persists until dispelled or the caster moves.",
+        "material_component": "A crystal prism"
+      },
+      {
+        "name": "Sphene Splinter",
+        "school": "Conjuration",
+        "level": 5,
+        "range": "40 yards",
+        "duration": "Instantaneous",
+        "area_of_effect": "One creature",
+        "components": ["V", "S", "M"],
+        "casting_time": "5",
+        "saving_throw": "None",
+        "description": "Launches magical crystal shards at a target. The caster must make a ranged attack roll. On hit, target takes 2d8 + 1 per level damage and must save vs. spell or be blinded for 1d4 rounds from crystal fragments in eyes.",
+        "material_component": "A piece of sphene crystal"
+      },
+      {
+        "name": "Snilloc's Snowball Swarm",
+        "school": "Evocation",
+        "level": 2,
+        "range": "30 yards",
+        "duration": "Instantaneous",
+        "area_of_effect": "One target or 10-ft radius",
+        "components": ["V", "S", "M"],
+        "casting_time": "2",
+        "saving_throw": "Half",
+        "description": "Conjures a flurry of magical snowballs that pelt the target area. All in 10-ft radius take 1d3 damage per level (max 5d3) cold damage. Against fire-based creatures: double damage.",
+        "material_component": "A piece of ice"
+      },
+      {
+        "name": "Steal Enchantment",
+        "school": "Enchantment/Charm",
+        "level": 7,
+        "range": "Touch",
+        "duration": "Permanent",
+        "area_of_effect": "One item",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 turn",
+        "saving_throw": "None",
+        "description": "Transfers the magical properties from one item to another. Source item must be of equal or lower power than recipient. Artifacts are immune. Source item loses all magical properties. This is a complex and controversial spell.",
+        "material_component": "A gemstone worth at least the value of the source enchantment"
+      },
+      {
+        "name": "Thunderclap",
+        "school": "Evocation",
+        "level": 1,
+        "range": "0",
+        "duration": "Instantaneous",
+        "area_of_effect": "5-ft radius sphere centered on caster",
+        "components": ["V"],
+        "casting_time": "1",
+        "saving_throw": "Negates",
+        "description": "The caster claps hands together producing a focused thunderclap. All within 5 feet must save vs. spell or be deafened for 1d6 rounds. The caster is not affected."
+      },
+      {
+        "name": "Transmogrify",
+        "school": "Alteration",
+        "level": 8,
+        "range": "30 yards",
+        "duration": "Permanent",
+        "area_of_effect": "One creature or object",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 round",
+        "saving_throw": "Negates",
+        "description": "Permanently transforms one object or creature into a completely different object or creature of similar mass. The target saves vs. spell at -4 to resist. Transformed creatures retain their intelligence and can work to reverse the effect (Wish or Dispel Magic at high level).",
+        "material_component": "A caterpillar cocoon"
+      },
+      {
+        "name": "Von Gasik's Refusal",
+        "school": "Abjuration",
+        "level": 5,
+        "range": "0",
+        "duration": "1 turn + 1 round per level",
+        "area_of_effect": "Caster",
+        "components": ["V", "S"],
+        "casting_time": "5",
+        "saving_throw": "None",
+        "description": "Creates a shield that refuses entry to a specific type of creature. Choose a creature type: extraplanar, undead, lycanthropes, etc. Creatures of that type cannot approach within 10 feet without succeeding a save vs. spell. The protection is not foolproof against very powerful creatures."
+      },
+      {
+        "name": "Warden's Watchful Eye",
+        "school": "Divination",
+        "level": 3,
+        "range": "0",
+        "duration": "2 hours per level",
+        "area_of_effect": "60-ft sphere",
+        "components": ["V", "S", "M"],
+        "casting_time": "3",
+        "saving_throw": "None",
+        "description": "Creates an invisible magical sensor that watches a 60-ft area while the caster is away. When a creature of small size or larger enters the area, the caster is immediately alerted and can see through the sensor for up to 1 minute.",
+        "material_component": "A glass bead"
+      }
+    ]
+  },
+  "additional_priest_spells": {
+    "description": "New priest spells from the Tome of Magic",
+    "spells": [
+      {
+        "name": "Air Walk",
+        "sphere": "Elemental (Air)",
+        "level": 5,
+        "range": "Touch",
+        "duration": "1 hour + 1 turn per level",
+        "area_of_effect": "Creature touched",
+        "components": ["V", "S", "M"],
+        "casting_time": "8",
+        "saving_throw": "None",
+        "description": "Allows target to walk on air as if it were solid ground. Target can ascend or descend at 45-degree angles at normal movement rate. Cannot exceed ceiling of 3 feet per level elevation above ground.",
+        "material_component": "A bit of thistledown and a piece of a hummingbird wing"
+      },
+      {
+        "name": "Cause Insanity",
+        "sphere": "Thought",
+        "level": 6,
+        "range": "Touch",
+        "duration": "Permanent",
+        "area_of_effect": "One creature",
+        "components": ["V", "S"],
+        "casting_time": "9",
+        "saving_throw": "Negates",
+        "description": "Inflicts a permanent insanity on the target. The type of insanity is randomly determined. Only a Heal or Remove Curse from a higher-level priest can cure this affliction.",
+        "evil_spell": true
+      },
+      {
+        "name": "Fortify",
+        "sphere": "Combat",
+        "level": 3,
+        "range": "Touch",
+        "duration": "1 round per level",
+        "area_of_effect": "One creature",
+        "components": ["V", "S"],
+        "casting_time": "6",
+        "saving_throw": "None",
+        "description": "Fortifies one creature against physical damage. Target gains +2 AC and +2 to all saving throws. The target also gains temporary HP equal to 1d6 + the priest's level."
+      },
+      {
+        "name": "Helping Hand",
+        "sphere": "Divination",
+        "level": 3,
+        "range": "200 miles",
+        "duration": "1 hour",
+        "area_of_effect": "Special",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 turn",
+        "saving_throw": "None",
+        "description": "Creates a ghostly disembodied hand that seeks out a known individual within range. The hand serves as a beacon, guiding the caster to the individual or the individual back to the caster.",
+        "material_component": "A holy symbol"
+      },
+      {
+        "name": "Moonbeam",
+        "sphere": "Sun",
+        "level": 5,
+        "range": "60 yards plus 10 yards per level",
+        "duration": "1 round per level",
+        "area_of_effect": "5-ft radius",
+        "components": ["V", "S", "M"],
+        "casting_time": "7",
+        "saving_throw": "None",
+        "description": "Calls down a beam of moonlight. In the beam's area, lycanthropes and were-creatures must save vs. spell or be forced into animal form. Undead sensitive to light take 2d8 damage per round in the beam. The beam can be moved 10 ft per round by concentration.",
+        "material_component": "A moonstone and a piece of silver"
+      },
+      {
+        "name": "Moment Reading",
+        "sphere": "Time",
+        "level": 3,
+        "range": "Touch",
+        "duration": "1 round",
+        "area_of_effect": "Object or area touched",
+        "components": ["V", "S"],
+        "casting_time": "5",
+        "saving_throw": "None",
+        "description": "Read the recent past of an area or object. See what happened in the last 1d4 turns. The images are visual only with no sound. Useful for investigating recent crimes or ambushes."
+      },
+      {
+        "name": "Negative Plane Protection",
+        "sphere": "Necromantic",
+        "level": 3,
+        "range": "Touch",
+        "duration": "1 turn per level",
+        "area_of_effect": "Creature touched",
+        "components": ["V", "S"],
+        "casting_time": "6",
+        "saving_throw": "None",
+        "description": "Protects one creature from energy draining attacks by undead. If the protected creature would be level-drained, they instead save vs. death magic; on success the drain is negated. On failure, the normal drain occurs but the spell is consumed."
+      },
+      {
+        "name": "Probability Control",
+        "sphere": "Chaos",
+        "level": 5,
+        "range": "30 yards",
+        "duration": "1 round per 3 levels",
+        "area_of_effect": "One creature",
+        "components": ["V", "S"],
+        "casting_time": "8",
+        "saving_throw": "Negates",
+        "description": "Alters the probability of events around one creature. The caster can choose: good luck (target re-rolls any die once per round and takes the better result) or bad luck (target must accept the worse of two rolls of any dice)."
+      },
+      {
+        "name": "Rainfall",
+        "sphere": "Elemental (Water), Weather",
+        "level": 3,
+        "range": "0",
+        "duration": "1 hour per level",
+        "area_of_effect": "1 mile radius",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 turn",
+        "saving_throw": "None",
+        "description": "Causes light to moderate rainfall in the area. Extinguishes non-magical fires. Provides water for plants. Can help put out forest fires if cast repeatedly. Cannot be used in areas of magical eternal drought without first dispelling the climate magic.",
+        "material_component": "A drop of water and a sprinkle of holy water"
+      },
+      {
+        "name": "Speak with Dead",
+        "sphere": "Necromantic",
+        "level": 3,
+        "range": "1 foot",
+        "duration": "1 round per level",
+        "area_of_effect": "One dead creature",
+        "components": ["V", "S", "M"],
+        "casting_time": "1 turn",
+        "saving_throw": "None",
+        "description": "Allows the caster to ask a number of questions of a dead creature. The number of questions depends on the caster's level (1-2 at 7th, 3 at 9th, 4 at 11th, 5 at 13th). The dead answer truthfully but may be cryptic. Long-dead creatures have progressively less memory.",
+        "material_component": "Burning incense"
+      },
+      {
+        "name": "Wyvern Watch",
+        "sphere": "Combat, Guardian",
+        "level": 2,
+        "range": "30 yards",
+        "duration": "8 hours or until triggered",
+        "area_of_effect": "1 creature",
+        "components": ["V", "S"],
+        "casting_time": "5",
+        "saving_throw": "Negates",
+        "description": "Creates a spiritual wyvern-like guardian over a 10-ft area. The first creature entering the area (other than the caster) must save vs. spell or be paralyzed for 1d6 rounds. After triggering, the wyvern dissipates. Unwilling creatures can attempt to resist by closing eyes."
+      }
+    ]
+  }
+}

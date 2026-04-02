@@ -1,0 +1,853 @@
+{
+  "source": "AD&D 2nd Edition Complete Handbook Series (PHBR1-15), Tome of Magic, Arms & Equipment Guide, Player's Options",
+  "description": "Additional non-weapon proficiencies beyond the PHB, organized by source and category. These expand on the PHB non-weapon proficiency system.",
+  "rules_reminder": {
+    "slot_costs": "Most additional NWPs cost 1-3 slots; rare advanced skills cost 3+",
+    "group_bonus": "Characters get NWPs from their own group at listed cost; other groups cost 1 extra slot",
+    "related_proficiencies": "Some proficiencies have synergy bonuses with related skills",
+    "check_method": "Roll 1d20 against the relevant ability score + modifier for check-based proficiencies"
+  },
+  "warrior_additional": {
+    "description": "Additional warrior NWPs from Complete Fighter's Handbook and other sourcebooks",
+    "proficiencies": [
+      {
+        "name": "Armorer",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHB expanded / PHBR1",
+        "description": "Create and repair metal armor. Can craft chain mail in 1 month; plate in 3 months per piece. Repair time: 1 day per AC point of damage restored. Requires forge and materials."
+      },
+      {
+        "name": "Blindfighting",
+        "slots": 2,
+        "ability": "N/A",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Fight effectively while blind or in total darkness. Negates all penalties for blindness in melee combat. Only -2 to hit instead of -4 (normal blindfighting penalty negated). Also allows detecting hidden and invisible creatures within 10 ft."
+      },
+      {
+        "name": "Charioteering",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 2,
+        "source": "PHBR1",
+        "description": "Drive and fight from a chariot. Prerequisite: Land-based Riding. Allows attacks from moving chariot at normal hit penalties. Perform chariot combat maneuvers. Required for chariot racing."
+      },
+      {
+        "name": "Expertise",
+        "slots": 2,
+        "ability": "N/A",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Fighter-only. Master defensive fighting: choose one weapon and gain +2 AC when using that weapon defensively (not attacking). This comes at -2 to hit during defensive rounds. More versatile than Specialization for defense."
+      },
+      {
+        "name": "Jousting",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Fight in formal lance jousting. Required for tournaments. Determines who is unhorsed, breaks lance, wins points. Does not aid regular combat."
+      },
+      {
+        "name": "Martial Arts",
+        "slots": 2,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHBR1, Oriental Adventures",
+        "description": "Unarmed combat style training. Level 1: 1d4 strike damage. Each additional slot: +1d4 and new techniques. Multiple styles exist (see Martial Arts tables). Advanced techniques include stunning, grappling, nerve strikes."
+      },
+      {
+        "name": "Mental Armor",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR5",
+        "description": "Train the mind to resist psionic attack. +2 to all saves vs. psionic powers and mental magic. Also provides +1 to psionic defense mode if character has any psionic ability."
+      },
+      {
+        "name": "Mountaineering",
+        "slots": 1,
+        "ability": "STR",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Climb mountains and use alpine equipment. Required for leading a climbing party. Check to succeed at dangerous climbs. +2 to all climbing checks in mountain terrain."
+      },
+      {
+        "name": "Set Snares",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": -1,
+        "source": "PHB/PHBR1",
+        "description": "Set snares and traps for game. Simple snares: automatic; complex spring traps: roll required. Setting time: 1 turn for simple, 1 hour for complex. Can also set trip wires and alarm traps."
+      },
+      {
+        "name": "Siege Engineering",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR1",
+        "description": "Design, build, and operate siege equipment. Oversee construction of catapults, ballistae, battering rams. Required to build siege engines from scratch. Also covers fortification design."
+      },
+      {
+        "name": "Tactics, Land",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Advanced land combat strategy. +1 to attack for units under command when tactics are used; allows flanking maneuvers, feints, tactical withdrawals. Required for organized army command."
+      },
+      {
+        "name": "Tumbling",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Acrobatics and tumbling. +4 AC vs. one opponent when tumbling (cannot attack that round). Can fall up to 30 ft without damage on successful check. Can cross difficult terrain without penalty."
+      },
+      {
+        "name": "Weapon and Shield Style",
+        "slots": 2,
+        "ability": "N/A",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Fighting style: use weapon and shield together efficiently. +1 AC from shield when fighting this style. When both hit, can attack with shield for 1d3 damage as free action.",
+        "prerequisite": "Must have at least 1 slot in the relevant weapon"
+      },
+      {
+        "name": "Weaponsmith",
+        "slots": 3,
+        "ability": "INT",
+        "modifier": -3,
+        "source": "PHB expanded",
+        "description": "Forge and repair metal weapons. Can create swords, spears, axes, etc. Time: 1 week to 3 months depending on weapon complexity. Masterwork items require additional time and a proficiency check."
+      }
+    ]
+  },
+  "rogue_additional": {
+    "description": "Additional rogue NWPs from Complete Thief's Handbook and Bard's Handbook",
+    "proficiencies": [
+      {
+        "name": "Acting",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR7 (Complete Bard's)",
+        "description": "Portray fictional characters convincingly. Successful check means performance believed as real. Can also pass as a specific individual if their mannerisms are studied (1 day minimum)."
+      },
+      {
+        "name": "Appraising",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR2 (Complete Thief's)",
+        "description": "Assess value of goods. Success: exact value; failure: 10-40% error. Expertise in specific item categories reduces error. Required for identifying magic items without Identify."
+      },
+      {
+        "name": "Begging",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Effectively solicit charity. Earn 1d6 cp per day on success; 1d4 cp on failure. In wealthy areas: multiply by 10. Grants access to lower-class social information."
+      },
+      {
+        "name": "Bribery",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Know when and how to offer a bribe for maximum effect. Failure may result in arrest. Determine right amount, right moment, and right method for a bribe."
+      },
+      {
+        "name": "Disguise",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": -1,
+        "source": "PHBR2",
+        "description": "Create convincing disguises. Success: fooled all but very close inspection. Failure: 10% chance of detection per interaction. Disguising as specific person: -5. Different race: -10 without additional material."
+      },
+      {
+        "name": "Fast-Talking",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Talk your way out of (or into) situations with quick clever talk. Success: target momentarily confused or distracted (1 round free action for allies or escape). Failure: target suspicious."
+      },
+      {
+        "name": "Forgery",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": -1,
+        "source": "PHBR2",
+        "description": "Create forged documents, seals, and handwriting copies. Success: passes casual inspection. Success by 5+: passes expert inspection. Requires original sample to copy."
+      },
+      {
+        "name": "Gather Intelligence",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Covertly gather information in a community. 1d4 days to research a specific subject. Success provides accurate general information; success by 5+ reveals specific secrets."
+      },
+      {
+        "name": "Hiding",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Hide in shadows and cover without using Thief class ability. Non-thieves can attempt this. Gives +20% to basic Hide in Shadows attempt if also using Thief skill."
+      },
+      {
+        "name": "Jumping",
+        "slots": 1,
+        "ability": "STR",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Jump farther and higher than normal. Running: 3 ft horizontal per STR point above 9, vertical 1 ft per 5 STR over 9. Standing: half. Check required for unusual jumps."
+      },
+      {
+        "name": "Looting",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Quickly search and loot a location. Success: find and take valuables in half the normal time. Failure: take normal time or miss something. Does not aid finding secret doors."
+      },
+      {
+        "name": "Pickpocketing",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": -2,
+        "source": "PHBR2",
+        "description": "Non-thieves using this proficiency can attempt pickpocket as per a 1st-level thief. Thieves gain +10% to their existing Pick Pockets skill.",
+        "note": "Non-thief characters only; thieves use their class skill"
+      },
+      {
+        "name": "Poisoncraft",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR2",
+        "description": "Identify, prepare, and apply poisons. Determine toxicity and effects. Create weak poisons from natural ingredients. Failure: poison ineffective; critical failure: accidentally poisoned."
+      },
+      {
+        "name": "Reading Lips",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR2",
+        "description": "Read lips to understand conversations without hearing. Range: 30 ft with clear line of sight to speaker's mouth. Success: understand conversation; failure: understand about 50%."
+      },
+      {
+        "name": "Rope Use",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHB/PHBR2",
+        "description": "Expert use of rope for climbing, tying, etc. Check to tie or escape knots; check to throw grappling hook accurately. +10% to Climb Walls when using rope."
+      },
+      {
+        "name": "Seamanship",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 1,
+        "source": "PHBR2",
+        "description": "Work as a sailor. Navigate small vessels. Sail in difficult weather. Required to sail effectively; failure in bad weather may capsize small boat."
+      },
+      {
+        "name": "Street Sense",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Know the social structure of criminal elements in a city. Identify safe houses, criminal contacts, illegal goods sources. -2 to NPC reaction when dealing with underworld."
+      },
+      {
+        "name": "Tightrope Walking",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Walk tightropes and balance on narrow surfaces. Move at half speed on tight surfaces without check. Full speed: check required. In combat on rope/beam: check to maintain footing each round."
+      },
+      {
+        "name": "Ventriloquism",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Throw voice to appear to come from another location (up to 30 ft). Success: voice believed to come from intended location. Can also imitate voices with additional WIS check."
+      }
+    ]
+  },
+  "wizard_additional": {
+    "description": "Additional wizard NWPs from Complete Wizard's Handbook and Tome of Magic",
+    "proficiencies": [
+      {
+        "name": "Alchemy",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR4 (Complete Wizard's)",
+        "description": "Create potions, alchemical substances, and transmutations. 1 slot: create simple potions and acids. Additional slots enable complex alchemical substances. Requires lab (200+ gp setup)."
+      },
+      {
+        "name": "Astrology",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Read celestial patterns for divination. Success: +1 to any one roll per day (declare before rolling). Also: predict weather, determine lucky/unlucky days, +1 to Astronomy checks."
+      },
+      {
+        "name": "Brewing",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Create alcoholic and herbal beverages. Success: quality beverage. Critical success: exceptional quality (10x value). Special brews can have mild magical properties with DM permission."
+      },
+      {
+        "name": "Calligraphy",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Beautiful decorative writing. Makes scrolls and books more valuable. Required for creating certain magical writings. +1 to value of any book or document created."
+      },
+      {
+        "name": "Cantrip Mastery",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Master use of minor magical tricks (cantrips). Can produce 1 of 12 simple magical effects at will: light, extinguish flame, clean, soil, dry, shine, sparkle, sound, mend, knot, flavor, freshen. No PSPs or spell slots required.",
+        "cantrips": ["Light (candle equivalent)", "Extinguish small flame", "Clean small object", "Soil small object", "Dry wet item", "Shine item", "Sparkle/Color change", "Create minor sound", "Mend small tear/break", "Tie/Untie knot", "Flavor food", "Freshen air"]
+      },
+      {
+        "name": "Concentration",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Maintain concentration in adverse conditions. Can cast spells in moderate distractions without check. Severe distractions: check at +2. Also: maintain concentration 1 round longer than normal."
+      },
+      {
+        "name": "Cryptography",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR4",
+        "description": "Create and decode encrypted messages. Design ciphers and codes. Chance to decode unknown cipher decreases with complexity. Required for creating secure magical correspondence."
+      },
+      {
+        "name": "Heraldry",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 1,
+        "source": "PHB/PHBR4",
+        "description": "Identify coats of arms, family symbols, and heraldic devices. Know the rank and allegiance of armored knights. Design heraldic devices. Aids in social situations with nobility."
+      },
+      {
+        "name": "Illumination",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": -1,
+        "source": "PHBR4",
+        "description": "Create illuminated manuscripts with gold leaf and fine pigments. Doubles value of any book or scroll. Required for creating illuminated magical tomes. Reduces time to scribe scrolls by 10%."
+      },
+      {
+        "name": "Local History (expanded)",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Know detailed history of a specific region or city beyond the base Local History proficiency. +2 to Local History checks in that area; know specific families, legendary items, and historical events."
+      },
+      {
+        "name": "Meditation",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 1,
+        "source": "PHBR4",
+        "description": "Achieve deeper states of mental relaxation. Recover 1 extra memorized spell per 4 hours of meditation. After successful check and 8 hours: memorize spells in 2 hours instead of 8."
+      },
+      {
+        "name": "Research",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Academic research skills. Reduce time for learning new spells by 25%. Find useful information in libraries in half the normal time. +2 to all checks to identify spells and magic items."
+      },
+      {
+        "name": "Runecasting",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR4",
+        "description": "Carve magical runes for divination and minor magical effects. Each rune requires material component and 1 hour to carve. Runes provide +1 bonus to specific activities (defense, offense, travel, etc.) for 1 day."
+      },
+      {
+        "name": "Spellcraft (expanded)",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": -3,
+        "source": "PHBR4",
+        "description": "Advanced spellcraft beyond PHB. Modify spells as they are being cast to change certain parameters within limits. +2 to rolls to counter spells. Recognize spells being cast by others."
+      },
+      {
+        "name": "Spellsong",
+        "slots": 2,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR7",
+        "description": "Bard-specific. Replace verbal and somatic components of spells with song. While singing: others within 30 ft must save vs. spell (-2) to know spells are being cast. Requires successful check to complete spellsong."
+      }
+    ]
+  },
+  "priest_additional": {
+    "description": "Additional priest NWPs from Complete Priest's Handbook and Tome of Magic",
+    "proficiencies": [
+      {
+        "name": "Ancient History",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": -1,
+        "source": "PHB/PHBR3",
+        "description": "Know events and cultures of ancient times. Identify artifacts from ancient civilizations. +2 to checks involving ancient languages (but not speaking them). Good for research-focused priests."
+      },
+      {
+        "name": "Ceremony",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR3",
+        "description": "Conduct religious ceremonies. When leading proper ceremony: +2 to NPC reaction with same religion; +1 morale to believers. Failed ceremony: -1 morale and -1 to reaction. Covers weddings, funerals, holy days."
+      },
+      {
+        "name": "Divine Lore",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR3",
+        "description": "Extensive knowledge of the divine pantheon, divine hierarchy, and relationships between deities. +2 to checks involving identifying divine magic, relics, and divine beings. Essential for priests."
+      },
+      {
+        "name": "Faith Healing",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR3",
+        "description": "Through prayer and ritual, assist non-magical healing. Patient must have same faith. Success: patient heals at twice the normal rate. Does not require spell use. Works alongside magical healing."
+      },
+      {
+        "name": "Incantation",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR3",
+        "description": "Ritual prayer knowledge. When performing extended ritual (1 hour+), gain +1 spell level for one casting. Rarely: allow casting of a spell that is not memorized (very specific circumstances)."
+      },
+      {
+        "name": "Meditate",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 1,
+        "source": "PHBR3",
+        "description": "Priest-specific meditation to commune with deity. Once per day: ask deity one yes/no question; success required. Failure: no answer. Critical success: detailed response. Works as weaker Commune."
+      },
+      {
+        "name": "Prayer",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 2,
+        "source": "PHBR3",
+        "description": "Regular structured prayer practice. When performed daily: +1 to one saving throw category for the day. Counts as performing the Prayer spell when combined with Ceremony proficiency."
+      },
+      {
+        "name": "Preaching",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR3",
+        "description": "Deliver effective sermons. Success: all listeners of the same faith gain +1 morale for the day. Success by 5+: listeners inspired (+2 to one roll that day). Effective to sway crowds to the faith."
+      },
+      {
+        "name": "Sacred Legends",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR3",
+        "description": "Know myths, legends, and lore of specific deity. +2 to checks involving that deity's domains. Can identify divine artifacts and holy sites of that deity. Also: +1 to Ceremony within that deity's purview."
+      },
+      {
+        "name": "Shamanism (basic)",
+        "slots": 2,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR12 (Complete Shaman's)",
+        "description": "Basics of spirit world interaction. Detect spirit presence; make simple offerings; basic knowledge of spirit domains. Required before Spirit Speak and other advanced shamanic skills."
+      },
+      {
+        "name": "Spirit Speak",
+        "slots": 2,
+        "ability": "CHA",
+        "modifier": -2,
+        "source": "PHBR12",
+        "description": "Communicate with spirits of the dead and nature spirits. Requires Shamanism (basic). Spirits are not compelled to answer. Duration: 1d6 questions. Spirits may lie, mislead, or refuse."
+      },
+      {
+        "name": "Theology",
+        "slots": 2,
+        "ability": "WIS",
+        "modifier": 1,
+        "source": "PHBR3",
+        "description": "Advanced religious philosophy and religious law. Can adjudicate religious disputes. Know theological arguments for and against various positions. +2 to Ceremony and Sacred Legends."
+      },
+      {
+        "name": "Voodoo",
+        "slots": 2,
+        "ability": "WIS",
+        "modifier": -2,
+        "source": "PHBR3 variant",
+        "description": "Create and use voodoo dolls and similar sympathetic magic. Effects on doll: 50% chance affects target (save vs. death magic at -2 negates). Range: unlimited if hair or blood is used. Dark practice."
+      }
+    ]
+  },
+  "general_additional": {
+    "description": "Additional general NWPs applicable to all classes from various sourcebooks",
+    "proficiencies": [
+      {
+        "name": "Animal Empathy (expanded)",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Extended from PHB. Soothe and calm animals in distress. Communicate simple concepts (yes/no, danger/safety) to domestic animals. Wild animals: check at -4. Not for monster-class animals."
+      },
+      {
+        "name": "Artistic Ability (expanded)",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHB expanded",
+        "description": "Specific to one art form beyond the base proficiency. Specializations include: sculpture, landscape painting, portraiture, tapestry weaving, glassblowing, woodcarving. Better work commands premium prices."
+      },
+      {
+        "name": "Boating",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 1,
+        "source": "PHBR1",
+        "description": "Row or paddle small watercraft. Different from Seamanship (which covers sailing ships). Navigate rivers and calm coastal waters. +2 to checks in rapids and rough water with specialization."
+      },
+      {
+        "name": "Book Learning",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 1,
+        "source": "Various",
+        "description": "Rapid learner from written text. Can learn an additional NWP from any book given 1d6+2 weeks study time, without spending NWP slots. Must have access to appropriate books. Books cost 15-150 gp depending on rarity."
+      },
+      {
+        "name": "Camouflage",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Create effective camouflage in wilderness settings. Provide 90% concealment for self and 4 others using natural materials. Takes 1 hour. Specific terrain: check at +2. Different terrain: check at -2."
+      },
+      {
+        "name": "Cartography",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Create accurate maps. Maps drawn with this proficiency have 90% accuracy on distance and direction. Without proficiency: accuracy is 60%. Also: read and interpret maps (+2 to navigation checks)."
+      },
+      {
+        "name": "Climate Knowledge",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR10 (Druid's)",
+        "description": "Deep knowledge of weather patterns in specific region. Predict weather 48 hours out with 70% accuracy (check to predict). Also: optimal planting/travel times. Required for longer range predictions."
+      },
+      {
+        "name": "Craft (specify)",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "Various",
+        "description": "Master a specific craft beyond those in PHB: Glassblowing, Pottery, Tapestry Weaving, Leatherworking, Bone Carving, Candle Making, Gem Cutting. Each craft is a separate proficiency. Quality goods sell at 110-150% market price."
+      },
+      {
+        "name": "Dark Sight",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "Races of Stone / PHBR2",
+        "description": "Train natural vision to better operate in dim light conditions. Reduce any dark/dim light penalties by 1 (minimum 0). Cannot gain infravision without magic if not born with it."
+      },
+      {
+        "name": "Disease Identification",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR3",
+        "description": "Identify diseases by symptoms. Know common treatments and prognosis. Can isolate infected individuals appropriately. Works alongside Healing proficiency. Does not cure: only identifies and advises treatment."
+      },
+      {
+        "name": "Etiquette",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHB expanded",
+        "description": "Know the social customs of various classes and cultures. Avoid social blunders in courts and formal settings. +2 to reaction with nobility and royalty when applying proper etiquette."
+      },
+      {
+        "name": "Fire Building",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 1,
+        "source": "PHBR1",
+        "description": "Build fires in adverse conditions: wet wood, wind, rain. Success time: 1d4 rounds. Failure: 2d4 rounds and try again. In rain: check at -2. Produces minimal smoke, useful for stealth."
+      },
+      {
+        "name": "Gem Cutting",
+        "slots": 2,
+        "ability": "DEX",
+        "modifier": -2,
+        "source": "Various",
+        "description": "Cut and polish gemstones. A rough gem is worth 50-75% of a cut gem. Success increases value to full market price. Critical success: flawless cut adds 20-50% premium. Failure: may reduce gem value."
+      },
+      {
+        "name": "Haggling",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Negotiate better prices. Success: buy at 10% below market value or sell at 10% above. Success by 5+: 20% margin. Failure: merchant suspects motive, standard price. One attempt per merchant per day."
+      },
+      {
+        "name": "Herbal Healing (expanded)",
+        "slots": 2,
+        "ability": "WIS",
+        "modifier": -1,
+        "source": "PHBR10",
+        "description": "Advanced herbalism focusing on medicinal plants. Prepare herbal cures: neutralize poison (50% chance), slow disease progression. Daily preparation: 1 hour. Effective in regions where the herbs grow. Requires Herbalism."
+      },
+      {
+        "name": "History, Secret",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR2",
+        "description": "Know the secret history of criminal, political, and conspiracy events. This hidden history is not in official records. Identify secret societies and organizations by their symbols. Know the 'real' history."
+      },
+      {
+        "name": "Ice Navigation",
+        "slots": 2,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR10",
+        "description": "Navigate in arctic conditions on ice floes, glaciers, and frozen wastes. Know ice bridge safety, predicting ice breaks, navigating blizzards. Required for arctic exploration."
+      },
+      {
+        "name": "Intimidation",
+        "slots": 1,
+        "ability": "STR/CHA",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Intimidate NPCs through physical threat (STR) or force of personality (CHA). Success: target cooperates for 1d6 turns. Failure: target refuses and is angered. High-level NPCs resistant (check at -4)."
+      },
+      {
+        "name": "Knowledge, Arcane Lore",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -1,
+        "source": "PHBR4",
+        "description": "Broad knowledge of magical theory, history, and famous wizards. Identify magical effects by observation. +2 to Spellcraft. Know weaknesses of common magical constructs."
+      },
+      {
+        "name": "Knowledge, Monster Lore",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "Various",
+        "description": "Extensive knowledge of monsters: abilities, weaknesses, habitats. Check when encountering unknown monster to recall relevant information. Success: DM reveals key weakness or ability."
+      },
+      {
+        "name": "Knowledge, Planar",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -1,
+        "source": "Planescape sources",
+        "description": "Know the planes of existence: their geography, residents, hazards. Navigate planar portals. Know how to survive on specific planes. Required for confident extra-planar travel."
+      },
+      {
+        "name": "Law",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR2",
+        "description": "Know legal codes of a specific region. Argue a case in court. Identify legal loopholes. +2 to social checks when invoking legal rights. Useful for avoiding arbitrary arrests."
+      },
+      {
+        "name": "Leadership",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR1",
+        "description": "Lead groups effectively. Followers gain +1 morale when under direct leadership. Recruit 1d4+CHA bonus additional followers above normal level limits. Required for managing large organizations."
+      },
+      {
+        "name": "Lip Reading (alternative name: Read Lips)",
+        "slots": 2,
+        "ability": "INT",
+        "modifier": -2,
+        "source": "PHBR2",
+        "description": "See under Rogue section (Rogue and non-rogue version identical)"
+      },
+      {
+        "name": "Literacy (extended languages)",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHB expanded",
+        "description": "Learn to read and write in languages already known. Provides ability to read ancient scripts and dead languages. +2 to research involving written text in those languages."
+      },
+      {
+        "name": "Mending",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 0,
+        "source": "Various",
+        "description": "Repair torn and damaged items: clothing, leather goods, and light materials. More complex than just Sewing. Reduce damage severity of worn equipment. Extend life of worn materials significantly."
+      },
+      {
+        "name": "Orienteering",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 1,
+        "source": "PHBR1",
+        "description": "Navigate using terrain features, stars, and natural signs. +2 to all Navigation checks. Can navigate without compass or astrolabe. Determine location within 10 miles by examining terrain."
+      },
+      {
+        "name": "Persuasion",
+        "slots": 1,
+        "ability": "CHA",
+        "modifier": 0,
+        "source": "PHBR7",
+        "description": "Persuade others through argument and appeal. Success: target considers the argument favorably; may change attitude 1 step. Failure: target unmoved. Cannot compel; only persuade."
+      },
+      {
+        "name": "Planar Survival",
+        "slots": 2,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "Planescape",
+        "description": "Survive on specific planes of existence. Know how to find food, water, shelter on particular planes. Avoid natural planar hazards. Reduce environmental damage from planar conditions by half."
+      },
+      {
+        "name": "Psychology",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR7",
+        "description": "Understand mental and emotional motivations. Read emotional states beyond Empathy. Predict NPC behavior. +2 to reaction rolls when applying psychological insight to negotiations."
+      },
+      {
+        "name": "Riding, Exotic",
+        "slots": 2,
+        "ability": "DEX",
+        "modifier": -2,
+        "source": "Various",
+        "description": "Ride exotic mounts: griffons, pegasi, hippogriffs, wyverns, dragons (if trained), giant eagles. Each mount type may require separate proficiency. Attack from mount at -2 instead of -4."
+      },
+      {
+        "name": "Sign Language",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Communicate silently with hand signs. Silent communication with up to 30 sentences of meaning. Useful for dungeon stealth. Party communication without verbal commands."
+      },
+      {
+        "name": "Survival (expanded)",
+        "slots": 1,
+        "ability": "INT",
+        "modifier": 0,
+        "source": "PHB expanded",
+        "description": "Additional survival terrain type beyond PHB. Each slot adds: Arctic, Desert, Jungle, Underwater, or Swamp survival expertise."
+      },
+      {
+        "name": "Teaching",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 0,
+        "source": "PHBR4",
+        "description": "Effectively teach others. Students with this instructor learn 15% faster. Can train others in any proficiency the teacher possesses. Reduce training time for NWPs by 25%."
+      },
+      {
+        "name": "Tracking, Urban",
+        "slots": 2,
+        "ability": "WIS",
+        "modifier": -2,
+        "source": "PHBR2",
+        "description": "Track targets through city environments. Follow someone through a city by questioning witnesses, finding evidence of passage, and using local knowledge. Different from wilderness tracking."
+      },
+      {
+        "name": "Weather Sense (advanced)",
+        "slots": 1,
+        "ability": "WIS",
+        "modifier": 1,
+        "source": "PHBR1",
+        "description": "Expanded from PHB. Predict weather 72 hours out (check). Read signs of dangerous weather (no roll required). Identify storm severity and direction. +2 to Navigation in poor weather."
+      },
+      {
+        "name": "Whistling/Humming",
+        "slots": 1,
+        "ability": "DEX",
+        "modifier": 2,
+        "source": "PHBR7",
+        "description": "Expert whistling and humming. Bards can use this to produce Bard Song effects silently without revealing identity as a bard. Non-bards: produce simple melodies for entertainment (+1 to busking income)."
+      }
+    ]
+  },
+  "secondary_skills": {
+    "description": "Secondary skills represent a character's background occupation before adventuring. These are different from NWPs but can grant similar knowledge.",
+    "source": "PHB (optional rule)",
+    "rules": [
+      "Roll d100 or choose a secondary skill during character creation",
+      "Secondary skills provide background knowledge useful for roleplay",
+      "They do not grant formal proficiency but do grant applicable knowledge checks at base ability with no modifier",
+      "DM may grant specific benefits based on skill relevance"
+    ],
+    "list": [
+      {"name": "Bowyer/Fletcher", "knowledge": "Make bows and arrows; know how to find bow wood"},
+      {"name": "Farmer", "knowledge": "Agriculture, crop knowledge, seasonal activities, weather signs"},
+      {"name": "Fisher", "knowledge": "Fishing techniques, boat use, knots, coastal/river knowledge"},
+      {"name": "Forester", "knowledge": "Woodland work, logging, identifying trees and terrain"},
+      {"name": "Gambler", "knowledge": "Games of chance, sleight of hand, reading faces, probability"},
+      {"name": "Groom/Hostler", "knowledge": "Animal care, horse handling, identifying horse quality"},
+      {"name": "Hunter", "knowledge": "Game trails, prey behavior, hunting techniques, skinning"},
+      {"name": "Laborer/Servant", "knowledge": "Physical work, household tasks, social lower-class customs"},
+      {"name": "Mason/Potter", "knowledge": "Construction, materials, identifying quality stonework"},
+      {"name": "Merchant", "knowledge": "Trade goods values, merchant customs, market knowledge"},
+      {"name": "Miner", "knowledge": "Mining techniques, ore identification, underground stability"},
+      {"name": "Noble/Courtier", "knowledge": "Etiquette, heraldry, court customs, political relationships"},
+      {"name": "Sailor", "knowledge": "Seamanship, knots, navigation, port customs"},
+      {"name": "Scholar/Scribe", "knowledge": "Academic research, writing, common knowledge access"},
+      {"name": "Soldier", "knowledge": "Military customs, tactics, unit organization, discipline"},
+      {"name": "Tailor/Weaver", "knowledge": "Fabric identification, tailoring, fashion, cloth quality"},
+      {"name": "Teamster/Wagoner", "knowledge": "Wagon maintenance, draft animal care, road conditions"},
+      {"name": "Trapper/Furrier", "knowledge": "Setting traps, pelt quality, animal behavior, wilderness signs"},
+      {"name": "Woodcutter", "knowledge": "Forest work, lumber quality, terrain navigation, camp setup"}
+    ]
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "source": "AD&D 2nd Edition Player's Handbook, Dungeon Master's Guide, Arms & Equipment Guide",
+  "description": "Complete adventuring equipment, tools, clothing, mounts, vehicles, and services with prices in gold pieces",
+  "currency": {
+    "description": "Standard AD&D 2e currency system",
+    "denominations": {
+      "pp": {"name": "Platinum Piece", "gp_value": 5},
+      "gp": {"name": "Gold Piece", "gp_value": 1},
+      "ep": {"name": "Electrum Piece", "gp_value": 0.5},
+      "sp": {"name": "Silver Piece", "gp_value": 0.1},
+      "cp": {"name": "Copper Piece", "gp_value": 0.01}
+    },
+    "exchange_rates": {
+      "1pp": "5gp or 10ep or 50sp or 500cp",
+      "1gp": "2ep or 10sp or 100cp",
+      "1ep": "5sp or 50cp",
+      "1sp": "10cp"
+    }
+  },
+  "starting_equipment_by_class": {
+    "fighter": {"starting_gold": "5d4x10 gp"},
+    "paladin": {"starting_gold": "5d4x10 gp"},
+    "ranger": {"starting_gold": "5d4x10 gp"},
+    "mage": {"starting_gold": "2d4x10 gp"},
+    "specialist_wizard": {"starting_gold": "2d4x10 gp"},
+    "cleric": {"starting_gold": "3d6x10 gp"},
+    "druid": {"starting_gold": "3d6x10 gp"},
+    "thief": {"starting_gold": "2d6x10 gp"},
+    "bard": {"starting_gold": "2d6x10 gp"}
+  },
+  "adventuring_gear": {
+    "container_and_carrying": [
+      {"name": "Backpack (leather)", "cost_gp": 2, "weight_lbs": 2, "capacity_lbs": 60, "notes": "Standard adventuring pack"},
+      {"name": "Backpack (frame)", "cost_gp": 5, "weight_lbs": 5, "capacity_lbs": 100, "notes": "Wooden frame pack, better capacity"},
+      {"name": "Belt pouch (small)", "cost_gp": 0.5, "weight_lbs": 0.1, "capacity_lbs": 1, "notes": "Holds coins, small items"},
+      {"name": "Belt pouch (large)", "cost_gp": 1, "weight_lbs": 0.25, "capacity_lbs": 2, "notes": "Holds more coins or items"},
+      {"name": "Saddle bags", "cost_gp": 4, "weight_lbs": 3, "capacity_lbs": 20, "notes": "Per pair, attaches to saddle"},
+      {"name": "Sack (small)", "cost_gp": 0.1, "weight_lbs": 0.1, "capacity_lbs": 15, "notes": "Basic cloth or burlap sack"},
+      {"name": "Sack (large)", "cost_gp": 0.2, "weight_lbs": 0.5, "capacity_lbs": 30, "notes": "Large cloth or burlap sack"},
+      {"name": "Barrel (empty)", "cost_gp": 2, "weight_lbs": 30, "capacity_gallons": 10, "notes": "Wooden barrel"},
+      {"name": "Basket (large)", "cost_gp": 0.4, "weight_lbs": 1, "notes": "Wicker basket"},
+      {"name": "Basket (small)", "cost_gp": 0.2, "weight_lbs": 0.5, "notes": "Small wicker basket"},
+      {"name": "Box (small, iron)", "cost_gp": 1, "weight_lbs": 1, "notes": "Locked iron box for valuables"},
+      {"name": "Box (large, iron)", "cost_gp": 4, "weight_lbs": 10, "notes": "Large locked iron box"},
+      {"name": "Chest (small, wood)", "cost_gp": 2, "weight_lbs": 10, "capacity_lbs": 50, "notes": "Small lockable wooden chest"},
+      {"name": "Chest (large, wood)", "cost_gp": 5, "weight_lbs": 25, "capacity_lbs": 100, "notes": "Large lockable wooden chest"},
+      {"name": "Quiver", "cost_gp": 1, "weight_lbs": 1, "notes": "Holds 20 arrows or 30 bolts"},
+      {"name": "Arrow case (leather)", "cost_gp": 2, "weight_lbs": 0.5, "notes": "Holds 20 arrows, protects from weather"},
+      {"name": "Scroll case (bone/ivory)", "cost_gp": 8, "weight_lbs": 0.5, "notes": "Waterproof, holds 4 scrolls"},
+      {"name": "Scroll case (leather)", "cost_gp": 2, "weight_lbs": 0.25, "notes": "Basic scroll protection"},
+      {"name": "Spell component pouch", "cost_gp": 5, "weight_lbs": 0.5, "notes": "Belt-worn pouch with multiple compartments for spell components"},
+      {"name": "Haversack", "cost_gp": 3, "weight_lbs": 1, "capacity_lbs": 50, "notes": "Over-shoulder bag, easier access than backpack"}
+    ],
+    "light_sources": [
+      {"name": "Candle", "cost_gp": 0.01, "weight_lbs": 0.1, "duration": "1 hour", "light_radius_ft": 5, "notes": "Wax candle, gutters in wind"},
+      {"name": "Lantern (hooded)", "cost_gp": 7, "weight_lbs": 2, "duration": "6 hours per pint oil", "light_radius_ft": 30, "notes": "Can be hooded to direct light, conceals light in one direction"},
+      {"name": "Lantern (bullseye)", "cost_gp": 12, "weight_lbs": 3, "duration": "6 hours per pint oil", "light_radius_ft": 60, "cone_angle_degrees": 60, "notes": "Projects beam in one direction, 60-foot cone"},
+      {"name": "Oil (lamp), per pint", "cost_gp": 0.1, "weight_lbs": 1, "notes": "Fuel for lanterns, also useful as a weapon (burning oil)"},
+      {"name": "Oil (Greek fire), per pint", "cost_gp": 2, "weight_lbs": 1, "notes": "Highly flammable oil for burning oil attacks, 1d6+1 rounds"},
+      {"name": "Torch", "cost_gp": 0.01, "weight_lbs": 1, "duration": "1 hour", "light_radius_ft": 30, "notes": "Wooden torch soaked in pitch; can be used as weapon (1d4 dmg)"},
+      {"name": "Tinder box", "cost_gp": 1, "weight_lbs": 0.5, "notes": "Flint, steel, and tinder to start fires; takes 1d4 rounds to light a fire"},
+      {"name": "Flint and steel", "cost_gp": 0.5, "weight_lbs": 0.25, "notes": "Basic fire-starting tool; requires tinder"},
+      {"name": "Signal flare", "cost_gp": 0.5, "weight_lbs": 0.25, "notes": "Burns for 1 minute, visible 1 mile away, comes in colors"}
+    ],
+    "rope_and_climbing": [
+      {"name": "Rope (hemp), 50 ft", "cost_gp": 1, "weight_lbs": 20, "breaking_strength_lbs": 400, "notes": "Standard hemp rope"},
+      {"name": "Rope (silk), 50 ft", "cost_gp": 10, "weight_lbs": 8, "breaking_strength_lbs": 300, "notes": "Lighter and stronger per weight than hemp"},
+      {"name": "Rope (wire), 50 ft", "cost_gp": 25, "weight_lbs": 30, "breaking_strength_lbs": 2000, "notes": "Iron wire rope, very heavy"},
+      {"name": "Grappling hook", "cost_gp": 0.8, "weight_lbs": 4, "notes": "4-pronged hook for rope throwing; +2 to climbing checks"},
+      {"name": "Pitons (12)", "cost_gp": 1, "weight_lbs": 3, "notes": "Iron spikes for rock climbing; require hammer"},
+      {"name": "Pulley (block and tackle)", "cost_gp": 5, "weight_lbs": 5, "notes": "Multiplies lifting force by 4 (reduces effective weight)"},
+      {"name": "Ladder (wooden), 10 ft", "cost_gp": 0.5, "weight_lbs": 20, "notes": "Standard wooden ladder"},
+      {"name": "Pole (wooden), 10 ft", "cost_gp": 0.2, "weight_lbs": 8, "notes": "Standard 10-foot pole for dungeon exploration"},
+      {"name": "Crowbar", "cost_gp": 2, "weight_lbs": 5, "notes": "Iron pry bar; +2 to open door/crate checks"},
+      {"name": "Hammer (small)", "cost_gp": 0.5, "weight_lbs": 2, "notes": "For driving pitons"},
+      {"name": "Mallet (wooden)", "cost_gp": 0.2, "weight_lbs": 2, "notes": "For driving wooden stakes"}
+    ],
+    "tools_and_equipment": [
+      {"name": "Acid (flask)", "cost_gp": 10, "weight_lbs": 1, "notes": "Deals 1d6 damage on contact; may dissolve locks or bars over time"},
+      {"name": "Caltrops (1 lb bag)", "cost_gp": 1, "weight_lbs": 1, "notes": "Scatters over 5 sq ft; 1d4+1 damage to barefoot or lightly shod; move at half speed"},
+      {"name": "Chain (per foot)", "cost_gp": 0.3, "weight_lbs": 1, "notes": "Iron chain; breaking strength depends on links"},
+      {"name": "Chalk (10 pieces)", "cost_gp": 0.1, "weight_lbs": 0.1, "notes": "For marking dungeon walls, writing"},
+      {"name": "Fishing net (10 sq ft)", "cost_gp": 2, "weight_lbs": 5, "notes": "Can be used to entangle creatures"},
+      {"name": "Glass cutter", "cost_gp": 10, "weight_lbs": 0.1, "notes": "Cuts glass panes silently"},
+      {"name": "Glue (flask)", "cost_gp": 5, "weight_lbs": 0.5, "notes": "Strong adhesive; 1 hour drying time; 250 lb holding strength"},
+      {"name": "Magnifying glass", "cost_gp": 100, "weight_lbs": 0.5, "notes": "Can start fires in direct sunlight; aids reading fine print"},
+      {"name": "Manacles (iron)", "cost_gp": 2, "weight_lbs": 2, "notes": "Restrains humanoid wrists; key required; STR 18 to break"},
+      {"name": "Manacles (silver)", "cost_gp": 15, "weight_lbs": 2, "notes": "For creatures affected by silver; same stats as iron"},
+      {"name": "Mirror (small, steel)", "cost_gp": 2, "weight_lbs": 0.5, "notes": "Useful to look around corners or check for medusa; reflects gaze attacks"},
+      {"name": "Mirror (large, steel)", "cost_gp": 10, "weight_lbs": 2, "notes": "Larger version, better for gaze attacks"},
+      {"name": "Mirror (silver)", "cost_gp": 45, "weight_lbs": 1, "notes": "Effective against vampires per some traditions"},
+      {"name": "Needle and thread", "cost_gp": 0.5, "weight_lbs": 0.1, "notes": "Basic sewing; can suture wounds (First Aid proficiency)"},
+      {"name": "Oil of acid resistance", "cost_gp": 150, "weight_lbs": 0.5, "notes": "Protects metal from acid for 1 hour"},
+      {"name": "Spike (iron)", "cost_gp": 0.1, "weight_lbs": 1, "notes": "For jamming doors or securing ropes"},
+      {"name": "Stakes (3, wooden)", "cost_gp": 0.1, "weight_lbs": 1, "notes": "3 wooden stakes; useful against vampires"},
+      {"name": "Thieves' tools (basic)", "cost_gp": 30, "weight_lbs": 1, "notes": "Picks, tension bars, probes; required for Open Locks and Remove Traps skills"},
+      {"name": "Thieves' tools (quality)", "cost_gp": 100, "weight_lbs": 1, "notes": "+5% to Open Locks and Remove Traps checks"},
+      {"name": "Whetstone", "cost_gp": 0.02, "weight_lbs": 1, "notes": "For sharpening blades; restores minor dulling"},
+      {"name": "Wire (10 ft)", "cost_gp": 0.1, "weight_lbs": 0.5, "notes": "Thin iron wire for traps or mechanical uses"},
+      {"name": "Wolfsbane (bunch)", "cost_gp": 2, "weight_lbs": 0.5, "notes": "Repels werewolves and lycanthropes if thrust at them (ST vs. poison or flee)"},
+      {"name": "Holy water (vial)", "cost_gp": 25, "weight_lbs": 1, "notes": "Deals 2d4 damage to undead and evil outsiders; blessed by cleric"},
+      {"name": "Holy symbol (wooden)", "cost_gp": 1, "weight_lbs": 0.1, "notes": "Required for clerical turning and spells"},
+      {"name": "Holy symbol (silver)", "cost_gp": 25, "weight_lbs": 0.25, "notes": "Preferred version for clerical use"},
+      {"name": "Holy symbol (gold)", "cost_gp": 100, "weight_lbs": 0.5, "notes": "High quality holy symbol"},
+      {"name": "Unholy water (vial)", "cost_gp": 25, "weight_lbs": 1, "notes": "As holy water but for good-aligned creatures"},
+      {"name": "Prayer beads", "cost_gp": 5, "weight_lbs": 0.25, "notes": "Religious item for meditation and prayer"},
+      {"name": "Periscope (small)", "cost_gp": 50, "weight_lbs": 1, "notes": "Mirror device to see over obstacles without exposing self"}
+    ],
+    "measurement_and_navigation": [
+      {"name": "Astrolabe", "cost_gp": 100, "weight_lbs": 3, "notes": "Navigation device; determines latitude; requires Navigation proficiency"},
+      {"name": "Compass", "cost_gp": 30, "weight_lbs": 0.5, "notes": "Points north; +2 to Navigation checks in wilderness"},
+      {"name": "Hourglass (1 hour)", "cost_gp": 25, "weight_lbs": 2, "notes": "Measures one hour of time"},
+      {"name": "Hourglass (1 minute)", "cost_gp": 5, "weight_lbs": 1, "notes": "Measures one minute"},
+      {"name": "Map case", "cost_gp": 3, "weight_lbs": 0.5, "notes": "Waterproof tube for maps"},
+      {"name": "Paper (per sheet)", "cost_gp": 0.4, "weight_lbs": 0.1, "notes": "High quality writing paper"},
+      {"name": "Parchment (per sheet)", "cost_gp": 0.2, "weight_lbs": 0.1, "notes": "Scraped animal skin for writing"},
+      {"name": "Quill pen", "cost_gp": 0.1, "weight_lbs": 0.1, "notes": "Writing quill; requires ink"},
+      {"name": "Ink (per oz)", "cost_gp": 8, "weight_lbs": 0.1, "notes": "Standard black ink; colored inks cost more"},
+      {"name": "Sealing wax", "cost_gp": 1, "weight_lbs": 0.5, "notes": "For sealing letters and documents"},
+      {"name": "Signet ring", "cost_gp": 50, "weight_lbs": 0.1, "notes": "Personal seal for documents"},
+      {"name": "Scale (merchants)", "cost_gp": 5, "weight_lbs": 3, "notes": "Accurate to 1/10 oz; for weighing coins and gems"},
+      {"name": "Spyglass", "cost_gp": 1000, "weight_lbs": 1, "notes": "Magnifies distant objects x2; useful for scouting"},
+      {"name": "Sundial (portable)", "cost_gp": 5, "weight_lbs": 1, "notes": "Tells time in direct sunlight"}
+    ],
+    "food_and_survival": [
+      {"name": "Iron rations (per week)", "cost_gp": 5, "weight_lbs": 5, "notes": "Preserved food (salt pork, hardtack, dried fruit); 7 days of meals"},
+      {"name": "Standard rations (per week)", "cost_gp": 3, "weight_lbs": 10, "notes": "Fresh/semi-fresh food; 7 days of meals; spoils faster"},
+      {"name": "Water flask (leather)", "cost_gp": 0.3, "weight_lbs": 0.5, "capacity": "1 pint (empty)", "notes": "Holds 1 pint of water"},
+      {"name": "Waterskin", "cost_gp": 1, "weight_lbs": 0.5, "capacity": "1 quart (empty)", "notes": "Holds 1 quart; 8 lbs when full"},
+      {"name": "Ale (per pint)", "cost_gp": 0.01, "weight_lbs": 1, "notes": "Common tavern drink"},
+      {"name": "Wine (per pint, common)", "cost_gp": 0.05, "weight_lbs": 1, "notes": "Common wine"},
+      {"name": "Wine (per pint, fine)", "cost_gp": 1, "weight_lbs": 1, "notes": "Quality wine"},
+      {"name": "Mead (per pint)", "cost_gp": 0.03, "weight_lbs": 1, "notes": "Honey-based alcoholic beverage"},
+      {"name": "Spirits (per pint)", "cost_gp": 0.2, "weight_lbs": 1, "notes": "Distilled liquor; stronger than ale or wine"},
+      {"name": "Cooking pot", "cost_gp": 0.3, "weight_lbs": 4, "notes": "Iron pot for camp cooking; hangs over fire"},
+      {"name": "Mess kit", "cost_gp": 0.2, "weight_lbs": 1, "notes": "Bowl, spoon, fork, cup; tin or iron"},
+      {"name": "Fishing pole and line", "cost_gp": 0.5, "weight_lbs": 2, "notes": "Basic fishing equipment"},
+      {"name": "Hunting trap (small)", "cost_gp": 2, "weight_lbs": 2, "notes": "Snare for small game; 1d4 damage"},
+      {"name": "Hunting trap (large)", "cost_gp": 5, "weight_lbs": 10, "notes": "Bear trap; 2d4 damage, holds medium creatures"},
+      {"name": "Salt (per lb)", "cost_gp": 0.1, "weight_lbs": 1, "notes": "For preserving food"},
+      {"name": "Spice pack", "cost_gp": 3, "weight_lbs": 0.5, "notes": "Assorted common spices for cooking"},
+      {"name": "Tobacco (per lb)", "cost_gp": 0.5, "weight_lbs": 1, "notes": "Pipe tobacco"},
+      {"name": "Pipe (clay)", "cost_gp": 0.03, "weight_lbs": 0.25, "notes": "Smoking pipe"},
+      {"name": "Pipe (wooden)", "cost_gp": 0.5, "weight_lbs": 0.25, "notes": "Better quality smoking pipe"}
+    ],
+    "medical_and_alchemical": [
+      {"name": "Antitoxin (vial)", "cost_gp": 50, "weight_lbs": 0.25, "notes": "Counters one dose of non-magical poison if administered within 1 round"},
+      {"name": "Bandages (12)", "cost_gp": 0.5, "weight_lbs": 0.5, "notes": "Cloth bandages for binding wounds"},
+      {"name": "Healing herbs (packet)", "cost_gp": 5, "weight_lbs": 0.5, "notes": "Various healing herbs; can be used with Herbalism proficiency"},
+      {"name": "Healing salve", "cost_gp": 25, "weight_lbs": 0.5, "notes": "Treats wounds; heals 1 HP over 8 hours of rest when applied"},
+      {"name": "Poison antidote kit", "cost_gp": 100, "weight_lbs": 2, "notes": "Broad-spectrum antidotes for common poisons"},
+      {"name": "Surgical tools", "cost_gp": 75, "weight_lbs": 5, "notes": "Required for surgery procedures; scalpels, needles, etc."},
+      {"name": "Alchemist's fire (flask)", "cost_gp": 20, "weight_lbs": 1, "notes": "Burns for 1d4 rounds on contact; 1d6 damage per round; water doesn't extinguish"},
+      {"name": "Smoke bomb", "cost_gp": 15, "weight_lbs": 0.5, "notes": "Creates 10-ft radius smoke cloud for 1d4+2 rounds; obscures vision"},
+      {"name": "Tanglefoot bag", "cost_gp": 30, "weight_lbs": 1, "notes": "Bursts on impact; sticky material; target must save vs. paralysis or be entangled for 1d4 rounds"},
+      {"name": "Thunderstone", "cost_gp": 30, "weight_lbs": 0.5, "notes": "Deafens in 10-ft radius for 1d4 rounds on impact (save vs. breath weapon negates)"}
+    ],
+    "clothing_and_personal": [
+      {"name": "Belt", "cost_gp": 0.2, "weight_lbs": 0.5, "notes": "Leather belt"},
+      {"name": "Boots (leather, soft)", "cost_gp": 1, "weight_lbs": 2, "notes": "Standard footwear; soft-soled for quiet movement"},
+      {"name": "Boots (leather, hard)", "cost_gp": 2, "weight_lbs": 3, "notes": "Riding or working boots"},
+      {"name": "Boots (riding)", "cost_gp": 3, "weight_lbs": 3, "notes": "Tall boots for horseback riding"},
+      {"name": "Cap (fur)", "cost_gp": 1, "weight_lbs": 0.5, "notes": "Warm fur cap"},
+      {"name": "Cloak (common wool)", "cost_gp": 0.5, "weight_lbs": 3, "notes": "Basic wool cloak; protects from weather"},
+      {"name": "Cloak (fine)", "cost_gp": 5, "weight_lbs": 2, "notes": "Quality cloak, often lined"},
+      {"name": "Gloves (leather)", "cost_gp": 0.5, "weight_lbs": 0.5, "notes": "Workman's gloves"},
+      {"name": "Hat (broad brimmed)", "cost_gp": 0.3, "weight_lbs": 0.5, "notes": "Protection from sun and rain"},
+      {"name": "Robe (common)", "cost_gp": 1, "weight_lbs": 4, "notes": "Full-length robe; typical wizard attire"},
+      {"name": "Robe (fine)", "cost_gp": 10, "weight_lbs": 4, "notes": "Quality robe with embroidery"},
+      {"name": "Sandals", "cost_gp": 0.1, "weight_lbs": 0.5, "notes": "Open footwear"},
+      {"name": "Shoes", "cost_gp": 0.5, "weight_lbs": 1, "notes": "Normal footwear"},
+      {"name": "Surcoat", "cost_gp": 3, "weight_lbs": 2, "notes": "Tabard worn over armor for identification"},
+      {"name": "Tunic and trousers", "cost_gp": 0.4, "weight_lbs": 2, "notes": "Basic common clothing"},
+      {"name": "Vest", "cost_gp": 0.5, "weight_lbs": 1, "notes": "Sleeveless garment"},
+      {"name": "Traveling clothes", "cost_gp": 5, "weight_lbs": 5, "notes": "Complete outfit for travel: sturdy and practical"},
+      {"name": "Noble clothing", "cost_gp": 75, "weight_lbs": 5, "notes": "Fine courtly attire; required for high society interactions"},
+      {"name": "Disguise kit", "cost_gp": 50, "weight_lbs": 5, "notes": "Makeup, wigs, prosthetics; used with Disguise proficiency; provides up to 3 disguises"}
+    ],
+    "musical_instruments": [
+      {"name": "Drum", "cost_gp": 1, "weight_lbs": 5, "notes": "Simple percussion instrument"},
+      {"name": "Drum (war)", "cost_gp": 5, "weight_lbs": 10, "notes": "Military drum, loud; used to signal troops"},
+      {"name": "Flute (bone or wood)", "cost_gp": 0.5, "weight_lbs": 0.25, "notes": "Simple wind instrument"},
+      {"name": "Flute (metal)", "cost_gp": 5, "weight_lbs": 0.5, "notes": "Quality metal flute"},
+      {"name": "Horn (hunting)", "cost_gp": 2, "weight_lbs": 1, "notes": "Animal horn; signal use; carries up to 1 mile"},
+      {"name": "Horn (brass)", "cost_gp": 15, "weight_lbs": 3, "notes": "Musical brass horn"},
+      {"name": "Lute", "cost_gp": 30, "weight_lbs": 3, "notes": "Bard's primary stringed instrument"},
+      {"name": "Lute (master quality)", "cost_gp": 500, "weight_lbs": 3, "notes": "+5% to Bard performance checks"},
+      {"name": "Lyre", "cost_gp": 30, "weight_lbs": 2, "notes": "Classical stringed instrument"},
+      {"name": "Pipes (pan)", "cost_gp": 5, "weight_lbs": 0.5, "notes": "Set of pan pipes"},
+      {"name": "Trumpet (brass)", "cost_gp": 10, "weight_lbs": 2, "notes": "Military signal instrument"},
+      {"name": "Viol", "cost_gp": 75, "weight_lbs": 2, "notes": "Stringed instrument played with bow"},
+      {"name": "Harp", "cost_gp": 150, "weight_lbs": 5, "notes": "Larger stringed instrument; prestigious"},
+      {"name": "Harp (small/lyre)", "cost_gp": 50, "weight_lbs": 2, "notes": "Portable version"},
+      {"name": "Bagpipes", "cost_gp": 30, "weight_lbs": 8, "notes": "Wind/reed instrument; very loud; associated with northern cultures"}
+    ],
+    "writing_and_scholarly": [
+      {"name": "Book (blank)", "cost_gp": 15, "weight_lbs": 3, "notes": "100 pages of parchment, leather-bound"},
+      {"name": "Book (blank, small)", "cost_gp": 5, "weight_lbs": 1, "notes": "50 pages of parchment; pocket-sized"},
+      {"name": "Spellbook (blank)", "cost_gp": 50, "weight_lbs": 3, "notes": "100 pages; quality binding; required for wizards; holds approx. 100 spell levels"},
+      {"name": "Spellbook (traveling)", "cost_gp": 25, "weight_lbs": 1.5, "notes": "50 pages; lighter version for field use"},
+      {"name": "Reference book (general)", "cost_gp": 100, "weight_lbs": 5, "notes": "Written work on a subject; +1 to relevant knowledge checks"},
+      {"name": "Map (local area)", "cost_gp": 25, "weight_lbs": 0.1, "notes": "Hand-drawn map of local region"},
+      {"name": "Map (regional)", "cost_gp": 100, "weight_lbs": 0.25, "notes": "Map covering 100-mile radius area"},
+      {"name": "Map (world)", "cost_gp": 1000, "weight_lbs": 1, "notes": "Rare world map; may be inaccurate in distant regions"}
+    ]
+  },
+  "animals_and_mounts": {
+    "horses": [
+      {"name": "Warhorse (heavy)", "cost_gp": 400, "movement_ft": 40, "carrying_capacity_lbs": 350, "notes": "Trained for combat; attacks allowed; must be combat-trained; AC 7, HD 3+3"},
+      {"name": "Warhorse (medium)", "cost_gp": 225, "movement_ft": 50, "carrying_capacity_lbs": 275, "notes": "Lighter war-trained horse; AC 7, HD 2+2"},
+      {"name": "Warhorse (light)", "cost_gp": 150, "movement_ft": 60, "carrying_capacity_lbs": 220, "notes": "Fast light warhorse; AC 7, HD 2"},
+      {"name": "Draft horse", "cost_gp": 25, "movement_ft": 40, "carrying_capacity_lbs": 400, "notes": "Heavy working horse; pulls wagons; not trained for riding under combat"},
+      {"name": "Riding horse (medium)", "cost_gp": 75, "movement_ft": 60, "carrying_capacity_lbs": 250, "notes": "Standard riding horse; flees from combat if not combat-trained"},
+      {"name": "Riding horse (light)", "cost_gp": 50, "movement_ft": 80, "carrying_capacity_lbs": 200, "notes": "Fast light horse for messengers; AC 7, HD 1+1"},
+      {"name": "Pony", "cost_gp": 30, "movement_ft": 40, "carrying_capacity_lbs": 150, "notes": "Smaller than horse; preferred by dwarves, gnomes, halflings"},
+      {"name": "Pony (war)", "cost_gp": 100, "movement_ft": 40, "carrying_capacity_lbs": 150, "notes": "Combat-trained pony"}
+    ],
+    "other_mounts": [
+      {"name": "Camel", "cost_gp": 50, "movement_ft": 50, "carrying_capacity_lbs": 500, "notes": "Desert mount; 2-3 weeks without water; can go 3 days without food; surly temperament"},
+      {"name": "Donkey/Mule", "cost_gp": 30, "movement_ft": 40, "carrying_capacity_lbs": 300, "notes": "Hardy pack animal; sure-footed on rough terrain; cannot be ridden in combat"},
+      {"name": "Elephant", "cost_gp": 2000, "movement_ft": 40, "carrying_capacity_lbs": 2000, "notes": "Exotic beast of burden and war mount; requires special handling; 3d8 HD"},
+      {"name": "Elephant (war)", "cost_gp": 5000, "movement_ft": 40, "carrying_capacity_lbs": 2000, "notes": "Combat-trained war elephant with howdah"},
+      {"name": "Ox", "cost_gp": 25, "movement_ft": 30, "carrying_capacity_lbs": 400, "notes": "Slow but powerful draft animal; better than horse for heavy pulling"},
+      {"name": "Riding dog (large)", "cost_gp": 50, "movement_ft": 60, "carrying_capacity_lbs": 80, "notes": "Can be ridden by halflings, gnomes; AC 7, HD 1+2"}
+    ],
+    "saddles_and_tack": [
+      {"name": "Saddle (military)", "cost_gp": 20, "weight_lbs": 25, "notes": "Full military saddle with deep seat; +2 to riding checks while mounted in combat"},
+      {"name": "Saddle (riding)", "cost_gp": 10, "weight_lbs": 15, "notes": "Standard civilian saddle"},
+      {"name": "Saddle (pack)", "cost_gp": 5, "weight_lbs": 15, "notes": "Frame saddle for carrying loads rather than rider"},
+      {"name": "Saddle blanket", "cost_gp": 0.5, "weight_lbs": 3, "notes": "Padding under saddle"},
+      {"name": "Bit and bridle", "cost_gp": 1.5, "weight_lbs": 3, "notes": "Head gear for controlling horse"},
+      {"name": "Halter", "cost_gp": 0.3, "weight_lbs": 1, "notes": "For leading horses; not for riding"},
+      {"name": "Horseshoes (set of 4)", "cost_gp": 0.1, "weight_lbs": 4, "notes": "Iron horseshoes; farrier required to fit"},
+      {"name": "Feed (per day)", "cost_gp": 0.05, "weight_lbs": 10, "notes": "Grain and hay for horse; required daily"},
+      {"name": "Stabling (per night)", "cost_gp": 0.5, "weight_lbs": 0, "notes": "Lodging for horse; includes feed and care"}
+    ]
+  },
+  "transportation": {
+    "land_vehicles": [
+      {"name": "Cart (one-horse)", "cost_gp": 100, "weight_lbs": 500, "capacity_lbs": 1000, "movement_ft": 30, "notes": "Simple two-wheeled cart; requires one horse"},
+      {"name": "Wagon (light)", "cost_gp": 150, "weight_lbs": 1000, "capacity_lbs": 2000, "movement_ft": 30, "notes": "Four-wheeled light wagon; requires 2 horses"},
+      {"name": "Wagon (heavy)", "cost_gp": 250, "weight_lbs": 2000, "capacity_lbs": 5000, "movement_ft": 20, "notes": "Heavy cargo wagon; requires 4 horses"},
+      {"name": "Chariot (war)", "cost_gp": 500, "weight_lbs": 500, "notes": "Two-wheeled war vehicle; 2 horses; archer or warrior can attack from it"},
+      {"name": "Carriage (private)", "cost_gp": 1000, "weight_lbs": 1500, "capacity_people": 4, "movement_ft": 30, "notes": "Enclosed passenger carriage; 2-4 horses"},
+      {"name": "Carriage (royal/noble)", "cost_gp": 5000, "weight_lbs": 2000, "capacity_people": 6, "movement_ft": 30, "notes": "Ornate enclosed carriage; up to 4 horses"}
+    ],
+    "water_vehicles": [
+      {"name": "Raft (small)", "cost_gp": 30, "weight_lbs": 500, "capacity_lbs": 1000, "movement": "Poled or paddled", "notes": "Logs lashed together; 10x10 ft; no shelter"},
+      {"name": "Raft (large)", "cost_gp": 100, "weight_lbs": 1000, "capacity_lbs": 2000, "movement": "Poled or paddled", "notes": "20x20 ft; can carry horse"},
+      {"name": "Rowboat", "cost_gp": 50, "weight_lbs": 150, "capacity_people": 4, "movement": "Rowed", "notes": "Small wooden boat; 4 rowers"},
+      {"name": "Canoe", "cost_gp": 30, "weight_lbs": 80, "capacity_people": 3, "movement": "Paddled", "notes": "Light paddled boat; can be carried"},
+      {"name": "Keelboat", "cost_gp": 3000, "capacity_lbs": 10000, "movement": "Sail or poled", "notes": "River keelboat; 50x15 ft; crew 8-20"},
+      {"name": "Galley (small)", "cost_gp": 12000, "movement": "Oared and sailed", "notes": "60-ft war vessel; 40 oarsmen; crew 15"},
+      {"name": "Galley (large)", "cost_gp": 25000, "movement": "Oared and sailed", "notes": "100-ft war vessel; 100 oarsmen; crew 40"},
+      {"name": "Sailing ship (small)", "cost_gp": 5000, "movement": "Sailed", "notes": "80-ft merchant vessel; crew 10-20; can cross oceans"},
+      {"name": "Sailing ship (large)", "cost_gp": 15000, "movement": "Sailed", "notes": "120-ft large merchant vessel; crew 20-40"}
+    ]
+  },
+  "lodging_and_services": {
+    "lodging": [
+      {"name": "Inn (common room, per night)", "cost_gp": 0.05, "notes": "Sleeping on the floor with other travelers"},
+      {"name": "Inn (per room, per night)", "cost_gp": 0.5, "notes": "Shared room for up to 4 people"},
+      {"name": "Inn (private room, per night)", "cost_gp": 2, "notes": "Private room with lock"},
+      {"name": "Inn (fine suite, per night)", "cost_gp": 5, "notes": "Comfortable suite, quality service"},
+      {"name": "Inn (noble room, per night)", "cost_gp": 20, "notes": "Finest quality room"},
+      {"name": "Meal (poor)", "cost_gp": 0.01, "notes": "Bread, broth, water"},
+      {"name": "Meal (common)", "cost_gp": 0.05, "notes": "Stew, bread, ale"},
+      {"name": "Meal (good)", "cost_gp": 0.3, "notes": "Multiple courses, good wine"},
+      {"name": "Meal (fine/feast)", "cost_gp": 5, "notes": "Noble-quality feast"}
+    ],
+    "professional_services": [
+      {"name": "Hireling (porter/servant)", "cost_gp_per_day": 0.1, "notes": "Unskilled labor; will not fight"},
+      {"name": "Hireling (man-at-arms, 0-level)", "cost_gp_per_day": 0.3, "notes": "Armed guard/soldier; fights with orders"},
+      {"name": "Hireling (soldier, 0-level, heavy)", "cost_gp_per_day": 0.5, "notes": "Heavy infantryman with chain and weapons"},
+      {"name": "Hireling (archer)", "cost_gp_per_day": 0.5, "notes": "Trained archer/crossbowman"},
+      {"name": "Hireling (light cavalry)", "cost_gp_per_day": 1, "notes": "Mounted light soldier; horse included"},
+      {"name": "Hireling (heavy cavalry)", "cost_gp_per_day": 2, "notes": "Mounted heavy soldier; horse and armor included"},
+      {"name": "Hireling (skilled craftsman)", "cost_gp_per_day": 0.5, "notes": "Blacksmith, carpenter, etc.; skilled labor"},
+      {"name": "Sage (basic question)", "cost_gp": 20, "notes": "Answers one simple question about a specialty area"},
+      {"name": "Sage (complex research, per day)", "cost_gp": 100, "notes": "Research a complex topic; 1d6 days minimum"},
+      {"name": "Scribe (per page)", "cost_gp": 1, "notes": "Copies documents; illuminated manuscripts cost more"},
+      {"name": "Messenger (per mile)", "cost_gp": 0.02, "notes": "Carries messages; minimum 1 gp"},
+      {"name": "Blacksmith (basic repair)", "cost_gp": 1, "notes": "Repair minor armor/weapon damage"},
+      {"name": "Blacksmith (major repair)", "cost_gp": 5, "notes": "Repair major damage; takes 1-3 days"},
+      {"name": "Armorer (craft chain/plate)", "cost_gp": "varies", "notes": "1 gp/day labor plus materials"},
+      {"name": "Weaponsmith", "cost_gp": "varies", "notes": "1 gp/day labor plus materials for crafting weapons"},
+      {"name": "Doctor/Healer", "cost_gp": 1, "notes": "Basic medical treatment; 1 HP regained (non-magical)"},
+      {"name": "Lawyer/Advocate", "cost_gp": 10, "notes": "Legal representation and advice"},
+      {"name": "Thief-Catcher", "cost_gp": 50, "notes": "Tracks and returns escaped prisoners; per job"},
+      {"name": "Assassin", "cost_gp": "varies", "notes": "Professional killer; highly illegal; 100+ gp per target depending on difficulty"}
+    ],
+    "religious_services": [
+      {"name": "Funeral rites", "cost_gp": 10, "notes": "Basic ceremony at temple"},
+      {"name": "Healing (Cure Light Wounds)", "cost_gp": 10, "notes": "Temple healing service; requires donation"},
+      {"name": "Healing (Cure Serious Wounds)", "cost_gp": 60, "notes": "Higher-level temple healing"},
+      {"name": "Healing (Cure Critical Wounds)", "cost_gp": 150, "notes": "Advanced temple healing"},
+      {"name": "Remove Curse", "cost_gp": 250, "notes": "Temple service to remove curse"},
+      {"name": "Raise Dead", "cost_gp": 1000, "notes": "Temple resurrection service; requires donation"},
+      {"name": "Resurrection", "cost_gp": 5000, "notes": "Full body resurrection; rare temples only"},
+      {"name": "Divination service", "cost_gp": 500, "notes": "Temple oracle or divination ritual"}
+    ]
+  },
+  "special_equipment": {
+    "alchemical_substances": [
+      {"name": "Acid (strong, flask)", "cost_gp": 10, "notes": "Deals 1d6 damage per round of contact; dissolves most metals over time"},
+      {"name": "Alchemist's fire", "cost_gp": 20, "notes": "Ignites on contact with air; burns for 1d4 rounds; 1d6 damage/round; water spreads it"},
+      {"name": "Antitoxin", "cost_gp": 50, "notes": "Neutralizes one dose of poison if taken within 1 round of poisoning"},
+      {"name": "Flash powder (pinch)", "cost_gp": 50, "notes": "Blinding flash when ignited; all within 10 ft save vs. spell or blind 1 round"},
+      {"name": "Noxious dust (packet)", "cost_gp": 40, "notes": "Inhaled irritant; 10-ft cloud; save vs. poison or sneeze/cough (-2 to attacks) for 1d4 rounds"},
+      {"name": "Slow fire compound", "cost_gp": 15, "notes": "Treated to burn slowly; 4 hours per pound"},
+      {"name": "Smoke powder", "cost_gp": 10, "notes": "Burns to create 10-ft smoke cloud, 2 rounds"},
+      {"name": "Sovereign glue (oz)", "cost_gp": 200, "notes": "Extreme adhesive; bonds anything to anything in 1 round; only universal solvent breaks it"},
+      {"name": "Universal solvent (oz)", "cost_gp": 150, "notes": "Dissolves any adhesive including sovereign glue"},
+      {"name": "Itching powder", "cost_gp": 5, "notes": "Causes severe itching; -2 to all actions for 1d6 rounds if exposed"},
+      {"name": "Oil of slipperiness", "cost_gp": 100, "notes": "Covers 10 sq ft; anything on it slides; DEX check to stand or fall prone"}
+    ],
+    "traps_and_alarms": [
+      {"name": "Alarm trap (bell)", "cost_gp": 2, "notes": "Wire-triggered bell alarm; detects passage through area"},
+      {"name": "Caltrops (iron, handful)", "cost_gp": 1, "notes": "Scattered over 5 sq ft; 1d4+1 damage to unshod feet; half move until removed"},
+      {"name": "Noise trap", "cost_gp": 5, "notes": "Small mechanical trap that creates loud noise when triggered"},
+      {"name": "Snare (rope)", "cost_gp": 1, "notes": "Loop trap; trips or holds small to medium creatures"},
+      {"name": "Spring snare", "cost_gp": 3, "notes": "Weighted snare; hoists small creatures off ground"}
+    ],
+    "dungeoneering_supplies": [
+      {"name": "Iron spike (10)", "cost_gp": 1, "weight_lbs": 5, "notes": "Drive into stone/wood walls to jam doors, anchor ropes"},
+      {"name": "Wooden wedge (6)", "cost_gp": 0.5, "weight_lbs": 3, "notes": "Jam under doors to prevent them opening"},
+      {"name": "Beeswax (block)", "cost_gp": 0.2, "weight_lbs": 1, "notes": "Useful for making molds of keys, sealing containers"},
+      {"name": "Bucket", "cost_gp": 0.5, "weight_lbs": 2, "notes": "Leather or wooden bucket; 1 gallon capacity"},
+      {"name": "Twine (100 ft)", "cost_gp": 0.1, "weight_lbs": 1, "notes": "Thin cord for marking passages, simple traps"},
+      {"name": "Sand (small bag)", "cost_gp": 0.05, "weight_lbs": 2, "notes": "Used to smother fires; traction on ice"},
+      {"name": "Sulfur (small bag)", "cost_gp": 0.5, "weight_lbs": 1, "notes": "Repels some creatures; component for fire spells"},
+      {"name": "Garlic (string)", "cost_gp": 0.2, "weight_lbs": 0.5, "notes": "Repels vampires; many undead dislike it"}
+    ]
+  },
+  "gem_and_art_values": {
+    "description": "Representative values for treasure evaluation",
+    "gemstones": [
+      {"grade": "Ornamental", "value_range_gp": "1-10", "examples": "Azurite, banded agate, blue quartz, eye agate, hematite, lapis lazuli, malachite, moss agate, obsidian, rhodochrosite, tiger eye, turquoise"},
+      {"grade": "Semi-precious", "value_range_gp": "10-100", "examples": "Bloodstone, carnelian, chalcedony, chrysoprase, citrine, iolite, jasper, moonstone, onyx, rock crystal, rose quartz, sardonyx, smoky quartz, star rose quartz, zircon"},
+      {"grade": "Fancy/Precious", "value_range_gp": "100-1000", "examples": "Alexandrite, amber, amethyst, aquamarine, chrysoberyl, coral, garnet, jade, jet, pearl (white), spinel, topaz, tourmaline"},
+      {"grade": "Precious", "value_range_gp": "1000-5000", "examples": "Black pearl, diamond (small), emerald, jacinth, opal, ruby (small), sapphire (large blue), star ruby, star sapphire"},
+      {"grade": "Gem/Jewel", "value_range_gp": "5000+", "examples": "Black sapphire, diamond (large), jacinth (large), oriental amethyst/topaz, ruby (large), star sapphire (black)"}
+    ],
+    "art_objects": [
+      {"category": "Minor art", "value_range_gp": "10-100", "examples": "Candelabra, carved bone, copper goblet, painted wood"},
+      {"category": "Common art", "value_range_gp": "100-1000", "examples": "Silver candlestick, carved ivory, bronze statuette, woven tapestry"},
+      {"category": "Valuable art", "value_range_gp": "1000-5000", "examples": "Gold inlaid box, silver tiara, oil painting, decorated shield"},
+      {"category": "Rare art", "value_range_gp": "5000-10000", "examples": "Elven artwork, dragon-ivory carving, masterwork tapestry"},
+      {"category": "Treasure art", "value_range_gp": "10000+", "examples": "Crown of a king, ancient masterwork, artifact-level craftsmanship"}
+    ]
+  }
+}

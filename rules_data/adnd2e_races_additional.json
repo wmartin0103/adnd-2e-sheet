@@ -1,0 +1,667 @@
+{
+  "source": "AD&D 2nd Edition Planescape Campaign Setting, Al-Qadim Campaign Setting, Dark Sun Campaign Setting, Spelljammer, Complete Book of Humanoids (PHBR10), various sourcebooks",
+  "description": "Non-PHB player character races available in specific campaign settings. Note: availability depends on campaign setting and DM approval.",
+  "usage_note": "Most of these races are setting-specific. Players should consult their DM before selecting these races. Level limits may be applied depending on the campaign.",
+  "planar_races": {
+    "description": "Races from the Planescape Campaign Setting — beings touched by the planes of existence",
+    "aasimar": {
+      "description": "Humans with celestial bloodlines; blessed by good-aligned outer planes",
+      "ability_score_adjustments": {"STR": 0, "INT": 0, "WIS": 1, "DEX": 0, "CON": 0, "CHA": 1},
+      "ability_score_minimums": {"STR": 3, "INT": 4, "WIS": 4, "DEX": 3, "CON": 4, "CHA": 10},
+      "ability_score_maximums": {"STR": 18, "INT": 18, "WIS": 20, "DEX": 18, "CON": 18, "CHA": 20},
+      "movement": 12,
+      "infravision": 0,
+      "languages": ["Common", "Celestial"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "paladin": "Unlimited",
+        "ranger": "Unlimited",
+        "cleric": "Unlimited",
+        "mage": "Unlimited",
+        "thief": "Unlimited",
+        "bard": "Unlimited"
+      },
+      "special_abilities": [
+        "Resistance to electricity and acid (save at +2, half damage even on fail)",
+        "Darkvision 60 ft (superior infravision)",
+        "Once per day: Daylight (as Light spell but radius 20 ft, duration 1 hour)",
+        "+2 to saves vs. death magic and poison",
+        "Detect evil 3/day (as Know Alignment for evil beings only)",
+        "Cannot willingly commit evil acts without penalty: lose special abilities for 1 month"
+      ],
+      "special_disadvantages": [
+        "Stand out as unusual; -2 to Hide checks in urban environments",
+        "Fiends specifically target them for corruption"
+      ],
+      "alignment_restriction": "Any good alignment only",
+      "setting": "Planescape"
+    },
+    "tiefling": {
+      "description": "Humans with fiendish bloodlines; tainted by evil outer planes",
+      "ability_score_adjustments": {"STR": 0, "INT": 1, "WIS": 0, "DEX": 1, "CON": 0, "CHA": -2},
+      "ability_score_minimums": {"STR": 3, "INT": 8, "WIS": 3, "DEX": 8, "CON": 3, "CHA": 3},
+      "ability_score_maximums": {"STR": 18, "INT": 20, "WIS": 18, "DEX": 20, "CON": 18, "CHA": 16},
+      "movement": 12,
+      "infravision": 90,
+      "languages": ["Common", "Abyssal or Infernal (choose one)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "mage": "Unlimited",
+        "thief": "Unlimited",
+        "bard": "Unlimited",
+        "cleric": 12,
+        "ranger": 8,
+        "paladin": "Not allowed"
+      },
+      "special_abilities": [
+        "Resistance to fire (save at +2, half damage from magical fire even on fail)",
+        "Resistance to cold (same as fire resistance)",
+        "Darkness 1/day (as Darkness 15' Radius spell)",
+        "+2 to saves vs. fire and cold",
+        "Pass without trace 1/day",
+        "Detect magic 3/day (as spell)"
+      ],
+      "special_disadvantages": [
+        "Obvious fiendish heritage causes -2 to reaction with most NPCs",
+        "Holy water deals 1d4 damage on contact",
+        "Cannot multi-class"
+      ],
+      "alignment_restriction": "Any non-good alignment; most are neutral or evil",
+      "setting": "Planescape"
+    },
+    "githzerai": {
+      "description": "Gaunt humanoids from the chaotic plane of Limbo; former slaves of mind flayers",
+      "ability_score_adjustments": {"STR": 0, "INT": 1, "WIS": 1, "DEX": 0, "CON": -1, "CHA": -1},
+      "ability_score_minimums": {"STR": 6, "INT": 10, "WIS": 10, "DEX": 8, "CON": 6, "CHA": 3},
+      "ability_score_maximums": {"STR": 17, "INT": 20, "WIS": 20, "DEX": 18, "CON": 17, "CHA": 17},
+      "movement": 12,
+      "infravision": 0,
+      "languages": ["Githzerai", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "mage": "Unlimited",
+        "monk": "Unlimited",
+        "thief": "Unlimited",
+        "cleric": "Not allowed",
+        "psionicist": "Unlimited"
+      },
+      "special_abilities": [
+        "Psionic ability: Wild talent (50% chance; roll for power if yes)",
+        "+4 to saves vs. mind control and charm spells",
+        "Immune to mind flayer's Mind Blast on save vs. spell at +4",
+        "Telekinesis 1/day (as Clairsentience devotion, 5 lbs)",
+        "Feather fall 1/day"
+      ],
+      "special_disadvantages": [
+        "Cannot receive beneficial cleric spells from evil-aligned gods",
+        "Githyanki consider them enemies — automatic hostile reaction"
+      ],
+      "setting": "Planescape, Fiend Folio"
+    },
+    "githyanki": {
+      "description": "Militaristic humanoids from the Astral Plane; former slaves of mind flayers who rebelled",
+      "ability_score_adjustments": {"STR": 1, "INT": 1, "WIS": 0, "DEX": 0, "CON": 0, "CHA": -2},
+      "ability_score_minimums": {"STR": 8, "INT": 8, "WIS": 3, "DEX": 6, "CON": 6, "CHA": 3},
+      "ability_score_maximums": {"STR": 20, "INT": 20, "WIS": 18, "DEX": 18, "CON": 18, "CHA": 16},
+      "movement": 12,
+      "infravision": 0,
+      "languages": ["Githyanki", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "mage": "Unlimited",
+        "thief": "Unlimited",
+        "psionicist": "Unlimited",
+        "cleric": "Not allowed"
+      },
+      "special_abilities": [
+        "Psionic ability: Wild talent (65% chance)",
+        "+3 to saves vs. mind control",
+        "Astral projection 1/day (as devotion, self only)",
+        "Telekinesis 1/day (20 lbs)",
+        "Mage spells: at level 3 gain Magic Missile 1/day; at 6: Blur 1/day; at 9: Dimension Door 1/day"
+      ],
+      "special_disadvantages": [
+        "Ruthless and militaristic; -4 reaction with most non-Githyanki",
+        "Githzerai are their enemies — automatic hostile reaction",
+        "Must return to Astral Plane periodically or lose powers (1 month)"
+      ],
+      "setting": "Planescape, Fiend Folio"
+    },
+    "genasi_fire": {
+      "description": "Half-humans with elemental fire heritage; born from fire creature ancestry",
+      "ability_score_adjustments": {"STR": 1, "INT": 0, "WIS": -1, "DEX": 0, "CON": 0, "CHA": 0},
+      "ability_score_minimums": {"STR": 7, "INT": 4, "WIS": 3, "DEX": 4, "CON": 6, "CHA": 4},
+      "ability_score_maximums": {"STR": 19, "INT": 18, "WIS": 17, "DEX": 18, "CON": 18, "CHA": 18},
+      "movement": 12,
+      "infravision": 60,
+      "languages": ["Common", "Ignan (fire language)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "mage": "Unlimited",
+        "thief": "Unlimited",
+        "cleric": 10,
+        "ranger": "Not allowed",
+        "paladin": "Not allowed"
+      },
+      "special_abilities": [
+        "Fire resistance: immune to normal fire; +4 to saves vs. magical fire; half damage from magical fire",
+        "Produce Flame 1/day",
+        "Detect magic related to fire at will",
+        "Low-light vision in firelight (see normally by campfire)"
+      ],
+      "special_disadvantages": [
+        "Vulnerability to cold: -2 to saves vs. cold; +1 damage per die from cold attacks",
+        "Hair that resembles flames (unmistakable)"
+      ],
+      "setting": "Planescape, Al-Qadim"
+    },
+    "genasi_air": {
+      "description": "Half-humans with elemental air heritage",
+      "ability_score_adjustments": {"STR": 0, "INT": 1, "WIS": 0, "DEX": 1, "CON": -1, "CHA": 0},
+      "ability_score_minimums": {"STR": 4, "INT": 7, "WIS": 4, "DEX": 7, "CON": 4, "CHA": 4},
+      "ability_score_maximums": {"STR": 18, "INT": 19, "WIS": 18, "DEX": 19, "CON": 17, "CHA": 18},
+      "movement": 12,
+      "infravision": 0,
+      "languages": ["Common", "Auran (air language)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "mage": "Unlimited",
+        "thief": "Unlimited",
+        "cleric": 10,
+        "ranger": 12
+      },
+      "special_abilities": [
+        "Levitate 1/day (self only, as spell)",
+        "Wind walk 1/day (move at double speed for 1 turn)",
+        "+2 to saves vs. gas and air-based attacks",
+        "Never knocked back by wind"
+      ],
+      "special_disadvantages": [
+        "Slightly translucent appearance",
+        "-1 to saves vs. earth-based attacks"
+      ],
+      "setting": "Planescape"
+    },
+    "genasi_earth": {
+      "description": "Half-humans with elemental earth heritage",
+      "ability_score_adjustments": {"STR": 1, "INT": 0, "WIS": 0, "DEX": -1, "CON": 2, "CHA": -1},
+      "ability_score_minimums": {"STR": 7, "INT": 4, "WIS": 4, "DEX": 3, "CON": 10, "CHA": 3},
+      "ability_score_maximums": {"STR": 20, "INT": 18, "WIS": 18, "DEX": 17, "CON": 20, "CHA": 17},
+      "movement": 9,
+      "infravision": 60,
+      "languages": ["Common", "Terran (earth language)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "cleric": 12,
+        "thief": "Unlimited",
+        "mage": "Not allowed",
+        "ranger": "Not allowed"
+      },
+      "special_abilities": [
+        "Move through stone and earth 1/day for 1 turn (as Earth Walk psionic power)",
+        "Tremor sense: feel vibrations through ground, detect movement within 30 ft",
+        "+2 to saves vs. earth-based attacks",
+        "Never falls prone from earth tremors"
+      ],
+      "special_disadvantages": [
+        "Cannot swim; always sink",
+        "Slow movement",
+        "-1 to saves vs. air-based attacks"
+      ],
+      "setting": "Planescape"
+    },
+    "genasi_water": {
+      "description": "Half-humans with elemental water heritage",
+      "ability_score_adjustments": {"STR": 0, "INT": 0, "WIS": 0, "DEX": 1, "CON": 1, "CHA": -1},
+      "ability_score_minimums": {"STR": 4, "INT": 4, "WIS": 4, "DEX": 7, "CON": 7, "CHA": 3},
+      "ability_score_maximums": {"STR": 18, "INT": 18, "WIS": 18, "DEX": 19, "CON": 19, "CHA": 17},
+      "movement": 12,
+      "swim_movement": 15,
+      "infravision": 0,
+      "languages": ["Common", "Aquan (water language)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "mage": 14,
+        "thief": "Unlimited",
+        "cleric": 12,
+        "ranger": 12
+      },
+      "special_abilities": [
+        "Breathe water freely",
+        "Water breathing (can survive indefinitely underwater)",
+        "+2 to saves vs. water and cold attacks",
+        "Swim at movement 15; never fatigued by swimming"
+      ],
+      "special_disadvantages": [
+        "Slightly bluish skin",
+        "Slightly vulnerable to fire (-1 save vs. fire)",
+        "Must immerse in water once per week or lose special abilities for 1 week"
+      ],
+      "setting": "Planescape"
+    }
+  },
+  "dark_sun_races": {
+    "description": "Races from the Dark Sun (Athas) Campaign Setting — a dying world of heat and survival",
+    "mul": {
+      "description": "Dwarf-human hybrid; bred specifically as slave laborers on Athas. Incredibly tough and tireless.",
+      "ability_score_adjustments": {"STR": 2, "INT": 0, "WIS": 0, "DEX": 0, "CON": 2, "CHA": -1},
+      "ability_score_minimums": {"STR": 14, "INT": 3, "WIS": 3, "DEX": 4, "CON": 14, "CHA": 3},
+      "ability_score_maximums": {"STR": 21, "INT": 18, "WIS": 18, "DEX": 18, "CON": 22, "CHA": 17},
+      "movement": 12,
+      "infravision": 0,
+      "languages": ["Common (Athasian)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "gladiator": "Unlimited",
+        "thief": 12,
+        "cleric": "Not allowed",
+        "mage": "Not allowed",
+        "psionicist": 12
+      },
+      "special_abilities": [
+        "Cannot be tired: rest only 1 night per week; can work 36 hours without rest penalty",
+        "Immune to heat exhaustion (Athasian heat is no penalty)",
+        "+4 to saves vs. exhaustion and disease",
+        "Sterile: Muls cannot reproduce"
+      ],
+      "setting": "Dark Sun"
+    },
+    "thri_kreen": {
+      "description": "Four-armed insectoid hunters; natural killing machines with chitin armor",
+      "ability_score_adjustments": {"STR": 2, "INT": -1, "WIS": 0, "DEX": 2, "CON": 0, "CHA": -2},
+      "ability_score_minimums": {"STR": 12, "INT": 4, "WIS": 4, "DEX": 14, "CON": 8, "CHA": 3},
+      "ability_score_maximums": {"STR": 20, "INT": 17, "WIS": 18, "DEX": 21, "CON": 18, "CHA": 16},
+      "movement": 18,
+      "infravision": 30,
+      "languages": ["Thri-Kreen", "Common (with difficulty)"],
+      "natural_armor": 5,
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "ranger": "Unlimited",
+        "thief": "Unlimited",
+        "psionicist": "Unlimited",
+        "cleric": "Not allowed",
+        "mage": "Not allowed"
+      },
+      "special_abilities": [
+        "Four arms: can hold 4 weapons simultaneously",
+        "Natural armor AC 5 (chitin)",
+        "Claw attack: 2 x 1d4+STR bonus per round (in addition to weapons)",
+        "Bite: 1d4+2 with paralyzing venom (save vs. poison or paralyzed 1d6 rounds)",
+        "Cannot be surprised (360-degree compound eye vision)",
+        "Jump: leap 20 ft horizontal, 10 ft vertical from standing",
+        "No sleep required: ever"
+      ],
+      "special_disadvantages": [
+        "Cannot wear human armor (body shape incompatible)",
+        "Considered monsters by most humanoid civilizations",
+        "Cannot easily use standard equipment designed for bipeds",
+        "Alien mindset: -1 to all Charisma-based checks with non-insectoid beings"
+      ],
+      "setting": "Dark Sun"
+    }
+  },
+  "complete_book_of_humanoids_races": {
+    "description": "Races from the Complete Book of Humanoids (PHBR10) — available for players to use with DM permission",
+    "bugbear": {
+      "description": "Large, shaggy goblinoid race; stealthy and powerful",
+      "ability_score_adjustments": {"STR": 3, "INT": -1, "WIS": -1, "DEX": 0, "CON": 1, "CHA": -2},
+      "ability_score_minimums": {"STR": 12, "INT": 3, "WIS": 3, "DEX": 4, "CON": 9, "CHA": 3},
+      "ability_score_maximums": {"STR": 21, "INT": 17, "WIS": 17, "DEX": 18, "CON": 19, "CHA": 16},
+      "movement": 9,
+      "infravision": 60,
+      "languages": ["Goblin", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "shaman": "Unlimited",
+        "thief": "Unlimited",
+        "cleric": 8
+      },
+      "special_abilities": [
+        "Surprise on 3-in-6 despite size (naturally quiet movement)",
+        "Natural strength bonus applies to all attacks",
+        "+1 to hide in shadows checks (dark coloring)"
+      ],
+      "setting": "PHBR10"
+    },
+    "gnoll": {
+      "description": "Hyena-headed humanoids; pack hunters",
+      "ability_score_adjustments": {"STR": 2, "INT": -1, "WIS": -1, "DEX": 0, "CON": 2, "CHA": -2},
+      "ability_score_minimums": {"STR": 12, "INT": 3, "WIS": 3, "DEX": 4, "CON": 12, "CHA": 3},
+      "ability_score_maximums": {"STR": 20, "INT": 17, "WIS": 17, "DEX": 18, "CON": 20, "CHA": 16},
+      "movement": 9,
+      "infravision": 60,
+      "languages": ["Gnoll", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "cleric": 8,
+        "shaman": "Unlimited"
+      },
+      "special_abilities": [
+        "Bite attack: 1d4+STR bonus in addition to weapons",
+        "Scent: detect by smell within 30 ft; track by scent",
+        "+2 to saves vs. disease"
+      ],
+      "setting": "PHBR10"
+    },
+    "goblin": {
+      "description": "Small, cunning humanoids; excellent at finding and using traps",
+      "ability_score_adjustments": {"STR": -2, "INT": 0, "WIS": -1, "DEX": 1, "CON": 0, "CHA": -2},
+      "ability_score_minimums": {"STR": 3, "INT": 4, "WIS": 3, "DEX": 8, "CON": 4, "CHA": 3},
+      "ability_score_maximums": {"STR": 16, "INT": 18, "WIS": 17, "DEX": 19, "CON": 18, "CHA": 16},
+      "movement": 6,
+      "infravision": 60,
+      "languages": ["Goblin", "Hobgoblin", "Common"],
+      "allowed_classes": {
+        "fighter": 8,
+        "thief": "Unlimited",
+        "shaman": "Unlimited",
+        "cleric": 6
+      },
+      "special_abilities": [
+        "+2 to find traps",
+        "+1 to move silently in natural environments",
+        "Small size: +4 AC vs. large creatures",
+        "Ride wolves and worgs at full effectiveness"
+      ],
+      "setting": "PHBR10"
+    },
+    "hobgoblin": {
+      "description": "Disciplined, militaristic humanoids; better organized than other goblinoids",
+      "ability_score_adjustments": {"STR": 1, "INT": 0, "WIS": -1, "DEX": 0, "CON": 1, "CHA": -1},
+      "ability_score_minimums": {"STR": 8, "INT": 4, "WIS": 3, "DEX": 4, "CON": 8, "CHA": 3},
+      "ability_score_maximums": {"STR": 19, "INT": 18, "WIS": 17, "DEX": 18, "CON": 19, "CHA": 17},
+      "movement": 9,
+      "infravision": 60,
+      "languages": ["Hobgoblin", "Goblin", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "cleric": 9,
+        "thief": "Unlimited"
+      },
+      "special_abilities": [
+        "Military training: proficient with any 3 weapons from level 1",
+        "+1 to all attack rolls when fighting in formation with other hobgoblins",
+        "Natural leaders: +1 morale to goblinoid troops under command"
+      ],
+      "setting": "PHBR10"
+    },
+    "kobold": {
+      "description": "Tiny, scaly humanoids; expert trappers and miners",
+      "ability_score_adjustments": {"STR": -2, "INT": -1, "WIS": -1, "DEX": 2, "CON": -1, "CHA": -2},
+      "ability_score_minimums": {"STR": 3, "INT": 3, "WIS": 3, "DEX": 9, "CON": 3, "CHA": 3},
+      "ability_score_maximums": {"STR": 16, "INT": 17, "WIS": 17, "DEX": 21, "CON": 17, "CHA": 16},
+      "movement": 6,
+      "infravision": 90,
+      "languages": ["Kobold", "Common"],
+      "allowed_classes": {
+        "fighter": 6,
+        "thief": "Unlimited"
+      },
+      "special_abilities": [
+        "Trap expertise: +20% to find and set traps",
+        "Mining sense: detect slopes, construction, etc. as PHB dwarves",
+        "Tiny size: +6 AC vs. large creatures",
+        "Light sensitivity: -1 to attack in daylight (compensated by infravision)"
+      ],
+      "setting": "PHBR10"
+    },
+    "lizard_man": {
+      "description": "Reptilian humanoids; powerful swimmers and natural warriors",
+      "ability_score_adjustments": {"STR": 2, "INT": -1, "WIS": -1, "DEX": -1, "CON": 2, "CHA": -2},
+      "ability_score_minimums": {"STR": 12, "INT": 3, "WIS": 3, "DEX": 3, "CON": 12, "CHA": 3},
+      "ability_score_maximums": {"STR": 20, "INT": 17, "WIS": 17, "DEX": 17, "CON": 20, "CHA": 16},
+      "movement": 9,
+      "swim_movement": 12,
+      "infravision": 0,
+      "languages": ["Lizard Man", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "shaman": "Unlimited",
+        "cleric": 7
+      },
+      "special_abilities": [
+        "Natural swimmer: swim at movement 12; never tire in water",
+        "Claw/claw/bite attack: 1d2/1d2/1d4 (in addition to weapons)",
+        "Camouflage in swamp: 60% concealment when stationary",
+        "Hold breath 2 rounds per CON point",
+        "Natural armor: scales provide AC 6 base (can still wear armor)"
+      ],
+      "setting": "PHBR10"
+    },
+    "ogre": {
+      "description": "Huge brutes; rare player race with significant drawbacks",
+      "ability_score_adjustments": {"STR": 5, "INT": -3, "WIS": -3, "DEX": -1, "CON": 3, "CHA": -3},
+      "ability_score_minimums": {"STR": 18, "INT": 3, "WIS": 3, "DEX": 3, "CON": 15, "CHA": 3},
+      "ability_score_maximums": {"STR": 23, "INT": 15, "WIS": 15, "DEX": 17, "CON": 21, "CHA": 15},
+      "movement": 9,
+      "infravision": 60,
+      "languages": ["Ogre", "Common (poorly)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "shaman": "Unlimited"
+      },
+      "special_abilities": [
+        "Natural attack: 1d10 punch damage (in addition to weapons)",
+        "Huge size: can carry 300 lbs without encumbrance",
+        "Intimidation: -4 to morale of opponents less than half ogre size when first seen"
+      ],
+      "special_disadvantages": [
+        "Must eat 5x normal food",
+        "Equipment requires custom sizing (2-3x normal cost)",
+        "Cannot use standard horses or small boats",
+        "Treated with extreme suspicion in civilized areas"
+      ],
+      "setting": "PHBR10"
+    },
+    "orc": {
+      "description": "Brutish humanoids; strong and prolific",
+      "ability_score_adjustments": {"STR": 2, "INT": -1, "WIS": -2, "DEX": 0, "CON": 1, "CHA": -2},
+      "ability_score_minimums": {"STR": 8, "INT": 3, "WIS": 3, "DEX": 4, "CON": 8, "CHA": 3},
+      "ability_score_maximums": {"STR": 20, "INT": 17, "WIS": 16, "DEX": 18, "CON": 19, "CHA": 16},
+      "movement": 9,
+      "infravision": 60,
+      "languages": ["Orcish", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "cleric": 8,
+        "thief": "Unlimited",
+        "shaman": "Unlimited"
+      },
+      "special_abilities": [
+        "Rage: 1/day, +2 STR and +2 CON for 3 rounds; afterward -1 to each for 1 hour",
+        "Darkvision 60 ft",
+        "Natural survivalists: Survival proficiency (any terrain) for free at 1st level"
+      ],
+      "special_disadvantages": [
+        "Light sensitivity: -1 to attacks in bright daylight",
+        "-4 to reaction with most civilized humanoids",
+        "Cannot take Paladin class"
+      ],
+      "setting": "PHBR10"
+    }
+  },
+  "al_qadim_races": {
+    "description": "Races from the Al-Qadim Campaign Setting — an Arabian Nights-inspired setting",
+    "asherati": {
+      "description": "Desert-dwelling humanoids who swim through sand; native to the deep desert",
+      "ability_score_adjustments": {"STR": 1, "INT": 0, "WIS": 0, "DEX": 1, "CON": 1, "CHA": -1},
+      "ability_score_minimums": {"STR": 8, "INT": 4, "WIS": 4, "DEX": 8, "CON": 8, "CHA": 3},
+      "ability_score_maximums": {"STR": 20, "INT": 18, "WIS": 18, "DEX": 19, "CON": 19, "CHA": 17},
+      "movement": 6,
+      "sand_movement": 9,
+      "infravision": 0,
+      "languages": ["Asherati", "Common (Zakharan)"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "thief": "Unlimited",
+        "cleric": "Unlimited",
+        "sha_ir": "Unlimited"
+      },
+      "special_abilities": [
+        "Swim through sand at movement 9 as easily as walking",
+        "Breathe air and sand equally",
+        "Sand sight: see through sandstorms",
+        "+4 to all saves vs. heat and desert conditions",
+        "Detect water within 500 ft"
+      ],
+      "setting": "Al-Qadim"
+    }
+  },
+  "spelljammer_races": {
+    "description": "Races encountered in the Spelljammer setting — space-faring races",
+    "hadozee": {
+      "description": "Simian race with gliding membranes; excellent ship crew members",
+      "ability_score_adjustments": {"STR": 1, "INT": 0, "WIS": 0, "DEX": 2, "CON": 0, "CHA": -1},
+      "ability_score_minimums": {"STR": 7, "INT": 4, "WIS": 4, "DEX": 12, "CON": 6, "CHA": 3},
+      "ability_score_maximums": {"STR": 19, "INT": 18, "WIS": 18, "DEX": 22, "CON": 18, "CHA": 17},
+      "movement": 12,
+      "climb_movement": 12,
+      "infravision": 0,
+      "languages": ["Hadozee", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "thief": "Unlimited",
+        "ranger": "Unlimited",
+        "bard": "Unlimited"
+      },
+      "special_abilities": [
+        "Glide: extend membranes between arms and legs to glide from any height; take no falling damage",
+        "Climb at full movement rate",
+        "Prehensile feet: hold objects or swing from ropes with feet",
+        "+4 to all climbing and rope use checks"
+      ],
+      "setting": "Spelljammer"
+    },
+    "giff": {
+      "description": "Hippopotamus-headed militaristic humanoids; obsessed with firearms and explosives",
+      "ability_score_adjustments": {"STR": 4, "INT": 0, "WIS": -2, "DEX": 0, "CON": 3, "CHA": 0},
+      "ability_score_minimums": {"STR": 18, "INT": 3, "WIS": 3, "DEX": 4, "CON": 16, "CHA": 4},
+      "ability_score_maximums": {"STR": 24, "INT": 18, "WIS": 16, "DEX": 18, "CON": 22, "CHA": 18},
+      "movement": 9,
+      "infravision": 0,
+      "languages": ["Giff", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "thief": 10,
+        "cleric": "Not allowed",
+        "mage": "Not allowed"
+      },
+      "special_abilities": [
+        "Headbutt attack: 2d6 (in addition to weapons)",
+        "+2 to all firearm and explosive attacks and damage",
+        "Never stunned by explosions (deaf for 1 round only)",
+        "Never frightened by combat or battle sounds"
+      ],
+      "setting": "Spelljammer"
+    }
+  },
+  "rare_demi_human_subraces": {
+    "description": "Non-standard demi-human subraces beyond the PHB races",
+    "gray_elf": {
+      "description": "Ancient high elves; more intelligent but more aloof than standard elves",
+      "parent_race": "Elf",
+      "ability_score_adjustments": {"STR": 0, "INT": 2, "WIS": 0, "DEX": 1, "CON": -2, "CHA": 0},
+      "level_limits": {
+        "fighter": 5,
+        "mage": "Unlimited",
+        "cleric": 10,
+        "thief": "Unlimited"
+      },
+      "special_abilities": [
+        "All standard elf abilities",
+        "+1 to INT-based proficiency checks",
+        "May learn 10th-level spells (unlike other elves)",
+        "Longevity: age at 1/10 the rate of standard elves"
+      ],
+      "special_disadvantages": [
+        "CON -2 (fragile)",
+        "Extremely arrogant: -2 to reaction with non-elves"
+      ]
+    },
+    "wild_elf": {
+      "description": "Primitive forest elves; strong but less civilized than standard elves",
+      "parent_race": "Elf",
+      "ability_score_adjustments": {"STR": 1, "INT": -1, "WIS": 0, "DEX": 1, "CON": 1, "CHA": 0},
+      "level_limits": {
+        "fighter": "Unlimited",
+        "mage": 12,
+        "cleric": 10,
+        "thief": "Unlimited",
+        "ranger": "Unlimited",
+        "druid": "Unlimited"
+      },
+      "special_abilities": [
+        "All standard elf abilities",
+        "+3 to any wilderness survival checks",
+        "Move silently at +15% (natural stealth)",
+        "+1 to hit with natural weapons (knives, spears, bows)"
+      ]
+    },
+    "drow": {
+      "description": "Dark elves exiled to the Underdark; powerful but reviled by surface races",
+      "parent_race": "Elf",
+      "ability_score_adjustments": {"STR": 0, "INT": 1, "WIS": 0, "DEX": 2, "CON": -1, "CHA": -2},
+      "ability_score_maximums": {"STR": 18, "INT": 20, "WIS": 18, "DEX": 21, "CON": 17, "CHA": 16},
+      "movement": 12,
+      "infravision": 120,
+      "languages": ["Drow (sign language)", "Elvish", "Common"],
+      "allowed_classes": {
+        "fighter": "Unlimited",
+        "mage": "Unlimited",
+        "cleric": "Unlimited",
+        "thief": "Unlimited"
+      },
+      "special_abilities": [
+        "120-ft infravision",
+        "Innate magic: Dancing Lights, Faerie Fire, Darkness 1/day each",
+        "+2 to saves vs. magic and poison",
+        "Detect magic passively (no activation required)",
+        "Move silently at +20%"
+      ],
+      "special_disadvantages": [
+        "Light blindness: -2 to attack, saves, and proficiency checks in bright sunlight or Light spell",
+        "Drow equipment degrades in sunlight: degrades in 1 week above ground",
+        "Surface races treat drow with extreme suspicion (-4 to most reactions)",
+        "Available only in campaigns where surface contact is allowed by DM"
+      ],
+      "setting": "Forgotten Realms, Greyhawk"
+    },
+    "mountain_dwarf": {
+      "description": "Standard PHB dwarf variant; focused on metalworking and mountain warfare",
+      "parent_race": "Dwarf",
+      "differences_from_standard": [
+        "+1 to attack with hammers and axes (their primary weapons)",
+        "+3 to saves vs. breath weapon instead of standard dwarf bonus",
+        "Mine sense extends to 100 ft instead of standard 50 ft"
+      ]
+    },
+    "deep_gnome": {
+      "description": "Svirfneblin; gnomes adapted to the Underdark",
+      "parent_race": "Gnome",
+      "ability_score_adjustments": {"STR": 0, "INT": 0, "WIS": 1, "DEX": 2, "CON": -1, "CHA": -2},
+      "movement": 9,
+      "infravision": 120,
+      "languages": ["Gnome (deep)", "Common"],
+      "allowed_classes": {
+        "fighter": 8,
+        "thief": "Unlimited",
+        "illusionist": 7,
+        "cleric": "Not allowed"
+      },
+      "special_abilities": [
+        "120-ft infravision",
+        "Non-detection (as spell, always active)",
+        "Blur (as spell) 1/day",
+        "Blindness (as spell) 1/day",
+        "Change Self 1/day",
+        "+2 to saves vs. spells, wands, and staves",
+        "+2 to saves vs. poison"
+      ],
+      "special_disadvantages": [
+        "Light sensitivity: -2 to attack in sunlight",
+        "Very rare; mistrusted even by surface gnomes"
+      ]
+    }
+  }
+}
