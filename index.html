@@ -29,6 +29,11 @@
       --font-body:    'Crimson Pro', Georgia, serif;
     }
 
+    /* ─── Breakpoints ───────────────────────────────────────── */
+    /* sm: 480px  — phones portrait                             */
+    /* md: 768px  — phones landscape, iPad Mini portrait        */
+    /* lg: 1024px — iPad landscape, laptop, desktop             */
+
     /* ─── Reset & Base ──────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -601,7 +606,7 @@
     }
 
     /* Stack on narrow screens */
-    @media (max-width: 680px) {
+    @media (max-width: 768px) {
       .identity-saves-row {
         grid-template-columns: 1fr;
       }
@@ -844,6 +849,20 @@
 
     /* Handedness toggle in scenario */
     .scenario-field-hand { align-items: center; }
+
+    .scenario-header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+    @media (max-width: 480px) {
+      .scenario-header-right {
+        width: 100%;
+        margin-left: 0;
+        justify-content: space-between;
+      }
+    }
 
     .hand-toggle {
       display: flex;
@@ -1396,6 +1415,11 @@
       margin-bottom: 2.5rem;
       align-items: start;
     }
+    @media (max-width: 768px) {
+      .two-col-row {
+        grid-template-columns: 1fr;
+      }
+    }
     .two-col-row--single {
       grid-template-columns: 1fr;
     }
@@ -1403,9 +1427,28 @@
       margin-bottom: 0;
     }
 
+    @media (max-width: 768px) {
+      #weapons-list {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #weapons-list .wpn-row {
+        min-width: 860px;
+      }
+    }
+
     /* ─── Thieving Abilities ────────────────────────────────── */
     .thieving-skills-list {
       padding: 0 0 0.75rem;
+    }
+    @media (max-width: 768px) {
+      .thieving-skills-list {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .thief-row {
+        min-width: 440px;
+      }
     }
 
     .thief-settings-btn {
@@ -1413,7 +1456,7 @@
       border: none;
       cursor: pointer;
       color: var(--ink-faint);
-      padding: 0.2rem;
+      padding: 0.2rem 0.2rem 0.2rem 0;
       border-radius: var(--radius);
       display: flex;
       align-items: center;
@@ -1571,6 +1614,19 @@
       font-weight: 700;
       color: var(--ink);
       white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+      .thief-final {
+        position: sticky;
+        right: 0;
+        background: var(--surface);
+        box-shadow: -3px 0 6px rgba(0,0,0,0.06);
+        z-index: 1;
+        padding-top: 0.5rem;
+      }
+      .thief-row-header .thief-final {
+        background: var(--parchment);
+      }
     }
 
     .thief-bs-span {
@@ -1773,11 +1829,12 @@
     }
 
     .scenario-header {
-      display: grid;
-      grid-template-columns: auto 1fr auto auto auto auto;
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 2.5rem 0.75rem 0.6rem;
+      position: relative;
       user-select: none;
     }
     .scenario-header:hover { background: var(--parchment); }
@@ -1814,7 +1871,8 @@
       border: none;
       border-bottom: 1px solid transparent;
       outline: none;
-      width: 50%;
+      flex: 1;
+      min-width: 8rem;
       padding: 0.1em 0;
       transition: border-color 0.2s;
       cursor: text;
@@ -1833,6 +1891,9 @@
     }
 
     .scenario-delete-btn {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
       background: none;
       border: none;
       color: var(--ink-faint);
@@ -1852,8 +1913,10 @@
     .scenario-body {
       border-top: 1px solid var(--rule);
       padding: 1rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
       gap: 1rem;
     }
 
@@ -1861,6 +1924,23 @@
       display: flex;
       flex-direction: column;
       gap: 0.3rem;
+      flex: 0 0 auto;
+    }
+
+    /* Wide fields — group select, weapon select, level mode */
+    .scenario-field-wide {
+      flex: 1 1 180px;
+      min-width: 150px;
+      max-width: 280px;
+    }
+    .scenario-field-wide .scenario-select {
+      min-width: 0;
+      width: 100%;
+    }
+
+    /* Narrow fields — hit mod, penalty, custom level */
+    .scenario-field-narrow {
+      flex: 0 0 auto;
     }
 
     .scenario-field-label {
@@ -1883,12 +1963,14 @@
       cursor: pointer;
       transition: border-color 0.2s;
       width: 100%;
+      box-sizing: border-box;
+      height: 2.2em;
     }
     .scenario-select:focus { border-color: var(--accent); }
 
     /* The THAC0 result row inside a scenario */
     .scenario-result {
-      grid-column: 1 / -1;
+      width: 100%;
       background: var(--parchment);
       border: 1px solid var(--rule);
       border-radius: var(--radius);
@@ -2022,9 +2104,9 @@
     .class-entry:last-of-type { border-bottom: none; }
 
     /* On narrow screens, collapse to two rows */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .class-entry {
-        grid-template-columns: 1fr 1fr 1fr 1.5rem;
+        grid-template-columns: 1fr 5.5rem 3rem 1.5rem;
         grid-template-rows: auto auto;
       }
       .class-entry .class-xp-field { grid-column: 1 / 4; }
@@ -3604,9 +3686,7 @@
         // ── Header row ──────────────────────────────────────────
         const header = document.createElement('div');
         header.className = 'scenario-header';
-        header.style.gridTemplateColumns = scenario.weaponId
-          ? 'auto 1fr auto auto auto auto'
-          : 'auto 1fr auto auto auto';
+        // Layout handled by flexbox — no inline grid columns needed
 
         // Radio button to set as active
         const radio = document.createElement('input');
@@ -3671,8 +3751,13 @@
           saveToItems();
         });
 
+        header.appendChild(chevron);
         header.appendChild(radio);
         header.appendChild(nameInput);
+
+        // Wrap toggle + badge together so they always move as one unit on wrap
+        const headerRight = document.createElement('div');
+        headerRight.className = 'scenario-header-right';
 
         // Hand toggle — only shown when a weapon is linked
         if (scenario.weaponId) {
@@ -3692,12 +3777,14 @@
             });
             headerHandToggle.appendChild(btn);
           });
-          header.appendChild(headerHandToggle);
+          headerRight.appendChild(headerHandToggle);
         }
 
-        header.appendChild(chevron);
-        header.appendChild(badge);
+        headerRight.appendChild(badge);
+        header.appendChild(headerRight);
         header.appendChild(deleteBtn);
+
+
 
         // Chevron click: toggle collapsed
         chevron.style.cursor = 'pointer';
@@ -3715,7 +3802,7 @@
 
         // Group selector
         const groupField = document.createElement('div');
-        groupField.className = 'scenario-field';
+        groupField.className = 'scenario-field scenario-field-wide';
         const groupLabel = document.createElement('label');
         groupLabel.className = 'scenario-field-label';
         groupLabel.textContent = 'THAC0 Group';
@@ -3742,7 +3829,7 @@
 
         // Level mode selector
         const levelModeField = document.createElement('div');
-        levelModeField.className = 'scenario-field';
+        levelModeField.className = 'scenario-field scenario-field-wide';
         const levelModeLabel = document.createElement('label');
         levelModeLabel.className = 'scenario-field-label';
         levelModeLabel.textContent = 'Level Source';
@@ -3772,7 +3859,7 @@
         // Weapon link — optional, populates from weapons array
         if (weapons.length > 0) {
           const wpnField = document.createElement('div');
-          wpnField.className = 'scenario-field';
+          wpnField.className = 'scenario-field scenario-field-wide';
           const wpnLabel = document.createElement('label');
           wpnLabel.className = 'scenario-field-label';
           wpnLabel.textContent = 'Weapon';
@@ -3810,10 +3897,48 @@
           body.appendChild(wpnField);
         }
 
-        // Off-hand penalty — only shown when off-hand selected AND weapon linked
+        // Hit Mod — standalone grid field, always shown
+        {
+          const hitModField = document.createElement('div');
+          hitModField.className = 'scenario-field scenario-field-narrow';
+          const hitModLabel = document.createElement('label');
+          hitModLabel.className = 'scenario-field-label';
+          hitModLabel.textContent = 'Hit Mod';
+          hitModLabel.htmlFor = `${scenario.id}-hitmod`;
+          const hitModInp = document.createElement('input');
+          hitModInp.type = 'text';
+          hitModInp.id = `${scenario.id}-hitmod`;
+          hitModInp.className = 'scenario-select';
+          hitModInp.style.width = '4rem';
+          hitModInp.style.textAlign = 'center';
+          hitModInp.style.fontFamily = 'var(--font-display)';
+          hitModInp.style.fontWeight = '600';
+          hitModInp.value = scenario.hitMod || '';
+          hitModInp.placeholder = '+0';
+          hitModInp.maxLength = 3;
+          hitModInp.setAttribute('aria-label', 'Hit modifier (+ improves to-hit, - worsens it)');
+          hitModInp.addEventListener('input', () => {
+            scenario.hitMod = hitModInp.value.trim();
+            const newThac0 = calcScenarioTHAC0(scenario);
+            const b = document.getElementById(`thac0-badge-${scenario.id}`);
+            if (b) {
+              b.textContent = newThac0 !== null ? `THAC0 ${newThac0}` : '—';
+              b.setAttribute('aria-label', `THAC0 ${newThac0 !== null ? newThac0 : '—'}`);
+            }
+            const v = document.getElementById(`scenario-thac0-val-${scenario.id}`);
+            if (v) v.textContent = newThac0 !== null ? newThac0 : '—';
+            updateActiveTHAC0();
+            saveToItems();
+          });
+          hitModField.appendChild(hitModLabel);
+          hitModField.appendChild(hitModInp);
+          body.appendChild(hitModField);
+        }
+
+        // Off-hand penalty — standalone grid field, only when off-hand + weapon linked
         if (scenario.weaponId && scenario.handedness === 'off') {
           const penField = document.createElement('div');
-          penField.className = 'scenario-field';
+          penField.className = 'scenario-field scenario-field-narrow';
           const penLabel = document.createElement('label');
           penLabel.className = 'scenario-field-label';
           penLabel.textContent = 'Penalty';
@@ -3839,50 +3964,10 @@
           body.appendChild(penField);
         }
 
-        // Hit Mod — always shown, applies to both main and off hand
-        {
-          const hitModField = document.createElement('div');
-          hitModField.className = 'scenario-field';
-          const hitModLabel = document.createElement('label');
-          hitModLabel.className = 'scenario-field-label';
-          hitModLabel.textContent = 'Hit Mod';
-          hitModLabel.htmlFor = `${scenario.id}-hitmod`;
-          const hitModInp = document.createElement('input');
-          hitModInp.type = 'text';
-          hitModInp.id = `${scenario.id}-hitmod`;
-          hitModInp.className = 'scenario-select';
-          hitModInp.style.width = '4rem';
-          hitModInp.style.textAlign = 'center';
-          hitModInp.style.fontFamily = 'var(--font-display)';
-          hitModInp.style.fontWeight = '600';
-          hitModInp.value = scenario.hitMod || '';
-          hitModInp.placeholder = '+0';
-          hitModInp.maxLength = 3;
-          hitModInp.setAttribute('aria-label', 'Hit modifier (+ improves to-hit, - worsens it)');
-          hitModInp.addEventListener('input', () => {
-            scenario.hitMod = hitModInp.value.trim();
-            const newThac0 = calcScenarioTHAC0(scenario);
-            // Update header badge
-            const b = document.getElementById(`thac0-badge-${scenario.id}`);
-            if (b) {
-              b.textContent = newThac0 !== null ? `THAC0 ${newThac0}` : '—';
-              b.setAttribute('aria-label', `THAC0 ${newThac0 !== null ? newThac0 : '—'}`);
-            }
-            // Update the large THAC0 value in the result summary
-            const v = document.getElementById(`scenario-thac0-val-${scenario.id}`);
-            if (v) v.textContent = newThac0 !== null ? newThac0 : '—';
-            updateActiveTHAC0();
-            saveToItems();
-          });
-          hitModField.appendChild(hitModLabel);
-          hitModField.appendChild(hitModInp);
-          body.appendChild(hitModField);
-        }
-
         // Custom level input — only shown when levelMode is "custom"
         if (scenario.levelMode === 'custom') {
           const customLevelField = document.createElement('div');
-          customLevelField.className = 'scenario-field';
+          customLevelField.className = 'scenario-field scenario-field-narrow';
           const customLevelLabel = document.createElement('label');
           customLevelLabel.className = 'scenario-field-label';
           customLevelLabel.textContent = 'Custom Level';
@@ -4280,7 +4365,7 @@
       }
 
       // Col: Name | Size | DmgType | Spd | Hit/DmgAdj | Damage | Notes | Del
-      const COL = '210px 60px 100px 44px 90px 170px 1fr 24px';
+      const COL = '210px 60px 100px 44px 90px 170px 140px 24px';
 
       // ── Header ──────────────────────────────────────────────
       const header = document.createElement('div');
@@ -5052,7 +5137,10 @@
         : ['Skill', 'Race', 'DEX', 'Base', 'Pts', 'Kit /\nMisc', 'Armor', 'Final'];
       headerLabels.forEach((label, i) => {
         const cell = document.createElement('div');
-        cell.className = 'thief-cell thief-hcell' + (i === 0 ? ' thief-cell-name' : '');
+        const isLast = i === headerLabels.length - 1;
+        cell.className = 'thief-cell thief-hcell'
+          + (i === 0 ? ' thief-cell-name' : '')
+          + (isLast ? ' thief-final' : '');
         cell.textContent = label;
         header.appendChild(cell);
       });
