@@ -2841,10 +2841,10 @@
       10: { reaction:  0, missile:  0, defense:  0 },
       11: { reaction:  0, missile:  0, defense:  0 },
       12: { reaction:  0, missile:  0, defense:  0 },
-      13: { reaction:  0, missile: +1, defense: -1 },
-      14: { reaction: +1, missile: +1, defense: -2 },
-      15: { reaction: +1, missile: +1, defense: -2 },
-      16: { reaction: +2, missile: +1, defense: -3 },
+      13: { reaction:  0, missile:  0, defense:  0 },
+      14: { reaction:  0, missile:  0, defense:  0 },
+      15: { reaction:  0, missile:  0, defense: -1 },
+      16: { reaction: +1, missile: +1, defense: -2 },
       17: { reaction: +2, missile: +2, defense: -3 },
       18: { reaction: +2, missile: +2, defense: -4 },
       19: { reaction: +3, missile: +3, defense: -4 },
@@ -2869,8 +2869,8 @@
       10: { hp:  0, system: 70,  resurrection: 75,  poison:  0 },
       11: { hp:  0, system: 75,  resurrection: 80,  poison:  0 },
       12: { hp:  0, system: 80,  resurrection: 85,  poison:  0 },
-      13: { hp: +1, system: 85,  resurrection: 90,  poison:  0 },
-      14: { hp: +1, system: 88,  resurrection: 92,  poison:  0 },
+      13: { hp:  0, system: 85,  resurrection: 90,  poison:  0 },
+      14: { hp:  0, system: 88,  resurrection: 92,  poison:  0 },
       15: { hp: +1, system: 90,  resurrection: 94,  poison:  0 },
       16: { hp: +2, system: 95,  resurrection: 96,  poison:  0 },
       17: { hp: +3, system: 97,  resurrection: 98,  poison:  0 },
@@ -3517,11 +3517,12 @@
         levelInput.setAttribute('aria-label', 'Class level');
         levelInput.addEventListener('input', e => {
           cls.level = e.target.value;
+          updateNextXPEl(cls.level);
           updateEffectiveLevelDisplay(); // refresh effective level display without re-render
           updateCombatFields();          // THAC0 uses effective level
           updateProfSlotBadges();
           renderScenarios();
-      renderEnemies();
+          renderEnemies();
           updateActiveTHAC0();
           renderSavingThrows();
           renderThievingAbilities();
@@ -3562,12 +3563,18 @@
         const nextXP = getXPForNextLevel(cls.group, cls.level);
         const nextXPEl = document.createElement('div');
         nextXPEl.className = 'class-next-xp';
-        nextXPEl.setAttribute('aria-label', `XP required for next level: ${formatXP(nextXP)}`);
-        nextXPEl.innerHTML = nextXP !== null
-          ? `<span class="class-next-xp-label">Next level at</span> ${formatXP(nextXP)}`
-          : cls.level >= 20
-            ? `<span class="class-next-xp-label">Max level reached</span>`
-            : `<span class="class-next-xp-label">Enter a level</span>`;
+        nextXPEl.id = `${cls.id}-next-xp`;
+
+        function updateNextXPEl(level) {
+          const nx = getXPForNextLevel(cls.group, level);
+          nextXPEl.setAttribute('aria-label', `XP required for next level: ${formatXP(nx)}`);
+          nextXPEl.innerHTML = nx !== null
+            ? `<span class="class-next-xp-label">Next level at</span> ${formatXP(nx)}`
+            : parseInt(level) >= 20
+              ? `<span class="class-next-xp-label">Max level reached</span>`
+              : `<span class="class-next-xp-label">Enter a level</span>`;
+        }
+        updateNextXPEl(cls.level);
 
         xpField.appendChild(xpLabel);
         xpField.appendChild(xpInput);
