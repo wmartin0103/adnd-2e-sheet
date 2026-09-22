@@ -4774,6 +4774,16 @@
           // WIS bonus applies to Bard, gated by base slots
           return base.map((v, i) => v > 0 ? v + (wisBonus[i] || 0) : v);
         }
+        case 'blade': {
+          // Delayed Spellcasting: first spells at level 4, casts as Bard 2 levels lower.
+          // Blade lvl 1-3 = no spells. Blade lvl 4 = Bard lvl 2, lvl 5 = Bard lvl 3, etc.
+          const bladeLevel = getSpellClassLevel('rogue', 'blade');
+          const effectiveBardLevel = bladeLevel >= 4 ? bladeLevel - 2 : 0;
+          if (effectiveBardLevel < 2) return Array(6).fill(0);
+          const base = BARD_SLOTS[Math.min(effectiveBardLevel, 20)] || Array(6).fill(0);
+          // WIS bonus gated by base slots, same as Bard
+          return base.map((v, i) => v > 0 ? v + (wisBonus[i] || 0) : v);
+        }
         default:
           return [];
       }
