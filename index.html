@@ -2611,6 +2611,7 @@
               <option value="paladin">Paladin (Table 17)</option>
               <option value="ranger">Ranger (Table 18)</option>
               <option value="bard">Bard (Table 32)</option>
+              <option value="blade">Blade (Custom)</option>
             </select>
           </div>
           <span class="scenario-chevron racial-traits-chevron" id="spells-chevron" aria-hidden="true"></span>
@@ -2645,6 +2646,7 @@
         <select id="thief-subclass-select" class="thief-subclass-select thief-subclass-inline" hidden>
           <option value="thief">Thief</option>
           <option value="bard">Bard</option>
+          <option value="blade">Blade</option>
           <option value="hybrid">Hybrid (Thief / Bard)</option>
           <option value="ranger">Ranger</option>
         </select>
@@ -4317,6 +4319,7 @@
     const THIEF_BASE = {
       thief:  { pp: 15, ol: 10, frt: 5, ms: 10, hs: 5, dn: 15, cw: 60, rl: 0  },
       bard:   { pp: 10, ol: 0,  frt: 0, ms: 0,  hs: 0, dn: 20, cw: 50, rl: 5  },
+      blade:  { pp:  0, ol:  0, frt: 0, ms: 10, hs: 5, dn: 20, cw: 50, rl: 0  },
     };
 
     // Ranger PHB Table 18 — HS and MS increase with level, no point allocation
@@ -4375,6 +4378,7 @@
       if (thiefSubclass === 'thief')  return THIEF_BASE.thief[skillId]  || 0;
       if (thiefSubclass === 'bard')   return THIEF_BASE.bard[skillId]   || 0;
       if (thiefSubclass === 'ranger') return getRangerBase(skillId);
+      if (thiefSubclass === 'blade')  return THIEF_BASE.blade[skillId]  || 0;
       // hybrid: best of thief and bard
       return Math.max(THIEF_BASE.thief[skillId] || 0, THIEF_BASE.bard[skillId] || 0);
     }
@@ -5145,6 +5149,7 @@
     function getTotalPoints(subclass, level) {
       if (subclass === 'thief') return level <= 1 ? 60 : 60 + (level - 1) * 30;
       if (subclass === 'bard')  return level <= 1 ? 20 : 20 + (level - 1) * 15;
+      if (subclass === 'blade') return level <= 1 ? 20 : 20 + (level - 1) * 15;
       return 0;
     }
 
@@ -5181,7 +5186,7 @@
       const DEX_SKILLS = ['pp', 'ol', 'frt', 'ms', 'hs'];
 
       const isRanger     = thiefSubclass === 'ranger';
-      const poolSubclass = thiefSubclass === 'bard' ? 'bard' : 'thief';
+      const poolSubclass = thiefSubclass === 'bard' ? 'bard' : thiefSubclass === 'blade' ? 'blade' : 'thief';
       const rogueLevel   = getEffectiveLevel() || 1;
       const poolTotal    = isRanger ? 0 : getTotalPoints(poolSubclass, rogueLevel);
 
