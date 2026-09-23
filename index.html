@@ -2030,6 +2030,17 @@
     }
     .scenario-select:focus { border-color: var(--accent); }
 
+    /* Hit Mod — ensure native spin buttons render and are easy to hit */
+    input.hitmod-inp {
+      -moz-appearance: number-input;
+    }
+    input.hitmod-inp::-webkit-outer-spin-button,
+    input.hitmod-inp::-webkit-inner-spin-button {
+      -webkit-appearance: inner-spin-button;
+      opacity: 1;
+      cursor: pointer;
+    }
+
     /* The THAC0 result row inside a scenario */
     .scenario-result {
       width: 100%;
@@ -3988,16 +3999,16 @@
           hitModLabel.textContent = 'Hit Mod';
           hitModLabel.htmlFor = `${scenario.id}-hitmod`;
           const hitModInp = document.createElement('input');
-          hitModInp.type = 'text';
+          hitModInp.type = 'number';
           hitModInp.id = `${scenario.id}-hitmod`;
-          hitModInp.className = 'scenario-select';
-          hitModInp.style.width = '4rem';
+          hitModInp.className = 'scenario-select hitmod-inp';
+          hitModInp.style.width = '4.5rem';
           hitModInp.style.textAlign = 'center';
           hitModInp.style.fontFamily = 'var(--font-display)';
           hitModInp.style.fontWeight = '600';
           hitModInp.value = scenario.hitMod || '';
-          hitModInp.placeholder = '+0';
-          hitModInp.maxLength = 3;
+          hitModInp.placeholder = '0';
+          hitModInp.step = 1;
           hitModInp.setAttribute('aria-label', 'Hit modifier (+ improves to-hit, - worsens it)');
           hitModInp.addEventListener('input', () => {
             scenario.hitMod = hitModInp.value.trim();
